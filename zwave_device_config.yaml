@@ -1,0 +1,24 @@
+sensor.ecolink_unknown_type0004_id0002_sourcenodeid:
+  ignored: true
+  polling_intensity: 0
+sensor.ecolink_unknown_type0004_id0002_access_control:
+  ignored: true
+  polling_intensity: 0
+sensor.door_sensor_1_access_control:
+  ignored: true
+  polling_intensity: 0
+sensor.door_sensor_1_alarm_level:
+  ignored: true
+  polling_intensity: 0
+sensor.door_sensor_1_alarm_type:
+  ignored: true
+  polling_intensity: 0
+sensor.door_sensor_1_burglar:
+  ignored: true
+  polling_intensity: 0
+sensor.door_sensor_1_power_management:
+  ignored: true
+  polling_intensity: 0
+sensor.door_sensor_1_sourcenodeid:
+  ignored: true
+  polling_intensity: 0

@@ -1,0 +1,22 @@
+binary_sensor.sensor:
+  friendly_name: Door Sensor 1
+zwave._:
+  friendly_name: ' USB ZWave Hub'
+zwave.__2:
+  friendly_name: ' ZWave Door Sensor 1'
+sensor.door_sensor_1_access_control:
+  hidden: true
+sensor.door_sensor_1_alarm_level:
+  hidden: true
+sensor.door_sensor_1_alarm_type:
+  hidden: true
+sensor.door_sensor_1_burglar:
+  hidden: true
+sensor.door_sensor_1_power_management:
+  hidden: true
+sensor.door_sensor_1_sourcenodeid:
+  hidden: true
+binary_sensor.door_sensor_1_sensor:
+  icon: mdi:door
+device_tracker.tods_iphone:
+  icon: mdi:cellphone-iphone

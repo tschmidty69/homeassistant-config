@@ -1,0 +1,88 @@
+homeassistant:
+  # Name of the location where Home Assistant is running
+  name: Home
+  # Location required to calculate the time the sun rises and sets
+  latitude: 35.341706
+  longitude: -80.784933
+  # Impacts weather/sunrise data (altitude above sea level in meters)
+  elevation: 241
+  # metric for Metric, imperial for Imperial
+  unit_system: imperial
+  # Pick yours from here: http://en.wikipedia.org/wiki/List_of_tz_database_time_zones
+  time_zone: America/New_York
+  # Customization file
+  customize: !include customize.yaml
+
+# Show links to resources in log and frontend
+# introduction:
+
+# Enables the frontend
+frontend:
+
+# Enables configuration UI
+config:
+
+http:
+  # Secrets are defined in the file secrets.yaml
+  api_password: !secret http_password
+  # Uncomment this if you are using SSL/TLS, running in Docker container, etc.
+  base_url: home.todschmidt.com:8123
+  ssl_certificate: /etc/letsencrypt/live/home.todschmidt.com/fullchain.pem
+  ssl_key: /etc/letsencrypt/live/home.todschmidt.com/privkey.pem
+
+# Checks for available updates
+# Note: This component will send some information about your system to
+# the developers to assist with development of Home Assistant.
+# For more information, please see:
+# https://home-assistant.io/blog/2016/10/25/explaining-the-updater/
+updater:
+  # Optional, allows Home Assistant developers to focus on popular components.
+  # include_used_components: true
+
+# Discover some devices automatically
+discovery:
+
+# Allows you to issue voice commands from the frontend in enabled browsers
+conversation:
+
+# Enables support for tracking state changes over time
+history:
+
+# View all events in a logbook
+logbook:
+
+# Enables a map showing the location of tracked devices
+map:
+
+# Track the sun
+sun:
+
+# Weather prediction
+#sensor:
+#  - platform: yr
+sensor:
+  - platform: darksky
+    name: "Dark Sky Weather"
+    api_key: !secret dark_sky_key
+    update_interval:
+      minutes: 10
+    monitored_conditions:
+      - summary
+      - temperature
+
+# Text to speech
+tts:
+  - platform: google
+
+zwave:
+  usb_path: /dev/ttyUSB0
+
+zha:
+  usb_path: /dev/ttyUSB1
+  database_path: /home/homeassistant/.homeassistant/zigbee.db
+
+ios:
+
+group: !include groups.yaml
+automation: !include automations.yaml
+script: !include scripts.yaml
