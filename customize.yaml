@@ -1,5 +1,7 @@
 binary_sensor.sensor:
-  friendly_name: Door Sensor 1
+  friendly_name: Garage Door Sensor
+  new_entity_id: binary_sensor.garage_door_sensor
+  old_entity_id: binary_sensor.garage_door_sensor
 zwave._:
   friendly_name: ' USB ZWave Hub'
 zwave.__2:
@@ -16,7 +18,39 @@ sensor.door_sensor_1_power_management:
   hidden: true
 sensor.door_sensor_1_sourcenodeid:
   hidden: true
-binary_sensor.door_sensor_1_sensor:
-  icon: mdi:door
+binary_sensor.door_sensor_1_sensor: {}
 device_tracker.tods_iphone:
   icon: mdi:cellphone-iphone
+sensor.dark_sky_weather_temperature: {}
+sensor.my_temperature_zigbee_input:
+  unit_of_measurement: "\xB0F"
+sensor.smartthings_multiv4_01042e9f_1:
+  friendly_name: Back Door Temperature
+zwave.door_sensor_1:
+  new_entity_id: zwave.garage_door_sensor
+  node_name: Garage Door Sensor
+  old_entity_id: zwave.garage_door_sensor
+sensor.ecolink_garage_door_tilt_sensor_burglar:
+  hidden: true
+sensor.ecolink_garage_door_tilt_sensor_power_management:
+  hidden: true
+sensor.ecolink_garage_door_tilt_sensor_sourcenodeid:
+  hidden: true
+sensor.ecolink_garage_door_tilt_sensor_access_control:
+  hidden: true
+binary_sensor.smartthings_multiv4_01042e9f_1:
+  friendly_name: Back Door Sensor
+sensor.alarm_level:
+  hidden: true
+sensor.alarm_type:
+  hidden: true
+sensor.ecolink_garage_door_tilt_sensor_alarm_level:
+  hidden: true
+sensor.ecolink_garage_door_tilt_sensor_alarm_type:
+  hidden: true
+climate.2gig_technologies_ct101_thermostat_iris_cooling_1:
+  friendly_name: Downstairs Cooling
+climate.2gig_technologies_ct101_thermostat_iris_heating_1:
+  friendly_name: Downstairs Heating
+sensor.2gig_technologies_ct101_thermostat_iris_temperature:
+  friendly_name: Downstairs Temperature

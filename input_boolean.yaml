@@ -1,0 +1,8 @@
+vacation_mode:
+  name: Vacation
+  initial: off
+
+home:
+  name: Home
+  initial: on
+

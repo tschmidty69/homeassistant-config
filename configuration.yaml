@@ -43,7 +43,7 @@ http:
   # Secrets are defined in the file secrets.yaml
   api_password: !secret http_password
   # Uncomment this if you are using SSL/TLS, running in Docker container, etc.
-  base_url: home.todschmidt.com:8123
+  base_url: !secret http_base_url
   ssl_certificate: /etc/letsencrypt/live/home.todschmidt.com/fullchain.pem
   ssl_key: /etc/letsencrypt/live/home.todschmidt.com/privkey.pem
 
@@ -74,19 +74,6 @@ map:
 # Track the sun
 sun:
 
-# Weather prediction
-#sensor:
-#  - platform: yr
-sensor:
-  - platform: darksky
-    name: "Dark Sky Weather"
-    api_key: !secret dark_sky_key
-    update_interval:
-      minutes: 10
-    monitored_conditions:
-      - summary
-      - temperature
-
 # Text to speech
 tts:
   - platform: google
@@ -98,8 +85,25 @@ zha:
   usb_path: /dev/ttyUSB1
   database_path: /home/homeassistant/.homeassistant/zigbee.db
 
-ios:
+ios: !include ios.yaml
 
-group: !include groups.yaml
-automation: !include automations.yaml
+climate: !include climate.yaml
+automation: !include_dir_merge_list automations/
+sensor: !include_dir_merge_list sensors/
+device_tracker: !include device_tracker.yaml
+group: !include_dir_merge_named groups/
+scene: !include_dir_merge_list scenes/
+camera: !include camera.yaml
+light: !include light.yaml
+input_boolean: !include input_boolean.yaml
+input_number: !include_dir_merge_named input_number/
+binary_sensor: !include binary_sensor.yaml
+shell_command: !include_dir_merge_named shell_command/
+media_player: !include media_player.yaml
+switch: !include_dir_merge_list switch/
+notify: !include notify.yaml
 script: !include scripts.yaml
+
+# Custom
+variable: !include variables.yaml
+
