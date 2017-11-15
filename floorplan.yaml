@@ -19,7 +19,8 @@ warnings: true
 groups:
   - name: Binary Sensors
     entities:
-      - binary_sensor.door_sensor_1_sensor
+      - binary_sensor.smartthings_multiv4_01042e9f_1
+      - binary_sensor.ecolink_garage_door_tilt_sensor_sensor
     states:
       - state: 'off'
         class: 'door-closed'
@@ -31,22 +32,31 @@ groups:
 #        to_state: 'off'
 #        duration: 2 
 
-  - name: Sensors
+  - name: Outside Weather
     entities:
-       -  sensor.dark_sky_weather_temperature
+      - sensor.dark_sky_weather_temperature
     #text_template: '${entity.state ? entity.state : "unknown"}'
     # An example of rounding up a number, i.e. a temperature of 90.1 becomes 91
     text_template: '${entity.state ? Math.ceil(entity.state) : "undefined"}°'
     class_template: '
       var temp = parseFloat(entity.state.replace("°", ""));
-      if (temp < 10)
+      if (temp < 50)
         return "temp-low";
-      else if (temp < 30)
+      else if (temp < 78)
         return "temp-medium";
       else
         return "temp-high";
       '
 
+  - name: Thermostat
+    entities:
+      - sensor.2gig_technologies_ct101_thermostat_iris_temperature
+    text_template: '${entity.state ? entity.state : "undefined"}'
+ 
+  - name: Temperatures
+    entities:
+      - sensor.smartthings_multiv4_01042e9f_1
+    text_template: '${entity.state ? Math.round(entity.state, "3") : "undefined"}°'
 
 #      groups:
 #

@@ -78,6 +78,8 @@ sun:
 tts:
   - platform: google
 
+mqtt:
+
 zwave:
   usb_path: /dev/ttyUSB0
 

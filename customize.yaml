@@ -54,3 +54,11 @@ climate.2gig_technologies_ct101_thermostat_iris_heating_1:
   friendly_name: Downstairs Heating
 sensor.2gig_technologies_ct101_thermostat_iris_temperature:
   friendly_name: Downstairs Temperature
+input_number.downstairs_temperature:
+  icon: mdi:temperature-celcius
+climate.2gig_technologies_ct101_thermostat_iris_heating_1_2:
+  friendly_name: Upstairs Heating
+climate.2gig_technologies_ct101_thermostat_iris_cooling_1_2:
+  friendly_name: Upstairs Cooling
+sensor.2gig_technologies_ct101_thermostat_iris_temperature_2:
+  friendly_name: Upstairs Temperature
