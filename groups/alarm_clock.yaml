@@ -1,0 +1,7 @@
+alarm_clock:
+  name: Alarm Clock
+  entities:
+    - sensor.alarm_clock_time
+    - input_number.alarm_clock_hour
+    - input_number.alarm_clock_minutes
+    - input_boolean.alarm_clock_status

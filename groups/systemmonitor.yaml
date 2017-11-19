@@ -1,0 +1,7 @@
+system_monitors:
+  name: System Monitoring
+  entities:
+    - sensor.systemmonitor_disk_free
+    - sensor.systemmonitor_memory_free
+    - sensor.systemmonitor_processor_use
+    - sensor.systemmonitor_last_boot

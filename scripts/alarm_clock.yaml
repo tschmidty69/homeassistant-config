@@ -1,0 +1,69 @@
+###### script for running what happens after awake button is pushed ######
+s_alarm_clock_awake:
+  sequence:
+  - service: script.set_downstairs_thermostat
+    data:
+      heating_temp: '72'
+      cooling_temp: '90'
+  - service: script.set_upstairs_thermostat
+    data:
+      heating_temp: '72'
+      cooling_temp: '90'
+  - delay: '00:15:00'
+  - service: light.lifx_set_state
+    data:
+      entity_id: light.left_end_table_lamp
+      power: false
+      transition: '5'
+  - service: light.lifx_set_state
+    data:
+      entity_id: light.right_end_table_lamp
+      power: false
+      transition: '5' 
+
+###### script for running what happens when snooze button is pushed and for turning on the snooze timer and turning off lights ###### 
+s_alarm_clock_snooze:
+  sequence:
+  - service: script.turn_off
+    data:
+      entity_id: script.s_alarm_clock_snooze_timer
+  - service: light.lifx_set_state
+    data:
+      entity_id: light.left_end_table_lamp
+      power: false
+      transition: '5'
+  - service: light.lifx_set_state
+    data:
+      entity_id: light.right_end_table_lamp
+      power: false
+      transition: '5'
+  - service: script.turn_on
+    data:
+      entity_id: script.s_alarm_clock_snooze_timer
+
+###### script for the snooze timer ######
+s_alarm_clock_snooze_timer:
+  sequence:
+  - delay:
+      minutes: 5
+  - service: automation.trigger
+    data:
+      entity_id: automation.alarm_clock_activated
+
+###### script for running what happens when the alarm clock gets turned on ######
+s_alarm_clock_wake_up:
+  sequence:
+  - service: light.lifx_set_state
+    data:
+      entity_id: light.left_end_table_lamp
+      brightness: 255
+      color_name: white
+      power: true
+      transition: 10
+  - service: light.lifx_set_state
+    data:
+      entity_id: light.right_end_table_lamp
+      brightness: 255
+      color_name: white
+      power: true
+      transition: 10

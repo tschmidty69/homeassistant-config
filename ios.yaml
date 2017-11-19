@@ -1,0 +1,16 @@
+push:
+  categories:
+    - name: alarm clock
+      identifier: 'alarmclock'
+      actions:
+        - identifier: 'AWAKE'
+          title: 'Awake'
+          destructive: no
+        - identifier: 'SNOOZE'
+          title: 'Snooze'
+          destructive: yes
+    - name: garage_door
+      identifier: 'garagedoor'
+      actions:
+        - identifier: 'CLOSE_GARAGE'
+          title: 'Close Garage Door'

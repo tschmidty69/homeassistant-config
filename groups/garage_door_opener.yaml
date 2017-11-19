@@ -1,0 +1,4 @@
+garage_door_opener:
+  name: Garage Door Opener
+  entities:
+    - switch.fortrezz_mimolite_wireless_interfacebridge_module_switch

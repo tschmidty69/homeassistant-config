@@ -1,0 +1,5 @@
+thermostats:
+  name: Thermostat Settings
+  entities:
+    - input_number.downstairs_temperature
+    - input_number.upstairs_temperature

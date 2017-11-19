@@ -1,0 +1,48 @@
+- alias: Turn off Upstairs Thermostat at 10:45
+  trigger:
+    - platform: time
+      at: '22:45:00'
+  action:
+    - service: script.set_upstairs_thermostat
+      data:
+        zone: 'upstairs'
+        heating_temp: '69'
+        cooling_temp: '90'
+
+- alias: Turn Upstairs Thermostat on at 06:00
+  trigger:
+    - platform: time
+      at: '06:00:00'
+  action:
+    - service: script.set_upstairs_thermostat
+      data:
+        zone: 'upstairs'
+        heating_temp: '72'
+        cooling_temp: '90'
+
+- alias: Turn Upstairs Heat Down when not home
+  trigger:
+    - platform: state
+      entity_id: group.household
+      from: 'home'
+      to: 'not home'
+  action:
+    - service: script.set_upstairs_thermostat
+      data:
+        zone: 'upstairs'
+        heating_temp: '68'
+        cooling_temp: '90'
+
+- alias: Reset Upstairs Heat
+  trigger:
+    - platform: state
+      entity_id: group.household
+      from: 'not home'
+      to: 'home'
+  action:
+    - service: script.set_upstairs_thermostat
+      data:
+        zone: 'upstairs'
+        heating_temp: '72'
+        cooling_temp: '90'
+

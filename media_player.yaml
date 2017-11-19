@@ -1,0 +1,4 @@
+- platform: roku
+  host: 192.168.1.74
+- platform: plex
+

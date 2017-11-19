@@ -1,0 +1,39 @@
+  - name: Dark Sky Sensors
+    entities:
+      - sensor.dark_sky_weather_icon
+    image_template: '
+      var imageName = "";
+
+      switch (entity.state) {
+        case "clear-day":
+          imageName = "day";
+          break;
+
+        case "clear-night":
+          imageName = "night";
+          break;
+
+        case "partly-cloudy-day":
+          imageName = "cloudy";
+          break;
+
+        case "partly-cloudy-night":
+          imageName = "night";
+          break;
+
+        case "cloudy":
+          imageName = "cloudy";
+          break;
+
+        case "rain":
+          imageName = "rainy";
+          break;
+
+        case "snow":
+          imageName = "snowy";
+          break;
+      }
+
+      return "/local/custom_ui/floorplan/images/weather/weather" + imageName + ".svg";
+      '
+

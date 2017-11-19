@@ -1,0 +1,5 @@
+- name: ALL_PHONES
+  platform: group
+  services:
+    - service: ios_tods_iphone
+    - service: ios_docs_iphone

@@ -1,0 +1,10 @@
+vacation_mode:
+  name: Vacation
+  initial: off
+
+vincent_home:
+  name: Vincent at Home
+  initial: off
+
+alarm_clock_status:
+  initial: on

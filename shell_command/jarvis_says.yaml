@@ -1,0 +1,1 @@
+jarvis_says: bash /home/homeassistant/.homeassistant/shell_command/jarvis_says.sh ""{{ speech }}""

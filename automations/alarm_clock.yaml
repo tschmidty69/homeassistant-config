@@ -1,0 +1,51 @@
+###### automation for turning on the alarm ######
+- alias: Alarm Clock Activated
+  id: alarm_clock_activated
+  hide_entity: False
+  trigger:
+    platform: template
+    value_template: '{{ now().strftime("%H:%M") == states.sensor.alarm_clock_time_long.state }}'
+  condition:
+    condition: state
+    entity_id: input_boolean.alarm_clock_status
+    state: 'on'
+  action:
+    - service: script.turn_on
+      entity_id: script.s_alarm_clock_wake_up
+    - service: notify.ios_tods_iphone
+      data:
+        title: "Alarm Clock"
+        message: "It's Time For You To Wake Up!"
+        data:
+          push:
+            sound: "US-EN-Alexa-Good-Morning.wav"
+            badge: 0
+            category: 'alarmclock'
+
+###### awake actionable notification pushed ######
+- alias: alarm clock awake action
+  id: a_alarm_clock_awake_action
+  initial_state: true
+  hide_entity: true
+  trigger:
+    platform: event
+    event_type: ios.notification_action_fired
+    event_data:
+      actionName: AWAKE
+  action:
+    service: script.turn_on
+    entity_id: script.s_alarm_clock_awake
+
+###### snooze actionable notification pushed ######
+- alias: alarm clock snooze action
+  id: a_alarm_clock_snooze_action
+  initial_state: true
+  hide_entity: true
+  trigger:
+    platform: event
+    event_type: ios.notification_action_fired
+    event_data:
+      actionName: SNOOZE
+  action:
+    service: script.turn_on
+    entity_id: script.s_alarm_clock_snooze

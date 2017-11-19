@@ -1,0 +1,10 @@
+- alias: 'Test Jarvis'
+  initial_state: True
+  trigger:
+    - platform: time
+      at: '18:00:00' #change this to actual trigger
+  condition:
+  action:
+    - service: shell_command.jarvis_says
+      data:
+        speech: '"The garage door is open."'

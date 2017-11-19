@@ -17,7 +17,40 @@ homeassistant:
 # introduction:
 
 # Enables the frontend
-frontend:
+#frontend:
+#  extra_html_url:
+#   - custom_ui/state-card-floorplan.html
+#
+
+## Floorplan
+#mqtt:
+#binary_sensor:
+#  - platform: mqtt
+#    state_topic: dummy/floorplan/sensor
+#    name: Floorplan
+#
+
+panel_custom:
+  - name: downstairs
+    sidebar_title: Downstairs
+    sidebar_icon: mdi:home
+    url_path: downstairs
+    config: !include downstairs.yaml   
+  - name: upstairs
+    sidebar_title: Upstairs
+    sidebar_icon: mdi:home
+    url_path: upstairs
+    config: !include upstairs.yaml
+
+#/Floorplan
+
+tts:
+  - platform: amazon_polly
+    aws_access_key_id: !secret AWS_ACCESS_KEY_ID
+    aws_secret_access_key: !secret AWS_SECRET_ACCESS_KEY
+    profile_name: !secret AWS_PROFILE
+    region_name: 'us-west-2'
+    voice: Joanna
 
 # Enables configuration UI
 config:
@@ -26,7 +59,7 @@ http:
   # Secrets are defined in the file secrets.yaml
   api_password: !secret http_password
   # Uncomment this if you are using SSL/TLS, running in Docker container, etc.
-  base_url: home.todschmidt.com:8123
+  base_url: !secret http_base_url
   ssl_certificate: /etc/letsencrypt/live/home.todschmidt.com/fullchain.pem
   ssl_key: /etc/letsencrypt/live/home.todschmidt.com/privkey.pem
 
@@ -51,28 +84,19 @@ history:
 # View all events in a logbook
 logbook:
 
+logger:
+
 # Enables a map showing the location of tracked devices
 map:
 
 # Track the sun
 sun:
 
-# Weather prediction
-#sensor:
-#  - platform: yr
-sensor:
-  - platform: darksky
-    name: "Dark Sky Weather"
-    api_key: !secret dark_sky_key
-    update_interval:
-      minutes: 10
-    monitored_conditions:
-      - summary
-      - temperature
-
 # Text to speech
 tts:
   - platform: google
+
+mqtt:
 
 zwave:
   usb_path: /dev/ttyUSB0
@@ -81,8 +105,25 @@ zha:
   usb_path: /dev/ttyUSB1
   database_path: /home/homeassistant/.homeassistant/zigbee.db
 
-ios:
+ios: !include ios.yaml
 
-group: !include groups.yaml
-automation: !include automations.yaml
-script: !include scripts.yaml
+climate: !include climate.yaml
+automation: !include_dir_merge_list automations/
+sensor: !include_dir_merge_list sensors/
+device_tracker: !include device_tracker.yaml
+group: !include_dir_merge_named groups/
+scene: !include_dir_merge_list scenes/
+camera: !include camera.yaml
+light: !include light.yaml
+input_boolean: !include input_boolean.yaml
+input_number: !include_dir_merge_named input_number/
+binary_sensor: !include binary_sensor.yaml
+shell_command: !include_dir_merge_named shell_command/
+media_player: !include media_player.yaml
+switch: !include_dir_merge_list switch/
+notify: !include notify.yaml
+script: !include_dir_merge_named scripts/
+
+# Custom
+variable: !include variables.yaml
+
