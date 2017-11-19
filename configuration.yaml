@@ -51,6 +51,15 @@ tts:
     profile_name: !secret AWS_PROFILE
     region_name: 'us-west-2'
     voice: Joanna
+=======
+panel_custom:
+  - name: floorplan
+    sidebar_title: Floorplan
+    sidebar_icon: mdi:home
+    url_path: floorplan
+    config: !include floorplan.yaml   
+#/Floorplan
+>>>>>>> e44c3dd120bc907932f9a12bf3dfce68fbe62a55
 
 # Enables configuration UI
 config:
@@ -122,7 +131,11 @@ shell_command: !include_dir_merge_named shell_command/
 media_player: !include media_player.yaml
 switch: !include_dir_merge_list switch/
 notify: !include notify.yaml
+<<<<<<< HEAD
 script: !include_dir_merge_named scripts/
+=======
+script: !include scripts.yaml
+>>>>>>> e44c3dd120bc907932f9a12bf3dfce68fbe62a55
 
 # Custom
 variable: !include variables.yaml
