@@ -3,8 +3,6 @@
 !.gitignore
 deps
 deps/*
-!*/
-!scripts/*
 !input_numbers/*
 secrets.yaml
 known_devices.yaml
