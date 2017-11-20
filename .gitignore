@@ -13,6 +13,7 @@ OZW_Log.txt
 *.log
 zwcfg_0xfdfaeb92.xml
 *.sqlite
+cs
 
 !www/
 !www/custom_ui

@@ -2,6 +2,10 @@
   trigger:
     - platform: time
       at: '22:45:00'
+  condition:
+    condition: state
+    entity_id: input_boolean.vacation_mode
+    state: 'off'
   action:
     - service: script.set_downstairs_thermostat
       data:
@@ -12,6 +16,10 @@
   trigger:
     - platform: time
       at: '06:00:00'
+  condition:
+    condition: state
+    entity_id: input_boolean.vacation_mode
+    state: 'off'
   action:
     - service: script.set_downstairs_thermostat
       data:
@@ -23,7 +31,11 @@
     - platform: state 
       entity_id: group.household
       from: 'home'
-      to: 'not home'
+      to: 'not_home'
+  condition:
+    condition: state
+    entity_id: input_boolean.vacation_mode
+    state: 'off'
   action:
     - service: script.set_downstairs_thermostat
       data:
@@ -34,8 +46,8 @@
   trigger:
     - platform: state
       entity_id: group.household
-      from: 'not home'
-      to: 'home'
+      from: 'home'
+      to: 'not_home'
   action:
     - service: script.set_downstairs_thermostat
       data:
