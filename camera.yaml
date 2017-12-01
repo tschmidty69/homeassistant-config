@@ -1,0 +1,3 @@
+#- platform: generic
+#  name: Weather
+#  still_image_url: https://192.168.1.68:8443/OV2680/poll.php?thumb=yes&dummy=1512056489315

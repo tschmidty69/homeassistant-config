@@ -1,0 +1,5 @@
+test_jarvis:
+  sequence:
+    - service: shell_command.jarvis_says
+      data:
+        speech: '"The garage door is open."'

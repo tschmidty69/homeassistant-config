@@ -1,6 +1,6 @@
-- alias: Back Door Open
+- alias: Kitchen Door Open
   trigger:
-    - entity_id: binary_sensor.visonic_mct340_e_0b0023ed_1
+    - entity_id: binary_sensor.visonic_mct340_e_0b111ae3_1
       from: 'off'
       platform: state
       to: 'on'
@@ -9,9 +9,9 @@
       entity_id: input_boolean.vincent_home
       state: 'on'
   action:
-    - alias: 'Alert for Back Door Open to Tods iPhone'
+    - alias: 'Alert for Kitchen Door Open to Tods iPhone'
       data:
-        message: 'Back Door Open'
+        message: 'Kitchen Door Open'
       service: notify.ios_tods_iphone
 
 #      data:

@@ -43,7 +43,7 @@
   condition:
     condition: state
     entity_id: group.household
-    state: 'not home'
+    state: 'not_home'
   action:  
     - service: notify.ios_tods_iphone
       data: 
@@ -54,6 +54,7 @@
             badge: 0
             category: 'GARAGEDOOR'
 
+# This is triggered directly from IOS notifcation
 - alias: 'iOS app notification action garagedoor'
   initial_state: True
   hide_entity: True  
@@ -69,7 +70,7 @@
     - service: switch.turn_off
       entity_id: switch.fortrezz_mimolite_wireless_interfacebridge_module_switch
 
-
+# Sigh, this literally just turns the switch off
 - alias: Turn off garage door switch
   hide_entity: 'true'
   trigger:
@@ -83,8 +84,6 @@
 #      data:
 #        message: "Turned switch off"
 
- # This automation script runs when the target temperature slider is moved.
- # It publishes its value to the same MQTT topic it is also subscribed to.
 - alias: Trigger to run off garage door switch
   hide_entity: 'true'
   trigger:

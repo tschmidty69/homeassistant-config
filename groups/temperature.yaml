@@ -1,0 +1,9 @@
+temperatures:
+  name: "Temperatures"
+  entities:
+    - sensor.my_temperature_zigbee_input
+    - sensor.smartthings_multiv4_01042e9f_1
+    - sensor.smartthings_multiv4_0108fcd9_1
+    - sensor.2gig_technologies_ct101_thermostat_iris_temperature
+    - sensor.2gig_technologies_ct101_thermostat_iris_temperature_2
+    

@@ -50,7 +50,7 @@ tts:
     aws_secret_access_key: !secret AWS_SECRET_ACCESS_KEY
     profile_name: !secret AWS_PROFILE
     region_name: 'us-west-2'
-    voice: Joanna
+    voice: Geraint
 
 # Enables configuration UI
 config:
@@ -93,6 +93,9 @@ map:
 sun:
 
 mqtt:
+  broker: 192.168.1.201
+  username: !secret mqtt_user
+  password: !secret mqtt_password
 
 zwave:
   usb_path: /dev/ttyUSB0
@@ -119,7 +122,14 @@ media_player: !include media_player.yaml
 switch: !include_dir_merge_list switch/
 notify: !include notify.yaml
 script: !include_dir_merge_named scripts/
+cover: !include cover.yaml
 
 # Custom
 variable: !include variables.yaml
+snips: 
+intent_script: !include intent_script.yaml
 
+weblink:
+  entities:
+    - name: Mopidy
+      url: http://192.168.1.19:6680/iris/

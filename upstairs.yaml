@@ -17,15 +17,15 @@ warnings: true
 #      last_motion_class: last-motion
 #
 groups:
-#  - name: Binary Sensors
-#    entities:
-#      - binary_sensor.smartthings_multiv4_01042e9f_1
+  - name: Binary Sensors
+    entities:
+      - binary_sensor.smartthings_multiv4_01042e9f_1
 #      - binary_sensor.ecolink_garage_door_tilt_sensor_sensor
-#    states:
-#      - state: 'off'
-#        class: 'door-closed'
-#      - state: 'on'
-#        class: 'door-open'
+    states:
+      - state: 'off'
+        class: 'door-closed'
+      - state: 'on'
+        class: 'door-open'
 #    state_transitions:
 #      - name: On to off
 #        from_state: 'on'
@@ -58,10 +58,11 @@ groups:
       - sensor.2gig_technologies_ct101_thermostat_iris_temperature_2
     text_template: '${entity.state ? entity.state : "undefined"}'
  
-#  - name: Temperatures
-#    entities:
-#      - sensor.smartthings_multiv4_01042e9f_1
-#    text_template: '${entity.state ? Math.round(entity.state, "3") : "undefined"}°'
+  - name: Temperatures
+    entities:
+      - sensor.smartthings_multiv4_0108fcd9_1
+      - sensor.smartthings_multiv4_01042e9f_1
+    text_template: '${entity.state ? Math.round(entity.state, "3") : "undefined"}°'
 
 #      groups:
 #

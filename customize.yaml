@@ -3,9 +3,9 @@ binary_sensor.sensor:
   new_entity_id: binary_sensor.garage_door_sensor
   old_entity_id: binary_sensor.garage_door_sensor
 zwave._:
-  friendly_name: ' USB ZWave Hub'
+  friendly_name: USB ZWave Hub
 zwave.__2:
-  friendly_name: ' ZWave Door Sensor 1'
+  friendly_name: ZWave Door Sensor 1
 sensor.door_sensor_1_access_control:
   hidden: true
 sensor.door_sensor_1_alarm_level:
@@ -23,9 +23,11 @@ device_tracker.tods_iphone:
   icon: mdi:cellphone-iphone
 sensor.dark_sky_weather_temperature: {}
 sensor.my_temperature_zigbee_input:
-  unit_of_measurement: "\xB0F"
+  unit_of_measurement: °F
 sensor.smartthings_multiv4_01042e9f_1:
-  friendly_name: Back Door Temperature
+  friendly_name: Bedroom 1 Temperature
+sensor.smartthings_multiv4_0108fcd9_1:
+  friendly_name: Master Bedroom Temperature
 zwave.door_sensor_1:
   new_entity_id: zwave.garage_door_sensor
   node_name: Garage Door Sensor
@@ -39,7 +41,7 @@ sensor.ecolink_garage_door_tilt_sensor_sourcenodeid:
 sensor.ecolink_garage_door_tilt_sensor_access_control:
   hidden: true
 binary_sensor.smartthings_multiv4_01042e9f_1:
-  friendly_name: Back Door Sensor
+  friendly_name: Bedroom 1 Sensor
 sensor.alarm_level:
   hidden: true
 sensor.alarm_type:
@@ -74,3 +76,13 @@ zwave.fortrezz_mimolite_wireless_interfacebridge_module:
   hidden: true
 binary_sensor.fortrezz_mimolite_wireless_interfacebridge_module_sensor:
   hidden: true
+binary_sensor.smartthings_multiv4_0108fcd9_1:
+  hidden: true
+sensor.visonic_mct340_e_0b111ae3_1:
+  friendly_name: Kitchen Door Temperature
+binary_sensor.visonic_mct340_e_0b111ae3_1:
+  friendly_name: Kitchen Door
+sensor.visonic_mct340_e_0b0023ed_1:
+  friendly_name: Back Door Temperature
+binary_sensor.visonic_mct340_e_0b0023ed_1:
+  friendly_name: Back Door

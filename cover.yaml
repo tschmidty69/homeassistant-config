@@ -1,0 +1,18 @@
+- platform: template
+  covers:
+    garage_door:
+      friendly_name: "Garage Door"
+      value_template: "{{ is_state('binary_sensor.ecolink_garage_door_tilt_sensor_sensor', 'on') }}"
+#      value_template: binary_sensor.ecolink_garage_door_tilt_sensor_sensor
+      open_cover:
+        service: script.garage_door_open 
+      close_cover:
+        service: script.garage_door_close
+      stop_cover:
+        service: script.garage_door_switch
+      icon_template: >-
+        {% if is_state('sensor.ecolink_garage_door_tilt_sensor_sensor', 'on') %}
+          mdi:garage-open
+        {% else %}
+          mdi:garage
+        {% endif %}

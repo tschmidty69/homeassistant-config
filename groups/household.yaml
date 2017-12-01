@@ -1,5 +1,5 @@
 household:
-  name: Anyone Home
+  name: Household
   view: no
   entities:
     - device_tracker.tods_iphone

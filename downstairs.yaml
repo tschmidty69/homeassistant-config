@@ -19,7 +19,9 @@ warnings: true
 groups:
   - name: Door Switchs
     entities:
-      - binary_sensor.smartthings_multiv4_01042e9f_1
+      - binary_sensor.door_sensor_1_sensor
+      - binary_sensor.visonic_mct340_e_0b111ae3_1
+      - binary_sensor.visonic_mct340_e_0b0023ed_1
     states:
       - state: 'off'
         class: 'door-closed'
@@ -70,10 +72,10 @@ groups:
       - sensor.2gig_technologies_ct101_thermostat_iris_temperature
     text_template: '${entity.state ? entity.state : "undefined"}'
  
-  - name: Temperatures
-    entities:
-      - sensor.smartthings_multiv4_01042e9f_1
-    text_template: '${entity.state ? Math.round(entity.state, "3") : "undefined"}°'
+#  - name: Temperatures
+#    entities:
+#      - sensor.smartthings_multiv4_01042e9f_1
+#    text_template: '${entity.state ? Math.round(entity.state, "3") : "undefined"}°'
 
 #      groups:
 #

@@ -39,15 +39,28 @@
   action:
     - service: script.set_downstairs_thermostat
       data:
-        heating_temp: '65'
+        heating_temp: '67'
         cooling_temp: '90'
+
+- alias: Turn Downstairs Heat Down when on Vacation
+  trigger:
+    - platform: state
+      entity_id: input_boolean.vacation_mode
+      from: 'off'
+      to: 'on'
+  action:
+    - service: script.set_downstairs_thermostat
+      data:
+        heating_temp: '68'
+        cooling_temp: '90'
+
 
 - alias: Reset Downstairs Heat
   trigger:
     - platform: state
       entity_id: group.household
-      from: 'home'
-      to: 'not_home'
+      from: 'not_home'
+      to: 'home'
   action:
     - service: script.set_downstairs_thermostat
       data:

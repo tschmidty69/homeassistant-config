@@ -25,9 +25,9 @@
      borderopacity="1.0"
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
-     inkscape:zoom="0.50027805"
-     inkscape:cx="635.66709"
-     inkscape:cy="503.70593"
+     inkscape:zoom="1.0005561"
+     inkscape:cx="290.8209"
+     inkscape:cy="329.15849"
      inkscape:document-units="mm"
      inkscape:current-layer="layer6"
      showgrid="true"
@@ -343,12 +343,6 @@
        transform="translate(0,93.799983)" />
     <path
        style="opacity:1;fill:#fff6d5;fill-opacity:0.90196078;stroke:none;stroke-width:3.5524888;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:0.95294118"
-       d="m 343.72482,276.21109 c -10.91341,-4.7486 -21.34739,-18.84743 -23.85286,-32.23099 l -0.99226,-5.30035 h 17.82515 17.82514 v 19.78798 c 0,19.59498 -0.031,19.78745 -3.18021,19.73267 -1.74911,-0.0304 -5.18035,-0.92562 -7.62496,-1.98931 z"
-       id="path2737"
-       inkscape:connector-curvature="0"
-       transform="translate(0,93.799983)" />
-    <path
-       style="opacity:1;fill:#fff6d5;fill-opacity:0.90196078;stroke:none;stroke-width:3.5524888;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:0.95294118"
        d="m 401.87982,444.33636 v -61.48142 l 23.67491,-0.003 23.67491,-0.003 v 61.4841 61.4841 l -23.67491,1e-4 -23.67491,1.1e-4 z"
        id="path2739"
        inkscape:connector-curvature="0"
@@ -506,8 +500,9 @@
      inkscape:label="doors"
      style="display:inline;opacity:1">
     <g
-       id="g5368"
-       transform="matrix(1.4421991,0,0,1.2000927,155.13024,183.30593)">
+       id="binary_sensor.visonic_mct340_e_0b111ae3_1"
+       transform="matrix(1.4421991,0,0,1.2000927,155.13024,183.30593)"
+       inkscape:label="#g5368">
       <path
          d="m 200.92308,-117.14876 a 32.988033,32.687256 0 0 1 -32.67765,32.685811 l -0.31039,-32.685811 z"
          sodipodi:end="1.5613872"
@@ -545,39 +540,6 @@
        x="16.360485"
        y="293"
        inkscape:label="#rect5383" />
-    <g
-       style="opacity:1"
-       id="g5368-1"
-       transform="matrix(0.00112089,1.4421987,1.2000924,-9.327247e-4,216.13348,-9.3719436)">
-      <path
-         d="m 200.92308,-117.14876 a 32.988033,32.687256 0 0 1 -32.67765,32.685811 l -0.31039,-32.685811 z"
-         sodipodi:end="1.5613872"
-         sodipodi:start="0"
-         sodipodi:ry="32.687256"
-         sodipodi:rx="32.988033"
-         sodipodi:cy="-117.14876"
-         sodipodi:cx="167.93504"
-         sodipodi:type="arc"
-         id="path5327-3"
-         style="opacity:0.95;fill:none;fill-opacity:1;stroke:#000000;stroke-opacity:0.22222224"
-         transform="scale(1,-1)" />
-      <rect
-         y="-122.15382"
-         x="163.69231"
-         height="41.538464"
-         width="7.0769234"
-         id="rect5329-1"
-         style="opacity:1;fill:#ffffff;fill-opacity:1;stroke:#000000;stroke-opacity:0.22222224"
-         transform="scale(1,-1)" />
-      <rect
-         y="-118.7692"
-         x="170.64178"
-         height="3.6922836"
-         width="33.050529"
-         id="rect5331-6"
-         style="opacity:0.95;fill:#b4b7b6;fill-opacity:1;stroke:none;stroke-opacity:0.22222224"
-         transform="scale(1,-1)" />
-    </g>
     <g
        style="opacity:1"
        id="g5368-1-5"
@@ -778,8 +740,8 @@
     </g>
     <g
        style="opacity:1"
-       id="binary_sensor.smartthings_multiv4_01042e9f_1"
-       transform="matrix(-1.3607035,0,0,-1.1161348,882.36628,263.52135)"
+       id="binary_sensor.visonic_mct340_e_0b0023ed_1"
+       transform="matrix(-1.3607035,0,0,-1.1161348,882.36628,262.69694)"
        inkscape:label="#g5368-4-1">
       <path
          d="m 200.92308,-117.14876 a 32.988033,32.687256 0 0 1 -32.67765,32.685811 l -0.31039,-32.685811 z"
@@ -856,23 +818,54 @@
        x="200"
        y="143"
        inkscape:label="#rect2495" />
-    <path
-       style="display:inline;opacity:1"
-       id="path5605-8-5-9"
-       d="m 550,160.04797 a 5,5 0 0 1 -5,5 5,5 0 0 1 -5,-5 c 0,-1.64 0.79,-3.09 2,-4 v -8 a 3,3 0 0 1 3,-3 3,3 0 0 1 3,3 v 8 c 1.21,0.91 2,2.36 2,4 m -6,-9 v 6.17 c -1.17,0.41 -2,1.52 -2,2.83 a 3,3 0 0 0 3,3 3,3 0 0 0 3,-3 c 0,-1.31 -0.83,-2.42 -2,-2.83 v -6.17 z"
-       inkscape:connector-curvature="0" />
-    <text
-       xml:space="preserve"
-       style="font-style:normal;font-weight:normal;font-size:40px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;display:inline;opacity:1;fill:#000000;fill-opacity:1;stroke:none"
-       x="552.95667"
-       y="162.20129"
-       id="sensor.smartthings_multiv4_01042e9f_1"
-       inkscape:label="#text5641-1"><tspan
-         sodipodi:role="line"
-         id="tspan5639-3-6"
-         x="552.95667"
-         y="162.20129"
-         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:18.66666603px;font-family:sans-serif;-inkscape-font-specification:'sans-serif, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:start;writing-mode:lr-tb;text-anchor:start">000</tspan></text>
+    <g
+       id="binary_sensor.door_sensor_1_sensor"
+       inkscape:label="#g1718">
+      <path
+         inkscape:connector-curvature="0"
+         id="path2737"
+         d="m 343.72482,276.21109 c -10.91341,-4.7486 -21.34739,-18.84743 -23.85286,-32.23099 l -0.99226,-5.30035 h 17.82515 17.82514 v 19.78798 c 0,19.59498 -0.031,19.78745 -3.18021,19.73267 -1.74911,-0.0304 -5.18035,-0.92562 -7.62496,-1.98931 z"
+         style="display:inline;opacity:1;fill:#fff6d5;fill-opacity:0.90196078;stroke:none;stroke-width:3.5524888;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:0.95294118" />
+      <g
+         transform="matrix(0.00112089,1.4421987,1.2000924,-9.327247e-4,216.13348,-9.3719436)"
+         id="g5368-1"
+         style="display:inline;opacity:1">
+        <path
+           transform="scale(1,-1)"
+           style="opacity:0.95;fill:none;fill-opacity:1;stroke:#000000;stroke-opacity:0.22222224"
+           id="path5327-3"
+           sodipodi:type="arc"
+           sodipodi:cx="167.93504"
+           sodipodi:cy="-117.14876"
+           sodipodi:rx="32.988033"
+           sodipodi:ry="32.687256"
+           sodipodi:start="0"
+           sodipodi:end="1.5613872"
+           d="m 200.92308,-117.14876 a 32.988033,32.687256 0 0 1 -32.67765,32.685811 l -0.31039,-32.685811 z" />
+        <rect
+           transform="scale(1,-1)"
+           style="opacity:1;fill:#ffffff;fill-opacity:1;stroke:#000000;stroke-opacity:0.22222224"
+           id="rect5329-1"
+           width="7.0769234"
+           height="41.538464"
+           x="163.69231"
+           y="-122.15382" />
+        <rect
+           transform="scale(1,-1)"
+           style="opacity:0.95;fill:#b4b7b6;fill-opacity:1;stroke:none;stroke-opacity:0.22222224"
+           id="rect5331-6"
+           width="33.050529"
+           height="3.6922836"
+           x="170.64178"
+           y="-118.7692" />
+      </g>
+      <path
+         inkscape:label="#path12235"
+         inkscape:connector-curvature="0"
+         id="path12235"
+         d="m 343.35946,276.22415 c -11.10382,-5.06172 -21.64059,-19.95687 -23.95514,-33.86382 l -0.70694,-4.24764 h 17.57812 17.57813 v 19.98888 19.98889 l -3.2482,-0.022 c -1.7865,-0.0121 -5.04719,-0.84203 -7.24597,-1.84435 z"
+         style="opacity:0.97000002;fill:#f4eed7;fill-opacity:0.90196078;stroke:none;stroke-width:2.51198888;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:0.95294118" />
+    </g>
   </g>
   <g
      inkscape:groupmode="layer"

@@ -1,6 +1,6 @@
-- alias: Back Door Open
+- alias: Bedroom Door Open
   trigger:
-    - entity_id: binary_sensor.visonic_mct340_e_0b0023ed_1
+    - entity_id: binary_sensor.smartthings_multiv4_01042e9f_1
       from: 'off'
       platform: state
       to: 'on'
@@ -9,19 +9,19 @@
       entity_id: input_boolean.vincent_home
       state: 'on'
   action:
-    - alias: 'Alert for Back Door Open to Tods iPhone'
+    - alias: 'Alert for Bedroom Door Open to Tods iPhone'
       data:
-        message: 'Back Door Open'
+        message: 'Bedroom Door Open'
       service: notify.ios_tods_iphone
 
 #      data:
 #        message: >
 #            {% if is_state('device_tracker.tods_iphone', 'home') %}
-#              Back Door Open (Tod home)  
+#              Garage Back Door Open (Tod home)  
 #            {% else %}
 #              Tod is at {{ states('device_tracker.tods_iphone') }}.
 #            {% endif %}
-#        title: Back Door Open
+#        title: Garage Back Door Open
 #      service_template: >
 #        {% if is_state('device_tracker.tods_iphone', 'home') %}
 #          notify.ios_tods_iphone
@@ -29,7 +29,7 @@
 #          persistent_notification.create
 #        {% endif %}
 
-#alias: Back Door Closed
+#alias: Garage Back Door Closed
 #trigger:
 #  - entity_id: binary_sensor.smartthings_multiv4_01042e9f_1
 #    from: 'on'
@@ -40,7 +40,7 @@
 #    entity_id: input_boolean.vincent_home
 #    state: true
 #action:
-#  - alias: Alert for Back Door Closed to Tods iPhone
+#  - alias: Alert for Garage Back Door Closed to Tods iPhone
 #    data:
-#      message: Back Door Closed
+#      message: Garage Back Door Closed
 #    service: notify.ios_tods_iphone
