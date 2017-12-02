@@ -128,6 +128,7 @@ cover: !include cover.yaml
 variable: !include variables.yaml
 snips: 
 intent_script: !include intent_script.yaml
+android_ip_webcam: !include android_ip_webcam.yaml
 
 weblink:
   entities:

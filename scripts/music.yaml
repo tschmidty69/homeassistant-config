@@ -3,30 +3,26 @@ playlist_mopidy:
     - service: media_player.shuffle_set
       data:
         shuffle: 'true'
-#    - service: persistent_notification.create
-#      data_template:
-#        message: >-
-#          playlist is {{ playlist }}
+    - service: shell_command.get_playlist
+      data_template:
+        playlist: "{{ playlist }}"
     - service: shell_command.jarvis_says
       data_template:
-        speech: '"OK, playing playlist {{ playlist }}"'
+        speech: '"OK, playing {{ states("sensor.mopidy_playlist") |replace("(by topsify)","") }} playlist"'
     - delay: 00:00:03
     - service: media_player.play_media
       data_template:
         entity_id: media_player.mopidy
         media_content_type: playlist
         media_content_id: >-
-            {% if playlist == "christmas"  %}
-              Christmas Playlist (by filtr)
-            {% elif playlist == "alternative" %}
-              Adult Alternative (by topsify)
-            {% else %}
-              Adult Alternative (by topsify)
-            {% endif %}
+          {{ states('sensor.mopidy_playlist') }}
     - service: media_player.media_next_track
 
 resume_mopidy:
   sequence:
+    - condition: state
+      entity_id: media_player.mopidy
+      state: "paused"
     - service: shell_command.jarvis_says
       data:
         speech: '"OK, resuming music"'
@@ -35,6 +31,9 @@ resume_mopidy:
 
 pause_mopidy:
   sequence:
+    - condition: state
+      entity_id: media_player.mopidy
+      state: "playing"
     - service: media_player.media_pause
     - delay: 00:00:01
     - service: shell_command.jarvis_says
