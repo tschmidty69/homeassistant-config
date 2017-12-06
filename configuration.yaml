@@ -76,7 +76,7 @@ updater:
 discovery:
 
 # Allows you to issue voice commands from the frontend in enabled browsers
-conversation:
+conversation: !include conversation.yaml
 
 # Enables support for tracking state changes over time
 history:
@@ -127,10 +127,10 @@ cover: !include cover.yaml
 # Custom
 variable: !include variables.yaml
 snips: 
-intent_script: !include intent_script.yaml
+intent_script: !include_dir_merge_named intent_scripts
 android_ip_webcam: !include android_ip_webcam.yaml
 
 weblink:
   entities:
     - name: Mopidy
-      url: http://192.168.1.19:6680/iris/
+      url: http://192.168.1.201:6680/iris/

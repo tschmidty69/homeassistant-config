@@ -1,0 +1,20 @@
+snips_set_thermostat:
+  alias: Snips Thermostat
+  sequence:
+    - service: climate.set_operation_mode
+      entity_id: climate.2gig_technologies_ct101_thermostat_iris_heating_1
+      data_template:
+        operation_mode: "{{ cooling_mode | default('auto') }}"
+    - service: climate.set_operation_mode
+      entity_id: climate.2gig_technologies_ct101_thermostat_iris_cooling_1
+      data_template:
+        operation_mode: "{{ heating_mode | default('auto') }}"
+    - service: climate.set_temperature
+      entity_id: climate.2gig_technologies_ct101_thermostat_iris_heating_1
+      data_template:
+        temperature: "{{ heating_temp | default('72') }}"
+    - service: climate.set_temperature
+      entity_id: climate.2gig_technologies_ct101_thermostat_iris_cooling_1
+      data_template:
+        temperature: "{{ cooling_temp | default('72') }}"
+

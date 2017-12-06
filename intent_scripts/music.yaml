@@ -1,0 +1,60 @@
+playPlaylist:
+  speech:
+    type: plain
+    text: music
+  action:
+    - service: script.playlist_mopidy
+      data_template:
+        playlist: "{{ playlist_name | default ('alternative') }}"
+
+playArtist:
+  speech:
+    type: plain
+    text: music
+  action:
+    - service: script.artist_mopidy
+      data_template:
+        artist: "{{ artist_name }}"
+
+resumeMusic:
+  speech:
+    type: plain
+    text: music
+  action:
+    - service: script.resume_mopidy
+
+speakerInterrupt:
+  speech:
+    type: plain
+    text: music
+  action:
+    - service: script.pause_mopidy
+
+volumeUp:
+  speech:
+    type: plain
+    text: music
+  action:
+    - service: script.volume_up_mopidy
+
+volumeDown:
+  speech:
+    type: plain
+    text: music
+  action:
+    - service: script.volume_down_mopidy
+
+nextSong:
+  speech:
+    type: plain
+    text: music
+  action:
+    - service: script.next_track_mopidy
+
+previousSong:
+  speech:
+    type: plain
+    text: music
+  action:
+    - service: script.previous_track_mopidy
+

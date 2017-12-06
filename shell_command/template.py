@@ -8,8 +8,7 @@ from requests import post
 import logging
 from subprocess import Popen, PIPE, STDOUT
 import string
-from fuzzywuzzy import fuzz
-from fuzzywuzzy import process
+
 
 parser = argparse.ArgumentParser()
 
@@ -40,31 +39,24 @@ logging.basicConfig(level=logging.DEBUG, filename=HA_BASE+"get_playlist.log", fi
 
 def log(*msg):
   logging.info(' '.join(msg))
-  print ' '.join(msg);
+  print ' '.join(msg);  
 
 if args.verbose > 1:
   log( "REST_URL:", REST_URL )
   log( "REST_PASSWORD:", REST_PASSWORD )
 
 if args.playlist:
-  playlists=[]
   PLAYLISTS=subprocess.check_output([MPC_BINARY, "-h", MPC_HOST, "lsplaylists"])
   
   if args.verbose > 1:
-    log( "playlist:", args.playlist)
-    log( "PLAYLISTS:", PLAYLISTS )
+    log( "PLAYLISTS:", PLAYLISTS.split("\n") )
   
-#  matching = [s for s in PLAYLISTS.split("\n") if args.playlist.lower() in s.lower()]
-  playlists = process.extractBests(args.playlist, PLAYLISTS.split("\n"), score_cutoff=60) 
-  if args.verbose >1:
-    print "tuple:  %s" % (playlists,)
-  matching=[x[0] for x in playlists]
+  matching = [s for s in PLAYLISTS.split("\n") if args.playlist.lower() in s.lower()]
   
-
   if matching:
-
+  
     if args.verbose:
-      log( "Found these playlists:", '\n'.join(matching) )
+      log( "Found these playlists:", matching )
   
     if args.random:
       playlist = random.choice(matching)
@@ -87,6 +79,7 @@ if args.playlist:
   
   if args.verbose > 1:
     log( "Url:", url )
+    log( "headers:", headers )
     log( "data:", data )
   
   response = post(url, headers=headers, data=data)
@@ -112,6 +105,7 @@ elif args.artist:
 
   if args.verbose > 1:
     log( "Url:", url )
+    log( "headers:", headers )
     log( "data:", data )
 
   response = post(url, headers=headers, data=data)

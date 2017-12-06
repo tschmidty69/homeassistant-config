@@ -1,0 +1,9 @@
+
+get_playlist: /home/homeassistant/.homeassistant/shell_command/get_playlist.py -vv -r -p ""{{ arguments }}""
+get_artist: /home/homeassistant/.homeassistant/shell_command/get_playlist.py -vv -r -a ""{{ arguments }}""
+
+jarvis_says: bash /home/homeassistant/.homeassistant/shell_command/jarvis_says.sh ""{{ speech }}""
+
+snips_query:  /home/homeassistant/.homeassistant/shell_command/snips_query.py -vv -t ""{{ text }}""
+
+snips_toggle_sound:  /home/homeassistant/.homeassistant/shell_command/snips_toggle_sound.sh {{ sound }} 

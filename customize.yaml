@@ -86,3 +86,9 @@ sensor.visonic_mct340_e_0b0023ed_1:
   friendly_name: Back Door Temperature
 binary_sensor.visonic_mct340_e_0b0023ed_1:
   friendly_name: Back Door
+media_player.snapcast_client_6152618a83b04b70b879e3fa1f4664b22:
+  friendly_name: old client
+media_player.snapcast_client_4b8c047b8b04d3bb68c2b07e00000005:
+  friendly_name: Bonus Room Speakers
+media_player.snapcast_client_6152618a83b04b70b879e3fa1f4664b2:
+  friendly_name: Living Room Speakers
