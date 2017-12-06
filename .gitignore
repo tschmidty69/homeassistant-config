@@ -15,6 +15,7 @@ zwcfg_0xfdfaeb92.xml
 *.sqlite
 cs
 
+apps/__pycache__
 !www/
 !www/custom_ui
 !www/custom_ui/floorplan
