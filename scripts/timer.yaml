@@ -1,0 +1,20 @@
+set_timer:
+  sequence:
+    - service: shell_command.jarvis_says
+      data_template:
+        speech: >-
+          {% if name == 'none' %}
+            "OK, Setting a timer of {{ duration }}"
+          {% else %}
+            "Ok, setting a timer of {{ duration }} for {{ name }}"
+          {% endif %}
+    - delay: '{{ duration }}'
+    - service: shell_command.jarvis_says
+      data_template:
+        speech: >-
+          {% if name == 'none' %}
+            "OK, your timer is done"
+          {% else %}
+            "Ok, your timer for {{ name }} is done"
+          {% endif %}
+

@@ -1,0 +1,10 @@
+SetTimer:
+  speech:
+    type: plain
+    text: weather
+  action:
+    service: script.set_timer
+    data_template:
+      name: "{{ timer_name | default('none') }}"
+      duration: "{{ timer_duration }}"
+

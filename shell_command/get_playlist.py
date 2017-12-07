@@ -80,7 +80,7 @@ if args.playlist:
   
   log( "playlist:", playlist )
   
-  url = 'https://'+REST_URL+'/api/states/' + HA_SENSOR
+  url = REST_URL+'/api/states/' + HA_SENSOR
   headers = {'x-ha-access': REST_PASSWORD,
              'content-type': 'application/json'}
   data = '{"state": "'+playlist+'"}'
@@ -105,7 +105,7 @@ elif args.artist:
   mpc_add.communicate("\n".join(tracks))
   subprocess.check_output([MPC_BINARY, "-h", MPC_HOST, "play"])
 
-  url = 'https://'+REST_URL+'/api/states/' + HA_SENSOR
+  url = REST_URL+'/api/states/' + HA_SENSOR
   headers = {'x-ha-access': REST_PASSWORD,
              'content-type': 'application/json'}
   data = '{"state": "'+string.replace(args.artist,'"','')+'"}'

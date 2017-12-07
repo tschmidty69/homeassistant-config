@@ -85,6 +85,13 @@ history:
 logbook:
 
 logger:
+  default: warning
+  logs:
+    homeassistant.components.snips: debug
+    homeassistant.scripts: debug
+    homeassistant.helpers.script: debug
+    homeassistant.components.websocket_api: debug
+    homeassistant.components.mqtt: debug
 
 # Enables a map showing the location of tracked devices
 map:

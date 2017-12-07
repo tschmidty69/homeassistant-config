@@ -1,6 +1,5 @@
 #!/srv/homeassistant/bin//python
 
-
 import sys
 import argparse
 import subprocess

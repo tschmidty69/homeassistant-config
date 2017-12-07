@@ -32,7 +32,7 @@ def log(*msg):
 
 log( "text:", args.text)
 
-input_text="{\"input\": \"" + args.text + "\"}"
+input_text="{\"input\": \"" + args.text + "\", \"id\": \"123456\"}"
 
 if args.verbose:
   log( "MOSQUITTO_PUB_BINARY", MOSQUITTO_PUB_BINARY)
