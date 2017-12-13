@@ -1,0 +1,12 @@
+- platform: mqtt
+  name: coffee_power
+  state_topic: 'jarvis/coffeeOut/state'
+  value_template: '{{ value_json.power }}'
+- platform: mqtt
+  name: coffee_heat
+  state_topic: 'jarvis/coffeeOut/state'
+  value_template: '{{ value_json.heat }}'
+- platform: mqtt
+  name: coffee_empty
+  state_topic: 'jarvis/coffeeOut/state'
+  value_template: '{{ value_json.empty }}'

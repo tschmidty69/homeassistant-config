@@ -62,6 +62,13 @@ http:
   base_url: !secret http_base_url
   ssl_certificate: /etc/letsencrypt/live/home.todschmidt.com/fullchain.pem
   ssl_key: /etc/letsencrypt/live/home.todschmidt.com/privkey.pem
+  trusted_networks:
+    - 127.0.0.1
+    - ::1
+    - 192.168.1.0/24
+    - 2001:DB8:ABCD::/48
+  ip_ban_enabled: True
+  login_attempts_threshold: 2
 
 # Checks for available updates
 # Note: This component will send some information about your system to
@@ -88,9 +95,11 @@ logger:
   default: warning
   logs:
     homeassistant.components.snips: debug
-    homeassistant.scripts: debug
     homeassistant.helpers.script: debug
-    homeassistant.components.websocket_api: debug
+    homeassistant.helpers.intent_script: debug
+    homeassistant.helpers.template: debug
+#    homeassistant.components.websocket_api: debug
+    homeassistant.helpers.shell_command: debug
     homeassistant.components.mqtt: debug
 
 # Enables a map showing the location of tracked devices
@@ -130,6 +139,7 @@ switch: !include_dir_merge_list switch/
 notify: !include notify.yaml
 script: !include_dir_merge_named scripts/
 cover: !include cover.yaml
+zone: !include zone.yaml
 
 # Custom
 variable: !include variables.yaml

@@ -1,0 +1,12 @@
+- alias: Get Coffee State
+  id: get_coffee_state
+  trigger:
+    platform: mqtt
+    topic: jarvis/coffeeOut/state
+  action:
+    - alias: 'Tell me about coffee'
+      service: script.test_jarvis_say_coffee_state
+      data_template:
+        power: '{{power}}'
+        heat: '{{heat}}'
+        empty: '{{empty}}'

@@ -13,7 +13,8 @@ OZW_Log.txt
 *.log
 zwcfg_0xfdfaeb92.xml
 *.sqlite
-cs
+hc
+
 .spotify-token-cache
 .uuid
 apps/__pycache__

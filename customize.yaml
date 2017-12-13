@@ -88,7 +88,21 @@ binary_sensor.visonic_mct340_e_0b0023ed_1:
   friendly_name: Back Door
 media_player.snapcast_client_6152618a83b04b70b879e3fa1f4664b22:
   friendly_name: old client
+  hidden: true
 media_player.snapcast_client_4b8c047b8b04d3bb68c2b07e00000005:
   friendly_name: Bonus Room Speakers
 media_player.snapcast_client_6152618a83b04b70b879e3fa1f4664b2:
   friendly_name: Living Room Speakers
+media_player.snapcast_group_8fe66a8a9d83e609debf9edbe64784ba:
+  hidden: true
+media_player.snapcast_group_3d572249411f1f5d1a6c3b3f17b4c7b7:
+  hidden: true
+media_player.snapcast_group_cfc8828768625f420d1f85fa23b30b8a:
+  hidden: true
+switch.unknown_id0312_unknown_type0221_id251c_switch_2:
+  friendly_name: Living_Room_Back_Wall_Left_Outlet
+  hidden: true
+switch.unknown_id0312_unknown_type0221_id251c_switch:
+  friendly_name: Living_Room_Back_Wall_Left_Outlet
+switch.unknown_id0312_unknown_type0221_id251c_switch_3:
+  friendly_name: Living_Room_Back_Wall_Right_Outlet

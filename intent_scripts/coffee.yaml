@@ -1,0 +1,7 @@
+turnCoffeeOn:
+  action:
+    - service: script.test_jarvis_coffee_on
+
+turnCoffeeOff:
+  action:
+    - service: script.test_jarvis_coffee_off

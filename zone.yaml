@@ -1,0 +1,18 @@
+- name: Home
+  latitude: !secret home_latitude
+  longitude: !secret home_longitude
+  icon: mdi:home
+- name: Brown Trucking
+  latitude: 35.11014572126329
+  longitude: -80.94022781369472
+  icon: mdi:truck
+- name: US National Whitewater Center
+  latitude: 35.272614
+  longitude: -81.005316
+  radius: 1750
+  icon: mdi:bike
+- name: Greenway Trails
+  latitude: 35.326942
+  longitude: -80.766831
+  radius: 500
+  icon: mdi:bike

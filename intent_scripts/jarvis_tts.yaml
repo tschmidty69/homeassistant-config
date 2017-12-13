@@ -1,9 +1,0 @@
-searchWeatherForecast:
-  speech:
-    type: plain
-    text: weather
-  action:
-    - service: script.current_weather
-      data_template:
-        forecast_start_datetime: "{{ forecast_start_datetime }}"
-

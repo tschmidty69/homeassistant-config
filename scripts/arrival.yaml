@@ -1,0 +1,9 @@
+arrived_home:
+  sequence:
+    - condition: state
+      entity_id: group.household
+      state: not_home
+    - service: switch.turn_on
+      entity_id: switch.unknown_id0312_unknown_type0221_id251c_switch
+    - service: switch.turn_on
+      entity_id: switch.unknown_id0312_unknown_type0221_id251c_switch_3

@@ -14,10 +14,10 @@
         message: "It's 10pm and Garage Door is Open"
         data:
           push:
-            badge: 0 
+            badge: 0
             category: 'garagedoor'
-  
-- alias: 'Garage Door Alert'  
+
+- alias: 'Garage Door Alert'
   trigger:
     - platform: state
       entity_id: binary_sensor.ecolink_garage_door_tilt_sensor_sensor
@@ -34,7 +34,7 @@
           push:
             badge: 0
             category: 'garagedoor'
-  
+
 - alias: 'Door Open but No One is Home'
   trigger:
     - platform: state
@@ -44,11 +44,11 @@
     condition: state
     entity_id: group.household
     state: 'not_home'
-  action:  
-    - service: notify.ios_tods_iphone
-      data: 
+  action:
+    - service: notify.all_phones
+      data:
         title: "Garage Door Open"
-        message: "Garage door is open"
+        message: "But no one is home"
         data:
           push:
             badge: 0
@@ -57,7 +57,7 @@
 # This is triggered directly from IOS notifcation
 - alias: 'iOS app notification action garagedoor'
   initial_state: True
-  hide_entity: True  
+  hide_entity: True
   trigger:
     platform: event
     event_type: ios.notification_action_fired
@@ -84,7 +84,7 @@
 #      data:
 #        message: "Turned switch off"
 
-- alias: Trigger to run off garage door switch
+- alias: Trigger to turn off garage door switch
   hide_entity: 'true'
   trigger:
     platform: state

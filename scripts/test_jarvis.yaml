@@ -1,5 +1,80 @@
 test_jarvis:
   sequence:
-    - service: shell_command.jarvis_says
+    - event: JARVIS_SAY
+      event_data:
+        text: 'OK, I am alive'
+
+test_jarvis_timer:
+  sequence:
+    - service: script.set_timer
+      data_template:
+        name: "turkey"
+        hours: 0
+        minutes: 1
+        seconds: 5
+    - service: mqtt.publish
+      data_template:
+        topic: '{{ world | default("not_world") }}'
+
+test_jarvis_playlist:
+  sequence:
+    - event: JARVIS_PLAYLIST
+      event_data_template:
+        playlist: 'christmas'
+
+test_jarvis_artist:
+  sequence:
+    - event: JARVIS_ARTIST
+      event_data_template:
+        artist: 'John Legend'
+
+test_jarvis_coffee_on:
+  sequence:
+    - service: mqtt.publish
       data:
-        speech: '"The garage door is open."'
+        topic: "jarvis/coffeeOut/getState"
+    - condition: state
+      entity_id: 'sensor.coffee_power'
+      state: '0'
+    - service: mqtt.publish
+      data:
+        topic: "jarvis/coffeeIn/turnOn"
+    - event: JARVIS_SAY
+      event_data:
+        text: 'OK, turning the coffee maker on'
+    - service: mqtt.publish
+      data:
+        topic: "jarvis/coffeeIn/getState"
+        payload: 1
+
+test_jarvis_coffee_off:
+  sequence:
+    - service: mqtt.publish
+      data:
+        topic: "jarvis/coffeeOut/getState"
+    - condition: state
+      entity_id: 'sensor.coffee_power'
+      state: '1'
+    - service: mqtt.publish
+      data:
+        topic: "jarvis/coffeeIn/turnOn"
+    - event: JARVIS_SAY
+      event_data:
+        text: 'OK, turning the coffee maker off'
+    - service: mqtt.publish
+      data:
+        topic: "jarvis/coffeeIn/getState"
+        payload: 1
+
+test_jarvis_get_coffee_state:
+  sequence:
+    - service: mqtt.publish
+      data:
+        topic: "jarvis/coffeeIn/getState"
+        payload: 1
+
+test_jarvis_say_coffee_state:
+  sequence:
+    - event: JARVIS_SAY
+      event_data_template:
+        text: ''

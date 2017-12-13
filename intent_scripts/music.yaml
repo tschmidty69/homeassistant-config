@@ -23,7 +23,7 @@ resumeMusic:
   action:
     - service: script.resume_mopidy
 
-speakerInterrupt:
+pauseMusic:
   speech:
     type: plain
     text: music
@@ -57,4 +57,3 @@ previousSong:
     text: music
   action:
     - service: script.previous_track_mopidy
-

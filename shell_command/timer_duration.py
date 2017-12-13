@@ -35,12 +35,16 @@ if args:
   url = 'https://'+REST_URL+'/api/states/' + HA_SENSOR
   headers = {'x-ha-access': REST_PASSWORD,
              'content-type': 'application/json'}
-  data = '{"state": "'+string.replace(args.artist,'"','')+'"}'
+
+  # set a default value so we dont get unknown
+  data = '{"state": "00:00"}'
 
   if args.verbose > 1:
     log( "Url: "+url )
     log( "headers: "+headers )
     log( "data: "+data )
 
-  #response = post(url, headers=headers, data=data)
-  #log(response.text)
+  response = post(url, headers=headers, data=data)
+  log(response.text)
+
+  

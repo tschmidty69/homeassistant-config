@@ -15,6 +15,7 @@ import json
 import boto3
 from pathlib import Path
 import os
+import re
 
 parser = argparse.ArgumentParser()
 
@@ -25,11 +26,19 @@ parser.add_argument("-v", "--verbose", help="verbose output, can be specified mu
 args = parser.parse_args()
 
 HA_BASE="/home/homeassistant/.homeassistant/"
-HA_SENSOR="sensor.jarvis_listener"
-LOG_FILE=os.path.basename(sys.argv[0]).replace('.py','')+".log"
+LOG_FILE=HA_BASE+os.path.basename(sys.argv[0]).replace('.py','')+".log"
+# default sensor
+HA_SENSOR="sensor."+os.path.basename(sys.argv[0]).replace('.py','')
 
-logging.basicConfig(level=logging.DEBUG, filename=HA_BASE+LOG_FILE, filemode="a+",
+REST_URL=str(subprocess.check_output(["grep", "http_base_url", HA_BASE+"secrets.yaml"]).rsplit()[1].decode())
+REST_PASSWORD=str(subprocess.check_output(["grep", "http_password", HA_BASE+"secrets.yaml"]).rsplit()[1].decode())
+
+logging.basicConfig(level=logging.DEBUG, filename=LOG_FILE, filemode="a+",
                         format="%(asctime)-15s %(levelname)-8s %(message)s")
+
+NAMES = [('hour', 'hours'),
+         ('minute', 'minutes'),
+         ('second', 'seconds')]
 
 def log(msg):
   logging.info(msg)
@@ -42,6 +51,93 @@ def on_connect(client, userdata, flags, rc):
   # reconnect then subscriptions will be renewed.
   client.subscribe("hermes/tts/say")
   client.subscribe("hermes/audioServer/default/playFinished")
+  client.subscribe("jarvis/timer_duration")
+
+def sensor_state(sensor, data):
+  url = REST_URL+"/api/states/"+sensor
+  headers = {"x-ha-access": REST_PASSWORD,
+             "content-type": "application/json"}
+
+  if args.verbose > 1:
+    log("Url: "+url )
+    log("headers: "+str(headers) )
+    log("data: "+data )
+
+  response = post(url, headers=headers, data=data)
+  log(response.text)
+
+
+Small = {
+    'zero': 0,
+    'one': 1,
+    'two': 2,
+    'three': 3,
+    'four': 4,
+    'five': 5,
+    'six': 6,
+    'seven': 7,
+    'eight': 8,
+    'nine': 9,
+    'ten': 10,
+    'eleven': 11,
+    'twelve': 12,
+    'thirteen': 13,
+    'fourteen': 14,
+    'fifteen': 15,
+    'sixteen': 16,
+    'seventeen': 17,
+    'eighteen': 18,
+    'nineteen': 19,
+    'twenty': 20,
+    'thirty': 30,
+    'forty': 40,
+    'fifty': 50,
+    'sixty': 60,
+    'seventy': 70,
+    'eighty': 80,
+    'ninety': 90
+}
+
+Magnitude = {
+    'thousand':     1000,
+    'million':      1000000,
+    'billion':      1000000000,
+    'trillion':     1000000000000,
+    'quadrillion':  1000000000000000,
+    'quintillion':  1000000000000000000,
+    'sextillion':   1000000000000000000000,
+    'septillion':   1000000000000000000000000,
+    'octillion':    1000000000000000000000000000,
+    'nonillion':    1000000000000000000000000000000,
+    'decillion':    1000000000000000000000000000000000,
+}
+
+class NumberException(Exception):
+    def __init__(self, msg):
+        Exception.__init__(self, msg)
+
+def text2num(s):
+    a = re.split(r"[\s-]+", s)
+    n = 0
+    g = 0
+    for w in a:
+        x = Small.get(w, None)
+        if x is not None:
+            g += x
+        elif w == "hundred" and g != 0:
+            g *= 100
+        else:
+            x = Magnitude.get(w, None)
+            if x is not None:
+                n += g * x
+                g = 0
+            else:
+                raise NumberException("Unknown number: "+w)
+    return n + g
+
+
+############################
+# my callbacks
 
 # The callback for when a PUBLISH message is received from the server.
 def tts_say(client, userdata, msg):
@@ -55,8 +151,8 @@ def tts_say(client, userdata, msg):
   Path("/tmp/sounds/").mkdir(parents=True, exist_ok=True)
 
   tmp_file = Path("/tmp/sounds/"+data['text']+".wav")
-  response = {} 
-  if not tmp_file.is_file():  
+  response = {}
+  if not tmp_file.is_file():
     response=aws_client.synthesize_speech( OutputFormat='mp3', Text=data['text'], VoiceId='Geraint' )
     if args.verbose > 0:
       log(response['ContentType']+'\n'+response['RequestCharacters'])
@@ -67,9 +163,9 @@ def tts_say(client, userdata, msg):
   wav_file = open("/tmp/sounds/"+data['text']+".wav", "rb")
   audio_wav = wav_file.read()
   wav_file.close()
- 
-  publish.single('hermes/audioServer/default/playBytes/'+sessionId+'/', 
-    payload=audio_wav, qos=0, retain=False, hostname=args.host, port=args.port, 
+
+  publish.single('hermes/audioServer/default/playBytes/'+sessionId+'/',
+    payload=audio_wav, qos=0, retain=False, hostname=args.host, port=args.port,
     client_id="", keepalive=60, will=None, auth=None, tls=None, protocol=mqtt.MQTTv311)
   #TODO: listen for callback
 
@@ -78,8 +174,32 @@ def tts_say(client, userdata, msg):
     publish.single('hermes/tts/sayFinished', payload='{"siteId": "'+data['siteId']+'", "sessionId": "'+data['sessionId']+'", "id": "'+data['id']+'"}',
       qos=0, retain=False, hostname=args.host, port=args.port, client_id="", keepalive=60, will=None, auth=None, tls=None, protocol=mqtt.MQTTv311)
 
+def timer_duration(client, userdata, msg):
+  log(msg.topic+" "+str(msg.payload.decode()))
+  data = json.loads(msg.payload.decode())
+  log("text: "+data['text'])
+
+  # set a default value so we dont get unknown
+  state = '{"state": "00:00"}'
+  sensor_state("sensor.timer_duration", state)
+
+  seconds=re.match(r'(\w+) second', data['text'])
+  minutes=re.match(r'(\w+) minute', data['text'])
+  hours=re.match(r'(\w+) hour', data['text'])
+  secs=text2num(str(seconds.group(1) if seconds else "zero"))
+  mins=text2num(str(minutes.group(1) if minutes else "zero"))
+  hrs=text2num(str(hours.group(1) if hours else "zero"))
+  duration = "%02d:%02d:%02d" % (hrs, mins, secs)
+
+  log("duration: "+duration)
+  sensor_state("sensor.timer_duration", "{\"state\": \""+duration+"\"}")
+
+
 def playFinished(client, userdata, msg):
   log(msg.topic+" "+str(msg.payload.decode()))
+
+###########
+# Main loop
 
 if args.verbose > 0:
   log(args)
@@ -89,6 +209,7 @@ client.on_connect = on_connect
 
 client.message_callback_add("hermes/tts/say", tts_say)
 client.message_callback_add("hermes/audioServer/default/playFinished", playFinished)
+client.message_callback_add("jarvis/timer_duration", timer_duration)
 
 client.connect(args.host, args.port, 60)
 
@@ -100,5 +221,3 @@ aws_client = boto3.client('polly')
 # Other loop*() functions are available that give a threaded interface and a
 # manual interface.
 client.loop_forever()
-
-

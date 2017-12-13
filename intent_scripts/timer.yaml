@@ -7,4 +7,6 @@ SetTimer:
     data_template:
       name: "{{ timer_name | default('none') }}"
       duration: "{{ timer_duration }}"
-
+      seconds: "{{ slots.timer_duration.value.seconds }}"
+      minutes: "{{ slots.timer_duration.value.minutes }}"
+      hours: "{{ slots.timer_duration.value.hours }}"

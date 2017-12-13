@@ -1,0 +1,53 @@
+- alias: Tod arrived home
+  trigger:
+    - platform: zone
+      entity_id: device_tracker.tods_iphone
+      zone: zone.home
+      event: enter
+  action:
+    service: script.arrived_home
+    data:
+      id: 'tod'
+
+- alias: Cathie arrived home
+  trigger:
+    - platform: zone
+      entity_id: device_tracker.docs_iphone
+      zone: zone.home
+      event: enter
+  action:
+    service: script.arrived_home
+    data:
+      id: 'doc'
+
+- alias: Cathie arrived at work
+  trigger:
+    - platform: zone
+      entity_id: device_tracker.docs_iphone
+      zone: zone.brown_trucking
+      event: enter
+  action:
+    - service: notify.ios_tods_phone
+      data:
+        title: "Cathie arrived at Work"
+        message: "Cathie arrived at Work"
+        data:
+          push:
+            badge: 0
+            category: ''
+
+- alias: Cathie left work
+  trigger:
+    - platform: zone
+      entity_id: device_tracker.docs_iphone
+      zone: zone.brown_trucking
+      event: leave
+  action:
+    - service: notify.ios_tods_phone
+      data:
+        title: "Cathie left Work"
+        message: "Cathie left Work"
+        data:
+          push:
+            badge: 0
+            category: ''
