@@ -20,22 +20,38 @@ test_jarvis_playlist:
   sequence:
     - event: JARVIS_PLAYLIST
       event_data_template:
-        playlist: 'christmas'
+        playlist:
+          "{{ alternative | default('christmas') }}"
 
 test_jarvis_artist:
   sequence:
     - event: JARVIS_ARTIST
       event_data_template:
         artist: 'John Legend'
+        title: 'All of Me'
+
+test_jarvis_song:
+  sequence:
+    - event: JARVIS_SONG
+      event_data_template:
+        artist: 'John Legend'
+        title: 'All of Me'
+
+test_jarvis_get_coffee_state:
+  sequence:
+    - service: mqtt.publish
+      data:
+        topic: "jarvis/coffeeIn/getState"
+        payload: 1
 
 test_jarvis_coffee_on:
   sequence:
     - service: mqtt.publish
       data:
         topic: "jarvis/coffeeOut/getState"
-    - condition: state
-      entity_id: 'sensor.coffee_power'
-      state: '0'
+    # - condition: state
+    #   entity_id: 'sensor.coffee_power'
+    #   state: '0'
     - service: mqtt.publish
       data:
         topic: "jarvis/coffeeIn/turnOn"
@@ -52,9 +68,9 @@ test_jarvis_coffee_off:
     - service: mqtt.publish
       data:
         topic: "jarvis/coffeeOut/getState"
-    - condition: state
-      entity_id: 'sensor.coffee_power'
-      state: '1'
+    #- condition: state
+    #   entity_id: 'sensor.coffee_power'
+    #   state: '1'
     - service: mqtt.publish
       data:
         topic: "jarvis/coffeeIn/turnOn"
@@ -66,15 +82,23 @@ test_jarvis_coffee_off:
         topic: "jarvis/coffeeIn/getState"
         payload: 1
 
-test_jarvis_get_coffee_state:
-  sequence:
-    - service: mqtt.publish
-      data:
-        topic: "jarvis/coffeeIn/getState"
-        payload: 1
-
-test_jarvis_say_coffee_state:
+test_jarvis_say_coffee_brew_large:
   sequence:
     - event: JARVIS_SAY
       event_data_template:
-        text: ''
+        text: 'OK, brewing coffee'
+    - service: mqtt.publish
+      data:
+        topic: "jarvis/coffeeIn/brewLarge"
+        payload: 1
+
+
+test_jarvis_say_coffee_brew_small:
+  sequence:
+    - event: JARVIS_SAY
+      event_data_template:
+        text: 'OK, brewing coffee'
+    - service: mqtt.publish
+      data:
+        topic: "jarvis/coffeeIn/brewSmall"
+        payload: 1

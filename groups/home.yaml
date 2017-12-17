@@ -1,0 +1,29 @@
+default_view:
+  name: Home
+  view: yes
+  icon: mdi:homeassistant
+  entities:
+    - group.lights
+    - group.garage
+    - camera.living_room
+    - group.climate
+    - group.music
+    - group.doors
+    - group.dark_sky
+
+Debug:
+  view: yes
+  entities:
+    - group.all_switches
+    - group.all_covers
+    - group.all_devices
+    - group.all_lights
+    - group.all_scripts
+    - group.all_automations
+    - group.lights
+    - group.garage
+    - camera.living_room
+    - group.climate
+    - group.music
+    - group.doors
+    - group.dark_sky

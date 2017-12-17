@@ -1,47 +1,61 @@
 playlist_mopidy:
   sequence:
-    - service: media_player.shuffle_set
-      entity_id: media_player.mopidy
-      data:
-        shuffle: 'true'
-    - service: media_player.repeat_set
-      entity_id: media_player.mopidy
-      data:
-        repeat: 'true'
-    - service: shell_command.get_playlist
-      data_template:
-        arguments: "{{ playlist }}"
-    - service: shell_command.jarvis_says
-      data_template:
-        speech: '"OK, playing {{ states("sensor.mopidy_playlist") |replace("(by topsify)","") }} playlist"'
-    - delay: 00:00:03
-    - service: media_player.play_media
-      data_template:
-        entity_id: media_player.mopidy
-        media_content_type: playlist
-        media_content_id: >-
-          {{ states('sensor.mopidy_playlist') }}
-      entity_id: media_player.mopidy
-    - service: media_player.media_next_track
-      entity_id: media_player.mopidy
+    - event: JARVIS_PLAYLIST
+      event_data_template:
+        playlist: "{{ playlist_name }}"
+    # - service: media_player.shuffle_set
+    #   entity_id: media_player.mopidy
+    #   data:
+    #     shuffle: 'true'
+    # - service: media_player.repeat_set
+    #   entity_id: media_player.mopidy
+    #   data:
+    #     repeat: 'true'
+    # - service: shell_command.get_playlist
+    #   data_template:
+    #     arguments: "{{ playlist }}"
+    # - service: shell_command.jarvis_says
+    #   data_template:
+    #     speech: '"OK, playing {{ states("sensor.mopidy_playlist") |replace("(by topsify)","") }} playlist"'
+    # - delay: 00:00:03
+    # - service: media_player.play_media
+    #   data_template:
+    #     entity_id: media_player.mopidy
+    #     media_content_type: playlist
+    #     media_content_id: >-
+    #       {{ states('sensor.mopidy_playlist') }}
+    #   entity_id: media_player.mopidy
+    # - service: media_player.media_next_track
+    #   entity_id: media_player.mopidy
 
 artist_mopidy:
   sequence:
-    - service: media_player.shuffle_set
-      entity_id: media_player.mopidy
-      data:
-        shuffle: 'true'
-    - service: media_player.repeat_set
-      data:
-        shuffle: 'true'
-    - service: shell_command.get_artist
-      data_template:
-        arguments: >-
-          '"{{ artist }}"'
-    - service: shell_command.jarvis_says
-      data_template:
-        speech: '"OK, playing music by {{ states("sensor.mopidy_playlist") }}"'
-    - delay: 00:00:03
+    event: JARVIS_ARTIST
+    event_data_template:
+      artist: "{{ artist }}"
+
+song_mopidy:
+  sequence:
+    event: JARVIS_SONG
+    event_data_template:
+      artist: "{{ artist }}"
+      song: "{{ song }}"
+
+    # - service: media_player.shuffle_set
+    #   entity_id: media_player.mopidy
+    #   data:
+    #     shuffle: 'true'
+    # - service: media_player.repeat_set
+    #   data:
+    #     repeat: 'true'
+    # - service: shell_command.get_artist
+    #   data_template:
+    #     arguments: >-
+    #       '"{{ artist }}"'
+    # - service: shell_command.jarvis_says
+    #   data_template:
+    #     speech: '"OK, playing music by {{ states("sensor.mopidy_playlist") }}"'
+    # - delay: 00:00:03
 
 resume_mopidy:
   sequence:
@@ -120,6 +134,3 @@ play_altpop:
     - service: shell_command.jarvis_says
       data:
         speech: '"OK, playing alternative playlist"'
-
-
-

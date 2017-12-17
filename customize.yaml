@@ -1,3 +1,17 @@
+group.all_switches:
+  hidden: false
+group.all_lights:
+  hidden: false
+group.all_covers:
+  hidden: false
+group.all_devices:
+  hidden: false
+group.all_scripts:
+  hidden: false
+group.all_automations:
+  hidden: false
+group.thermostats:
+  hidden: false
 binary_sensor.sensor:
   friendly_name: Garage Door Sensor
   new_entity_id: binary_sensor.garage_door_sensor
@@ -106,3 +120,7 @@ switch.unknown_id0312_unknown_type0221_id251c_switch:
   friendly_name: Living_Room_Back_Wall_Left_Outlet
 switch.unknown_id0312_unknown_type0221_id251c_switch_3:
   friendly_name: Living_Room_Back_Wall_Right_Outlet
+switch.switch:
+  friendly_name: Driveway Lights
+switch.ge_unknown_type4952_id3037_switch:
+  friendly_name: Driveway Lights

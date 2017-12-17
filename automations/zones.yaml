@@ -27,7 +27,7 @@
       zone: zone.brown_trucking
       event: enter
   action:
-    - service: notify.ios_tods_phone
+    - service: notify.ios_tods_iphone
       data:
         title: "Cathie arrived at Work"
         message: "Cathie arrived at Work"
@@ -43,7 +43,7 @@
       zone: zone.brown_trucking
       event: leave
   action:
-    - service: notify.ios_tods_phone
+    - service: notify.ios_tods_iphone
       data:
         title: "Cathie left Work"
         message: "Cathie left Work"
@@ -51,3 +51,4 @@
           push:
             badge: 0
             category: ''
+

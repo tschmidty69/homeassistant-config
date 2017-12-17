@@ -3,9 +3,12 @@ playPlaylist:
     type: plain
     text: music
   action:
-    - service: script.playlist_mopidy
-      data_template:
-        playlist: "{{ playlist_name | default ('alternative') }}"
+    # - service: script.playlist_mopidy
+    #   data_template:
+    #     playlist: "{{ playlist_name | default ('alternative') }}"
+    - event: JARVIS_PLAYLIST
+      event_data_template:
+        playlist: "{{ playlist_name }}"
 
 playArtist:
   speech:
@@ -16,7 +19,17 @@ playArtist:
       data_template:
         artist: "{{ artist_name }}"
 
-resumeMusic:
+playSong:
+  speech:
+    type: plain
+    text: music
+  action:
+    - service: script.song_mopidy
+      data_template:
+        artist: "{{ artist_name }}"
+        song: "{{ song_name }}"
+
+playMusic:
   speech:
     type: plain
     text: music

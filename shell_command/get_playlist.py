@@ -15,7 +15,7 @@ parser = argparse.ArgumentParser()
 
 group = parser.add_mutually_exclusive_group(required=True)
 group.add_argument("-a", "--artist", help="artist to search for")
-group.add_argument("-p", "--playlist", help="playlist to search for") 
+group.add_argument("-p", "--playlist", help="playlist to search for")
 
 parser.add_argument("-r", "--random", help="choose random playlist if more than one", action="store_true")
 parser.add_argument("-v", "--verbose", help="verbose output, can be specified multiple times", action="count")
@@ -49,53 +49,53 @@ if args.verbose > 1:
 if args.playlist:
   playlists=[]
   PLAYLISTS=subprocess.check_output([MPC_BINARY, "-h", MPC_HOST, "lsplaylists"])
-  
+
   if args.verbose > 1:
     log( "playlist:", args.playlist)
     log( "PLAYLISTS:", PLAYLISTS )
-  
+
 #  matching = [s for s in PLAYLISTS.split("\n") if args.playlist.lower() in s.lower()]
-  playlists = process.extractBests(args.playlist, PLAYLISTS.split("\n"), score_cutoff=60) 
+  playlists = process.extractBests(args.playlist, PLAYLISTS.split("\n"), score_cutoff=60)
   if args.verbose >1:
     print "tuple:  %s" % (playlists,)
   matching=[x[0] for x in playlists]
-  
+
 
   if matching:
 
     if args.verbose:
       log( "Found these playlists:", '\n'.join(matching) )
-  
+
     if args.random:
       playlist = random.choice(matching)
     else:
       playlist = matching[0]
-  
+
     if args.verbose:
       log( "Using", playlist )
   else:
       if args.verbose:
         log( "Mo matching playlist found" )
       playlist="no match"
-  
+
   log( "playlist:", playlist )
-  
+
   url = REST_URL+'/api/states/' + HA_SENSOR
   headers = {'x-ha-access': REST_PASSWORD,
              'content-type': 'application/json'}
   data = '{"state": "'+playlist+'"}'
-  
+
   if args.verbose > 1:
     log( "Url:", url )
     log( "data:", data )
-  
+
   response = post(url, headers=headers, data=data)
 elif args.artist:
   if args.verbose > 1:
     log( "ARTIST:", args.artist )
 
   ARTIST=subprocess.check_output([MPC_BINARY, "-h", MPC_HOST, "search", "artist", args.artist])
-  tracks=matching = [s for s in ARTIST.split("\n") if "track" in s]
+  tracks = [s for s in ARTIST.split("\n") if "track" in s]
   if args.verbose:
     for i in tracks:
       log( "track:", i )
@@ -115,5 +115,5 @@ elif args.artist:
     log( "data:", data )
 
   response = post(url, headers=headers, data=data)
-  
+
 log(response.text)

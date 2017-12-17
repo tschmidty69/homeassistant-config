@@ -1,4 +1,6 @@
-garage_door_opener:
+garage:
   name: Garage Door Opener
   entities:
+    - cover.garage_door
+    - binary_sensor.ecolink_garage_door_tilt_sensor_sensor
     - switch.fortrezz_mimolite_wireless_interfacebridge_module_switch

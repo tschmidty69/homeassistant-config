@@ -101,6 +101,7 @@ logger:
 #    homeassistant.components.websocket_api: debug
     homeassistant.helpers.shell_command: debug
     homeassistant.components.mqtt: debug
+    homeassistant.components.intent_script: debug
 
 # Enables a map showing the location of tracked devices
 map:

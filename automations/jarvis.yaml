@@ -1,0 +1,38 @@
+#- alias: asrStartListening
+#  trigger:
+#    platform: mqtt
+#    topic: hermes/asr/startListening
+#  action:
+#    event: JARVIS_LISTENING
+
+- alias: hotwordDetected
+  trigger:
+    platform: mqtt
+    topic: hermes/hotword/toggleOff
+  action:
+    event: JARVIS_LISTENING
+
+- alias: asrStopListening
+  trigger:
+    platform: mqtt
+    topic: hermes/hotword/toggleOn
+  action:
+    event: JARVIS_NOT_LISTENING
+
+- alias: intentNotParsed
+  trigger:
+    platform: mqtt
+    topic: hermes/nlu/intentNotParsed
+  action:
+    event: JARVIS_INTENT_NOT_PARSED
+    event_data_template:
+      payload: '{{ trigger.payload }}'
+
+- alias: snips_intent
+  trigger:
+    platform: mqtt
+    topic: hermes/intent/#
+  action:
+    event: JARVIS_INTENT_NOT_PARSED
+    event_data_template:
+      payload: '{{ trigger.payload }}'

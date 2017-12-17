@@ -7,8 +7,7 @@ import string
 import json
 import boto3
 from pathlib import Path
-import os
-import re
+import os, re, time, threading
 import paho.mqtt.client as mqtt
 import paho.mqtt.publish as publish
 from fuzzywuzzy import fuzz
@@ -27,25 +26,42 @@ class jarvis(appapi.AppDaemon):
     self.mqtt_host = '192.168.1.19'
     self.mqtt_port = 1883
     self.mpc_host = '192.168.1.201'
+    self.players = ["media_player.snapcast_client_6152618a83b04b70b879e3fa1f4664b2",
+            "media_player.snapcast_client_4b8c047b8b04d3bb68c2b07e00000005"]
+    self.volume = {}
+    for player in self.players:
+        self.volume[player] = self.get_state(player, "volume_level")
     self.listen_event(self.jarvis_say, "JARVIS_SAY")
     self.listen_event(self.jarvis_set_timer, "JARVIS_SET_TIMER")
     self.listen_event(self.jarvis_playlist, "JARVIS_PLAYLIST")
     self.listen_event(self.jarvis_artist, "JARVIS_ARTIST")
     self.listen_event(self.jarvis_song, "JARVIS_SONG")
+    self.listen_event(self.jarvis_lights, "JARVIS_LIGHTS_ON")
+    self.listen_event(self.jarvis_lights, "JARVIS_LIGHTS_OFF")
+    self.listen_event(self.jarvis_listening, "JARVIS_LISTENING")
+    self.listen_event(self.jarvis_listening, "JARVIS_NOT_LISTENING")
+    self.listen_event(self.jarvis_intent_not_parsed,
+                      "JARVIS_INTENT_NOT_PARSED")
 
-    client = mqtt.Client()
-    client.on_connect = on_connect
+  def jarvis_listening(self, event_name, data, *args, **kwargs):
+    self.log("jarvis_listening: {}".format(data), "INFO")
+    if event_name == "JARVIS_LISTENING":
+        for player in self.players:
+            self.volume[player] = self.get_state(player, "volume_level")
+            self.jarvis_ramp_volume(player, self.volume[player], 0.2)
+    if event_name == "JARVIS_NOT_LISTENING":
+        for player in self.players:
+            self.jarvis_ramp_volume(player, 0.2, self.volume[player])
 
-    client.message_callback_add("hermes/nlu/intentNotParsed",
-                                jarvis_unknown_intent)
-    #client.message_callback_add("hermes/audioServer/default/playFinished",
-    #                            playFinished)
-    #client.message_callback_add("jarvis/timer_duration", timer_duration)
+  def jarvis_tts_say(self, event_name, data, *args, **kwargs):
+    self.log("jarvis_tts_say: {}".format(data), "INFO")
 
-    client.connect(args.mqtt_host, args.port, 60)
+  def jarvis_intent_not_parsed(self, event_name, data, *args, **kwargs):
+    self.log("jarvis_intent_not_parsed: {}".format(data), "INFO")
 
-  def jarvis_say(self, event_name, data, **args):
+  def jarvis_say(self, event_name, data, *args, **kwargs):
     self.log("jarvis_say: {}".format(data), "INFO")
+    self.log("jarvis_say: args {}".format(args), "INFO")
 
     speech={ "text": data['text']}
 
@@ -90,7 +106,7 @@ class jarvis(appapi.AppDaemon):
             port=args.port,
       )
 
-  def jarvis_set_timer(self, event_name, data, kwargs):
+  def jarvis_set_timer(self, event_name, data, *args, **kwargs):
     self.log("jarvis_set_timer: {}".format(data), "INFO")
     duration = int(data['hours'])*360
     duration += int(data['minutes'])*60
@@ -145,7 +161,7 @@ class jarvis(appapi.AppDaemon):
         kwargs['timer_name']+" is done"}, kwargs)
     #TODO: start a dialog and ask if reminder was heard
 
-  def jarvis_playlist(self, event_name, data, kwargs):
+  def jarvis_playlist(self, event_name, data, *args, **kwargs):
     self.log("jarvis_playlist: {}".format(data), "INFO")
     self.call_service("media_player/shuffle_set",
                       entity_id = 'media_player.mopidy',
@@ -193,7 +209,7 @@ class jarvis(appapi.AppDaemon):
         self.jarvis_say('NONE', {'text':
         "Sorry, I couldn't get any playlist matching "+ data['playlist']})
 
-  def jarvis_artist(self, method, data, kwargs):
+  def jarvis_artist(self, event_name, data, *args, **kwargs):
     self.log("jarvis_artist: {}".format(data), "INFO")
 
     artist_search=subprocess.check_output(["/usr/bin/mpc", "-h", self.mpc_host,
@@ -224,13 +240,71 @@ class jarvis(appapi.AppDaemon):
         self.jarvis_say('NONE', {'text':
         "Sorry, I couldn't find any music by "+ data['artist']})
 
+  def jarvis_song(self, event_name, data, *args, **kwargs):
+    self.log("jarvis_song: {}".format(data), "INFO")
+    mpc_search=subprocess.check_output(["/usr/bin/mpc", "-h", self.mpc_host,
+                "search", "artist", data['artist'], "title", data['title']],
+                universal_newlines=True)
+    #self.log("jarvis_artist: {}".format(artist_search), "INFO")
+    tracks = [str(s) for s in str(mpc_search).split('\n') if "track" in s]
+    #for t in tracks:
+    #    self.log("jarvis_artist: track: %s" % t )
+    if tracks:
+        self.call_service("media_player/media_pause",
+                          entity_id = 'media_player.mopidy')
 
-  def jarvis_song(self, method, data, kwargs):
-    self.log("jarvis_song: NOT_IMPLEMENTED {}".format(data), "INFO")
+        self.call_service("media_player/clear_playlist",
+                          entity_id = 'media_player.mopidy')
 
-  def mqtt_on_connect(client, userdata, flags, rc):
-    print("Connected with result code "+str(rc))
+        mpc_add=Popen(["/usr/bin/mpc", "-h", self.mpc_host, "add"],
+                        stdin=PIPE, encoding='utf8')
+        mpc_add.communicate("\n".join(tracks))
 
-    # Subscribing in on_connect() means that if we lose the connection and
-    # reconnect then subscriptions will be renewed.
-    client.subscribe("hermes/nlu/intentNotParsed")
+        self.call_service("media_player/turn_on",
+                          entity_id = 'media_player.mopidy')
+        self.call_service("media_player/media_play",
+                          entity_id = 'media_player.mopidy')
+        self.jarvis_say('NONE', {'text':
+        "OK, playing "+data['title']+" by "+data['artist']})
+    else:
+        self.jarvis_say('NONE', {'text':
+        "Sorry, I couldn't find any music by "+ data['artist']})
+
+    artist_search=subprocess.check_output(["/usr/bin/mpc", "-h", self.mpc_host,
+                "search", "artist", data['artist']],
+                universal_newlines=True)
+
+  def jarvis_lights(self, event_name, data, *args, **kwargs):
+    self.log("jarvis_lights: {}".format(data), "INFO")
+    onOff = "on" if event_name == 'JARVIS_LIGHTS_ON' else "off"
+    if data['house_room'] == 'christmas':
+        self.call_service("switch/turn_"+onOff,
+          entity_id = 'switch.unknown_id0312_unknown_type0221_id251c_switch_3')
+        self.jarvis_say('NONE', {'text':"Ok"})
+    elif data['house_room'] == 'driveway':
+        self.call_service("switch/turn_"+onOff,
+          entity_id = 'switch.ge_unknown_type4952_id3037_switch')
+        self.jarvis_say('NONE', {'text':"Ok"})
+    else:
+        self.jarvis_say('NONE', {'text':"Sorry, I can't control the "+
+            data['house_room']+" lights"})
+
+  def jarvis_ramp_volume(self, player, volume, dst_vol, *args, **kwargs):
+    self.log("jarvis_ramp_volume: %s %s %s" % (player, volume, dst_vol),
+        "INFO")
+    time_time = time.time
+    start = time_time()
+    period = .1
+    count = 0
+    steps = 7
+    step = (volume - dst_vol) / steps
+    while True:
+      if count == steps: break
+      if (time_time() - start) > period:
+        count += 1
+#        self.log("jarvis_ramp_volume: %s" % (str(volume - step * count)),
+#            "INFO")
+        start += period
+        self.call_service("media_player/volume_set",
+          entity_id = player,
+          volume_level = str(volume - step * count))

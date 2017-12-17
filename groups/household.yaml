@@ -1,4 +1,4 @@
-household:
+Household:
   name: Household
   view: no
   entities:
