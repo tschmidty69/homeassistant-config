@@ -14,7 +14,8 @@ OZW_Log.txt
 zwcfg_0xfdfaeb92.xml
 *.sqlite
 hc
-
+home-assistant_v2.db-shm
+home-assistant_v2.db-wal
 .spotify-token-cache
 .uuid
 apps/__pycache__
