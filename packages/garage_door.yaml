@@ -1,0 +1,164 @@
+automation:
+  ### NOTE: These are handled by node-red now
+  # - alias: 'Notify IOS Garage Door Open'
+  #   initial_state: True
+  #   trigger:
+  #     - platform: time
+  #       at: '22:00:00' #change this to actual trigger
+  #   condition:
+  #     condition: state
+  #     entity_id: binary_sensor.ecolink_garage_door_tilt_sensor_sensor #id of your garage door relay
+  #     state: 'on'
+  #   action:
+  #     - service: notify.all_phones
+  #       data:
+  #         title: "Garage Door Check"
+  #         message: "It's 10pm and Garage Door is Open"
+  #         data:
+  #           push:
+  #             badge: 0
+  #             category: 'GARAGEDOOR'
+
+  # - alias: 'Garage Door Alert'
+  #   trigger:
+  #     - platform: state
+  #       entity_id: binary_sensor.ecolink_garage_door_tilt_sensor_sensor
+  #       from: 'off'
+  #       to: 'on'
+  #       for:
+  #         minutes: 10
+  #   action:
+  #     - service: notify.all_phones
+  #       data:
+  #         title: "Garage Door Open"
+  #         message: "Garage Door has been open for 10 minutes"
+  #         data:
+  #           push:
+  #             badge: 0
+  #             category: 'GARAGEDOOR'
+
+  # - alias: 'Door Open but No One is Home'
+  #   trigger:
+  #     - platform: state
+  #       entity_id: binary_sensor.ecolink_garage_door_tilt_sensor_sensor
+  #       to: 'on'
+  #   condition:
+  #     condition: state
+  #     entity_id: group.household
+  #     state: 'not_home'
+  #   action:
+  #     - service: notify.all_phones
+  #       data:
+  #         title: "Garage Door Open"
+  #         message: "But no one is home"
+  #         data:
+  #           push:
+  #             badge: 0
+  #             category: 'GARAGEDOOR'
+
+  # This is triggered directly from IOS notifcation
+  - alias: 'iOS app notification action garagedoor'
+    initial_state: True
+    hide_entity: True
+    trigger:
+      platform: event
+      event_type: ios.notification_action_fired
+      event_data:
+        actionName: 'CLOSE_GARAGE'
+    action:
+      - service: switch.turn_on
+        entity_id: switch.fortrezz_mimolite_wireless_interfacebridge_module_switch
+      - delay: '00:00:01'
+      - service: switch.turn_off
+        entity_id: switch.fortrezz_mimolite_wireless_interfacebridge_module_switch
+
+  # Sigh, this literally just turns the switch off
+  - alias: Turn off garage door switch
+    hide_entity: 'true'
+    trigger:
+      platform: mqtt
+      topic: 'GarageDoorOpenerSwitchOff'
+    action:
+      - delay: '00:00:01'
+      - service: switch.turn_off
+        entity_id: switch.fortrezz_mimolite_wireless_interfacebridge_module_switch
+  #    - service: persistent_notification.create
+  #      data:
+  #        message: "Turned switch off"
+
+  - alias: Trigger to turn off garage door switch
+    hide_entity: 'true'
+    trigger:
+      platform: state
+      entity_id: switch.fortrezz_mimolite_wireless_interfacebridge_module_switch
+      from: 'off'
+      to: 'on'
+    action:
+      - service: mqtt.publish
+        data_template:
+          topic: 'GarageDoorOpenerSwitchOff'
+          payload: 'off'
+  #    - service: persistent_notification.create
+  #      data:
+  #        message: Temperature set to {{ states.input_number.downstairs_temperature.state | int }}
+
+intent_script:
+  openGarageDoor:
+    speech:
+      type: plain
+      text: >-
+        {%- if is_state("sensor.ecolink_garage_door_tilt_sensor_sensor", "off") -%}
+          OK, opening the garage door.
+        {%- else -%}
+          The garage door is already open.
+        {%- endif -%}
+    action:
+      - service: script.turn_on
+        entity_id: script.garage_door_open
+
+  closeGarageDoor:
+    speech:
+      type: plain
+      text: >-
+        {%- if is_state("sensor.ecolink_garage_door_tilt_sensor_sensor", "on") -%}
+          OK, closing the garage door
+        {%- else -%}
+          The garage door is already closed.
+        {%- endif -%}
+    action:
+      - service: script.garage_door_close
+
+script:
+  garage_door_open:
+    sequence:
+      - condition: state
+        entity_id: binary_sensor.ecolink_garage_door_tilt_sensor_sensor
+        state: 'off'
+      - service: switch.turn_on
+        entity_id: switch.fortrezz_mimolite_wireless_interfacebridge_module_switch
+      - delay: '00:00:01'
+      - service: switch.turn_off
+        entity_id: switch.fortrezz_mimolite_wireless_interfacebridge_module_switch
+      # - condition: sun
+      #   after: sunset
+      # - service: switch.turn_on
+      #   entity_id: switch.ge_unknown_type4952_id3037_switch
+
+  garage_door_close:
+    sequence:
+      - condition: state
+        entity_id: binary_sensor.ecolink_garage_door_tilt_sensor_sensor
+        state: 'on'
+      - service: switch.turn_on
+        entity_id: switch.fortrezz_mimolite_wireless_interfacebridge_module_switch
+      - delay: '00:00:01'
+      - service: switch.turn_off
+        entity_id: switch.fortrezz_mimolite_wireless_interfacebridge_module_switch
+
+  garage_door_switch:
+    sequence:
+      - service: switch.turn_on
+        entity_id: switch.fortrezz_mimolite_wireless_interfacebridge_module_switch
+      - delay: '00:00:01'
+      - service: switch.turn_off
+        entity_id: switch.fortrezz_mimolite_wireless_interfacebridge_module_switch

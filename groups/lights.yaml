@@ -2,12 +2,16 @@ Living Room:
   entities:
     - switch.unknown_id0312_unknown_type0221_id251c_switch
     - switch.unknown_id0312_unknown_type0221_id251c_switch_3
+
 Driveway:
-    name: Driveway
-    entities:
+  name: Driveway
+  entities:
     - switch.ge_unknown_type4952_id3037_switch
 
 Lights:
+  name: Lights
+  control: hidden
+  entities:
     - switch.unknown_id0312_unknown_type0221_id251c_switch
     - switch.unknown_id0312_unknown_type0221_id251c_switch_3
     - switch.ge_unknown_type4952_id3037_switch

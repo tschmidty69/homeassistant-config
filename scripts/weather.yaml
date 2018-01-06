@@ -3,8 +3,7 @@ current_weather:
     - service: shell_command.jarvis_says
       data_template:
         speech: >-
-          "The weather is currently {{ states('sensor.dark_sky_weather_temperature') }} degrees outside and {{ states('sensor.dark_sky_weather_summary') }}"
+          "The weather is currently {{ states('sensor.dark_sky_weather_temperature') | round(0)}} degrees outside and {{ states('sensor.dark_sky_weather_summary') }}"
 #    - service: shell_command.jarvis_says
 #      data:
 #        speech: '"The weather is fine"'
-

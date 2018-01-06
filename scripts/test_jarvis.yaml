@@ -1,3 +1,55 @@
+test_pushbullet_file:
+  sequence:
+    service: notify.pushbullet
+    data:
+      title: test_pushbullet_file
+      message: Test File
+      target:
+        - "device/Tod's iPhone"
+        - email/tschmidty@yahoo.com
+      data:
+        file: /tmp/tv_check_doc.jpg
+
+test_pushbullet_note:
+  sequence:
+    service: notify.pushbullet
+    data:
+      title: test_pushbullet_note
+      message: Test Note
+      target:
+        - "device/Tod's iPhone"
+        - email/tschmidty@yahoo.com
+
+test_pushbullet_note_email:
+  sequence:
+    service: notify.pushbullet
+    data:
+      title: test_pushbullet_note_email
+      message: Test Note
+      target: email/tschmidty@yahoo.com
+
+test_pushbullet_list:
+  sequence:
+    service: notify.pushbullet
+    data:
+      title: test_pushbullet_list
+      message: Test List
+      data:
+        list:
+          - item1
+          - item2
+
+test_pushbullet_template_list:
+  sequence:
+    service: notify.pushbullet
+    data_template:
+      title: test_pushbullet_template_list
+      message: Test Template List
+      data:
+        list:
+          - "{{ alternative | default('item3') }}"
+          - "{{ alternative | default('item4') }}"
+
 test_jarvis:
   sequence:
     - event: JARVIS_SAY
@@ -15,6 +67,24 @@ test_jarvis_timer:
     - service: mqtt.publish
       data_template:
         topic: '{{ world | default("not_world") }}'
+
+test_jarvis_notify:
+  sequence:
+    - event: JARVIS_NOTIFY
+      event_data_template:
+        text: 'Yes, I am still here'
+
+test_jarvis_query:
+  sequence:
+    - event: JARVIS_QUERY
+      event_data_template:
+        text: 'The garage door is open, would you like me to close it?'
+
+test_jarvis_response:
+  sequence:
+    - event: JARVIS_RESPONSE
+      event_data_template:
+        text: 'OK, I closed the garage door'
 
 test_jarvis_playlist:
   sequence:

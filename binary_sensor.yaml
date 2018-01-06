@@ -1,0 +1,37 @@
+- platform: bayesian
+  prior: 0.9
+  name: 'Tods Presence'
+  probability_threshold: 0.9
+  observations:
+    - entity_id: 'device_tracker.tods_iphone'
+      prob_given_true: 0.9
+      prob_given_false: 0.1
+      platform: 'state'
+      to_state: 'home'
+    - entity_id: 'device_tracker.tods_phone'
+      prob_given_true: 0.9
+      prob_given_false: 0.2
+      platform: 'state'
+      to_state: 'home'
+
+- platform: bayesian
+  prior: 0.5
+  name: 'Cathies Presence'
+  probability_threshold: 0.9
+  observations:
+    - entity_id: 'device_tracker.cathies_iphone'
+      prob_given_true: 0.9
+      prob_given_false: 0.1
+      platform: 'state'
+      to_state: 'home'
+    - entity_id: 'device_tracker.cathies_phone'
+      prob_given_true: 0.9
+      prob_given_false: 0.2
+      platform: 'state'
+      to_state: 'home'
+
+
+- platform: mqtt
+  state_topic: "living_room/pi_camera"
+  name: living_room_motion
+  sensor_class: motion

@@ -1,0 +1,27 @@
+group:
+  parent:
+    name: Parent
+    entities:
+      - group.child_1
+      - group.child_2
+  child_1:
+    name: Child 1
+    entities:
+      - input_boolean.switch_1
+      - input_boolean.switch_2
+  child_2:
+    name: Child 2
+    entities:
+      - input_boolean.switch_3
+      - input_boolean.switch_4
+
+input_boolean:
+  switch_1:
+    name: "Switch #1"
+  switch_2:
+    name: "Switch #2"
+  switch_3:
+    name: "Switch #3"
+  switch_4:
+    name: "Switch #4"
+

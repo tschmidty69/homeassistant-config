@@ -52,3 +52,50 @@
             badge: 0
             category: ''
 
+- alias: Grocery Store
+  trigger:
+    - platform: zone
+      entity_id: device_tracker.tods_iphone, device_tracker.docs_iphone
+      zone: zone.food_lion
+      event: enter
+    - platform: zone
+      entity_id: device_tracker.tods_iphone, device_tracker.docs_iphone
+      zone: zone.harris_teeter
+      event: enter
+    - platform: zone
+      entity_id: device_tracker.tods_iphone, device_tracker.docs_iphone
+      zone: zone.publix
+      event: enter
+    - platform: zone
+      entity_id: device_tracker.tods_iphone, device_tracker.docs_iphone
+      zone: zone.harris_teeter_highland_creek
+      event: enter
+  condition:
+    condition: state
+    entity_id: sensor.shopping_list
+    state: not_empty
+  action:
+    - service: notify.ios_tods_iphone
+      data_template:
+        title: "Shopping List"
+        message: >
+          You have items on your shopping list
+          {% for item in states.sensor.shopping_list.attributes.list %}
+          {{ item.name }}
+          {%- endfor -%}
+        data:
+          push:
+            badge: 0
+            category: ''
+    - service: notify.ios_docs_iphone
+      data_template:
+        title: "Shopping List"
+        message: >
+          You have items on your shopping list
+          {% for item in states.sensor.shopping_list.attributes.list %}
+          {{ item.name }}
+          {%- endfor -%}
+        data:
+          push:
+            badge: 0
+            category: ''

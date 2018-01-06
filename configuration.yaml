@@ -12,15 +12,20 @@ homeassistant:
   time_zone: America/New_York
   # Customization file
   customize: !include customize.yaml
+  packages: !include_dir_named packages
+  whitelist_external_dirs: /tmp
+
 
 # Show links to resources in log and frontend
 # introduction:
 
 # Enables the frontend
-#frontend:
+frontend:
+  themes: !include_dir_merge_named themes/
 #  extra_html_url:
 #   - custom_ui/state-card-floorplan.html
-#
+  javascript_version: es5
+
 
 ## Floorplan
 #mqtt:
@@ -70,6 +75,16 @@ http:
   ip_ban_enabled: True
   login_attempts_threshold: 2
 
+panel_iframe:
+  nodered:
+   title: 'Node-Red'
+   icon: 'mdi:shuffle-variant'
+   url: 'https://home.todschmidt.com:1880/'
+  ide:
+    title: IDE
+    icon: 'mdi:code-braces'
+    url: 'https://home.todschmidt.com:8321/'
+
 # Checks for available updates
 # Note: This component will send some information about your system to
 # the developers to assist with development of Home Assistant.
@@ -89,7 +104,7 @@ conversation: !include conversation.yaml
 history:
 
 # View all events in a logbook
-logbook:
+#logbook:
 
 logger:
   default: warning
@@ -101,13 +116,35 @@ logger:
 #    homeassistant.components.websocket_api: debug
     homeassistant.helpers.shell_command: debug
     homeassistant.components.mqtt: debug
-    homeassistant.components.intent_script: debug
+#    homeassistant.components.zha: debug
+#    homeassistant.components.sensor.zha: debug
+#    homeassistant.components.http: debug
+    urllib3.connectionpool: fatal
+    homeassistant.components.device_tracker.ping: debug
+    homeassistant.components.device_tracker.netgear: debug
+    homeassistant.components.notify.pushbullet: debug
+    homeassistant.components.sensor.shopping_list: debug
+    homeassistant.components.shopping_list: debug
 
 # Enables a map showing the location of tracked devices
 map:
 
 # Track the sun
 sun:
+
+#recorder:
+#  purge_interval: 1
+#  purge_keep_days: 5
+#  db_url: sqlite:///home/homeassistant/.homeassistant/home-assistant_v2.db
+#  exclude:
+#    domains:
+#      - zwave
+#      - weblink
+#      - updater
+#    entities:
+#      - sun.sun # Don't record sun data
+#      - sensor.last_boot # Comes from 'systemmonitor' sensor platform
+#      - sensor.date
 
 mqtt:
   broker: 192.168.1.201
@@ -120,6 +157,8 @@ zwave:
 zha:
   usb_path: /dev/ttyUSB1
   database_path: /home/homeassistant/.homeassistant/zigbee.db
+
+shopping_list:
 
 ios: !include ios.yaml
 
@@ -146,7 +185,7 @@ zone: !include zone.yaml
 variable: !include variables.yaml
 snips: 
 intent_script: !include_dir_merge_named intent_scripts
-android_ip_webcam: !include android_ip_webcam.yaml
+#android_ip_webcam: !include android_ip_webcam.yaml
 
 weblink:
   entities:

@@ -3,3 +3,7 @@
   services:
     - service: ios_tods_iphone
     - service: ios_docs_iphone
+
+- name: pushbullet
+  platform: pushbullet
+  api_key: 'o.mTGUsB39CYmnU4TXD3fTnb1DKigwJfXC'

@@ -16,3 +16,23 @@
   longitude: -80.766831
   radius: 500
   icon: mdi:bike
+- name: Food Lion
+  latitude: 35.335706
+  longitude: -80.796341
+  icon: mdi:cart
+  radius: 150
+- name: Harris Teeter
+  latitude: 35.334397
+  longitude: -80.814271
+  icon: mdi:cart
+  radius: 225
+- name: Publix
+  latitude: 35.374993
+  longitude: -80.788529
+  icon: mdi:cart
+  radius: 150
+- name: Harris Teeter Highland Creek
+  latitude: 35.371881
+  longitude: -80.782833
+  icon: mdi:cart
+  radius: 200

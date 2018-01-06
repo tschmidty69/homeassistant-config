@@ -11,6 +11,7 @@ update.sh
 *.db
 OZW_Log.txt
 *.log
+*.jpg
 zwcfg_0xfdfaeb92.xml
 *.sqlite
 hc

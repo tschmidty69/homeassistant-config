@@ -1,6 +1,6 @@
 Music:
   entities:
     - media_player.mopidy
-    - weblink.Mopidy
+#    - weblink.Mopidy
     - media_player.snapcast_client_6152618a83b04b70b879e3fa1f4664b2
     - media_player.snapcast_client_4b8c047b8b04d3bb68c2b07e00000005

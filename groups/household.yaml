@@ -1,6 +1,5 @@
 Household:
   name: Household
-  view: no
   entities:
     - device_tracker.tods_iphone
     - device_tracker.docs_iphone

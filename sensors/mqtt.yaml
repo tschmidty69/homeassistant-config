@@ -1,9 +1,6 @@
-# - platform: mqtt
-#   state_topic: "hermes/asr/startListening"
-#   name: "asr listening"
-# - platform: mqtt
-#   state_topic: "hermes/asr/stopListening"
-#   name: "asr listening"
-# - platform: mqtt
-#   state_topic: "hermes/nlu/intentNotParsed"
-#   name: "nlu intent"
+- platform: mqtt_room
+  device_id: "fb73bb65fc9d"
+  name: "tods keys"
+  state_topic: 'room_presence'
+  timeout: 5
+

@@ -32,7 +32,8 @@ sensor.door_sensor_1_power_management:
   hidden: true
 sensor.door_sensor_1_sourcenodeid:
   hidden: true
-binary_sensor.door_sensor_1_sensor: {}
+binary_sensor.door_sensor_1_sensor:
+  device_class: opening
 device_tracker.tods_iphone:
   icon: mdi:cellphone-iphone
 sensor.dark_sky_weather_temperature: {}
@@ -43,6 +44,7 @@ sensor.smartthings_multiv4_01042e9f_1:
 sensor.smartthings_multiv4_0108fcd9_1:
   friendly_name: Master Bedroom Temperature
 zwave.door_sensor_1:
+  friendly_name: Rear Garage Door
   new_entity_id: zwave.garage_door_sensor
   node_name: Garage Door Sensor
   old_entity_id: zwave.garage_door_sensor
@@ -55,6 +57,7 @@ sensor.ecolink_garage_door_tilt_sensor_sourcenodeid:
 sensor.ecolink_garage_door_tilt_sensor_access_control:
   hidden: true
 binary_sensor.smartthings_multiv4_01042e9f_1:
+  device_class: opening
   friendly_name: Bedroom 1 Sensor
 sensor.alarm_level:
   hidden: true
@@ -80,6 +83,7 @@ sensor.2gig_technologies_ct101_thermostat_iris_temperature_2:
   friendly_name: Upstairs Temperature
 switch.fortrezz_mimolite_wireless_interfacebridge_module_switch:
   friendly_name: Garage Door Opener
+  icon: mdi:garage
 sensor.fortrezz_mimolite_wireless_interfacebridge_module_alarm_level:
   hidden: true
 sensor.fortrezz_mimolite_wireless_interfacebridge_module_alarm_type:
@@ -113,14 +117,22 @@ media_player.snapcast_group_3d572249411f1f5d1a6c3b3f17b4c7b7:
   hidden: true
 media_player.snapcast_group_cfc8828768625f420d1f85fa23b30b8a:
   hidden: true
-switch.unknown_id0312_unknown_type0221_id251c_switch_2:
-  friendly_name: Living_Room_Back_Wall_Left_Outlet
-  hidden: true
 switch.unknown_id0312_unknown_type0221_id251c_switch:
   friendly_name: Living_Room_Back_Wall_Left_Outlet
+  icon: mdi:lightbulb
 switch.unknown_id0312_unknown_type0221_id251c_switch_3:
   friendly_name: Living_Room_Back_Wall_Right_Outlet
+  icon: mdi:lightbulb
 switch.switch:
   friendly_name: Driveway Lights
 switch.ge_unknown_type4952_id3037_switch:
   friendly_name: Driveway Lights
+  icon: mdi:lightbulb
+device_tracker.tods_phone:
+  hidden: true
+device_tracker.cathies_phone:
+  hidden: true
+binary_sensor.ecolink_garage_door_tilt_sensor_sensor:
+  device_class: opening
+group.garage:
+  icon: mdi:garage

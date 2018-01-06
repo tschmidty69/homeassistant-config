@@ -31,8 +31,26 @@
 - alias: snips_intent
   trigger:
     platform: mqtt
-    topic: hermes/intent/#
+    topic: hermes/nlu/intentNotParsed
   action:
     event: JARVIS_INTENT_NOT_PARSED
     event_data_template:
       payload: '{{ trigger.payload }}'
+
+- alias: setThermostat
+  trigger:
+    platform: mqtt
+    topic: hermes/intent/setThermostat
+  action:
+    event: JARVIS_THERMOSTAT
+    event_data_template:
+      payload: '{{ trigger.payload }}'
+
+#- alias: TTS
+#  trigger:
+#    platform: mqtt
+#    topic: hermes/tts/say
+#  action:
+#    event: JARVIS_SAY
+#    event_data_template:
+#      payload: '{{ trigger.payload }}'

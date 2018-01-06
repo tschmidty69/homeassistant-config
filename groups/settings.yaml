@@ -1,0 +1,7 @@
+settings:
+  name: "Settings"
+  control: hidden
+  entities:
+    - input_boolean.vacation_mode
+    - input_boolean.vincent_home
+

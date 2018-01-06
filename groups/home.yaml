@@ -6,19 +6,23 @@ default_view:
     - group.lights
     - group.garage
     - camera.living_room
+    - camera.master_bedroom
+    - group.household
     - group.climate
     - group.music
     - group.doors
     - group.dark_sky
+    - group.settings
+    - group.theme
 
 Debug:
   view: yes
   entities:
     - group.all_switches
     - group.all_covers
-    - group.all_devices
     - group.all_lights
     - group.all_scripts
+    - group.all_devices
     - group.all_automations
     - group.lights
     - group.garage
@@ -27,3 +31,6 @@ Debug:
     - group.music
     - group.doors
     - group.dark_sky
+    - weblink.Mopidy
+    - group.parent
+    - sensor.fail2ban

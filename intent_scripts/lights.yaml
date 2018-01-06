@@ -1,7 +1,7 @@
 lightsTurnOnSet:
   speech:
     type: plain
-    text: 'OK, turning the lights on'
+    text: 'OK, turning the {{ house_room }} lights on'
   action:
     - event: JARVIS_LIGHTS_ON
       event_data_template:
@@ -9,8 +9,8 @@ lightsTurnOnSet:
 
 lightsTurnOff:
   speech:
-    type: plain
-    text: 'OK, turning the lights of'
+   type: plain
+   text: 'OK, turning the {{ house_room }} lights off'
   action:
     - event: JARVIS_LIGHTS_OFF
       event_data_template:

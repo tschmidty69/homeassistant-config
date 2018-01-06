@@ -1,0 +1,152 @@
+intent_script:
+  playPlaylist:
+    action:
+      - event: JARVIS_PLAYLIST
+        event_data_template:
+          playlist:
+            "{{ alternative | default('christmas') }}"
+
+  playSong:
+    action:
+      - event: JARVIS_ARTIST
+        event_data_template:
+          artist: '{{ artist_name }}'
+
+  playArtist:
+    action:
+      - event: JARVIS_SONG
+        event_data_template:
+          artist: '{{ artist_name }}'
+          title: '{{ song_name }}'
+
+  playMusic:
+    action:
+      - service: script.resume_mopidy
+
+  pauseMusic:
+    action:
+      - service: script.pause_mopidy
+
+  volumeUp:
+    speech:
+      type: plain
+      text: music
+    action:
+      - service: script.volume_up_mopidy
+
+  volumeDown:
+    speech:
+      type: plain
+      text: music
+    action:
+      - service: script.volume_down_mopidy
+
+  nextSong:
+    speech:
+      type: plain
+      text: music
+    action:
+      - service: script.next_track_mopidy
+
+  previousSong:
+    speech:
+      type: plain
+      text: music
+    action:
+      - service: script.previous_track_mopidy
+
+script:
+  playlist_mopidy:
+    sequence:
+      - event: JARVIS_PLAYLIST
+        event_data_template:
+          playlist: "{{ playlist_name }}"
+
+  artist_mopidy:
+    sequence:
+      event: JARVIS_ARTIST
+      event_data_template:
+        artist: "{{ artist }}"
+
+  song_mopidy:
+    sequence:
+      event: JARVIS_SONG
+      event_data_template:
+        artist: "{{ artist }}"
+        song: "{{ song }}"
+
+  resume_mopidy:
+    sequence:
+      - condition: state
+        entity_id: media_player.mopidy
+        state: "paused"
+      - event: JARVIS_SAY
+        event_data:
+          text: "OK, pausing music"
+      - service: media_player.media_play
+        entity_id: media_player.mopidy
+
+  pause_mopidy:
+    sequence:
+      - condition: state
+        entity_id: media_player.mopidy
+        state: "playing"
+      - service: media_player.media_pause
+        entity_id: media_player.mopidy
+      - event: JARVIS_SAY
+        event_data:
+          text: "OK, playing music"
+
+  volume_up_mopidy:
+    sequence:
+      - service: media_player.volume_up
+        entity_id: media_player.mopidy
+      - service: media_player.volume_up
+        entity_id: media_player.mopidy
+
+  volume_down_mopidy:
+    sequence:
+      - service: media_player.volume_down
+        entity_id: media_player.mopidy
+      - service: media_player.volume_down
+        entity_id: media_player.mopidy
+
+  next_track_mopidy:
+    sequence:
+      - service: media_player.media_next_track
+        entity_id: media_player.mopidy
+      - event: JARVIS_SAY
+        event_data:
+          text: "OK, skipping music"
+
+  previous_track_mopidy:
+    sequence:
+      - service: media_player.media_previous_track
+        entity_id: media_player.mopidy
+      - event: JARVIS_SAY
+        event_data:
+          speech: '"OK, playing the previous track"'
+
+  # play_christmas:
+  #   sequence:
+  #     - service: media_player.play_media
+  #       entity_id: media_player.mopidy
+  #       data:
+  #         entity_id: media_player.mopidy
+  #         media_content_type: playlist
+  #         media_content_id: 'Christmas Playlist (by filtr)'
+  #     - service: shell_command.jarvis_says
+  #       data:
+  #         speech: '"OK, playing christmas playlist"'
+  #
+  # play_altpop:
+  #   sequence:
+  #     - service: media_player.play_media
+  #       entity_id: media_player.mopidy
+  #       data:
+  #         entity_id: media_player.mopidy
+  #         media_content_type: playlist
+  #         media_content_id: 'Adult Alternative (by topsify)'
+  #     - service: shell_command.jarvis_says
+  #       data:
+  #         speech: '"OK, playing alternative playlist"'
