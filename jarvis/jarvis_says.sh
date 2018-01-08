@@ -7,8 +7,11 @@
 #
 # Install and configure aws cli as per
 # https://docs.aws.amazon.com/polly/latest/dg/getting-started-cli.html
-# Installed in /home/<user>/.local/bin, configure with aws configure
-# and provide key, secret, etc.
+# Installed in /home/<user>/.aws, configure with aws configure
+# and provide key, secret, etc. Best practice is to create an IAM
+# user and give tehm permission to just polly
+#
+# Edit the aws line below with your configure profile name and voice-ide prefered
 #
 # in /etc/snips.toml, change TTS config to contain following 3 lines
 # [snips-tts]
