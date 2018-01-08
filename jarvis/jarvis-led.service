@@ -1,0 +1,12 @@
+[Unit]
+Description=Jarvis LED Controller
+
+[Service]
+ExecStart=/usr/local/bin/jarvis-led.sh
+ExecReload=/bin/kill -HUP $MAINPID
+User=root
+Restart=on-failure
+RestartSec=10
+
+[Install]
+WantedBy=multi-user.target
