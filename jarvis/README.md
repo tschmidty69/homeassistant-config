@@ -36,7 +36,7 @@ systemctl start jarvis-led
 ```
 ### jarvis_says ###
 
-Copy this script somewhere it can be executed bu snips
+Copy this script somewhere it can be executed by snips
 ```
 cd /usr/local/bin
 sudo wget https://raw.githubusercontent.com/tschmidty69/homeassistant/cmaster/jarvis/jarvis_says.sh
