@@ -1,9 +1,0 @@
-toggleSound:
-  speech:
-    type: plain
-    text: "OK, turning sound on"
-  action:
-    - service: script.snips_toggle_sound
-      data_template: 
-        sound: "{{ sound | default('on') }}"
-

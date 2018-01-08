@@ -1,8 +1,14 @@
 #!/bin/bash
 # Shell script to replace TTS in snips with AWS polly
 #
-# Install and configure aws cli as per https://docs.aws.amazon.com/polly/latest/dg/getting-started-cli.html
-# Installed in /home/<user>/.local/bin, configure with aws configure and provide key, secret, etc.
+# https://github.com/tschmidty69
+# adapted from
+# https://github.com/jvandewiel/
+#
+# Install and configure aws cli as per
+# https://docs.aws.amazon.com/polly/latest/dg/getting-started-cli.html
+# Installed in /home/<user>/.local/bin, configure with aws configure
+# and provide key, secret, etc.
 #
 # in /etc/snips.toml, change TTS config to contain following 3 lines
 # [snips-tts]
@@ -10,6 +16,7 @@
 # customtts = { command = ["/home/pi/polly.sh", "-w", "%%OUTPUT_FILE%%", "-l", "%%LANG%%", "%%TEXT%%"] }
 #
 # install avconv (apt-get install libav-tools) for the mp3->wav conversion
+# or use mpg123 (less dependencies)
 #
 # This will run e.g. '"/home/pi/polly.sh" "-w" "/tmp/.tmpbQHj3W.wav" "-l" "en" "For how long?"'
 #
@@ -31,5 +38,3 @@ if [ ! -f "$interm_file.wav" ]; then
 fi
 #echo "$interm_file.wav --> $output_file" >> /tmp/jarvis_says.log
 cp -v "$interm_file.wav" "$output_file"
-
-

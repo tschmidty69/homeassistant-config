@@ -5,9 +5,10 @@
       zone: zone.home
       event: enter
   action:
-    service: script.arrived_home
-    data:
-      id: 'tod'
+    - service: switch.turn_on
+      entity_id: switch.unknown_id0312_unknown_type0221_id251c_switch
+    - service: switch.turn_on
+      entity_id: switch.unknown_id0312_unknown_type0221_id251c_switch_3
 
 - alias: Cathie arrived home
   trigger:
@@ -16,9 +17,10 @@
       zone: zone.home
       event: enter
   action:
-    service: script.arrived_home
-    data:
-      id: 'doc'
+    - service: switch.turn_on
+      entity_id: switch.unknown_id0312_unknown_type0221_id251c_switch
+    - service: switch.turn_on
+      entity_id: switch.unknown_id0312_unknown_type0221_id251c_switch_3
 
 - alias: Cathie arrived at work
   trigger:

@@ -56,25 +56,6 @@ intent_script:
       - service: script.previous_track_mopidy
 
 script:
-  playlist_mopidy:
-    sequence:
-      - event: JARVIS_PLAYLIST
-        event_data_template:
-          playlist: "{{ playlist_name }}"
-
-  artist_mopidy:
-    sequence:
-      event: JARVIS_ARTIST
-      event_data_template:
-        artist: "{{ artist }}"
-
-  song_mopidy:
-    sequence:
-      event: JARVIS_SONG
-      event_data_template:
-        artist: "{{ artist }}"
-        song: "{{ song }}"
-
   resume_mopidy:
     sequence:
       - condition: state
@@ -113,14 +94,20 @@ script:
 
   next_track_mopidy:
     sequence:
+      - condition: state
+        entity_id: media_player.mopidy
+        state: "playing"
       - service: media_player.media_next_track
         entity_id: media_player.mopidy
       - event: JARVIS_SAY
         event_data:
-          text: "OK, skipping music"
+          text: "OK, skipping track"
 
   previous_track_mopidy:
     sequence:
+      - condition: state
+        entity_id: media_player.mopidy
+        state: "playing"
       - service: media_player.media_previous_track
         entity_id: media_player.mopidy
       - event: JARVIS_SAY

@@ -13,34 +13,3 @@
       data:
         message: 'Kitchen Door Open'
       service: notify.ios_tods_iphone
-
-#      data:
-#        message: >
-#            {% if is_state('device_tracker.tods_iphone', 'home') %}
-#              Back Door Open (Tod home)  
-#            {% else %}
-#              Tod is at {{ states('device_tracker.tods_iphone') }}.
-#            {% endif %}
-#        title: Back Door Open
-#      service_template: >
-#        {% if is_state('device_tracker.tods_iphone', 'home') %}
-#          notify.ios_tods_iphone
-#        {% else %}
-#          persistent_notification.create
-#        {% endif %}
-
-#alias: Back Door Closed
-#trigger:
-#  - entity_id: binary_sensor.smartthings_multiv4_01042e9f_1
-#    from: 'on'
-#    platform: state
-#    to: 'off'
-#condition:
-#  - condition: state
-#    entity_id: input_boolean.vincent_home
-#    state: true
-#action:
-#  - alias: Alert for Back Door Closed to Tods iPhone
-#    data:
-#      message: Back Door Closed
-#    service: notify.ios_tods_iphone

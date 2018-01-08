@@ -1,61 +1,4 @@
 automation:
-  ### NOTE: These are handled by node-red now
-  # - alias: 'Notify IOS Garage Door Open'
-  #   initial_state: True
-  #   trigger:
-  #     - platform: time
-  #       at: '22:00:00' #change this to actual trigger
-  #   condition:
-  #     condition: state
-  #     entity_id: binary_sensor.ecolink_garage_door_tilt_sensor_sensor #id of your garage door relay
-  #     state: 'on'
-  #   action:
-  #     - service: notify.all_phones
-  #       data:
-  #         title: "Garage Door Check"
-  #         message: "It's 10pm and Garage Door is Open"
-  #         data:
-  #           push:
-  #             badge: 0
-  #             category: 'GARAGEDOOR'
-
-  # - alias: 'Garage Door Alert'
-  #   trigger:
-  #     - platform: state
-  #       entity_id: binary_sensor.ecolink_garage_door_tilt_sensor_sensor
-  #       from: 'off'
-  #       to: 'on'
-  #       for:
-  #         minutes: 10
-  #   action:
-  #     - service: notify.all_phones
-  #       data:
-  #         title: "Garage Door Open"
-  #         message: "Garage Door has been open for 10 minutes"
-  #         data:
-  #           push:
-  #             badge: 0
-  #             category: 'GARAGEDOOR'
-
-  # - alias: 'Door Open but No One is Home'
-  #   trigger:
-  #     - platform: state
-  #       entity_id: binary_sensor.ecolink_garage_door_tilt_sensor_sensor
-  #       to: 'on'
-  #   condition:
-  #     condition: state
-  #     entity_id: group.household
-  #     state: 'not_home'
-  #   action:
-  #     - service: notify.all_phones
-  #       data:
-  #         title: "Garage Door Open"
-  #         message: "But no one is home"
-  #         data:
-  #           push:
-  #             badge: 0
-  #             category: 'GARAGEDOOR'
-
   # This is triggered directly from IOS notifcation
   - alias: 'iOS app notification action garagedoor'
     initial_state: True
@@ -82,9 +25,6 @@ automation:
       - delay: '00:00:01'
       - service: switch.turn_off
         entity_id: switch.fortrezz_mimolite_wireless_interfacebridge_module_switch
-  #    - service: persistent_notification.create
-  #      data:
-  #        message: "Turned switch off"
 
   - alias: Trigger to turn off garage door switch
     hide_entity: 'true'

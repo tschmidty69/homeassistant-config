@@ -1,10 +1,3 @@
-#- alias: asrStartListening
-#  trigger:
-#    platform: mqtt
-#    topic: hermes/asr/startListening
-#  action:
-#    event: JARVIS_LISTENING
-
 - alias: hotwordDetected
   trigger:
     platform: mqtt
@@ -19,6 +12,33 @@
   action:
     event: JARVIS_NOT_LISTENING
 
+- alias: lightsTurnOnSet
+  trigger:
+    platform: mqtt
+    topic: hermes/intent/user_rZEKlr8M7M3__lightsTurnOnSet
+  action:
+    event: JARVIS_LIGHTS_ON
+    event_data_template:
+      payload: '{{ trigger.payload }}'
+
+- alias: lightsTurnOff
+  trigger:
+    platform: mqtt
+    topic: hermes/intent/user_rZEKlr8M7M3__lightsTurnOff
+  action:
+    event: JARVIS_LIGHTS_OFF
+    event_data_template:
+      payload: '{{ trigger.payload }}'
+
+- alias: setThermostat
+  trigger:
+    platform: mqtt
+    topic: hermes/intent/user_rZEKlr8M7M3__setThermostat
+  action:
+    event: JARVIS_THERMOSTAT
+    event_data_template:
+      payload: '{{ trigger.payload }}'
+
 - alias: intentNotParsed
   trigger:
     platform: mqtt
@@ -27,30 +47,3 @@
     event: JARVIS_INTENT_NOT_PARSED
     event_data_template:
       payload: '{{ trigger.payload }}'
-
-- alias: snips_intent
-  trigger:
-    platform: mqtt
-    topic: hermes/nlu/intentNotParsed
-  action:
-    event: JARVIS_INTENT_NOT_PARSED
-    event_data_template:
-      payload: '{{ trigger.payload }}'
-
-- alias: setThermostat
-  trigger:
-    platform: mqtt
-    topic: hermes/intent/setThermostat
-  action:
-    event: JARVIS_THERMOSTAT
-    event_data_template:
-      payload: '{{ trigger.payload }}'
-
-#- alias: TTS
-#  trigger:
-#    platform: mqtt
-#    topic: hermes/tts/say
-#  action:
-#    event: JARVIS_SAY
-#    event_data_template:
-#      payload: '{{ trigger.payload }}'

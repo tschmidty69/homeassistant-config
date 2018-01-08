@@ -1,8 +1,0 @@
-searchWeatherForecast:
-  speech:
-    type: plain
-    text: "The weather is currently {{ states('sensor.dark_sky_weather_temperature') | round(0)}} degrees outside and {{ states('sensor.dark_sky_weather_summary') }}"
-  # action:
-  #   - event: JARVIS_SAY
-  #     event_data_template:
-  #       text: "The weather is currently {{ states('sensor.dark_sky_weather_temperature') | round(0)}} degrees outside and {{ states('sensor.dark_sky_weather_summary') }}"

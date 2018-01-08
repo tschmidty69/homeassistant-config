@@ -1,0 +1,9 @@
+automation:
+  alias: setThermostat
+  trigger:
+    platform: mqtt
+    topic: hermes/intent/setThermostat
+  action:
+    event: JARVIS_THERMOSTAT
+    event_data_template:
+      payload: '{{ trigger.payload }}'

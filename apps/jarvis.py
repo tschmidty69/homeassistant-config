@@ -32,7 +32,17 @@ class jarvis(appapi.AppDaemon):
             "media_player.snapcast_client_4b8c047b8b04d3bb68c2b07e00000005"]
     self.volume = {}
     for player in self.players:
-        self.volume[player] = self.get_state(player, "volume_level")
+        self.volume[player] = self.get_state(player, "volume_level")\
+    self.thermostats = {}
+    self.thermostats.update['heat'].update['downstairs']=
+                     '2gig_technologies_ct101_thermostat_iris_heating_1'
+    self.thermostats.update['heat'].update['upstairs']=
+                     '2gig_technologies_ct101_thermostat_iris_heating_1_2'
+    self.thermostats.update['cool'].update['downstairs']=
+                     '2gig_technologies_ct101_thermostat_iris_heating_1'
+    self.thermostats.update['cool'].update['downstairs']=
+                     '2gig_technologies_ct101_thermostat_iris_heating_1_2'
+
     self.listen_event(self.jarvis_say, "JARVIS_SAY")
     self.listen_event(self.jarvis_notify, "JARVIS_NOTIFY")
     self.listen_event(self.jarvis_query, "JARVIS_QUERY")
@@ -57,6 +67,76 @@ class jarvis(appapi.AppDaemon):
 
   def jarvis_thermostat(self, event_name, data, *args, **kwargs):
     self.log("jarvis_thermostat: {}".format(data), "INFO")
+    if data.get('payload'):
+        data = json.loads(data.get('payload', data))
+    #self.log("jarvis_thermostat: intent {}".format(data['intent']), "INFO")
+    #self.log("jarvis_thermostat: slots {}".format(data['slots']), "INFO")
+
+    if not data.get('slots'):
+        self.log("jarvis_thermostat: no slot information")
+        return
+
+    slots = {}
+    for slot in data['slots']:
+        slots[slot['slotName']] = {'value': slot['value']['value']}
+
+    self.log("jarvis_thermostat: {}".format(slots), "INFO")
+    if slots.get('zone') == 'upstairs':
+        thermostat = 'upstairs'
+    else:
+        thermostat = 'downstairs'
+
+    if not slots.get('temperature'):
+        self.jarvis_notify(None, {'siteId': data.get('siteId', 'default'),
+                             'text':"Sorry, I can only do heat or ac"})
+    if slots.get('direction'):
+        if slots.get('temperature'):
+            if not 1 <= slots['temperature'] < 10
+            self.jarvis_notify(None, {'siteId': data.get('siteId', 'default'),
+                                 'text':"Sorry, " + slots['temperature'] +
+                                 ' degrees is too big of a change for me.'})
+            else:
+                temperature = slots['temperature']
+        elif slots.get('direction') == 'up'
+            temperature = 2
+        else:
+            temperature = -2
+        cur_temp = self.get_state(
+            'climate'+self['heat'][thermostat],
+            'current_temperature')
+        target_temp = int(cur_temp) + int(temperature)
+    elif slots.get('temperature'):
+        if not 60 <= slots['temperature'] < 91:
+            self.jarvis_notify(None, {'siteId': data.get('siteId', 'default'),
+                                 'text':"Sorry, I cant set the temperature"
+                                 'to '+ slots['temperature'] +
+                                 ' degrees.'})
+        else:
+            target_temp = slots['temperature']
+        self.log("jarvis_thermostat: target_temp{}".format(target_temp),
+                 "INFO")
+        if slots.get('mode') == 'cool':
+            mode = 'cool'
+        else:
+            mode = 'heat'
+        self.set_state('climate.set_temperature',
+                       entity_id=self[mode][thermostat],
+                       temperature=target_temp)
+        self.set_state('climate.set_operation_mode',
+                       entity_id=self[mode][thermostat],
+                       operation_mode='auto')
+        self.jarvis_notify(None, {'siteId': data.get('siteId', 'default'),
+                             'text':"OK, setting the, " + thermostat + ' '
+                             mode + ' to ' + target_temp + ' degrees'})
+
+
+
+    # heat
+    # up/down
+    # zone
+    # cool/ac
+    # up/down
+    # zone
 
   def jarvis_intent(self, event_name, data, *args, **kwargs):
     self.log("jarvis_intent: {}".format(data), "INFO")
@@ -77,7 +157,7 @@ class jarvis(appapi.AppDaemon):
 
   def jarvis_notify(self, event_name, data, *args, **kwargs):
     self.log("jarvis_notify: {}".format(data), "INFO")
-    payload=str('{\"siteId\": \"' + self.siteId +
+    payload=str('{\"siteId\": \"' + data.get('siteId', self.siteId) +
       '\", \"init\": {\"type\": \"notification\", \"text\": \"' +
       data['text'] + '\"}}')
     self.log("jarvis_notify: %s" % payload, "INFO")
@@ -325,17 +405,30 @@ class jarvis(appapi.AppDaemon):
   def jarvis_lights(self, event_name, data, *args, **kwargs):
     self.log("jarvis_lights: {}".format(data), "INFO")
     onOff = "on" if event_name == 'JARVIS_LIGHTS_ON' else "off"
-    if data['house_room'] == 'christmas':
+    if data.get('payload'):
+        data = json.loads(data.get('payload'))
+    self.log("jarvis_lights: {}".format(data['slots']), "INFO")
+    try:
+        house_room = data['slots'][0]['value'].get('value', '')
+    except:
+        house_room = "unknown"
+    text = ""
+    if house_room == 'christmas':
         self.call_service("switch/turn_"+onOff,
           entity_id = 'switch.unknown_id0312_unknown_type0221_id251c_switch_3')
-        self.jarvis_say('NONE', {'text':"Ok"})
-    elif data['house_room'] == 'driveway':
+        text = "Ok"
+    elif house_room == 'driveway':
         self.call_service("switch/turn_"+onOff,
           entity_id = 'switch.ge_unknown_type4952_id3037_switch')
-        self.jarvis_say('NONE', {'text':"Ok"})
+        text = "Ok"
+    if text:
+        self.jarvis_notify(None, {'siteId': data.get('siteId', 'default'),
+                             'text': "OK, turning the "+ house_room +
+                             " lights " + onOff})
     else:
-        self.jarvis_say('NONE', {'text':"Sorry, I can't control the "+
-            data['house_room']+" lights"})
+        self.jarvis_notify(None, {'siteId': data.get('siteId', 'default'),
+                             'text':"Sorry, I can't control the "+
+                             house_room+" lights"})
 
   def jarvis_ramp_volume(self, player, volume, dst_vol, *args, **kwargs):
     self.log("jarvis_ramp_volume: %s %s %s" % (player, volume, dst_vol),
