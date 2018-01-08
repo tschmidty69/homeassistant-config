@@ -69,7 +69,7 @@ Restart snips-tts
 systemctl restart snips-tts
 ```
 If you don't have anything set to talk to snips yet you can test using mosquitto_pub. Snips by default runs mqtt on
-127.0.0.1, port 8989
+127.0.0.1, port 9898
 ```
 apt-get install mosquitto-clients
 mosquitto_pub -h YOUR_SNIPS_IP -P YOUR_SNIPS_PORT -t hermes/tts/say -m'{"siteId":"default","text":"for how long?"}'
