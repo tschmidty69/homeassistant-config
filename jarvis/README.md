@@ -1,11 +1,12 @@
 These are a couple of scripts that I have running on my Snips RaspberryPI 3
 
-This us for the Seeed Studio Respeaker 4 mic for Rasp Pi
+### jarvis-led ###
+
+This is for the Seeed Studio Respeaker 4 mic for Rasp Pi
 
 This will give pretty lights when jarvis detects a hotword and turn them off when done
 You can edit it to use whatever lights you want of course.
 
-### jarvis-led ###
 jarvis_led.py is istalled using these commands. You probably already have the respeaker
 since you need it to get the mic working so you can skip those steps
 ```
@@ -47,8 +48,11 @@ sudo apt-get install mpg123
 ```
 Install and configure aws cli as per
 https://docs.aws.amazon.com/polly/latest/dg/getting-started-cli.html
-Installed in /home/<user>/.local/bin, configure with aws configure
-and provide key, secret, etc.
+Installed in /home/<user>/.aws, configure with aws configure
+and provide key, secret, etc. Best practice is to create an IAM
+user and give tehm permission to just polly
+
+Edit the jarvis_says.sh file and substitute your profile name and which voice you would like to use
 
 Edit /etc/snips.toml, change TTS config to contain following 3 lines
 ```
