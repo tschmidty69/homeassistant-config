@@ -60,7 +60,7 @@ Edit the snips-tts startup file
 ```
 /lib/systemd/system/snips-tts.service
 ```
-Add ' -vvv' the end of the ExecStart line
+Add ' -vvv' to the end of the ExecStart line
 ```
 ExecStart=/usr/bin/snips-tts -vvv
 ```
