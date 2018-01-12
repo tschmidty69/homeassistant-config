@@ -7,18 +7,20 @@
 #
 # Install and configure aws cli as per
 # https://docs.aws.amazon.com/polly/latest/dg/getting-started-cli.html
-# Installed in /home/<user>/.local/bin, configure with aws configure
-# and provide key, secret, etc.
+# Installed in /home/<user>/.aws, configure with aws configure
+# and provide key, secret, etc. Best practice is to create an IAM
+# user and give tehm permission to just polly
+#
+# Edit the aws line below with your configure profile name and voice-ide prefered
 #
 # in /etc/snips.toml, change TTS config to contain following 3 lines
 # [snips-tts]
 # provider = "customtts"
-# customtts = { command = ["/home/pi/polly.sh", "-w", "%%OUTPUT_FILE%%", "-l", "%%LANG%%", "%%TEXT%%"] }
+# customtts = { command = ["/usr/local/jarvis_says.sh", "-w", "%%OUTPUT_FILE%%", "-l", "%%LANG%%", "%%TEXT%%"] }
 #
-# install avconv (apt-get install libav-tools) for the mp3->wav conversion
-# or use mpg123 (less dependencies)
+# install mpg123 (apt-get install mpg123) for the mp3->wav conversion
 #
-# This will run e.g. '"/home/pi/polly.sh" "-w" "/tmp/.tmpbQHj3W.wav" "-l" "en" "For how long?"'
+# This will run e.g. '"/usr/local/jarvis_says.sh" "-w" "/tmp/.tmpbQHj3W.wav" "-l" "en" "For how long?"'
 #
 output_file="$2"
 textstr="$5"
