@@ -65,8 +65,8 @@ http:
   api_password: !secret http_password
   # Uncomment this if you are using SSL/TLS, running in Docker container, etc.
   base_url: !secret http_base_url
-  ssl_certificate: /etc/letsencrypt/live/home.todschmidt.com/fullchain.pem
-  ssl_key: /etc/letsencrypt/live/home.todschmidt.com/privkey.pem
+  ssl_certificate: /etc/letsencrypt/live/home.todschmidt.com-0001/fullchain.pem
+  ssl_key: /etc/letsencrypt/live/home.todschmidt.com-0001/privkey.pem
   trusted_networks:
     - 127.0.0.1
     - ::1
@@ -110,13 +110,13 @@ logger:
   default: warning
   logs:
     homeassistant.components.snips: debug
-    homeassistant.helpers.script: debug
+#    homeassistant.helpers.script: debug
     homeassistant.helpers.intent_script: debug
-    homeassistant.helpers.template: debug
+#    homeassistant.helpers.template: debug
 #    homeassistant.components.websocket_api: debug
     homeassistant.helpers.shell_command: debug
     homeassistant.components.mqtt: debug
-#    homeassistant.components.zha: debug
+    homeassistant.components.zha: debug
 #    homeassistant.components.sensor.zha: debug
 #    homeassistant.components.http: debug
     urllib3.connectionpool: fatal
@@ -125,6 +125,8 @@ logger:
     homeassistant.components.notify.pushbullet: debug
     homeassistant.components.sensor.shopping_list: debug
     homeassistant.components.shopping_list: debug
+#    bellows.zigbee.application: debug
+    homeassistant.components.ios: debug
 
 # Enables a map showing the location of tracked devices
 map:

@@ -9,8 +9,8 @@ push:
         - identifier: 'SNOOZE'
           title: 'Snooze'
           destructive: yes
-    - name: garage_door
-      identifier: 'garagedoor'
+    - name: closegarage
+      identifier: 'closegarage'
       actions:
-        - identifier: 'CLOSE_GARAGE'
+        - identifier: 'CLOSEGARAGE'
           title: 'Close Garage Door'

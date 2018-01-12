@@ -55,6 +55,21 @@ intent_script:
     action:
       - service: script.previous_track_mopidy
 
+  radioOn:
+    speech:
+      type: plain
+      text: ''
+
+  getInfos:
+    speech:
+      type: plain
+      text: ''
+
+  addSong:
+    speech:
+      type: plain
+      text: ''
+
 script:
   resume_mopidy:
     sequence:

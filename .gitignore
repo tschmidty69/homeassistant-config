@@ -19,7 +19,8 @@ home-assistant_v2.db-shm
 home-assistant_v2.db-wal
 .spotify-token-cache
 .uuid
-apps/__pycache__
+**/__pycache__
+tts/**
 !www/
 !www/custom_ui
 !www/custom_ui/floorplan

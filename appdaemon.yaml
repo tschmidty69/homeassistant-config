@@ -7,9 +7,9 @@ AppDaemon:
   cert_verify: True
   api_port: 5000
   api_key: !secret api_key
-  api_ssl_certificate: /etc/letsencrypt/live/home.todschmidt.com/fullchain.pem
-  api_ssl_key: /etc/letsencrypt/live/home.todschmidt.com/privkey.pem
+  api_ssl_certificate: /etc/letsencrypt/live/home.todschmidt.com-0001/fullchain.pem
+  api_ssl_key: /etc/letsencrypt/live/home.todschmidt.com-0001/privkey.pem
 HASS:
-  ha_url: !secret http_base_url
+  ha_url: https://home.todschmidt.com:8123
   ha_key: !secret http_password
 

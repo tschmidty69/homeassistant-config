@@ -50,12 +50,6 @@ test_pushbullet_template_list:
           - "{{ alternative | default('item3') }}"
           - "{{ alternative | default('item4') }}"
 
-test_jarvis:
-  sequence:
-    - event: JARVIS_SAY
-      event_data:
-        text: 'OK, I am alive'
-
 test_jarvis_timer:
   sequence:
     - service: script.set_timer
@@ -67,6 +61,13 @@ test_jarvis_timer:
     - service: mqtt.publish
       data_template:
         topic: '{{ world | default("not_world") }}'
+
+test_jarvis_say:
+  sequence:
+    - event: JARVIS_SAY
+      event_data_template:
+        text: 'joke'
+        type: 'joke'
 
 test_jarvis_notify:
   sequence:
@@ -125,7 +126,7 @@ test_jarvis_coffee_on:
     - service: mqtt.publish
       data:
         topic: "jarvis/coffeeIn/turnOn"
-    - event: JARVIS_SAY
+    - event: JARVIS_NOTIFY
       event_data:
         text: 'OK, turning the coffee maker on'
     - service: mqtt.publish
@@ -144,7 +145,7 @@ test_jarvis_coffee_off:
     - service: mqtt.publish
       data:
         topic: "jarvis/coffeeIn/turnOn"
-    - event: JARVIS_SAY
+    - event: JARVIS_NOTIFY
       event_data:
         text: 'OK, turning the coffee maker off'
     - service: mqtt.publish
@@ -154,7 +155,7 @@ test_jarvis_coffee_off:
 
 test_jarvis_say_coffee_brew_large:
   sequence:
-    - event: JARVIS_SAY
+    - event: JARVIS_NOTIFY
       event_data_template:
         text: 'OK, brewing coffee'
     - service: mqtt.publish
@@ -165,7 +166,7 @@ test_jarvis_say_coffee_brew_large:
 
 test_jarvis_say_coffee_brew_small:
   sequence:
-    - event: JARVIS_SAY
+    - event: JARVIS_NOTIFY
       event_data_template:
         text: 'OK, brewing coffee'
     - service: mqtt.publish

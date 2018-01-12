@@ -15,54 +15,53 @@
 #         data:
 #           push:
 #             badge: 0
-#             category: 'garagedoor'
+#             category: 'closegarage'
 
-# - alias: 'Garage Door Alert'
-#   trigger:
-#     - platform: state
-#       entity_id: binary_sensor.ecolink_garage_door_tilt_sensor_sensor
-#       from: 'off'
-#       to: 'on'
-#       for:
-#         minutes: 10
-#   action:
-#     - service: notify.all_phones
-#       data:
-#         title: "Garage Door Open"
-#         message: "Garage Door has been open for 10 minutes"
-#         data:
-#           push:
-#             badge: 0
-#             category: 'GARAGEDOOR'
+- alias: 'Garage Door Alert'
+  trigger:
+    - platform: state
+      entity_id: binary_sensor.ecolink_garage_door_tilt_sensor_sensor
+      from: 'off'
+      to: 'on'
+      for:
+        minutes: 10
+  action:
+    - service: notify.all_phones
+      data:
+        title: "Garage Door Open"
+        message: "Garage Door has been open for 10 minutes"
+        data:
+          push:
+            badge: 0
+            category: 'closegarage'
 
-# - alias: 'Door Open but No One is Home'
-#   trigger:
-#     - platform: state
-#       entity_id: binary_sensor.ecolink_garage_door_tilt_sensor_sensor
-#       to: 'on'
-#   condition:
-#     condition: state
-#     entity_id: group.household
-#     state: 'not_home'
-#   action:
-#     - service: notify.all_phones
-#       data:
-#         title: "Garage Door Open"
-#         message: "But no one is home"
-#         data:
-#           push:
-#             badge: 0
-#             category: 'GARAGEDOOR'
+- alias: 'Door Open but No One is Home'
+  trigger:
+    - platform: state
+      entity_id: binary_sensor.ecolink_garage_door_tilt_sensor_sensor
+      to: 'on'
+  condition:
+    condition: state
+    entity_id: group.household
+    state: 'not_home'
+  action:
+    - service: notify.all_phones
+      data:
+        title: "Garage Door Open"
+        message: "But no one is home"
+        data:
+          push:
+            badge: 0
+            category: 'closegarage'
 
 # This is triggered directly from IOS notifcation
-- alias: 'iOS app notification action garagedoor'
+- alias: 'IOS app notification action garagedoor'
   initial_state: True
-  hide_entity: True
   trigger:
     platform: event
     event_type: ios.notification_action_fired
     event_data:
-      actionName: 'CLOSE_GARAGE'
+      actionName: 'CLOSEGARAGE'
   action:
     - service: switch.turn_on
       entity_id: switch.fortrezz_mimolite_wireless_interfacebridge_module_switch

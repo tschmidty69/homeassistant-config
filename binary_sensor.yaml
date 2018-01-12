@@ -30,7 +30,6 @@
       platform: 'state'
       to_state: 'home'
 
-
 - platform: mqtt
   state_topic: "living_room/pi_camera"
   name: living_room_motion

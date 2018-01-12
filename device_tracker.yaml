@@ -1,13 +1,13 @@
-#- platform: ping
-#  interval_seconds: 300
-#  hosts:
-#    tods_phone: 192.168.1.30
-#    cathies_phone: 192.168.1.32
-- platform: netgear
-  host: 192.168.2.1
-  port: 80 
-  username: admin
-  password: git00ita
-  consider_home: 200
-  track_new_devices: true  
+- platform: ping
+  interval_seconds: 180
+  hosts:
+    tods_phone: 192.168.1.30
+    cathies_phone: 192.168.1.32
+# - platform: netgear
+#   host: 192.168.2.1
+#   port: 80 
+#   username: admin
+#   password: git00ita
+#   consider_home: 200
+#   track_new_devices: true  
 

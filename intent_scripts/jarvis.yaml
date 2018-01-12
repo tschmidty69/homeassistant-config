@@ -1,9 +1,21 @@
 lightsTurnOnSet:
-  action:
-    delay: 00:00:01
+  speech:
+    type: plain
+    text: ''
+
 lightsTurnOff:
-  action:
-    delay: 00:00:01
+  speech:
+    type: plain
+    text: ''
+
 setThermostat:
+  speech:
+    type: plain
+    text: ''
+
+tellJoke:
   action:
-    delay: 00:00:01
+    - event: JARVIS_SAY
+      event_data_template:
+        text: 'joke'
+        type: 'joke'

@@ -3,7 +3,6 @@ dark_sky:
   entities:
     - sensor.dark_sky_weather_summary
     - sensor.dark_sky_weather_hourly_summary
+    - sensor.dark_sky_weather_daily_high_temperature
     - sensor.dark_sky_weather_temperature
-    - sensor.dark_sky_weather_temperature_max
-    - sensor.dark_sky_weather_temperature_min
 
