@@ -2,6 +2,7 @@ ok:
   - OK
   - Of course
 
+
 sorry:
   - Sorry
   - My apologies
@@ -13,6 +14,10 @@ no:
   - no
 
 joke:
-  - Donald Trump is president, Ha Ha. <break time="1s"/> Sigh.
-  - What does an owl in England watch? <break time="2s"/> Doctor Hoot
-  - Did you hear about the winner in the English Best Smile contest? <break time="3s"/> Me either
+  - <break time="1s"/>Donald Trump is our president
+    <break time="1s"/><prosody rate="x-slow" pitch="low">sigh</prosody>
+  - What does an owl in england watch? <break time="2s"/> Doctor hoot
+  - Did you hear about the winner in the English Best Teeth contest? <break time="2s"/> Me either
+  - Why did the siamese twins move to England? <break time="2s"/> So the other one could drive!
+  - England doesn't have a kidney bank, but it does have a liverpool
+  - What time was it when the monster ate the british prime minister?<break time="1s"/>Eight P.M.

@@ -4,6 +4,7 @@ import subprocess
 from subprocess import Popen, PIPE, STDOUT
 import random
 import string
+import uuid
 import json
 import boto3
 import yaml
@@ -55,6 +56,7 @@ class jarvis(appapi.AppDaemon):
     self.listen_event(self.jarvis_notify, "JARVIS_NOTIFY")
     self.listen_event(self.jarvis_query, "JARVIS_QUERY")
     self.listen_event(self.jarvis_response, "JARVIS_RESPONSE")
+    self.listen_event(self.jarvis_yesno_response, "JARVIS_YESNO_RESPONSE")
     self.listen_event(self.jarvis_set_timer, "JARVIS_SET_TIMER")
     self.listen_event(self.jarvis_playlist, "JARVIS_PLAYLIST")
     self.listen_event(self.jarvis_artist, "JARVIS_ARTIST")
@@ -191,25 +193,52 @@ class jarvis(appapi.AppDaemon):
   def jarvis_query(self, event_name, data, *args, **kwargs):
     self.log("jarvis_query: {}".format(data), "INFO")
     payload={'siteId': data.get('siteId', self.siteId),
-             'customData': data.get('topic', 'default'),
+             'customData': data.get('custom_data', 'default'),
              'init': {'type': 'action',
              'text': data['text'],
-             'canBeEnqueued': True}}
+             'canBeEnqueued': True,
+             'intentFilter': [data.get('intentFilter',
+                                       'TSchmidty:YesNoResponse')]}}
     self.snips_publish(payload)
 
   def jarvis_response(self, event_name, data, *args, **kwargs):
     self.log("jarvis_response: {}".format(data), "INFO")
 
+  def jarvis_yesno_response(self, event_name, data, *args, **kwargs):
+    self.log("jarvis_yesno_response: {}".format(data), "INFO")
+    if data.get('payload'):
+        data = json.loads(data.get('payload', data))
+    #self.log("jarvis_yesno_response: intent {}".format(data['intent']), "INFO")
+    #self.log("jarvis_thermostat: slots {}".format(data['slots']), "INFO")
+
+    if data['slots'][0]['value']['value'] == 'yes':
+        payload={'siteId': data.get('siteId', self.siteId),
+                 'sessionId': data.get('sessionId'),
+                 'input': data.get('customData'),
+                 'intent': {'intentName': data.get('customData')},
+                 'slots': []}
+        self.snips_publish(payload)
+        publish.single('hermes/intent/'+data.get('customData'),
+          payload=json.dumps(payload),
+          hostname=self.snips_mqtt_host,
+          port=self.snips_mqtt_port,
+          protocol=mqtt.MQTTv311
+        )
+    else:
+      self.jarvis_notify('NONE', {"text": self.jarvis_speech('ok')})
+
   def jarvis_say(self, event_name, data, *args, **kwargs):
     self.log("jarvis_say: {}".format(data), "INFO")
-    if data.get('type') == 'joke':
-      self.jarvis_notify('NONE', {
-                "text": self.jarvis_speech('ok')
-                        + ", "
-                        + self.jarvis_speech('joke')})
+    type = data.get('type', 'ok')
+    if data.get('payload'):
+        data = json.loads(data.get('payload', data))
+    if type == 'joke':
+      self.jarvis_notify('NONE', {'siteId': data.get('siteId', self.siteId),
+                'text': self.jarvis_speech('ok')
+                        + ", " + self.jarvis_speech(type)})
     else:
-      self.jarvis_notify('NONE', {"text":
-                         self.jarvis_speech(data.get('text', ''))})
+      self.jarvis_notify('NONE', {'siteId': data.get('siteId', self.siteId),
+                         'text': self.jarvis_speech(type)})
 
   def jarvis_set_timer(self, event_name, data, *args, **kwargs):
     self.log("jarvis_set_timer: {}".format(data), "INFO")

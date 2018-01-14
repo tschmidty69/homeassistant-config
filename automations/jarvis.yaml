@@ -47,3 +47,22 @@
     event: JARVIS_INTENT_NOT_PARSED
     event_data_template:
       payload: '{{ trigger.payload }}'
+
+- alias: TSchmidty:YesNoResponse
+  trigger:
+    platform: mqtt
+    topic: hermes/intent/TSchmidty:YesNoResponse
+  action:
+    event: JARVIS_YESNO_RESPONSE
+    event_data_template:
+      payload: '{{ trigger.payload }}'
+
+- alias: TSchmidty:tellJoke
+  trigger:
+    platform: mqtt
+    topic: hermes/intent/TSchmidty:tellJoke
+  action:
+    event: JARVIS_SAY
+    event_data_template:
+      payload: '{{ trigger.payload }}'
+      type: 'joke'

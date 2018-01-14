@@ -116,7 +116,7 @@ logger:
 #    homeassistant.components.websocket_api: debug
     homeassistant.helpers.shell_command: debug
     homeassistant.components.mqtt: debug
-    homeassistant.components.zha: debug
+#    homeassistant.components.zha: debug
 #    homeassistant.components.sensor.zha: debug
 #    homeassistant.components.http: debug
     urllib3.connectionpool: fatal
@@ -127,6 +127,7 @@ logger:
     homeassistant.components.shopping_list: debug
 #    bellows.zigbee.application: debug
     homeassistant.components.ios: debug
+    homeassistant.components.media_player: debug
 
 # Enables a map showing the location of tracked devices
 map:

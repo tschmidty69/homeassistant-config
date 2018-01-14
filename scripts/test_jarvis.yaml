@@ -75,11 +75,26 @@ test_jarvis_notify:
       event_data_template:
         text: 'Yes, I am still here'
 
-test_jarvis_query:
+test_jarvis_query_close:
   sequence:
     - event: JARVIS_QUERY
       event_data_template:
         text: 'The garage door is open, would you like me to close it?'
+        custom_data: 'closeGarageDoor'
+
+test_jarvis_query_open:
+  sequence:
+    - event: JARVIS_QUERY
+      event_data_template:
+        text: 'The garage door is closed, would you like me to open it?'
+        custom_data: 'openGarageDoor'
+
+test_jarvis_joke:
+  sequence:
+    - event: JARVIS_QUERY
+      event_data_template:
+        text: 'Would you like to hear a joke?'
+        custom_data: 'tellJoke'
 
 test_jarvis_response:
   sequence:

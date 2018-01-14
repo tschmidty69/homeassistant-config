@@ -1,13 +1,16 @@
 - platform: roku
+  host: 192.168.1.74
+- platform: roku
+  host: 192.168.1.83
 - platform: plex
 - platform: mpd
   host: 192.168.1.201
   name: mopidy
 - platform: snapcast
   host: 192.168.1.201
-#- platform: gstreamer
-#  name: Downstairs
-#  pipeline: "audioresample ! audioconvert ! audio/x-raw,rate=48000,channels=2,format=S16LE ! wavenc ! filesink location=/tmp/snapfifo"
+- platform: gstreamer
+  name: gstreamer
+  pipeline: "mpegaudioparse ! mpg123audiodec ! audioresample ! audioconvert ! audio/x-raw,rate=48000,channels=2,format=S16LE ! wavenc ! filesink location=/tmp/snapfifo"
 #- platform: spotify
 #  client_id: !secret spotify_client_id
 #  client_secret: !secret spotify_client_secret
