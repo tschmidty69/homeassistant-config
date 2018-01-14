@@ -3,6 +3,7 @@
 pip3 install paho-mqtt
 pip3 install json
 wget https://raw.githubusercontent.com/tschmidty69/homeassistant/master/shell_command/snips_listener.py
+
 chmod +x snips_listener.py
 
 ### Edit the host, ip
