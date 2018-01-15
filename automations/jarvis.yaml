@@ -66,3 +66,12 @@
     event_data_template:
       payload: '{{ trigger.payload }}'
       type: 'joke'
+
+- alias: TSchmidty:playTVShow
+  trigger:
+    platform: mqtt
+    topic: hermes/intent/TSchmidty:playTV
+  action:
+    event: JARVIS_TV
+    event_data_template:
+      payload: '{{ trigger.payload }}'

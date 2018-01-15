@@ -55,7 +55,7 @@ tts:
     aws_secret_access_key: !secret AWS_SECRET_ACCESS_KEY
     profile_name: !secret AWS_PROFILE
     region_name: 'us-west-2'
-    voice: Geraint
+    voice: Joanna
 
 # Enables configuration UI
 config:

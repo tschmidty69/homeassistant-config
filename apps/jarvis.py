@@ -8,6 +8,7 @@ import uuid
 import json
 import boto3
 import yaml
+import requests
 from pathlib import Path
 import os, re, time, threading
 #import paho.mqtt.client as mqtt
@@ -32,14 +33,32 @@ class jarvis(appapi.AppDaemon):
     self.siteId = "default"
 
     self.speech_file = os.path.join(os.path.dirname(__file__)
-                                    + '/jarvis_speech/speech.yaml')
+                                    + '/jarvis/speech.yaml')
     with open(self.speech_file, "r") as f:
         self.speech = yaml.load(f)
 
+    self.tv_file = os.path.join(os.path.dirname(__file__)
+                                    + '/jarvis/tv.yaml')
+    with open(self.tv_file, "r") as f:
+        self.tv = yaml.load(f)
+
+    self.players_dict = {
+        "default":
+            "media_player.snapcast_client_6152618a83b04b70b879e3fa1f4664b2",
+        "bonus":
+            "media_player.snapcast_client_4b8c047b8b04d3bb68c2b07e00000005",
+        "remote":
+            "media_player.snapcast_client_45f086e40e8f48a7852eff4fd78d81ea"
+    }
     self.players = [
         "media_player.snapcast_client_6152618a83b04b70b879e3fa1f4664b2",
-        "media_player.snapcast_client_4b8c047b8b04d3bb68c2b07e00000005"]
-    self.volume = {'heat': {}, 'cool': {}}
+        "media_player.snapcast_client_4b8c047b8b04d3bb68c2b07e00000005",
+        "media_player.snapcast_client_45f086e40e8f48a7852eff4fd78d81ea"
+    ]
+
+    self.roku = {'living_room': '192.168.1.74',
+                 'master_bedroom': '192.168.1.83'}
+    self.volume = {}
     for player in self.players:
         self.volume[player] = self.get_state(player, "volume_level")
     self.thermostats = {'heat': {}, 'cool': {}}
@@ -60,6 +79,7 @@ class jarvis(appapi.AppDaemon):
     self.listen_event(self.jarvis_set_timer, "JARVIS_SET_TIMER")
     self.listen_event(self.jarvis_playlist, "JARVIS_PLAYLIST")
     self.listen_event(self.jarvis_artist, "JARVIS_ARTIST")
+    self.listen_event(self.jarvis_tv, "JARVIS_TV")
     self.listen_event(self.jarvis_song, "JARVIS_SONG")
     self.listen_event(self.jarvis_lights, "JARVIS_LIGHTS_ON")
     self.listen_event(self.jarvis_lights, "JARVIS_LIGHTS_OFF")
@@ -174,14 +194,17 @@ class jarvis(appapi.AppDaemon):
                     + " I didn't get that"})
 
   def jarvis_listening(self, event_name, data, *args, **kwargs):
-    self.log("jarvis_listening: {}".format(data), "INFO")
+    self.log("jarvis_listening: {}".format(event_name), "INFO")
     if event_name == "JARVIS_LISTENING":
         for player in self.players:
             self.volume[player] = self.get_state(player, "volume_level")
-            self.jarvis_ramp_volume(player, self.volume[player], 0.2)
+            if not self.get_state(player, "is_volume_muted"):
+                self.volume[player] = self.get_state(player, "volume_level")
+                self.jarvis_ramp_volume(player, self.volume[player], 0.2)
     if event_name == "JARVIS_NOT_LISTENING":
         for player in self.players:
-            self.jarvis_ramp_volume(player, 0.2, self.volume[player])
+            if not self.get_state(player, "is_volume_muted"):
+                self.jarvis_ramp_volume(player, 0.2, self.volume[player])
 
   def jarvis_notify(self, event_name, data, *args, **kwargs):
     self.log("jarvis_notify: {}".format(data), "INFO")
@@ -380,6 +403,8 @@ class jarvis(appapi.AppDaemon):
 
   def jarvis_song(self, event_name, data, *args, **kwargs):
     self.log("jarvis_song: {}".format(data), "INFO")
+    if not data['artist'] and not data['title']:
+        return
     mpc_search=subprocess.check_output(["/usr/bin/mpc", "-h", self.mpc_host,
                 "search", "artist", data['artist'], "title", data['title']],
                 universal_newlines=True)
@@ -450,6 +475,8 @@ class jarvis(appapi.AppDaemon):
   def jarvis_ramp_volume(self, player, volume, dst_vol, *args, **kwargs):
     self.log("jarvis_ramp_volume: %s %s %s" % (player, volume, dst_vol),
         "INFO")
+    if self.get_state(player) == 'off':
+        return
     time_time = time.time
     start = time_time()
     period = .1
@@ -466,3 +493,45 @@ class jarvis(appapi.AppDaemon):
         self.call_service("media_player/volume_set",
           entity_id = player,
           volume_level = str(volume - step * count))
+
+  def jarvis_tv(self, event_name, data, *args, **kwargs):
+    self.log("jarvis_tv: {}".format(data), "INFO")
+    if data.get('payload'):
+        data = json.loads(data.get('payload', data))
+    zone = data.get('zone', 'living_room')
+    channel = '12'
+    if data.get('channel'):
+        if data['channel'] == 'amazon':
+            channel = '13'
+
+    if data.get('slots'):
+        #elf.log("jarvis_tv: {}".format(data.get('slots')), "INFO")
+        for slot in data['slots']:
+            #self.log("jarvis_tv: {}".format(slot), "INFO")
+            if slot.get('slotName') == 'show':
+                #self.log("jarvis_tv: {}".format(self.netflix.keys()),
+                #         "INFO")
+                show = process.extractBests(slot['value']['value'],
+                    list(self.tv.keys()), score_cutoff=60)
+                self.log("jarvis_tv: shows {}".format(show), "INFO")
+                self.log("jarvis_tv: best_match {}".format(
+                    self.tv[show[0][0]]), "INFO")
+
+                url = ("http://"
+                      + str(self.roku[zone])
+                      + ":8060/launch/"
+                      + str(self.tv[show[0][0]]['channel'])
+                      + "?ContentID="
+                      + str(self.tv[show[0][0]]['seasons'][1])
+                      + "&MediaType=series")
+                self.log("jarvis_tv: url {}".format(url), "INFO")
+
+                response = requests.post(url)
+                self.log("jarvis_tv: response {}".format(response), "INFO")
+                if str(self.tv[show[0][0]]['channel']) == '13':
+                    time.sleep(3)
+                    url = ("http://"
+                           + str(self.roku[zone])
+                           + ":8060/keypress/Select")
+                    response = requests.post(url)
+                    self.log("jarvis_tv: response {}".format(response), "INFO")
