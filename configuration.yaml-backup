@@ -30,17 +30,17 @@ http:
   ip_ban_enabled: False
   login_attempts_threshold: 2
 
-# # Show links to resources in log and frontend
-# # introduction:
-#
+# Show links to resources in log and frontend
+# introduction:
+
 # Enables the frontend
 frontend:
   themes: !include_dir_merge_named themes/
 #  extra_html_url:
 #   - custom_ui/state-card-floorplan.html
 #  javascript_version: es5
-#
-#
+
+
 ## Floorplan
 #mqtt:
 #binary_sensor:
@@ -67,11 +67,11 @@ panel_iframe:
   nodered:
     title: 'Node-Red'
     icon: 'mdi:shuffle-variant'
-    url: 'https://home.todschmidt.com:1880/'
+    url: 'https://hass.todschmidt.com:1880/'
   ide:
     title: IDE
     icon: 'mdi:code-braces'
-    url: 'https://home.todschmidt.com:8321/'
+    url: 'https://hass.todschmidt.com:8321/'
 
 weather:
   - platform: darksky
@@ -88,11 +88,11 @@ tts:
 # Enables configuration UI
 config:
 
-# # Checks for available updates
-# # Note: This component will send some information about your system to
-# # the developers to assist with development of Home Assistant.
-# # For more information, please see:
-# # https://home-assistant.io/blog/2016/10/25/explaining-the-updater/
+# Checks for available updates
+# Note: This component will send some information about your system to
+# the developers to assist with development of Home Assistant.
+# For more information, please see:
+# https://home-assistant.io/blog/2016/10/25/explaining-the-updater/
 updater:
   # Optional, allows Home Assistant developers to focus on popular components.
   # include_used_components: true
@@ -106,53 +106,52 @@ conversation: !include conversation.yaml
 # Enables support for tracking state changes over time
 history:
 
-# # View all events in a logbook
-# #logbook:
-#
+# View all events in a logbook
+#logbook:
+
 logger:
   default: warning
   logs:
+#    homeassistant.components.snips: debug
+#    homeassistant.helpers.script: debug
+    homeassistant.helpers.intent_script: debug
+#    homeassistant.helpers.template: debug
+#    homeassistant.components.websocket_api: debug
+#    homeassistant.helpers.shell_command: debug
+#    homeassistant.components.mqtt: debug
+#    homeassistant.components.zha: debug
+#    homeassistant.components.sensor.zha: debug
+    homeassistant.components.http: debug
     urllib3.connectionpool: fatal
-    homeassistant.core.event: debug
-# #    homeassistant.components.snips: debug
-# #    homeassistant.helpers.script: debug
-#     homeassistant.helpers.intent_script: debug
-# #    homeassistant.helpers.template: debug
-# #    homeassistant.components.websocket_api: debug
-# #    homeassistant.helpers.shell_command: debug
-# #    homeassistant.components.mqtt: debug
-# #    homeassistant.components.zha: debug
-# #    homeassistant.components.sensor.zha: debug
-#     homeassistant.components.http: debug
-# #    homeassistant.components.device_tracker.ping: debug
-# #    homeassistant.components.device_tracker.netgear: debug
-# #    homeassistant.components.notify.pushbullet: debug
-# #    homeassistant.components.sensor.shopping_list: debug
-# #    homeassistant.components.shopping_list: debug
-# #    bellows.zigbee.application: debug
-# #    homeassistant.components.ios: debug
-# #    homeassistant.components.media_player: debug
-#
+#    homeassistant.components.device_tracker.ping: debug
+#    homeassistant.components.device_tracker.netgear: debug
+#    homeassistant.components.notify.pushbullet: debug
+#    homeassistant.components.sensor.shopping_list: debug
+#    homeassistant.components.shopping_list: debug
+#    bellows.zigbee.application: debug
+#    homeassistant.components.ios: debug
+#    homeassistant.components.media_player: debug
+
 # Enables a map showing the location of tracked devices
 map:
 
 # Track the sun
 sun:
 
-# #recorder:
-# #  purge_interval: 1
-# #  purge_keep_days: 5
-# #  db_url: sqlite:///home/homeassistant/.homeassistant/home-assistant_v2.db
-# #  exclude:
-# #    domains:
-# #      - zwave
-# #      - weblink
-# #      - updater
-# #    entities:
-# #      - sun.sun # Don't record sun data
-# #      - sensor.last_boot # Comes from 'systemmonitor' sensor platform
-# #      - sensor.date
-#
+#recorder:
+#  purge_interval: 1
+#  purge_keep_days: 5
+#  db_url: sqlite:///home/homeassistant/.homeassistant/home-assistant_v2.db
+#  exclude:
+#    domains:
+#      - zwave
+#      - weblink
+#      - updater
+#    entities:
+#      - sun.sun # Don't record sun data
+#      - sensor.last_boot # Comes from 'systemmonitor' sensor platform
+#      - sensor.date
+
 mqtt:
   broker: 192.168.1.201
   username: !secret mqtt_user
@@ -181,13 +180,13 @@ input_boolean: !include input_boolean.yaml
 input_number: !include_dir_merge_named input_number/
 binary_sensor: !include binary_sensor.yaml
 shell_command: !include_dir_merge_named shell_command/
-#media_player: !include media_player.yaml
+media_player: !include media_player.yaml
 switch: !include_dir_merge_list switch/
 notify: !include notify.yaml
 script: !include_dir_merge_named scripts/
 cover: !include cover.yaml
 zone: !include zone.yaml
-#
+
 # Custom
 #variable: !include variables.yaml
 snips:

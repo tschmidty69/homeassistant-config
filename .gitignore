@@ -5,6 +5,7 @@ deps
 deps/*
 !input_numbers/*
 secrets.yaml
+secrets.yaml-backup
 known_devices.yaml
 gitupdate.sh
 update.sh

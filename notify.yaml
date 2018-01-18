@@ -6,4 +6,4 @@
 
 - name: pushbullet
   platform: pushbullet
-  api_key: 'o.mTGUsB39CYmnU4TXD3fTnb1DKigwJfXC'
+  api_key: !secret pushbullet_api_key
