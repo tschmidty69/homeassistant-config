@@ -41,10 +41,11 @@ You need to give snips a home directory to hold your AWS credentials
 ```
 sudo usermod -d /home/_snips _snips
 sudo mkdir -pv /home/_snips/.aws
+```
+Copy your AWS config and credentials files to the ```/home/_snips/.aws``` folder and change permissions
+```
 sudo chown -R _snips /home/_snips
 ```
-Copy your AWS config and credentials files to the ```/home/_snips/.aws``` folder
-
 Restart snips-tts
 ```
 systemctl restart "snips-*"
@@ -53,7 +54,7 @@ systemctl restart "snips-*"
 
 First test that the snips user can run the script
 ```
-su -s /bin/bash - _snips
+sudo su -s /bin/bash - _snips
 /usr/local/bin/jarvis_says.sh -w /tmp/test.wav -l en "OK, here I am"
 ```
 This should create mp3 files within /tmp/cache and a file /tmp/test.wav.
