@@ -1,40 +1,6 @@
 These are a couple of scripts that I have running on my Snips RaspberryPI 3
 
-### jarvis-led ###
 
-This is for the Seeed Studio Respeaker 4 mic for Rasp Pi
-
-This will give pretty lights when jarvis detects a hotword and turn them off when done
-You can edit it to use whatever lights you want of course.
-
-jarvis_led.py is istalled using these commands. You probably already have the respeaker
-since you need it to get the mic working so you can skip those steps
-```
-git clone https://github.com/respeaker/seeed-voicecard
-cd seeed-voicecard
-sudo ./install.sh 4mic
-cd /srv/respeaker
-git clone https://github.com/respeaker/4mics_hat.git
-source /srv/respeaker/bin/activate
-wget https://raw.githubusercontent.com/tschmidty69/homeassistant/master/jarvis/jarvis_led.py
-# edit jarvis_led to point to your snips mqtt broker
-```
-Test it
-```
-source /srv/respeaker/bin/activate
-python jarvis_led.py
-```
-If it works you can grab this shell script and Ubuntu startup script to have it run at install
-```
-cd /usr/local/bin
-sudo wget https://raw.githubusercontent.com/tschmidty69/homeassistant/master/jarvis/jarvis-led.sh
-sudo chmod +x jarvis-led.sh
-cd /etc/systemd/system/
-sudo wget https://raw.githubusercontent.com/tschmidty69/homeassistant/master/jarvis/jarvis-led.service
-systemctl daemon-reload
-systemctl enable jarvis-led
-systemctl start jarvis-led
-```
 ### jarvis_says ###
 
 Copy this script somewhere it can be executed by snips
@@ -85,21 +51,56 @@ Restart snips-tts
 ```
 systemctl restart "snips-*"
 ```
-Test that the snips user can run the script
+# Testing
+
+First test that the snips user can run the script
 ```
 su -s /bin/bash - _snips
 /usr/local/bin/jarvis_says.sh -w /tmp/test.wav -l en "OK, here I am"
 ```
 This should create mp3 files within /tmp/cache and a file /tmp/test.wav.
 
-Yuo can play the wav file using aplay.
-
-
-### Testing
+You can play the wav file using aplay.
 
 If you don't have anything set to talk to snips yet you can test using mosquitto_pub. Snips by default runs mqtt on
 127.0.0.1, port 9898
 ```
 apt-get install mosquitto-clients
 mosquitto_pub -h YOUR_SNIPS_IP -P YOUR_SNIPS_PORT -t hermes/tts/say -m'{"siteId":"default","text":"for how long?"}'
+```
+
+### jarvis-led ###
+
+This is for the Seeed Studio Respeaker 4 mic for Rasp Pi
+
+This will give pretty lights when jarvis detects a hotword and turn them off when done
+You can edit it to use whatever lights you want of course.
+
+jarvis_led.py is istalled using these commands. You probably already have the respeaker
+since you need it to get the mic working so you can skip those steps
+```
+git clone https://github.com/respeaker/seeed-voicecard
+cd seeed-voicecard
+sudo ./install.sh 4mic
+cd /srv/respeaker
+git clone https://github.com/respeaker/4mics_hat.git
+source /srv/respeaker/bin/activate
+wget https://raw.githubusercontent.com/tschmidty69/homeassistant/master/jarvis/jarvis_led.py
+# edit jarvis_led to point to your snips mqtt broker
+```
+Test it
+```
+source /srv/respeaker/bin/activate
+python jarvis_led.py
+```
+If it works you can grab this shell script and Ubuntu startup script to have it run at install
+```
+cd /usr/local/bin
+sudo wget https://raw.githubusercontent.com/tschmidty69/homeassistant/master/jarvis/jarvis-led.sh
+sudo chmod +x jarvis-led.sh
+cd /etc/systemd/system/
+sudo wget https://raw.githubusercontent.com/tschmidty69/homeassistant/master/jarvis/jarvis-led.service
+systemctl daemon-reload
+systemctl enable jarvis-led
+systemctl start jarvis-led
 ```
