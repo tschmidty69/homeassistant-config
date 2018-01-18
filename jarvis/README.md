@@ -50,15 +50,20 @@ Install and configure aws cli as per
 https://docs.aws.amazon.com/polly/latest/dg/getting-started-cli.html
 Installed in /home/<user>/.aws, configure with aws configure
 and provide key, secret, etc. Best practice is to create an IAM
-user and give tehm permission to just polly
+user and give them permission to just polly
 
-Edit the jarvis_says.sh file and substitute your profile name and which voice you would like to use
+Edit the jarvis_says.sh file and substitute your profile name, which voice you would like to use
+and path to your aws binary if needed.
 
 Edit /etc/snips.toml, change TTS config to contain following 3 lines
 ```
 [snips-tts]
 provider = "customtts"
-customtts = { command = ["/usr/local/jarvis_says.sh", "-w", "%%OUTPUT_FILE%%", "-l", "%%LANG%%", "%%TEXT%%"] }
+customtts = { command = ["/usr/local/bin/jarvis_says.sh", "-w", "%%OUTPUT_FILE%%", "-l", "%%LANG%%", "%%TEXT%%"] }
+```
+Stop the snips services
+```
+systemctl stop "snips-*"
 ```
 Edit the snips-tts startup file
 ```
@@ -68,10 +73,30 @@ Add ' -vvv' to the end of the ExecStart line
 ```
 ExecStart=/usr/bin/snips-tts -vvv
 ```
+You need to give snips a home directory to hold your AWS credentials
+```
+sudo usermod -d /home/_snips _snips
+sudo mkdir -pv /home/_snips/.aws
+sudo chown -R _snips /home/_snips
+```
+Copy your AWS config and credentials files to the ```/home/_snips/.aws``` folder
+
 Restart snips-tts
 ```
-systemctl restart snips-tts
+systemctl restart "snips-*"
 ```
+Test that the snips user can run the script
+```
+su -s /bin/bash - _snips
+/usr/local/bin/jarvis_says.sh -w /tmp/test.wav -l en "OK, here I am"
+```
+This should create mp3 files within /tmp/cache and a file /tmp/test.wav.
+
+Yuo can play the wav file using aplay.
+
+
+### Testing
+
 If you don't have anything set to talk to snips yet you can test using mosquitto_pub. Snips by default runs mqtt on
 127.0.0.1, port 9898
 ```
