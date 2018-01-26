@@ -16,8 +16,9 @@ parser = argparse.ArgumentParser()
 
 #group = parser.add_mutually_exclusive_group(required=True)
 
-parser.add_argument("-r", "--refresh", help="refresh lists", action='count')
 parser.add_argument("-p", "--process", help="process raw.txt", action='count')
+parser.add_argument("--refresh_amz", help="refresh lists", action='count')
+parser.add_argument("--refresh_nf", help="refresh lists", action='count')
 
 parser.add_argument("-v", "--verbose", help="verbose output, can be specified multiple times", action="count")
 
@@ -53,9 +54,10 @@ def clean_long_title(title):
     title = title.replace('&','and')
     title = title.replace('+','and')
     title = title.replace(':','and')
+    title = title.replace(',','')
     return title
 
-if args.refresh:
+if args.refresh_nf:
     with open('../apps/jarvis/tv_netflix_raw.txt', 'w') as outfile:
         outfile.seek(0)
         for page in range(1, 21):
@@ -67,13 +69,29 @@ if args.refresh:
             print(url)
             response = get(url)
             outfile.write(str(response.content))
+        infile1 = open('../apps/jarvis/tv_extra.txt', 'r')
+        for line in infile1:
+            line = line.replace(' ','%20')
+            line = line.rstrip()
+            url = ("http://instantwatcher.com/search?"
+                   "q={}&view=text&content_type%5B%5D=2&content_type%5B%5D=3&"
+                   "maturity_rating_level%5B%5D=2&maturity_rating_level%5B%5D=5&"
+                   "maturity_rating_level%5B%5D=6&maturity_rating_level%5B%5D=8&"
+                   "maturity_rating_level%5B%5D=9&"
+                   "maturity_rating_level%5B%5D=10".format(line))
+            print(url)
+            response = get(url)
+            outfile.write(str(response.content))
+        infile1.close()
         outfile.truncate()
         outfile.close()
+
+if args.refresh_amz:
     with open('../apps/jarvis/tv_amazon_raw.txt', 'w') as outfile:
         outfile.seek(0)
         for page in range(1, 29):
-            url = ("http://instantwatcher.com/a/search?page={}"
-            "page_title=Prime+TV&sort=ratings_count+desc&view=text&"
+            url = ("http://instantwatcher.com/a/search?"
+            "page_title=Prime+TV&page={}sort=ratings_count+desc&view=text&"
             "&year=1950-max&amzn_rating=6-max&prime%5B%5D=2&"
             "content_type%5B%5D=2&quality%5B%5D=1&quality%5B%5D=2&"
             "maturity_rating_level%5B%5D=2&maturity_rating_level%5B%5D=5&"
@@ -83,12 +101,28 @@ if args.refresh:
             print(url)
             response = get(url)
             outfile.write(str(response.content))
+        infile1 = open('../apps/jarvis/tv_extra.txt', 'r')
+        for line in infile1:
+            line = line.replace(' ','%20')
+            url = ("http://instantwatcher.com/search?page_title=Prime+TV&"
+                   "q={}&view=text&content_type%5B%5D=2&content_type%5B%5D=3&"
+                   "maturity_rating_level%5B%5D=2&maturity_rating_level%5B%5D=5&"
+                   "maturity_rating_level%5B%5D=6&maturity_rating_level%5B%5D=8&"
+                   "maturity_rating_level%5B%5D=9&"
+                   "maturity_rating_level%5B%5D=10".format(line))
+            print(url)
+            response = get(url)
+            outfile.write(str(response.content))
+        infile1.close()
+
+
         outfile.truncate()
         outfile.close()
 
 shows = {}
 
 if args.process:
+
     with open('../apps/jarvis/tv_netflix_raw.txt', 'r') as infile:
         infile.seek(0)
         for line in infile:
@@ -161,31 +195,28 @@ if args.process:
     outfile1.seek(0)
     outfile2.seek(0)
 
-    infile1 = open('../apps/jarvis/tv_extra.yaml', 'r')
-    infile2 = open('../apps/jarvis/tv_extra.txt', 'r')
+    infile1 = open('../apps/jarvis/tv_extra.txt', 'r')
     for line in infile1:
-        outfile1.write(line)
-    for line in infile2:
         outfile2.write(line)
 
 #    print(shows)
     for show, value in shows.items():
         #print(show)
         print("%s:" % show)
-        print("  channel: %s" % value['channel'] )
-        print("  seasons:")
+#        print("  channel: %s" % value['channel'] )
+#        print("  seasons:")
 
         outfile1.write('%s:\n' % show )
         outfile1.write('  long_title: "%s"\n' % value['long_title'])
         outfile1.write('  channel: %s\n' % value['channel'])
         outfile1.write('  seasons: \n')
         for season, content_id in value['seasons'].items():
-            print("    %s: %s" % (season, content_id))
+            #print("    %s: %s" % (season, content_id))
             outfile1.write("    %s: %s\n" % (season, content_id))
 
         outfile2.write('%s\n' % value['long_title'])
 
-
+    infile1.close()
     outfile1.truncate()
     outfile1.close()
     outfile2.truncate()

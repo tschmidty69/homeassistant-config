@@ -1,6 +1,6 @@
-AppDaemon:
-  logfile: STDOUT
-  errorfile: STDERR
+appdaemon:
+  logfile: ./appdaemon.log
+  errorfile: ./appdaemon.log
   logsize: 100000
   log_generations: 3
   threads: 10
@@ -9,7 +9,8 @@ AppDaemon:
   api_key: !secret api_key
 #  api_ssl_certificate: /etc/letsencrypt/live/home.todschmidt.com-0001/fullchain.pem
 #  api_ssl_key: /etc/letsencrypt/live/home.todschmidt.com-0001/privkey.pem
-HASS:
-  ha_url: !secret http_base_url
-  ha_key: !secret api_key
-
+  plugins:
+    HASS:
+      type: hass
+      ha_url: !secret http_base_url
+      ha_key: !secret api_key

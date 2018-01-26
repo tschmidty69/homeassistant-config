@@ -136,3 +136,13 @@ binary_sensor.ecolink_garage_door_tilt_sensor_sensor:
   device_class: opening
 group.garage:
   icon: mdi:garage
+switch.unknown_id0312_unknown_type0221_id251c_switch_2:
+  friendly_name: Inovelli Dual Switch
+zwave.unknown_id0312_unknown_type0221_id251c:
+  friendly_name: Inovelli Dual Switch
+zwave.ge_unknown_type4952_id3037:
+  friendly_name: GE Switch 1
+switch.ge_unknown_type5052_id3031_switch:
+  friendly_name: GE Outlet TV
+zwave.ge_unknown_type5052_id3031:
+  friendly_name: GE Outlet TV

@@ -2,7 +2,6 @@ ok:
   - OK
   - Of course
 
-
 sorry:
   - Sorry
   - My apologies
@@ -13,8 +12,14 @@ yes:
 no:
   - no
 
+greeting:
+  - Hello {}, welcome home
+
+intent_not_recognized:
+  - Sorry, I didn't understand that
+
 joke:
-  - <break time="1s"/>Donald Trump is our president
+  - <break time="1s"/>I am stuck here in America, that's a joke right?
     <break time="1s"/><prosody rate="x-slow" pitch="low">sigh</prosody>
   - What does an owl in england watch? <break time="2s"/> Doctor hoot
   - Did you hear about the winner in the English Best Teeth contest? <break time="2s"/> Me either

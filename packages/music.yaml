@@ -29,29 +29,28 @@ intent_script:
 
   volumeUp:
     speech:
-      type: plain
-      text: music
+      text: 'Turning the volume up'
     action:
       - service: script.volume_up_mopidy
 
   volumeDown:
     speech:
       type: plain
-      text: music
+      text: 'Turning the volume down'
     action:
       - service: script.volume_down_mopidy
 
   nextSong:
     speech:
       type: plain
-      text: music
+      text: 'Skipping track'
     action:
       - service: script.next_track_mopidy
 
   previousSong:
     speech:
       type: plain
-      text: music
+      text: 'Previous track'
     action:
       - service: script.previous_track_mopidy
 

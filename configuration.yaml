@@ -67,11 +67,15 @@ panel_iframe:
   nodered:
     title: 'Node-Red'
     icon: 'mdi:shuffle-variant'
-    url: 'https://home.todschmidt.com:1880/'
+    url: 'https://hass.todschmidt.com:1880/'
   ide:
     title: IDE
     icon: 'mdi:code-braces'
-    url: 'https://home.todschmidt.com:8321/'
+    url: 'https://hass.todschmidt.com:1881/'
+  mopidy:
+    title: 'Mopidy Music'
+    icon: 'mdi:music-box'
+    url: 'https://hass.todschmidt.com:6683/iris/'
 
 weather:
   - platform: darksky
@@ -114,13 +118,13 @@ logger:
   logs:
     urllib3.connectionpool: fatal
     homeassistant.core.event: debug
-# #    homeassistant.components.snips: debug
+    homeassistant.components.snips: debug
 # #    homeassistant.helpers.script: debug
-#     homeassistant.helpers.intent_script: debug
+    homeassistant.helpers.intent_script: debug
 # #    homeassistant.helpers.template: debug
 # #    homeassistant.components.websocket_api: debug
 # #    homeassistant.helpers.shell_command: debug
-# #    homeassistant.components.mqtt: debug
+    homeassistant.components.mqtt: debug
 # #    homeassistant.components.zha: debug
 # #    homeassistant.components.sensor.zha: debug
 #     homeassistant.components.http: debug
@@ -132,7 +136,7 @@ logger:
 # #    bellows.zigbee.application: debug
 # #    homeassistant.components.ios: debug
 # #    homeassistant.components.media_player: debug
-#
+
 # Enables a map showing the location of tracked devices
 map:
 
@@ -161,9 +165,9 @@ mqtt:
 zwave:
   usb_path: /dev/ttyUSB0
 
-zha:
-  usb_path: /dev/ttyUSB1
-  database_path: /home/homeassistant/.homeassistant/zigbee.db
+#zha:
+#  usb_path: /dev/ttyUSB1
+#  database_path: /home/homeassistant/.homeassistant/zigbee.db
 
 shopping_list:
 
@@ -181,7 +185,7 @@ input_boolean: !include input_boolean.yaml
 input_number: !include_dir_merge_named input_number/
 binary_sensor: !include binary_sensor.yaml
 shell_command: !include_dir_merge_named shell_command/
-#media_player: !include media_player.yaml
+media_player: !include media_player.yaml
 switch: !include_dir_merge_list switch/
 notify: !include notify.yaml
 script: !include_dir_merge_named scripts/

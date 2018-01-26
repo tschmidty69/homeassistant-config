@@ -1,16 +1,24 @@
-- alias: hotwordDetected
+- alias: jarvis_hotword_toggle
   trigger:
     platform: mqtt
-    topic: hermes/hotword/toggleOff
+    topic: hermes/hotword/#
   action:
-    event: JARVIS_LISTENING
+    event: JARVIS_MQTT
+    event_data_template:
+      topic: '{{ trigger.topic }}'
+      payload: '{{ trigger.payload }}'
 
-- alias: asrStopListening
+- alias: jarvis_intent
   trigger:
     platform: mqtt
-    topic: hermes/hotword/toggleOn
+    topic: hermes/intent/#
   action:
-    event: JARVIS_NOT_LISTENING
+    event: JARVIS_MQTT
+    event_data_template:
+      topic: '{{ trigger.topic }}'
+      payload: '{{ trigger.payload }}'
+
+######################################
 
 - alias: lightsTurnOnSet
   trigger:
@@ -39,12 +47,12 @@
     event_data_template:
       payload: '{{ trigger.payload }}'
 
-- alias: intentNotParsed
+- alias: intentNotRecognized
   trigger:
     platform: mqtt
-    topic: hermes/nlu/intentNotParsed
+    topic: hermes/nlu/intentNotRecognized
   action:
-    event: JARVIS_INTENT_NOT_PARSED
+    event: JARVIS_INTENT_NOT_RECOGNIZED
     event_data_template:
       payload: '{{ trigger.payload }}'
 

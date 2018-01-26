@@ -1,0 +1,30 @@
+jarvis_core:
+  module: jarvis_core
+  class: jarvis_core
+  # core
+  snips_mqtt_host: '192.168.1.19'
+  snips_mqtt_host: 1883
+  snips_console_user: 'TSchmidty'
+
+  # speechss
+  speech_file: '/data/speech_en.yml'
+
+  #media players
+  # these are mapped to siteIds in snips
+  # to mute players in a specific room only
+  ramp_volume_on_hotword: true
+  media_player:
+    - room: default
+      player: media_player.snapcast_client_6152618a83b04b70b879e3fa1f4664b2
+    - room: bonus
+      player: media_player.snapcast_client_4b8c047b8b04d3bb68c2b07e00000005
+    - room: remote
+      player: media_player.snapcast_client_45f086e40e8f48a7852eff4fd78d81ea
+
+  # music
+  mopidy_host: '192.168.1.201'
+
+jarvis_weather:
+  module: jarvis_weather
+  class: jarvis_weather
+  dependencies: jarvis_core

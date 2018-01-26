@@ -2,7 +2,7 @@
   host: 192.168.1.74
 - platform: roku
   host: 192.168.1.83
-- platform: plex
+#- platform: plex
 - platform: mpd
   host: 192.168.1.201
   name: mopidy

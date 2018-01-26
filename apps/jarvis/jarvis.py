@@ -1,4 +1,5 @@
-import appdaemon.appapi as appapi
+import appdaemon.plugins.hass.hassapi as hass
+import ast
 import sys
 import subprocess
 from subprocess import Popen, PIPE, STDOUT
@@ -6,50 +7,37 @@ import random
 import string
 import uuid
 import json
-import boto3
 import yaml
 import requests
 from pathlib import Path
-import os, re, time, threading
-#import paho.mqtt.client as mqtt
+import os, re, time
 import paho.mqtt.publish as publish
-from fuzzywuzzy import fuzz
-from fuzzywuzzy import process
+from fuzzywuzzy import fuzz, process
 
 ######################
-# Jarvis
+# Jarvis Core
 ######################
 
-class jarvis(appapi.AppDaemon):
+class jarvis(hass.Hass):
 
   def initialize(self):
     self.log("Jarvis is alive")
-    self.aws_client = boto3.setup_default_session(profile_name='jarvis')
-    self.aws_client = boto3.client('polly')
     self.snips_mqtt_host = '192.168.1.19'
     self.snips_mqtt_port = 1883
-    self.mpc_host = '192.168.1.201'
+    self.mopidy_host = '192.168.1.201'
     self.sessionId = ""
     self.siteId = "default"
 
     self.speech_file = os.path.join(os.path.dirname(__file__)
-                                    + '/jarvis/speech.yaml')
+                                    + '/data/speech_en.yml')
     with open(self.speech_file, "r") as f:
         self.speech = yaml.load(f)
 
     self.tv_file = os.path.join(os.path.dirname(__file__)
-                                    + '/jarvis/tv.yaml')
+                                    + '/data/tv.yml')
     with open(self.tv_file, "r") as f:
         self.tv = yaml.load(f)
 
-    self.players_dict = {
-        "default":
-            "media_player.snapcast_client_6152618a83b04b70b879e3fa1f4664b2",
-        "bonus":
-            "media_player.snapcast_client_4b8c047b8b04d3bb68c2b07e00000005",
-        "remote":
-            "media_player.snapcast_client_45f086e40e8f48a7852eff4fd78d81ea"
-    }
     self.players = [
         "media_player.snapcast_client_6152618a83b04b70b879e3fa1f4664b2",
         "media_player.snapcast_client_4b8c047b8b04d3bb68c2b07e00000005",
@@ -60,7 +48,8 @@ class jarvis(appapi.AppDaemon):
                  'master_bedroom': '192.168.1.83'}
     self.volume = {}
     for player in self.players:
-        self.volume[player] = self.get_state(player, "volume_level")
+        self.volume[player] = self.get_state(entity=player,
+                                             attribute="volume_level")
     self.thermostats = {'heat': {}, 'cool': {}}
     self.thermostats['heat']['downstairs'] =\
                         '2gig_technologies_ct101_thermostat_iris_heating_1'
@@ -88,7 +77,7 @@ class jarvis(appapi.AppDaemon):
     self.listen_event(self.jarvis_weather, "JARVIS_WEATHER")
     self.listen_event(self.jarvis_thermostat, "JARVIS_THERMOSTAT")
     self.listen_event(self.jarvis_intent, "JARVIS_INTENT")
-    self.listen_event(self.jarvis_intent_not_parsed,
+    self.listen_event(self.jarvis_intent_not_recognized,
                       "JARVIS_INTENT_NOT_PARSED")
 
   def snips_publish(self, payload):
@@ -96,7 +85,6 @@ class jarvis(appapi.AppDaemon):
       payload=json.dumps(payload),
       hostname=self.snips_mqtt_host,
       port=self.snips_mqtt_port,
-      protocol=mqtt.MQTTv311
     )
 
   def jarvis_speech(self, speech):
@@ -151,8 +139,8 @@ class jarvis(appapi.AppDaemon):
         else:
             temperature = -2
         cur_temp = self.get_state(
-            'climate.'+self.thermostats['heat'][thermostat],
-            'current_temperature')
+            entity='climate.'+self.thermostats['heat'][thermostat],
+            attribute='current_temperature')
         target_temp = int(cur_temp) + int(temperature)
     elif slots.get('temperature'):
         if not 60 <= int(slots['temperature']) < 91:
@@ -188,7 +176,7 @@ class jarvis(appapi.AppDaemon):
   def jarvis_intent(self, event_name, data, *args, **kwargs):
     self.log("jarvis_intent: {}".format(data), "INFO")
 
-  def jarvis_intent_not_parsed(self, event_name, data, *args, **kwargs):
+  def jarvis_intent_not_recognized(self, event_name, data, *args, **kwargs):
     self.log("jarvis_intent_not_parsed: {}".format(data), "INFO")
     self.jarvis_notify('NONE', {'text': self.jarvis_speech('sorry')
                     + " I didn't get that"})
@@ -197,13 +185,15 @@ class jarvis(appapi.AppDaemon):
     self.log("jarvis_listening: {}".format(event_name), "INFO")
     if event_name == "JARVIS_LISTENING":
         for player in self.players:
-            self.volume[player] = self.get_state(player, "volume_level")
-            if not self.get_state(player, "is_volume_muted"):
-                self.volume[player] = self.get_state(player, "volume_level")
+            self.volume[player] = self.get_state(entity=player,
+                                                 attribute="volume_level")
+            if not self.get_state(entity=player, attribute="is_volume_muted"):
+                self.volume[player] = self.get_state(entity=player,
+                                                     attribute="volume_level")
                 self.jarvis_ramp_volume(player, self.volume[player], 0.2)
     if event_name == "JARVIS_NOT_LISTENING":
         for player in self.players:
-            if not self.get_state(player, "is_volume_muted"):
+            if not self.get_state(entity=player, attribute="is_volume_muted"):
                 self.jarvis_ramp_volume(player, 0.2, self.volume[player])
 
   def jarvis_notify(self, event_name, data, *args, **kwargs):
@@ -234,18 +224,20 @@ class jarvis(appapi.AppDaemon):
     #self.log("jarvis_yesno_response: intent {}".format(data['intent']), "INFO")
     #self.log("jarvis_thermostat: slots {}".format(data['slots']), "INFO")
 
+    intent = ''
+    slots = []
     if data['slots'][0]['value']['value'] == 'yes':
+        intent_data = ast.literal_eval(data.get('customData', ''))
         payload={'siteId': data.get('siteId', self.siteId),
                  'sessionId': data.get('sessionId'),
                  'input': data.get('customData'),
-                 'intent': {'intentName': data.get('customData')},
-                 'slots': []}
+                 'intent': {'intentName': intent_data.get('intent', '')},
+                 'slots': intent_data.get('slots', [])}
         self.snips_publish(payload)
-        publish.single('hermes/intent/'+data.get('customData'),
+        publish.single('hermes/intent/'+intent_data.get('intent', ''),
           payload=json.dumps(payload),
           hostname=self.snips_mqtt_host,
           port=self.snips_mqtt_port,
-          protocol=mqtt.MQTTv311
         )
     else:
       self.jarvis_notify('NONE', {"text": self.jarvis_speech('ok')})
@@ -371,7 +363,7 @@ class jarvis(appapi.AppDaemon):
   def jarvis_artist(self, event_name, data, *args, **kwargs):
     self.log("jarvis_artist: {}".format(data), "INFO")
 
-    artist_search=subprocess.check_output(["/usr/bin/mpc", "-h", self.mpc_host,
+    artist_search=subprocess.check_output(["/usr/bin/mpc", "-h", self.mopidy_host,
                 "search", "artist", data['artist']],
                 universal_newlines=True)
     #self.log("jarvis_artist: {}".format(artist_search), "INFO")
@@ -385,7 +377,7 @@ class jarvis(appapi.AppDaemon):
         self.call_service("media_player/clear_playlist",
                           entity_id = 'media_player.mopidy')
 
-        mpc_add=Popen(["/usr/bin/mpc", "-h", self.mpc_host, "add"],
+        mpc_add=Popen(["/usr/bin/mpc", "-h", self.mopidy_host, "add"],
                         stdin=PIPE, encoding='utf8')
         mpc_add.communicate("\n".join(tracks))
 
@@ -402,16 +394,16 @@ class jarvis(appapi.AppDaemon):
                         + data['artist']})
 
   def jarvis_song(self, event_name, data, *args, **kwargs):
-    self.log("jarvis_song: {}".format(data), "INFO")
+    self.log("jarvis_song: {}".format(data), 'DEBUG')
     if not data['artist'] and not data['title']:
         return
-    mpc_search=subprocess.check_output(["/usr/bin/mpc", "-h", self.mpc_host,
+    mpc_search=subprocess.check_output(["/usr/bin/mpc", "-h", self.mopidy_host,
                 "search", "artist", data['artist'], "title", data['title']],
                 universal_newlines=True)
-    #self.log("jarvis_artist: {}".format(artist_search), "INFO")
+    self.log("jarvis_artist: {}".format(artist_search), 'DEBUG')
     tracks = [str(s) for s in str(mpc_search).split('\n') if "track" in s]
     #for t in tracks:
-    #    self.log("jarvis_artist: track: %s" % t)
+    #    self.log("jarvis_artist: track: %s" % t, 'DEBUG')
     if tracks:
         subprocess.run(["/usr/bin/mpc", "repeat", "off"])
         self.call_service("media_player/shuffle_set",
@@ -422,7 +414,7 @@ class jarvis(appapi.AppDaemon):
         self.call_service("media_player/clear_playlist",
                           entity_id = 'media_player.mopidy')
 
-        mpc_add=Popen(["/usr/bin/mpc", "-h", self.mpc_host, "add"],
+        mpc_add=Popen(["/usr/bin/mpc", "-h", self.mopidy_host, "add"],
                         stdin=PIPE, encoding='utf8')
         mpc_add.communicate("\n".join(tracks))
 
@@ -457,7 +449,7 @@ class jarvis(appapi.AppDaemon):
         self.call_service("switch/turn_"+onOff,
           entity_id = 'switch.ge_unknown_type4952_id3037_switch')
         text = "Ok"
-    elif house_room == 'living_room':
+    elif house_room == 'living room':
         self.call_service("switch/turn_"+onOff,
           entity_id = 'group.living_room_lights')
         text = "Ok"
@@ -535,3 +527,8 @@ class jarvis(appapi.AppDaemon):
                            + ":8060/keypress/Select")
                     response = requests.post(url)
                     self.log("jarvis_tv: response {}".format(response), "INFO")
+                    self.jarvis_notify(None, {'siteId':
+                        data.get('siteId', 'default'),
+                        'text': self.jarvis_speech('ok')
+                        + ", I put " + self.tv[show[0][0]]['long_title']
+                        + " on for you"})

@@ -43,8 +43,19 @@ echo 'Output file:' $outfile
 # check/create cache if needed
 mkdir -pv "$cache"
 
-# create hash for the string based on params and text
-md5string="$text""_""$voice""_""$format""_""$samplerate"
+lang="$4"
+echo 'Lang: ' $lang
+
+if [ "$lang" == "es-ES" ]; then
+    voice="Enrique"
+fi
+if [ "$lang" == "es-US" ]; then
+    voice="Miguel"
+fi
+echo 'Voice: ' $voice
+
+# hash for the string based on params and text
+md5string="$text""_""$voice""_""$format""_""$samplerate""_""$lang"
 echo 'Using string for hash': $md5string
 
 hash="$(echo -n "$md5string" | md5sum | sed 's/ .*$//')"
@@ -62,7 +73,8 @@ then
 else
     echo "$cachefile not found, running polly"
     # execute polly to get mp3 - check paths, voice set to Salli
-    $awscli --profile jarvis polly synthesize-speech --output-format "$format" --voice-id "$voice" --sample-rate "$samplerate" --text-type ssml --text "$text" "$cachefile"
+    $awscli --profile jarvis polly synthesize-speech --output-format "$format" --voice-id "$voice" \
+        --sample-rate "$samplerate" --text-type ssml --text "$text" "$cachefile"
     # update index
     echo "$hash" "$md5string" >> "$cache"index.txt
     # execute conversion to wav
