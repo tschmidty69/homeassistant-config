@@ -6,7 +6,7 @@ These are a couple of scripts that I have running on my Snips RaspberryPI 3
 Copy this script somewhere it can be executed by snips
 ```
 cd /usr/local/bin
-sudo wget https://raw.githubusercontent.com/tschmidty69/homeassistant/cmaster/jarvis/jarvis_says.sh
+sudo wget https://raw.githubusercontent.com/tschmidty69/homeassistant/master/jarvis/jarvis_says.sh
 sudo chmod +x jarvis_says.sh
 sudo apt-get install mpg123
 ```
