@@ -2,3 +2,5 @@
 {"site_id": "remote", "custom_data": "{'intent':'user_rZEKlr8M7M3__setThermostat', 'slots': [{'slotName': 'temperature', 'value': {'value': 2}}, {'slotName': 'direction', 'value': {'value': 'up'}}]}", "intent_filter": "TSchmidty:YesNoResponse",  "text": "You look cold. Would you like me to turn the heat up?"}
 
 mosquitto_pub -h 192.168.1.19 -t hermes/dialogueManager/startSession -m '{"sessionId":"818e0caf-159b-4886-a9c9-7407cc008f8d","customData":null,"siteId":"remote","input":"right what the weather like today","intent":{"intentName":"searchWeatherForecast","probability":0.84295225},"slots":[{"rawValue":"today","value":{"kind":"InstantTime","value":"2018-01-25 00:00:00 -05:00","grain":"Day","precision":"Exact"},"range":{"start":30,"end":35},"entity":"snips/datetime","slotName":"forecast_start_datetime"}]}'
+
+mosquitto_pub -h 192.168.1.19 -t hermes/tts/say -m '{"siteId":"remote","text":"Ronaldo es un ganador excellente", "lang": "es-ES"}'

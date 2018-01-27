@@ -24,7 +24,41 @@ jarvis_core:
   # music
   mopidy_host: '192.168.1.201'
 
-jarvis_weather:
-  module: jarvis_weather
-  class: jarvis_weather
+jarvis_music:
+  module: jarvis_music
+  class: jarvis_music
   dependencies: jarvis_core
+
+jarvis_lights:
+  module: jarvis_lights
+  class: jarvis_lights
+  dependencies: jarvis_core
+  lights:
+    - christmas: group.living_room_lights
+    - living_room: group.living_room_lights
+    - driveway: switch.driveway_lights
+
+jarvis_timer:
+  module: jarvis_timer
+  class: jarvis_timer
+  dependencies: jarvis_core
+
+jarvis_thermostat:
+  module: jarvis_thermostat
+  class: jarvis_thermostat
+  dependencies: jarvis_core
+  thermostat:
+    heat:
+      - downstairs: 2gig_technologies_ct101_thermostat_iris_heating_1
+      - upstairs: 2gig_technologies_ct101_thermostat_iris_heating_1_2
+    ac:
+      - downstairs: 2gig_technologies_ct101_thermostat_iris_cooling_1
+      - upstairs: 2gig_technologies_ct101_thermostat_iris_cooling_1_2
+
+jarvis_tv:
+  module: jarvis_tv
+  class: jarvis_tv
+  dependencies: jarvis_core
+  roku:
+    living_room: '192.168.1.74'
+    master_bedroom: '192.168.1.83'

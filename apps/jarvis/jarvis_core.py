@@ -77,17 +77,34 @@ class jarvis_core(hass.Hass):
                            {'text':
                             self.jarvis_get_speech('intent_not_recognized')})
 
-    def jarvis_notify(self, event_name, data, *args, **kwargs):
-        self.log("__function__: %s" %data, 'DEBUG')
+    def jarvis_notify(self, data, *args, **kwargs):
+        self.log("__function__: %s" % data, 'DEBUG')
         payload={'siteId': data.get('siteId', self.siteId),
                  'init': {'type': 'notification',
                           'text': data.get('text', '')}}
         publish.single('hermes/dialogueManager/startSession',
                        payload=json.dumps(payload),
                        hostname=self.snips_mqtt_host,
-                       port=self.snips_mqtt_port,
-                       protocol=mqtt.MQTTv311
-        )
+                       port=self.snips_mqtt_port)
+
+    def jarvis_end_session(self, data, *args, **kwargs):
+        self.log("__function__: %s" % data, 'DEBUG')
+        payload={'sessionId': data.get('sessionId', ''),
+                          'text': data.get('text', '')}
+        publish.single('hermes/dialogueManager/endSession',
+                       payload=json.dumps(payload),
+                       hostname=self.snips_mqtt_host,
+                       port=self.snips_mqtt_port)
+
+    def jarvis_continue_session(self, data, *args, **kwargs):
+        self.log("__function__: %s" % data, 'DEBUG')
+        payload={'siteId': data.get('sessionId', ''),
+                          'text': data.get('text', ''),
+                          'intentFilter': data.get('intentFilter', [])}
+        publish.single('hermes/dialogueManager/continueSession',
+                       payload=json.dumps(payload),
+                       hostname=self.snips_mqtt_host,
+                       port=self.snips_mqtt_port)
 
     def jarvis_action(self, event_name, data, *args, **kwargs):
         self.log("__function__: %s" % data, 'DEBUG')
@@ -101,9 +118,7 @@ class jarvis_core(hass.Hass):
         publish.single('hermes/dialogueManager/startSession',
                        payload=json.dumps(payload),
                        hostname=self.snips_mqtt_host,
-                       port=self.snips_mqtt_port,
-                       protocol=mqtt.MQTTv311
-        )
+                       port=self.snips_mqtt_port )
 
     def jarvis_yesno_response(self, data, *args, **kwargs):
         """Custom handler for specific Yes/No Intent.

@@ -16,6 +16,10 @@
 # Input text and parameters will be used to calculate a hash for caching the mp3 files so only
 # "new speech" will call polly, existing mp3s will be transformed in wav files directly
 
+export AWS_ACCESS_KEY_ID="<YOUR_API_KEY_HERE>"
+export AWS_SECRET_ACCESS_KEY="<YOUR_ACCESS_KEY_HERE>"
+export AWS_DEFAULT_REGION="<YOUR_DEFAULT_REGION>"
+
 # Folder to cache the files - this also contains the .txt file with all generated mp3
 cache="/tmp/cache/"
 
@@ -55,7 +59,7 @@ fi
 echo 'Voice: ' $voice
 
 # hash for the string based on params and text
-md5string="$text""_""$voice""_""$format""_""$samplerate""_""$lang"
+md5string="$text""_""$voice""_""$format""_""$samplerate"
 echo 'Using string for hash': $md5string
 
 hash="$(echo -n "$md5string" | md5sum | sed 's/ .*$//')"
@@ -73,7 +77,7 @@ then
 else
     echo "$cachefile not found, running polly"
     # execute polly to get mp3 - check paths, voice set to Salli
-    $awscli --profile jarvis polly synthesize-speech --output-format "$format" --voice-id "$voice" \
+    $awscli polly synthesize-speech --output-format "$format" --voice-id "$voice" \
         --sample-rate "$samplerate" --text-type ssml --text "$text" "$cachefile"
     # update index
     echo "$hash" "$md5string" >> "$cache"index.txt

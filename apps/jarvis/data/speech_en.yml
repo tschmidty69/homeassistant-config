@@ -1,16 +1,24 @@
 ok:
   - OK
   - Of course
+  - At once
 
 sorry:
   - Sorry
   - My apologies
+  - Forgive me
 
 yes:
   - Yes
 
 no:
-  - no
+  - No
+
+lights:
+  - OK, turning the {} lights {}
+
+not_found_lights:
+  - Sorry, I couldn't find {}
 
 greeting:
   - Hello {}, welcome home

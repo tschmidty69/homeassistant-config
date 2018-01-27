@@ -56,9 +56,9 @@ class jarvis(hass.Hass):
     self.thermostats['heat']['upstairs'] =\
                         '2gig_technologies_ct101_thermostat_iris_heating_1_2'
     self.thermostats['cool']['downstairs'] =\
-                        '2gig_technologies_ct101_thermostat_iris_heating_1'
+                        '2gig_technologies_ct101_thermostat_iris_cooling_1'
     self.thermostats['cool']['downstairs'] =\
-                        '2gig_technologies_ct101_thermostat_iris_heating_1_2'
+                        '2gig_technologies_ct101_thermostat_iris_cooling_1_2'
 
     self.listen_event(self.jarvis_say, "JARVIS_SAY")
     self.listen_event(self.jarvis_notify, "JARVIS_NOTIFY")
