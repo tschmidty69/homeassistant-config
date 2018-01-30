@@ -1,0 +1,147 @@
+################################################
+#                                              #
+# This package creates a device that allows me #
+# to set a boolean to show the system in       #
+# "Maintenance Mode", and manage backing up,   #
+# upgrading and pulling config from Github     #
+#                                              #
+################################################
+
+
+homeassistant:
+  customize_glob:
+    "weblink.*":
+      icon: mdi:web
+
+  customize:
+    input_text.github_message:
+      icon: mdi:pencil
+    
+    script.sync_dropbox:
+      icon: mdi:dropbox
+
+    script.upgrade_hass:
+      icon: mdi:cloud-check
+
+    script.github_push:
+      icon: mdi:github-circle
+
+    script.github_pull:
+      icon: mdi:github-box
+
+    script.quick_reboot:
+      icon: mdi:raspberrypi
+
+    script.quick_restart:
+      icon: mdi:home-assistant
+
+    script.learn_ir:
+      icon: mdi:remote
+
+
+weblink:
+  entities:
+    - name: Github
+      url: https://github.com/tschmidty69/homeassistant/
+    - name: Travis CI
+      url: https://travis-ci.org/
+    - name: Router
+      url: !secret weblink_router
+    - name: Mopidy
+      url: http://192.168.1.201:6680/iris/
+
+
+input_boolean:
+  maintenance_mode:
+    name: Maintenance mode
+    icon: mdi:auto-fix
+
+
+input_text:
+  github_message:
+    name: Commit Message
+    initial: Push from local
+
+
+group:
+  Maintenance:
+    control: hidden
+    entities:
+      - input_boolean.maintenance_mode
+      - script.quick_restart
+      - script.quick_reboot
+      - script.upgrade_hass
+      - script.github_pull
+      - input_text.github_message
+      - script.github_push
+      - weblink.github
+      - script.sync_dropbox
+      - weblink.dropbox
+
+  Configure external:
+      - weblink.configure_alexa
+      - weblink.router
+      - script.learn_ir
+
+
+shell_command:
+  upgrade_hass: /home/homeassistant/.homeassistant/extras/bash_scripts/upgrade-hass.sh
+
+  github_pull: /home/homeassistant/.homeassistant/extras/bash_scripts/pull-from-github.sh
+
+  github_push: /home/homeassistant/.homeassistant/extras/bash_scripts/send-to-github.sh '{{states.input_text.github_message.state}}'
+
+  quick_restart: sudo systemctl restart home-assistant@homeassistant.service
+
+  quick_reboot: sudo reboot
+
+
+alert:
+  maintenance_mode_alert:
+    name: Maintenance Mode has been on for a long time
+    done_message: Maintenance Mode de-activated
+    entity_id: input_boolean.maintenance_mode
+    repeat:
+      - 60
+    skip_first: true
+    notifiers:
+      - mf
+
+
+script:
+  upgrade_hass:
+    alias: Upgrade HA and Restart
+    sequence:
+      - service: shell_command.upgrade_hass
+
+  github_pull:
+    alias: Pull from Github and Restart
+    sequence:
+      - service: shell_command.github_pull
+
+  github_push:
+    alias: Push to Github
+    sequence:
+      - condition: template
+        value_template: "{{not is_state ('input_text.github_message' , '' )}}" 
+      - service: shell_command.github_push
+      - service: persistent_notification.create
+        data:
+          notification_id: "Github_push_alert"
+          title: "Github"
+          message: "You have pushed your local files to github, you must merge the branches on github then sync the master branch here."
+
+  quick_restart:
+    alias: Restart Homeassistant
+    sequence:
+      - service: shell_command.quick_restart
+
+  quick_reboot:
+    alias: Reboot Node-zero
+    sequence:
+      - service: shell_command.quick_reboot
+
+  learn_ir:
+    alias: Learn IR code
+    sequence:
+      - service: !secret learn_ir

@@ -1,0 +1,5 @@
+mqtt_demo:
+  module: mqtt_demo
+  class: mqtt_demo
+  topics:
+    - mqtt_demo/#

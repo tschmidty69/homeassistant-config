@@ -1,0 +1,13 @@
+toggleSound:
+  action:
+    - event: JARVIS_SAY
+      event_data_template:
+        speech: '"OK, turning sounds {{ sound }}"'
+    - service: shell_command.snips_toggle_sound
+      data_template:
+        sound: >-
+          {% if sound == 'off' %}
+            toggleOff
+          {% else %}
+            toggleOn
+          {% endif %}

@@ -1,0 +1,13 @@
+- platform: template
+  switches:
+    panasonic_tv_power:
+      friendly_name: 'Panasonic TV Power'
+      value_template: "{{ states.sensor.panasonic_tv_outlet_power.attributes.power_consumption > 1 }}"
+      turn_on:
+        service: switch.turn_on
+        data:
+          entity_id: switch.panasonic_tv_ir
+      turn_off:
+        service: switch.turn_on
+        data:
+          entity_id: switch.panasonic_tv_ir

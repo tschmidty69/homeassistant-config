@@ -8,6 +8,7 @@ default_view:
     - camera.living_room
     - camera.master_bedroom
     - group.household
+    - group.living_room_tv
     - group.climate
     - group.music
     - group.doors
@@ -34,3 +35,4 @@ Debug:
     - weblink.Mopidy
     - group.parent
     - sensor.fail2ban
+    - sun.sun

@@ -352,7 +352,7 @@ class jarvis(hass.Hass):
             entity_id = "media_player.mopidy"
         )
         clean_playlist = re.sub(' \(by .*\)', '', playlist)
-        self.jarvis+notify('NONE', {'text': self.jarvis_speech('ok')
+        self.jarvis_notify('NONE', {'text': self.jarvis_speech('ok')
                            + "OK, playing playlist "
                            + clean_playlist})
     else:

@@ -117,14 +117,14 @@ logger:
   default: warning
   logs:
     urllib3.connectionpool: fatal
-    homeassistant.core.event: debug
-    homeassistant.components.snips: debug
+#    homeassistant.core.event: debug
+#    homeassistant.components.snips: debug
 # #    homeassistant.helpers.script: debug
     homeassistant.helpers.intent_script: debug
 # #    homeassistant.helpers.template: debug
 # #    homeassistant.components.websocket_api: debug
 # #    homeassistant.helpers.shell_command: debug
-    homeassistant.components.mqtt: debug
+#    homeassistant.components.mqtt: debug
 # #    homeassistant.components.zha: debug
 # #    homeassistant.components.sensor.zha: debug
 #     homeassistant.components.http: debug
@@ -198,7 +198,3 @@ snips:
 intent_script: !include_dir_merge_named intent_scripts
 #android_ip_webcam: !include android_ip_webcam.yaml
 
-weblink:
-  entities:
-    - name: Mopidy
-      url: http://192.168.1.201:6680/iris/

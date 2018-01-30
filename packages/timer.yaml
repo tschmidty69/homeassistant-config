@@ -1,9 +1,0 @@
-intent_script:
-  setTimer:
-    sequence:
-      - event: JARVIS_SET_TIMER
-        event_data_template:
-          name: '{{ name  }}'
-          hours: '{{ hours }}'
-          minutes: '{{ minutes }}'
-          seconds: '{{ seconds }}'

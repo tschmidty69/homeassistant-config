@@ -1,25 +1,34 @@
 import appdaemon.plugins.hass.hassapi as hass
 import ast
 import sys
-import random
 import string
 import json
-import yaml
 import requests
-from pathlib import Path
 import os, re, time
 from fuzzywuzzy import fuzz, process
+import wolframalpha
 
-######################
-# Jarvis Weather Skill
-######################
 
-class jarvis_weather(hass.Hass):
+##########################
+# Jarvis ask_wolfram Skill
+##########################
+
+class jarvis_ask_wolfram(hass.Hass):
 
     def initialize(self):
-        jarvis = self.get_app("jarvis_core")
-        jarvis.jarvis_register_intent('searchWeatherForecast',
-                                    self.jarvis_weather)
+        if not self.args.get('enabled'):
+            return
+        self.jarvis = self.get_app('jarvis_core')
+        self.jarvis.jarvis_register_intent('ask_wolfram',
+                                      self.jarvis_ask_wolfram)
+        self.client = wolframalpha.Client(self.args.get('api_key'))
 
-    def jarvis_weather(self, data):
-        self.log("__function__: Here is your weather: %s" % data)
+    def jarvis_ask_wolfram(self, data):
+        self.log("__function__: Here is your ask_wolfram: %s" % data)
+        res = self.client.query(data.get('input'))
+        for pod in res.pods:
+            self.log("__function__: pod: %s" % pod)
+            if pod.subpods:
+                self.log("__function__: subpod: %s" %
+                         list(pod.subpods)[0].get('plaintext'))
+                break

@@ -146,3 +146,9 @@ switch.ge_unknown_type5052_id3031_switch:
   friendly_name: GE Outlet TV
 zwave.ge_unknown_type5052_id3031:
   friendly_name: GE Outlet TV
+switch.ge_12719_plugin_smart_switch_switch:
+  friendly_name: GE Outlet 2
+zwave.ge_12719_plugin_smart_switch:
+  friendly_name: GE Outlet 2
+switch.tv_power_switch:
+  friendly_name: Panasonic TV Outlet

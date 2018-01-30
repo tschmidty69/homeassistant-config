@@ -1,0 +1,80 @@
+yes:
+  - Yes
+
+no:
+  - No
+
+ok:
+  - OK
+  - Of course
+  - At once
+
+sorry:
+  - Sorry
+  - My apologies
+  - Forgive me
+
+not_understood:
+  - Sorry, I didn't understand exactly
+  - My apologies, I didn't get that
+  - All I heard was blah, blah, blah
+
+too_much_change:
+  - '{} is too big of a change for me to make'
+
+set_temperature:
+  - setting the {} {} to {} degrees
+
+cant_set_temperature:
+  - I can't set the temperature to {} degrees
+
+cant_do_yet:
+  - I can't do that...yet
+  - I haven't figured out how to do that yet
+  - that is beyond my capabilities
+
+# entity, entity type, state
+# Example: living room, light, on
+turn_on_or_off:
+  - OK, turning the {} {} {}
+  - I can definitely turn the {} {} {}
+  - The {} {} shall be turned {} immediately
+
+# entity, entity_type, state
+# Example: living room, light, on
+already_state:
+  - The {} {} is already {}
+  - Why? the {} {} is already {}
+
+# entity, entity type
+# Example: living room, light
+not_found:
+  - Sorry, I couldn't find the {} {}
+  - There is no {} {}
+  - As soon as you get a {} {}, I can do that
+
+# entity type
+# Example: living room, light
+unknown_entity:
+  - Sorry, I didn't understand which {} {} you wanted
+  - Where is the {} {}?
+
+# name
+# Example: Michael
+greeting:
+  - Hello {}, welcome home
+
+intent_not_recognized:
+  - Sorry, I didn't understand that
+  - Could you repeat that?
+
+# NOTE: The below is configured to use SSML markup which snips does not
+#       support by default. You will need to configure a custom TTS
+joke:
+  - <break time="1s"/>I am stuck here in America, that's a joke right?
+    <break time="1s"/><prosody rate="x-slow" pitch="low">sigh</prosody>
+  - What does an owl in england watch? <break time="2s"/> Doctor hoot
+  - Did you hear about the winner in the English Best Teeth contest? <break time="2s"/> Me either
+  - Why did the siamese twins move to England? <break time="2s"/> So the other one could drive!
+  - England doesn't have a kidney bank, but it does have a liverpool
+  - What time was it when the monster ate the british prime minister?<break time="1s"/>Eight P.M.

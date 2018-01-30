@@ -1,16 +1,19 @@
 appdaemon:
-  logfile: ./appdaemon.log
-  errorfile: ./appdaemon.log
+  logfile: STDOUT
+  errorfile: STDERR
   logsize: 100000
   log_generations: 3
   threads: 10
   cert_verify: True
   api_port: 5000
   api_key: !secret api_key
-#  api_ssl_certificate: /etc/letsencrypt/live/home.todschmidt.com-0001/fullchain.pem
-#  api_ssl_key: /etc/letsencrypt/live/home.todschmidt.com-0001/privkey.pem
   plugins:
     HASS:
       type: hass
       ha_url: !secret http_base_url
       ha_key: !secret api_key
+    MQTT:
+      type: mqtt
+      mqtt_client_host: '192.168.1.19'
+      mqtt_client_port: 1883
+      mqtt_client_topics: 'mqtt_demo/#'

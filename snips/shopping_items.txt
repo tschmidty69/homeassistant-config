@@ -1,0 +1,278 @@
+apples
+bananas
+berries
+grapes
+lemons
+lime
+melons
+nectarines
+oranges
+peaches
+pears
+plums
+strawberries
+watermelon
+asparagus
+broccoli
+cabbage
+carrots
+cauliflower
+celery
+corn
+garlic
+lettuce
+mushrooms
+onions
+peppers
+potato
+squash
+sweet potato
+tomatoes
+zucchini
+cherries
+mixed fruit
+peaches
+pears
+pineapples
+asparagus
+carrots
+corn
+greenbeans
+peas
+potatoes
+tomatoes
+baked beans
+butter beans
+green beans
+kidney beans
+pinto beans
+porknbeans
+string beans
+broccoli
+carrots
+corn
+dinners
+french fries
+ice cream
+mixed vegetables
+peas
+pizza
+tater tots
+beef
+ground
+hamburger
+roast
+steaks
+boneless breast
+breast with bone
+legs
+whole chicken
+wings
+ham
+roast beef
+smoked turkey
+turkey
+bacon
+chops
+ham
+roast
+sausage
+crabmeat
+fish
+scallops
+shrimp
+salmon
+chicken
+corned beef
+ham
+salmon
+tuna
+vienna sausage
+celery salt
+cinnamon
+garlic powder
+garlic salt
+ginger
+nutmeg
+onion powder
+oregano
+paprika
+parsley
+pepper
+salt
+bbq sauce
+honey
+horseradish
+jelly
+ketchup
+mayonnaise
+mustard
+peanut butter
+salsa
+soy sauce
+syrup
+worcestershire
+batteries
+cards
+camera film
+light bulbs
+cooking spray
+olive oil
+vegetable oil
+blue cheese
+french
+italian
+ranch
+thousand island
+candy
+cookies
+crackers
+nuts
+popcorn
+potato chips
+pretzels
+raisins
+soup
+chicken and rice soup
+chicken noodle soup
+cream of broccoli soup
+cream of celery soup
+cream of chicken soup
+cream of mushroom soup
+tomato soup
+vegetable soup
+vegetable beef soup
+vegetable chicken soup
+biscuits
+hamburger buns
+hot dog buns
+french bread
+rolls
+italian bread
+wheat bread
+white bread
+coffee
+juice
+milk
+orange juice
+soft drinks
+sports drinks
+tea
+water
+soda
+pop
+coke
+sprite
+mountain dew
+butter
+cheese
+cottage cheese
+cream cheese
+creamer
+eggs
+margarine
+milk
+sliced cheese
+sour cream
+yogurt
+spaghetti sauce
+tomato paste
+tomato sauce
+angel hair pasta
+elbow macaroni
+lasagne pasta
+rotelle pasta
+shells pasta
+spaghetti pasta
+vemicelli pasta
+green chili
+refried beans
+salsa
+spanish rice
+tacos
+tortillias
+corn tortillias
+flour tortillias
+baking powder
+baking soda
+brown sugar
+brownie mix
+cake mix
+cereal
+cocoa
+cornstarch
+flour
+jello
+oatmeal
+pancake mix
+rice
+sugar
+vanilla extract
+diapers
+formula
+lotion
+oil
+rash cream
+shampoo
+wipes
+apple juice
+applesauce
+bananas
+beef
+carrots
+chicken
+dinners
+greenbeans
+mixed vegetables
+peaches
+pears
+squash
+sweet potato
+veal
+antiacid
+bandaids
+cough drops
+first aid cream
+hydrogen peroxide
+pain-reliever
+rubbing alcohol
+dog food
+cat food
+cat litter
+anti-bacterial soap
+deodorant
+floss
+lotion
+mouthwash
+petroleum jelly
+razors
+shampoo
+shaving cream
+soap
+toothbrush
+toothpaste
+foil
+freezer bags
+kitchen bags
+paper towels
+plastic wrap
+sandwich bags
+storage bags
+tissue
+toilet paper
+trash bag
+yard bags
+air freshener
+bleach
+broom
+dishwasher detergent
+dishwashing soap
+dryer sheets
+furniture polish
+glass cleaner
+laundry detergent
+mop
+scrub brush
+sponges
+toilet bowl cleaners
+towels

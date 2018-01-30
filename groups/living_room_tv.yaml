@@ -1,0 +1,5 @@
+living_room_tv:
+  name: 'Living Room TV'
+  entities:
+    - media_player.living_room
+    - switch.panasonic_tv_power
