@@ -6,17 +6,14 @@ These are a couple of scripts that I have running on my Snips RaspberryPI 3
 Copy this script somewhere it can be executed by snips
 ```
 cd /usr/local/bin
-sudo wget https://raw.githubusercontent.com/tschmidty69/homeassistant/cmaster/jarvis/jarvis_says.sh
+sudo wget https://raw.githubusercontent.com/tschmidty69/homeassistant/master/jarvis/jarvis_says.sh
 sudo chmod +x jarvis_says.sh
 sudo apt-get install mpg123
 ```
 Install and configure aws cli as per
 https://docs.aws.amazon.com/polly/latest/dg/getting-started-cli.html
-Installed in /home/<user>/.aws, configure with aws configure
-and provide key, secret, etc. Best practice is to create an IAM
-user and give them permission to just polly
 
-Edit the jarvis_says.sh file and substitute your profile name, which voice you would like to use
+Edit the jarvis_says.sh file and add your keys and which voice you would like to use
 and path to your aws binary if needed.
 
 Edit /etc/snips.toml, change TTS config to contain following 3 lines
@@ -36,15 +33,6 @@ Edit the snips-tts startup file
 Add ' -vvv' to the end of the ExecStart line
 ```
 ExecStart=/usr/bin/snips-tts -vvv
-```
-You need to give snips a home directory to hold your AWS credentials
-```
-sudo usermod -d /home/_snips _snips
-sudo mkdir -pv /home/_snips/.aws
-```
-Copy your AWS config and credentials files to the ```/home/_snips/.aws``` folder and change permissions
-```
-sudo chown -R _snips /home/_snips
 ```
 Restart snips-tts
 ```
