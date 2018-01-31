@@ -16,7 +16,7 @@ homeassistant:
   customize:
     input_text.github_message:
       icon: mdi:pencil
-    
+
     script.sync_dropbox:
       icon: mdi:dropbox
 
@@ -39,16 +39,16 @@ homeassistant:
       icon: mdi:remote
 
 
-weblink:
-  entities:
-    - name: Github
-      url: https://github.com/tschmidty69/homeassistant/
-    - name: Travis CI
-      url: https://travis-ci.org/
-    - name: Router
-      url: !secret weblink_router
-    - name: Mopidy
-      url: http://192.168.1.201:6680/iris/
+# weblink:
+#   entities:
+#     - name: Github
+#       url: https://github.com/tschmidty69/homeassistant/
+#     - name: Travis CI
+#       url: https://travis-ci.org/
+#     - name: Router
+#       url: !secret weblink_router
+#     - name: Mopidy
+#       url: http://192.168.1.201:6680/iris/
 
 
 input_boolean:
@@ -123,7 +123,7 @@ script:
     alias: Push to Github
     sequence:
       - condition: template
-        value_template: "{{not is_state ('input_text.github_message' , '' )}}" 
+        value_template: "{{not is_state ('input_text.github_message' , '' )}}"
       - service: shell_command.github_push
       - service: persistent_notification.create
         data:

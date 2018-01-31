@@ -35,6 +35,8 @@ class jarvis_core(hass.Hass):
                                + self.args.get('speech_file',
                                                '/data/speech_en.yml'))
 
+        self.acceptable_probability = self.args.get('acceptable_probability',
+                                                    .5)
         self.players = self.args.get('media_player')
         self.volume = {}
         for room, player in self.players.items():
@@ -69,7 +71,7 @@ class jarvis_core(hass.Hass):
             else:
                 intent = data['intent']['intentName'].split(':')[-1]
             self.log("__function__ intent received: %s" % intent, 'INFO')
-            if data['intent']['probability'] < .5:
+            if data['intent']['probability'] < self.acceptable_probability:
                 self.log("__function__ intent probability "
                          "too low, dropping: %s" %
                          data['intent']['probability'], 'INFO')

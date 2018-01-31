@@ -7,6 +7,7 @@ jarvis_core:
 
   # File containing speech to language mappings
   speech_file: '/data/jarvis_en.yaml'
+  acceptable_probability: .3
 
   # media players
   # these are mapped to siteIds in snips
@@ -42,7 +43,7 @@ jarvis_lights:
   lights:
     christmas: group.living_room_lights
     living_room: group.living_room_lights
-    driveway: switch.ge_unknown_type4952_id3037_switch
+    driveway: switch.ge_driveway_lights_switch
     upstairs: switch.ge_outlet_2_switch
 
 jarvis_timer:

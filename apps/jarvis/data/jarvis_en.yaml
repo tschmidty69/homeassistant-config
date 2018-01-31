@@ -17,21 +17,24 @@ sorry:
 not_understood:
   - Sorry, I didn't understand exactly
   - My apologies, I didn't get that
-  - All I heard was blah, blah, blah
+  - All I heard was blah, blah, blah <break time="1s"/> Sorry, it's been a rough day
 
 too_much_change:
   - '{} is too big of a change for me to make'
+  - That seems like too much of a change
+  - Why would you want to change it that much?
 
 set_temperature:
-  - setting the {} {} to {} degrees
+  - Setting the {} {} to {} degrees
 
 cant_set_temperature:
   - I can't set the temperature to {} degrees
+  - The temperature should not be set to {} degrees
 
 cant_do_yet:
   - I can't do that...yet
   - I haven't figured out how to do that yet
-  - that is beyond my capabilities
+  - That is beyond my capabilities at the moment
 
 # entity, entity type, state
 # Example: living room, light, on
@@ -39,12 +42,15 @@ turn_on_or_off:
   - OK, turning the {} {} {}
   - I can definitely turn the {} {} {}
   - The {} {} shall be turned {} immediately
+  - I shall turn the {} {} {} at once
 
 # entity, entity_type, state
 # Example: living room, light, on
 already_state:
   - The {} {} is already {}
   - Why? the {} {} is already {}
+  - But the {} {} is already {}
+  - It's {3} now, but I guess I could try to turn it {3} again
 
 # entity, entity type
 # Example: living room, light

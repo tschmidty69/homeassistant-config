@@ -123,9 +123,7 @@ switch.unknown_id0312_unknown_type0221_id251c_switch:
 switch.unknown_id0312_unknown_type0221_id251c_switch_3:
   friendly_name: Living_Room_Back_Wall_Right_Outlet
   icon: mdi:lightbulb
-switch.switch:
-  friendly_name: Driveway Lights
-switch.ge_unknown_type4952_id3037_switch:
+switch.ge_driveway_lights_switch:
   friendly_name: Driveway Lights
   icon: mdi:lightbulb
 device_tracker.tods_phone:
@@ -152,3 +150,4 @@ zwave.ge_12719_plugin_smart_switch:
   friendly_name: GE Outlet 2
 switch.tv_power_switch:
   friendly_name: Panasonic TV Outlet
+zwave.2gig_technologies_ct101_thermostat_iris: {}
