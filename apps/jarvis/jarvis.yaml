@@ -85,4 +85,16 @@ jarvis_ask_wolfram:
   class: jarvis_ask_wolfram
   dependencies: jarvis_core
   enabled: False
-  api_key: 'secret'
+  api_key: '733RP2-RXWJUE3JJE'
+
+jarvis_good_morning:
+  module: jarvis_good_morning
+  class: jarvis_good_morning
+  dependencies: jarvis_core
+  enabled: True
+
+jarvis_google:
+  module: jarvis_google
+  class: jarvis_google
+  dependencies: jarvis_core
+  enabled: False

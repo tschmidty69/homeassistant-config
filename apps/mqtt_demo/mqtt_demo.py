@@ -1,19 +1,14 @@
 import appdaemon.plugins.mqtt.mqttapi as mqtt
-import ast
-import sys
-import string
-import json
-import requests
-import os, re, time
-from fuzzywuzzy import fuzz, process
 
 
 class mqtt_demo(mqtt.Mqtt):
 
     def initialize(self):
-        self.log("__function__: I'm alive")
+        self.log("__function__: MQTT DEMO Listening")
         self.listen_event(self.mqtt_message,
                           'MQTT_MESSAGE')
+        self.jarvis = self.get_app('jarvis_core')
 
-    def mqtt_message(self, data):
+    def mqtt_message(self, event_name, data, *args, **kwargs):
         self.log("__function__: %s" % data)
+        self.jarvis.event_listener(event_name, data, *args, **kwargs)

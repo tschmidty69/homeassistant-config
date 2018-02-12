@@ -25,10 +25,16 @@ class jarvis_ask_wolfram(hass.Hass):
 
     def jarvis_ask_wolfram(self, data):
         self.log("__function__: Here is your ask_wolfram: %s" % data)
-        res = self.client.query(data.get('input'))
+        query = data.get('input').split('wolf', 1)[1]
+        self.log("__function__: query: %s" %query)
+        res = self.client.query(query)
         for pod in res.pods:
-            self.log("__function__: pod: %s" % pod)
-            if pod.subpods:
-                self.log("__function__: subpod: %s" %
-                         list(pod.subpods)[0].get('plaintext'))
-                break
+            #self.log("__function__: pod: %s" % pod)
+            if pod['@position'] == '200':
+                for subpod in pod.subpods:
+                    self.log("__function__: subpod: %s" %
+                        subpod.get('plaintext'))
+                    self.jarvis.jarvis_end_session(
+                        {'sessionId': data.get('sessionId', ''),
+                         'text': subpod.get('plaintext')})
+        #self.log("pod: %s" % res.pods)

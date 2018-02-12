@@ -50,11 +50,11 @@ class jarvis_lights(hass.Hass):
         self.log("__function__: slots: {}".format(data['slots']), 'DEBUG')
 
         for slot in data.get('slots'):
-            zone = (slot['value']['value']
+            zone = (slot['value'].get('value', '')
                     if 'zone' in slot['slotName'] else None)
-            unit = (slot['value']['value']
+            unit = (slot['value'].get('value')
                     if 'unit' in slot['slotName'] else None)
-            number = (slot['value']['value']
+            number = (slot['value'].get('value')
                       if 'number' in slot['slotName'] else None)
 
         if not zone:

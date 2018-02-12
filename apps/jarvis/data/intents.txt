@@ -9,3 +9,5 @@ mosquitto_pub -h 192.168.1.19 -t hermes/intent/ask_wolfram -m '{"input": "what t
 
 mosquitto_pub -h 192.168.1.19 -t hermes/intent/lightsTurnOnSet -m '{"sessionId":"62548ea9-f237-4cb2-b204-bf37e6c38cb1","customData":null,"siteId":"remote","input":"turn the upstairs light on","intent":{"intentName":"user_rZEKlr8M7M3__lightsTurnOnSet","probability":0.6004733},"slots":[{"rawValue":"upstairs","value":{"kind":"Custom","value":"upstairs"},"range":{"start":9,"end":17},"entity":"house_room","slotName":"zone"}]}'
 mosquitto_pub -h 192.168.1.19 -t hermes/intent/lightsTurnOff -m '{"sessionId":"62548ea9-f237-4cb2-b204-bf37e6c38cb1","customData":null,"siteId":"remote","input":"turn the upstairs light off","intent":{"intentName":"user_rZEKlr8M7M3__lightsTurnOff","probability":0.6004733},"slots":[{"rawValue":"upstairs","value":{"kind":"Custom","value":"upstairs"},"range":{"start":9,"end":17},"entity":"house_room","slotName":"zone"}]}'
+
+mosquitto_sub -h 192.168.1.202 -p 1883 -v -t 'hermes/hotword/#' -t 'hermes/dialogueManager/#' -t 'hermes/asr/#' -t 'hermes/nlu/#'

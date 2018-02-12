@@ -88,19 +88,23 @@ class jarvis_tv(hass.Hass):
 
                     response = requests.post(url)
                     self.log("jarvis_tv: response {}".format(response), "INFO")
-                    self.jarvis.jarvis_end_session(None, {'sessionId':
+                    self.jarvis.jarvis_end_session({'sessionId':
                         data.get('sessionId', ''),
-                        'text': self.jarvis_speech('ok')
+                        'text': self.jarvis.jarvis_get_speech('ok')
                         + ", I put " + self.shows[show[0][0]]['long_title']
                         + " on for you"})
 
     def jarvis_pause_tv(self, data, *args, **kwargs):
         self.log("__function__: {}".format(data), "INFO")
-        self.jarvis.not_implemented()
+        self.jarvis.not_implemented(data)
 
     def jarvis_press_play_tv(self, data, *args, **kwargs):
         self.log("__function__: {}".format(data), "INFO")
-        self.jarvis.not_implemented()
+        url = ("http://"
+               + str(self.tv[zone]['roku'])
+               + ":8060/keypress/Play")
+        response = requests.post(url)
+        self.log("__function__: response {}".format(response), "INFO")
 
     def jarvis_press_select_tv(self, data, *args, **kwargs):
         self.log("__function__: {}".format(data), "INFO")
@@ -108,7 +112,7 @@ class jarvis_tv(hass.Hass):
                + str(self.tv[zone]['roku'])
                + ":8060/keypress/Select")
         response = requests.post(url)
-        self.log("jarvis_tv: response {}".format(response), "INFO")
+        self.log("__function__: response {}".format(response), "INFO")
 
     def jarvis_turn_on_tv(self, data, *args, **kwargs):
         self.jarvis_tv_power(data, 'on')
