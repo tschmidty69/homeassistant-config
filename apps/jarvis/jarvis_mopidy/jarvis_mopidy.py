@@ -128,7 +128,8 @@ class jarvis_mopidy(hass.Hass):
                 + " playing playlist "
                 + clean_playlist})
         else:
-            self.jarvis_notify({'text':
+            #TODO
+            self.jarvis.jarvis_notify({'text':
                 self.jarvis.jarvis_get_speech('sorry')
                 + ", I couldn't get any playlist matching "
                 + data['playlist']})
@@ -167,7 +168,8 @@ class jarvis_mopidy(hass.Hass):
                 self.jarvis.jarvis_get_speech('ok')
                 + ", playing "+song+" by "+data['artist']})
         else:
-            self.jarvis_notify({'text':
+            #TODO
+            self.jarvis.jarvis_notify({'text':
                 self.jarvis.jarvis_get_speech('sorry')
                 + ", I couldn't find any music by "
                 + data['artist']})

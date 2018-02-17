@@ -19,7 +19,8 @@ class jarvis_good_morning(hass.Hass):
         if not self.args.get('enabled'):
             return
         self.jarvis = self.get_app('jarvis_core')
-        self.jarvis.jarvis_register_intent('goodMorning', self.jarvis_good_morning)
+        self.jarvis.jarvis_register_intent('goodMorning',
+                                           self.jarvis_good_morning)
 
     def jarvis_good_morning(self, data):
         self.log("__function__: %s" % data)

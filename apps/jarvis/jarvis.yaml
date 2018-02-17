@@ -24,13 +24,15 @@ jarvis_core:
 jarvis_weather:
   module: jarvis_weather
   class: jarvis_weather
-  dependencies: jarvis_core
+  dependencies:
+    - jarvis_core
   enabled: False
 
 jarvis_mopidy:
   module: jarvis_mopidy
   class: jarvis_mopidy
-  dependencies: jarvis_core
+  dependencies:
+    - jarvis_core
   enabled: True
   mopidy_host: '192.168.1.201'
 
@@ -38,7 +40,8 @@ jarvis_mopidy:
 jarvis_lights:
   module: jarvis_lights
   class: jarvis_lights
-  dependencies: jarvis_core
+  dependencies:
+    - jarvis_core
   enabled: True
   lights:
     christmas: group.living_room_lights
@@ -49,13 +52,15 @@ jarvis_lights:
 jarvis_timer:
   module: jarvis_timer
   class: jarvis_timer
-  dependencies: jarvis_core
+  dependencies:
+    - jarvis_core
   enabled: True
 
 jarvis_thermostat:
   module: jarvis_thermostat
   class: jarvis_thermostat
-  dependencies: jarvis_core
+  dependencies:
+    - jarvis_core
   enabled: True
   thermostat:
     heat:
@@ -68,7 +73,8 @@ jarvis_thermostat:
 jarvis_tv:
   module: jarvis_tv
   class: jarvis_tv
-  dependencies: jarvis_core
+  dependencies:
+    - jarvis_core
   enabled: True
   tv_file: '/data/tv.yaml'
   default_tv: living_room
@@ -80,21 +86,41 @@ jarvis_tv:
       power_switch:
       roku: '192.168.1.83'
 
-jarvis_ask_wolfram:
-  module: jarvis_ask_wolfram
-  class: jarvis_ask_wolfram
-  dependencies: jarvis_core
-  enabled: False
-  api_key: '733RP2-RXWJUE3JJE'
-
 jarvis_good_morning:
   module: jarvis_good_morning
   class: jarvis_good_morning
-  dependencies: jarvis_core
+  dependencies:
+    - jarvis_core
   enabled: True
+
+jarvis_dialogue:
+  module: jarvis_dialogue
+  class: jarvis_dialogue
+  dependencies:
+    - jarvis_core
+  enabled: True
+
+jarvis_game:
+  module: jarvis_game
+  class: jarvis_game
+  dependencies:
+    - jarvis_core
+    - jarvis_dialogue
+  enabled: True
+
+# Below are work in progress apps
+
+jarvis_ask_wolfram:
+  module: jarvis_ask_wolfram
+  class: jarvis_ask_wolfram
+  dependencies:
+    - jarvis_core
+  enabled: False
+  api_key: '733RP2-RXWJUE3JJE'
 
 jarvis_google:
   module: jarvis_google
   class: jarvis_google
-  dependencies: jarvis_core
+  dependencies:
+    - jarvis_core
   enabled: False

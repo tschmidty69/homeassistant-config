@@ -25,7 +25,8 @@ class jarvis_ask_wolfram(hass.Hass):
 
     def jarvis_ask_wolfram(self, data):
         self.log("__function__: Here is your ask_wolfram: %s" % data)
-        query = data.get('input').split('wolf', 1)[1]
+        query = (data.get('input').split('wolf', 1)[1]
+                 if 'wolf' in data.get('input') else None)
         self.log("__function__: query: %s" %query)
         res = self.client.query(query)
         for pod in res.pods:

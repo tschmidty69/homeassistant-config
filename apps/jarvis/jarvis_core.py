@@ -28,8 +28,12 @@ class jarvis_core(hass.Hass):
 
         self.sessionId = ''
         self.siteId = 'default'
+        self.intents_enabled = True
 
         self.global_vars['intents'] = {}
+        self.global_vars['dialogue_callback'] = {}
+        self.global_vars['dialogue_listener_callback'] = {}
+        self.global_vars['dialogue_enabled'] = {}
 
         self.speech_file = (os.path.join(os.path.dirname(__file__)) + '/'
                                + self.args.get('speech_file',
@@ -53,18 +57,54 @@ class jarvis_core(hass.Hass):
         self.jarvis_register_intent('YesNoResponse',
                                     self.jarvis_yes_no_response)
 
-
     def jarvis_register_intent(self, intent, callback):
         self.log("__function__: %s" % intent, 'INFO')
         self.global_vars['intents'][intent] = callback
 
+    def register_dialogue_callback(self, site_id, callback):
+        self.log("__function__: %s" % site_id, 'INFO')
+        self.global_vars['dialogue_callback'][site_id] = callback
+
+    def register_dialogue_listener_callback(self, site_id, callback):
+        self.log("__function__: %s" % site_id, 'INFO')
+        self.global_vars['dialogue_listener_callback'][site_id] = callback
+
+    def enable_intents(self, state=True):
+        self.log("__function__: %s" % state, 'INFO')
+        self.intents_enabled = state
+
     def event_listener(self, event_name, data, *args, **kwargs):
         self.log("__function__: %s" % data, 'INFO')
+        payload = json.loads(data['payload']) if data.get('payload') else {}
+
+        site_id = payload.get('siteId', self.siteId)
+
+        # If dialogue is enabled, we are waiting for tts to finish here
+        if self.global_vars['dialogue_enabled'].get(site_id):
+            self.log("__function__: dialogue_enabled for site %s" % site_id, 'INFO')
+            # audio done playing, now call to set up listening
+            if 'hermes/audioServer/'+site_id+'/playFinished' in data.get('topic'):
+                self.log("__function__: %s" % self.global_vars['dialogue_listener_callback'].get(site_id), 'INFO')
+
+                if self.global_vars['dialogue_listener_callback'].get(site_id):
+                    self.log("__function__: dialogue_listener_callback %s" % payload, 'INFO')
+                    self.global_vars['dialogue_listener_callback'][site_id](payload)
+
+            # got our answer, send it to callback
+            if 'hermes/asr/textCaptured' in data.get('topic', ''):
+                self.log("__function__: dialogue_callback %s" % site_id, 'INFO')
+                if self.global_vars['dialogue_callback'].get(site_id):
+                    self.log("__function__: dialogue_callback %s" % payload, 'INFO')
+                    self.global_vars['dialogue_callback'][site_id](payload)
 
         if 'hermes/hotword/' in data.get('topic', ''):
             hotword_data = {'toggle': data['topic'].split('toggle')[-1],
                             'payload': data.get('payload')}
             self.listening(hotword_data)
+
+        if not self.intents_enabled:
+            self.log("__function__: not listening for intents")
+            return
 
         if 'hermes/intent/' in data.get('topic', ''):
             if data.get('payload'):
@@ -149,8 +189,7 @@ class jarvis_core(hass.Hass):
             publish.single('hermes/intent/'+intent_data.get('intent', ''),
                            payload=json.dumps(payload),
                            hostname=self.snips_mqtt_host,
-                           port=self.snips_mqtt_port,
-                           protocol=mqtt.MQTTv311
+                           port=self.snips_mqtt_port
             )
         else:
             self.jarvis_notify('NONE', {"text": self.jarvis_speech('ok')})
@@ -165,8 +204,7 @@ class jarvis_core(hass.Hass):
         publish.single('hermes/dialogueManager/startSession',
           payload=json.dumps(payload),
           hostname=self.snips_mqtt_host,
-          port=self.snips_mqtt_port,
-          protocol=mqtt.MQTTv311
+          port=self.snips_mqtt_port
         )
 
     def listening(self, data, *args, **kwargs):
@@ -213,7 +251,7 @@ class jarvis_core(hass.Hass):
 
     def not_implemented(self, data, *args, **kwargs):
         self.log("__function__: %s" %data, 'INFO')
-        if self.arg.get('speech_on_not_implemented'):
+        if self.args.get('speech_on_not_implemented'):
             self.jarvis_notify('NONE', {'text':
                 self.jarvis_get_speech('sorry') + ', '
                 + self.jarvis_get_speech('cant_do_yet')})
