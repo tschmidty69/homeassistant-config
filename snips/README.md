@@ -36,6 +36,7 @@ ExecStart=/usr/bin/snips-tts -vvv
 ```
 Restart snips-tts
 ```
+systemctl daemon-reload
 systemctl restart "snips-*"
 ```
 # Testing
