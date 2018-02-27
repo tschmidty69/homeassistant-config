@@ -22,3 +22,6 @@ sensor.door_sensor_1_power_management:
 sensor.door_sensor_1_sourcenodeid:
   ignored: true
   polling_intensity: 0
+binary_sensor.vision_zp3111_multisensor_4in1_sensor:
+  ignored: false
+  polling_intensity: 0

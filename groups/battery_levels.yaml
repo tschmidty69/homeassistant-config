@@ -1,0 +1,8 @@
+battery_levels:
+  name: Battery Levels
+  icon: mdi:motion
+  entities:
+    - sensor.zwave_door_sensor_1_battery
+    - sensor.zwave_ecolink_garage_door_tilt_sensor_battery
+    - sensor.zwave_vision_zp3111_multisensor_4in1_battery
+

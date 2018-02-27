@@ -14,37 +14,6 @@
         message: 'Back Door Open'
       service: notify.ios_tods_iphone
 
-- alias: Kitchen Door Open
-  trigger:
-    - entity_id: binary_sensor.visonic_mct340_e_0b111ae3_1
-      from: 'off'
-      platform: state
-      to: 'on'
-  condition:
-    - condition: state
-      entity_id: input_boolean.vincent_home
-      state: 'on'
-  action:
-    - alias: 'Alert for Kitchen Door Open to Tods iPhone'
-      data:
-        message: 'Kitchen Door Open'
-      service: notify.ios_tods_iphone
-
-#      data:
-#        message: >
-#            {% if is_state('device_tracker.tods_iphone', 'home') %}
-#              Back Door Open (Tod home)
-#            {% else %}
-#              Tod is at {{ states('device_tracker.tods_iphone') }}.
-#            {% endif %}
-#        title: Back Door Open
-#      service_template: >
-#        {% if is_state('device_tracker.tods_iphone', 'home') %}
-#          notify.ios_tods_iphone
-#        {% else %}
-#          persistent_notification.create
-#        {% endif %}
-
 #alias: Back Door Closed
 #trigger:
 #  - entity_id: binary_sensor.smartthings_multiv4_01042e9f_1

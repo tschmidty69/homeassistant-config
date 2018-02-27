@@ -16,3 +16,6 @@
         {% else %}
           mdi:garage
         {% endif %}
+- platform: demo
+  demo_cover:
+    friendly_name: "Demo Cover"

@@ -1,0 +1,15 @@
+- platform: template
+  sensors:
+    zwave_door_sensor_1_battery:
+      value_template: "{{ states.zwave.door_sensor_1.attributes.battery_level }}"
+      friendly_name: "Door Sensor 1 Battery"
+      unit_of_measurement: '%'
+    zwave_ecolink_garage_door_tilt_sensor_battery:
+      value_template: "{{ states.zwave.ecolink_garage_door_tilt_sensor.attributes.battery_level }}"
+      friendly_name: "Garage Door Sensor Battery"
+      unit_of_measurement: '%'
+    zwave_vision_zp3111_multisensor_4in1_battery:
+      value_template: "{{ states.zwave.vision_zp3111_multisensor_4in1.attributes.battery_level }}"
+      friendly_name: "Vision 4in1 Sensor Battery"
+      unit_of_measurement: '%'
+

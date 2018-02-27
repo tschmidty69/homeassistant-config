@@ -1,19 +1,19 @@
-- alias: jarvis_hotword_toggle
-  trigger:
-    platform: mqtt
-    topic: hermes/hotword/#
-  action:
-    event: JARVIS_MQTT
-    event_data_template:
-      topic: '{{ trigger.topic }}'
-      payload: '{{ trigger.payload }}'
-
-- alias: jarvis_intent
-  trigger:
-    platform: mqtt
-    topic: hermes/intent/#
-  action:
-    event: JARVIS_MQTT
-    event_data_template:
-      topic: '{{ trigger.topic }}'
-      payload: '{{ trigger.payload }}'
+# - alias: jarvis_hotword_toggle
+#   trigger:
+#     platform: mqtt
+#     topic: hermes/hotword/#
+#   action:
+#     event: JARVIS_MQTT
+#     event_data_template:
+#       topic: '{{ trigger.topic }}'
+#       payload: '{{ trigger.payload }}'
+#
+# - alias: jarvis_intent
+#   trigger:
+#     platform: mqtt
+#     topic: hermes/intent/#
+#   action:
+#     event: JARVIS_MQTT
+#     event_data_template:
+#       topic: '{{ trigger.topic }}'
+#       payload: '{{ trigger.payload }}'

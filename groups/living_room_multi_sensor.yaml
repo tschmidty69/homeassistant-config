@@ -1,0 +1,10 @@
+living_room_multi_sensor:
+  name: Living Room Multi Sensor
+  icon: mdi:motion
+  entities:
+    - sensor.vision_zp3111_multisensor_4in1_luminance
+    - sensor.vision_zp3111_multisensor_4in1_relative_humidity 
+    - sensor.vision_zp3111_multisensor_4in1_temperature
+    - binary_sensor.vision_zp3111_multisensor_4in1_sensor
+    - sensor.vision_zp3111_multisensor_4in1_alarm_type
+    - sensor.vision_zp3111_multisensor_4in1_alarm_level

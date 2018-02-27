@@ -14,6 +14,14 @@ appdaemon:
       ha_key: !secret api_key
     MQTT:
       type: mqtt
+      verbose: True
       mqtt_client_host: '192.168.1.19'
       mqtt_client_port: 1883
-      mqtt_client_topics: 'mqtt_demo/#'
+      mqtt_client_user: !secret mqtt_user
+      mqtt_client_password: !secret mqtt_password
+      mqtt_client_topics:
+        - hermes/intent/#
+        - hermes/hotword/#
+        - hermes/asr/#
+        - hermes/audioServer/default/playFinished
+        - hermes/audioServer/remote/playFinished

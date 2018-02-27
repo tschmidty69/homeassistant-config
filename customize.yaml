@@ -118,10 +118,10 @@ media_player.snapcast_group_3d572249411f1f5d1a6c3b3f17b4c7b7:
 media_player.snapcast_group_cfc8828768625f420d1f85fa23b30b8a:
   hidden: true
 switch.unknown_id0312_unknown_type0221_id251c_switch:
-  friendly_name: Living_Room_Back_Wall_Left_Outlet
+  friendly_name: Living Room Back Wall Left Outlet
   icon: mdi:lightbulb
 switch.unknown_id0312_unknown_type0221_id251c_switch_3:
-  friendly_name: Living_Room_Back_Wall_Right_Outlet
+  friendly_name: Living Room Back Wall Right Outlet
   icon: mdi:lightbulb
 switch.ge_driveway_lights_switch:
   friendly_name: Driveway Lights
@@ -151,3 +151,6 @@ zwave.ge_12719_plugin_smart_switch:
 switch.tv_power_switch:
   friendly_name: Panasonic TV Outlet
 zwave.2gig_technologies_ct101_thermostat_iris: {}
+switch.ge_outlet_2_switch:
+  friendly_name: Living Room Light Couch Left
+  icon: mdi:lightbulb

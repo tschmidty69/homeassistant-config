@@ -36,3 +36,6 @@ Debug:
     - group.parent
     - sensor.fail2ban
     - sun.sun
+    - group.living_room_multi_sensor
+    - binary_sensor.living_room_motion
+    - group.battery_levels

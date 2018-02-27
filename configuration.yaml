@@ -117,6 +117,7 @@ logger:
   default: warning
   logs:
     urllib3.connectionpool: fatal
+    homeassistant.components.media_player: error
 #    homeassistant.core.event: debug
 #    homeassistant.components.snips: debug
 # #    homeassistant.helpers.script: debug
@@ -165,9 +166,9 @@ mqtt:
 zwave:
   usb_path: /dev/ttyUSB0
 
-#zha:
-#  usb_path: /dev/ttyUSB1
-#  database_path: /home/homeassistant/.homeassistant/zigbee.db
+zha:
+  usb_path: /dev/ttyUSB1
+  database_path: /home/homeassistant/.homeassistant/zigbee.db
 
 shopping_list:
 
