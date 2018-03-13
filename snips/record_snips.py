@@ -12,7 +12,7 @@ mqtt_client = mqtt.Client()
 
 SENSITIVITY = 0.5
 HOTWORD_ID = 'default'
-MQTT_ADDRESS = '192.168.1.19'  #default just incase its not enabld in the toml file
+MQTT_ADDRESS = '127.0.0.1'  #default just incase its not enabled in the toml file
 MQTT_PORT = '1883'
 
 count = 0
