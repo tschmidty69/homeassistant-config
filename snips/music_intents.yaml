@@ -1,0 +1,58 @@
+playPlaylist:
+  speech:
+    type: plain
+    text: 'Playing Music'
+  action:
+    - service: media_player.select_source
+    data:
+      entity_id: media_player.mpd
+      source: {{ playlist }}
+
+resumeMusic:
+  speech:
+    type: plain
+    text: music
+  action:
+    - service: media_player.media_play
+      entity_id: media_player.mpd
+
+pauseMusic:
+  speech:
+    type: plain
+    text: music
+  action:
+    - service: media_player.media_pause
+      entity_id: media_player.mpd
+
+volumeUp:
+  speech:
+    type: plain
+    text: music
+  action:
+    - service: media_player.volume_up
+      entity_id: media_player.mpd
+
+volumeDown:
+  speech:
+    type: plain
+    text: music
+  action:
+    - service: media_player.volume_down
+      entity_id: media_player.mpd
+
+nextSong:
+  speech:
+    type: plain
+    text: music
+  action:
+    - service: media_player.media_next_track
+      entity_id: media_player.mpd
+
+previousSong:
+  speech:
+    type: plain
+    text: music
+  action:
+    - service: media_player.media_previous_song
+      entity_id: media_player.mpd
+
