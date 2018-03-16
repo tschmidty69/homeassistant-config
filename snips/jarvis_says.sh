@@ -36,17 +36,6 @@ format="mp3"
 # Sample rate to use
 samplerate="22050"
 
-# passed text string
-text="<speak>$5</speak>"
-echo 'Input text:' $text
-
-# target file to return to snips-tts (wav)
-outfile="$2"
-echo 'Output file:' $outfile 
-
-# check/create cache if needed
-mkdir -pv "$cache"
-
 lang="$4"
 echo 'Lang: ' $lang
 
@@ -57,6 +46,17 @@ if [ "$lang" == "es-US" ]; then
     voice="Miguel"
 fi
 echo 'Voice: ' $voice
+
+# passed text string
+text="<speak><lang xml:lang=\"$lang\">$5</lang></speak>"
+echo 'Input text:' $text
+
+# target file to return to snips-tts (wav)
+outfile="$2"
+echo 'Output file:' $outfile 
+
+# check/create cache if needed
+mkdir -pv "$cache"
 
 # hash for the string based on params and text
 md5string="$text""_""$voice""_""$format""_""$samplerate"
