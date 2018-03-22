@@ -1,0 +1,5 @@
+email = 'emai'
+password = 'password'
+assistant = 'proj_YOURPROJECT'
+
+my_bundles = ['MyBundle']
