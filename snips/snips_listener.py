@@ -36,10 +36,20 @@ def handle_intent(client, userdata, msg):
     print("data.intent"+str(data['intent']))
     print("data.slots"+str(data['slots']))
 
-    # End session with a message, basically our response to the intent.
-    if 'sessionId' in data:
-        payload = {'text': "I heard you the first time",
-                   'sessionId': data.get('sessionId', '')
+    if data['intent']['intentName'] == 'searchWeather':
+        payload = {'sessionId': data.get('sessionId', ''),
+                    'text': "It might be sunny outside?"
+                   }
+             }
+        publish.single('hermes/dialogueManager/endSession',
+                       payload=json.dumps(payload),
+                       hostname=mqtt_host,
+                       port=mqtt_port)
+
+    # We didn't recognize that intent.
+    else:
+        payload = {sessionId': data.get('sessionId', ''),
+                   'text': "I am not sure what to do",
                    }
         publish.single('hermes/dialogueManager/endSession',
                        payload=json.dumps(payload),
@@ -66,18 +76,6 @@ def intentNotRecognized(client, userdata, msg):
     data = json.loads(msg.payload.decode())
     print(data)
 
-    if data['intent'] == 'searchWeather':
-        payload = {'siteId': data.get('siteId', ''),
-           'init': {'type': 'notification',
-                    'text': "It's sunny outside?"
-                   }
-             }
-        publish.single('hermes/dialogueManager/endSession',
-                       payload=json.dumps(payload),
-                       hostname=mqtt_host,
-                       port=mqtt_port)
-
-    
     # Intent isn't recognized so session will already have ended
     # so we send a notification instead.
     if 'sessionId' in data:
