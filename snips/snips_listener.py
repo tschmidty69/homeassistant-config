@@ -36,6 +36,9 @@ def handle_intent(client, userdata, msg):
     print("data.intent"+str(data['intent']))
     print("data.slots"+str(data['slots']))
 
+    #
+    # Here is where we would handle our intent and send a response
+    #
     if data['intent']['intentName'] == 'searchWeather':
         payload = {'sessionId': data.get('sessionId', ''),
                     'text': "It might be sunny outside?"
@@ -94,7 +97,7 @@ def nlu(client, userdata, msg):
     data = json.loads(msg.payload.decode())
     print(data)
 
-# setTimer intent, doesn't actually do anything as you can see
+# setTimer intent handler, doesn't actually do anything as you can see
 def setTimer(client, userdata, msg):
     print(msg.topic+" "+str(msg.payload.decode()))
     data = json.loads(msg.payload.decode())
@@ -115,11 +118,11 @@ client.message_callback_add("hermes/nlu/intentNotRecognized",
                             intentNotRecognized)
 
 
-# This function respondes to all intents
+# This function responds to all intents
 client.message_callback_add("hermes/intent/#", handle_intent)
 
 # This responds specifically to the setTimer intent
-client.message_callback_add("hermes/intent/setTimer", setTimer)
+# client.message_callback_add("hermes/intent/setTimer", setTimer)
 
 
 client.connect(mqtt_host, mqtt_port, 60)
