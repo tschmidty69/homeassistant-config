@@ -66,6 +66,18 @@ def intentNotRecognized(client, userdata, msg):
     data = json.loads(msg.payload.decode())
     print(data)
 
+    if data['intent'] == 'searchWeather':
+        payload = {'siteId': data.get('siteId', ''),
+           'init': {'type': 'notification',
+                    'text': "It's sunny outside?"
+                   }
+             }
+        publish.single('hermes/dialogueManager/endSession',
+                       payload=json.dumps(payload),
+                       hostname=mqtt_host,
+                       port=mqtt_port)
+
+    
     # Intent isn't recognized so session will already have ended
     # so we send a notification instead.
     if 'sessionId' in data:
@@ -74,7 +86,7 @@ def intentNotRecognized(client, userdata, msg):
                             'text': "I didn't understand you"
                            }
                    }
-        publish.single('hermes/dialogueManager/startSession',
+        publish.single('hermes/dialogueManager/endSession',
                        payload=json.dumps(payload),
                        hostname=mqtt_host,
                        port=mqtt_port)
@@ -84,6 +96,7 @@ def nlu(client, userdata, msg):
     data = json.loads(msg.payload.decode())
     print(data)
 
+# setTimer intent, doesn't actually do anything as you can see
 def setTimer(client, userdata, msg):
     print(msg.topic+" "+str(msg.payload.decode()))
     data = json.loads(msg.payload.decode())
@@ -94,14 +107,22 @@ def setTimer(client, userdata, msg):
 
 client = mqtt.Client()
 client.on_connect = on_connect
+
+# These are here just to print random info for you
 client.message_callback_add("hermes/asr/#", asr)
 client.message_callback_add("hermes/dialogueManager/#", dialogueManager)
 client.message_callback_add("hermes/nlu/#", nlu)
-client.message_callback_add("hermes/intent/#", handle_intent)
-client.message_callback_add("hermes/intent/setTimer", setTimer)
 client.message_callback_add("hermes/nlu/intentNotParsed", intentNotParsed)
 client.message_callback_add("hermes/nlu/intentNotRecognized",
                             intentNotRecognized)
+
+
+# This function respondes to all intents
+client.message_callback_add("hermes/intent/#", handle_intent)
+
+# This responds specifically to the setTimer intent
+client.message_callback_add("hermes/intent/setTimer", setTimer)
+
 
 client.connect(mqtt_host, mqtt_port, 60)
 
