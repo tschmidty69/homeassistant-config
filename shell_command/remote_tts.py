@@ -17,8 +17,6 @@ def on_connect(client, userdata, flags, rc):
   # Subscribing in on_connect() means that if we lose the connection and
   # reconnect then subscriptions will be renewed.
   client.subscribe("hermes/tts/say")
-  client.subscribe("hermes/audioServer/default/playFinished")
-  client.subscribe("jarvis/timer_duration")
 
 def tts_say(client, userdata, msg):
   print(msg.topic+" "+str(msg.payload.decode()))
