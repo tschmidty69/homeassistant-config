@@ -3,12 +3,13 @@
 import string
 import json
 import random
+import subprocess
 
 import paho.mqtt.client as mqtt
 import paho.mqtt.publish as publish
 
 my_siteId = 'wohnzimmer'
-host = '192.168.1.19'
+host = '192.168.1.220'
 
 def on_connect(client, userdata, flags, rc):
   print("Connected with result code "+str(rc))
