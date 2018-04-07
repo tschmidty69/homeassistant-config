@@ -28,10 +28,15 @@ def tts_say(client, userdata, msg):
       print('not for site {}'.format(my_siteId))
       return
 
+  # Add some translations here
+  text = data['text'].replace('Turned on', 'Eingeschaltet')
+  text = data['text'].replace('Turned on', 'Ausgeschaltet')
+
+
   # Generating audio
   sessionId=''.join(random.choices(string.ascii_uppercase + string.digits, k=16))
 
-  subprocess.run(['/usr/bin/pico2wave','-w','/tmp/'+sessionId+'.wav'])
+  subprocess.run(['/usr/bin/pico2wave','-w','/tmp/'+sessionId+'.wav', text])
   wav_file = open('/tmp/'+sessionId+'.wav', "rb")
   audio_wav = wav_file.read()
   wav_file.close()
