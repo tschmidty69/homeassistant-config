@@ -30,7 +30,7 @@ def tts_say(client, userdata, msg):
 
   # Add some translations here
   text = data['text'].replace('Turned on', 'Eingeschaltet')
-  text = data['text'].replace('Turned on', 'Ausgeschaltet')
+  text = text.replace('Turned off', 'Ausgeschaltet')
 
 
   # Generating audio
