@@ -1,0 +1,7 @@
+jarvis_game:
+  module: jarvis_game
+  class: jarvis_game
+  dependencies:
+    - jarvis_core
+    - jarvis_dialogue
+  enabled: True

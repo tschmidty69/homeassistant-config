@@ -1,0 +1,9 @@
+jarvis_magic_door:
+  module: jarvis_magic_door
+  class: jarvis_magic_door
+  dependencies:
+    - jarvis_core
+  enabled: True
+  # Set this to allow persistent sessions over restarts, reboots, etc.
+  user_id: e6870d25-ff8c-4174-9dda-73d146db9dfb
+  session_id: fa96b66a-22fe-4758-8d5c-6f81f90bb4fd

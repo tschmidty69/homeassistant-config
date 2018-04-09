@@ -1,0 +1,6 @@
+jarvis_timer:
+  module: jarvis_timer
+  class: jarvis_timer
+  dependencies:
+    - jarvis_core
+  enabled: True

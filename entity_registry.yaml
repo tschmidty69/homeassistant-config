@@ -1,189 +1,296 @@
 sensor.docs_iphone_battery_state:
+  name:
   platform: ios
   unique_id: state_docs_iphone
 sensor.docs_iphone_battery_level:
+  name:
   platform: ios
   unique_id: level_docs_iphone
 sensor.tods_iphone_battery_state:
+  name:
   platform: ios
   unique_id: state_tods_iphone
 sensor.tods_iphone_battery_level:
+  name:
   platform: ios
   unique_id: level_tods_iphone
 binary_sensor.door_sensor_1_sensor:
+  name:
   platform: zwave
   unique_id: 2-72057594076463104
 sensor.door_sensor_1_alarm_type:
+  name:
   platform: zwave
   unique_id: 2-72057594077528065
 sensor.door_sensor_1_alarm_level:
+  name:
   platform: zwave
   unique_id: 2-72057594077528081
 sensor.door_sensor_1_sourcenodeid:
+  name:
   platform: zwave
   unique_id: 2-72057594077528097
 sensor.door_sensor_1_access_control:
+  name:
   platform: zwave
   unique_id: 2-72057594077528209
 sensor.door_sensor_1_burglar:
+  name:
   platform: zwave
   unique_id: 2-72057594077528225
 sensor.door_sensor_1_power_management:
+  name:
   platform: zwave
   unique_id: 2-72057594077528241
 binary_sensor.ecolink_garage_door_tilt_sensor_sensor:
+  name:
   platform: zwave
   unique_id: 3-72057594093240320
 sensor.ecolink_garage_door_tilt_sensor_alarm_type:
+  name:
   platform: zwave
   unique_id: 3-72057594094305281
 sensor.ecolink_garage_door_tilt_sensor_alarm_level:
+  name:
   platform: zwave
   unique_id: 3-72057594094305297
 sensor.ecolink_garage_door_tilt_sensor_sourcenodeid:
+  name:
   platform: zwave
   unique_id: 3-72057594094305313
 sensor.ecolink_garage_door_tilt_sensor_access_control:
+  name:
   platform: zwave
   unique_id: 3-72057594094305425
 sensor.ecolink_garage_door_tilt_sensor_burglar:
+  name:
   platform: zwave
   unique_id: 3-72057594094305441
 sensor.ecolink_garage_door_tilt_sensor_power_management:
+  name:
   platform: zwave
   unique_id: 3-72057594094305457
 sensor.2gig_technologies_ct101_thermostat_iris_temperature:
+  name:
   platform: zwave
   unique_id: 4-72057594110033938
 sensor.2gig_technologies_ct101_thermostat_iris_general:
+  name:
   platform: zwave
   unique_id: 4-72057594110033954
 sensor.2gig_technologies_ct101_thermostat_iris_relative_humidity:
+  name:
   platform: zwave
   unique_id: 4-72057594110034002
 climate.2gig_technologies_ct101_thermostat_iris_heating_1:
+  name:
   platform: zwave
   unique_id: 4-72057594110328850
 climate.2gig_technologies_ct101_thermostat_iris_cooling_1:
+  name:
   platform: zwave
   unique_id: 4-72057594110328866
 switch.fortrezz_mimolite_wireless_interfacebridge_module_switch:
+  name:
   platform: zwave
   unique_id: 5-72057594126614528
 binary_sensor.fortrezz_mimolite_wireless_interfacebridge_module_sensor:
+  name:
   platform: zwave
   unique_id: 5-72057594126794752
 sensor.fortrezz_mimolite_wireless_interfacebridge_module_general:
+  name:
   platform: zwave
   unique_id: 5-72057594126811170
 sensor.fortrezz_mimolite_wireless_interfacebridge_module_luminance:
+  name:
   platform: zwave
   unique_id: 5-72057594126811186
 sensor.fortrezz_mimolite_wireless_interfacebridge_module_alarm_type:
+  name:
   platform: zwave
   unique_id: 5-72057594127859713
 sensor.fortrezz_mimolite_wireless_interfacebridge_module_alarm_level:
+  name:
   platform: zwave
   unique_id: 5-72057594127859729
 sensor.2gig_technologies_ct101_thermostat_iris_temperature_2:
+  name:
   platform: zwave
   unique_id: 6-72057594143588370
 sensor.2gig_technologies_ct101_thermostat_iris_relative_humidity_2:
+  name:
   platform: zwave
   unique_id: 6-72057594143588434
 climate.2gig_technologies_ct101_thermostat_iris_heating_1_2:
+  name:
   platform: zwave
   unique_id: 6-72057594143883282
 climate.2gig_technologies_ct101_thermostat_iris_cooling_1_2:
+  name:
   platform: zwave
   unique_id: 6-72057594143883298
 switch.unknown_id0312_unknown_type0221_id251c_switch:
+  name:
   platform: zwave
   unique_id: 7-72057594160168960
 switch.unknown_id0312_unknown_type0221_id251c_switch_2:
+  name:
   platform: zwave
   unique_id: 7-144115188198096896
 switch.unknown_id0312_unknown_type0221_id251c_switch_3:
+  name:
   platform: zwave
   unique_id: 7-216172782236024832
 switch.ge_driveway_lights_switch:
+  name:
   platform: zwave
   unique_id: 8-72057594176946176
 binary_sensor.vision_zp3111_multisensor_4in1_sensor:
+  name:
   platform: zwave
   unique_id: 9-72057594193903616
 sensor.vision_zp3111_multisensor_4in1_temperature:
+  name:
   platform: zwave
   unique_id: 9-72057594193920018
 sensor.vision_zp3111_multisensor_4in1_luminance:
+  name:
   platform: zwave
   unique_id: 9-72057594193920050
 sensor.vision_zp3111_multisensor_4in1_relative_humidity:
+  name:
   platform: zwave
   unique_id: 9-72057594193920082
 sensor.vision_zp3111_multisensor_4in1_alarm_type:
+  name:
   platform: zwave
   unique_id: 9-72057594194968577
 sensor.vision_zp3111_multisensor_4in1_alarm_level:
+  name:
   platform: zwave
   unique_id: 9-72057594194968593
 switch.ge_outlet_tv_switch:
+  name:
   platform: zwave
   unique_id: 10-72057594210500608
 switch.ge_outlet_2_switch:
+  name:
   platform: zwave
   unique_id: 11-72057594227277824
 switch.panasonic_tv_outlet_switch:
+  name:
   platform: zwave
   unique_id: 12-72057594244055040
 sensor.panasonic_tv_outlet_energy:
+  name:
   platform: zwave
   unique_id: 12-72057594244268034
 sensor.panasonic_tv_outlet_previous_reading:
+  name:
   platform: zwave
   unique_id: 12-72057594244268050
 sensor.panasonic_tv_outlet_interval:
+  name:
   platform: zwave
   unique_id: 12-72057594244268067
 sensor.panasonic_tv_outlet_power:
+  name:
   platform: zwave
   unique_id: 12-72057594244268162
 sensor.panasonic_tv_outlet_previous_reading_2:
+  name:
   platform: zwave
   unique_id: 12-72057594244268178
 sensor.panasonic_tv_outlet_interval_2:
+  name:
   platform: zwave
   unique_id: 12-72057594244268195
 sensor.panasonic_tv_outlet_voltage:
+  name:
   platform: zwave
   unique_id: 12-72057594244268290
 sensor.panasonic_tv_outlet_previous_reading_3:
+  name:
   platform: zwave
   unique_id: 12-72057594244268306
 sensor.panasonic_tv_outlet_interval_3:
+  name:
   platform: zwave
   unique_id: 12-72057594244268323
 sensor.panasonic_tv_outlet_current:
+  name:
   platform: zwave
   unique_id: 12-72057594244268354
 sensor.panasonic_tv_outlet_previous_reading_4:
+  name:
   platform: zwave
   unique_id: 12-72057594244268370
 sensor.panasonic_tv_outlet_interval_4:
+  name:
   platform: zwave
   unique_id: 12-72057594244268387
 sensor.panasonic_tv_outlet_exporting:
+  name:
   platform: zwave
   unique_id: 12-72057594244268544
 sensor.panasonic_tv_outlet_alarm_type:
+  name:
   platform: zwave
   unique_id: 12-72057594245300225
 sensor.panasonic_tv_outlet_alarm_level:
+  name:
   platform: zwave
   unique_id: 12-72057594245300241
 sensor.panasonic_tv_outlet_sourcenodeid:
+  name:
   platform: zwave
   unique_id: 12-72057594245300257
 sensor.panasonic_tv_outlet_power_management:
+  name:
   platform: zwave
   unique_id: 12-72057594245300401
+light.kitchen_lights:
+  name:
+  platform: demo
+  unique_id: 3
+light.ceiling_lights:
+  name:
+  platform: demo
+  unique_id: 2
+light.bed_light:
+  name:
+  platform: demo
+  unique_id: 1
+sensor.smartthings_multiv4_01042e9f_1_1026:
+  name:
+  platform: zha
+  unique_id: 24:fd:5b:00:01:04:2e:9f-1-1026
+sensor.smartthings_multiv4_0108fcd9_1_1026:
+  name:
+  platform: zha
+  unique_id: 24:fd:5b:00:01:08:fc:d9-1-1026
+sensor.visonic_mct340_e_0b111ae3_1_1026:
+  name:
+  platform: zha
+  unique_id: 00:0d:6f:00:0b:11:1a:e3-1-1026
+sensor.visonic_mct340_e_0b0023ed_1_1026:
+  name:
+  platform: zha
+  unique_id: 00:0d:6f:00:0b:00:23:ed-1-1026
+binary_sensor.smartthings_multiv4_01042e9f_1_1280:
+  name:
+  platform: zha
+  unique_id: 24:fd:5b:00:01:04:2e:9f-1-1280
+binary_sensor.smartthings_multiv4_0108fcd9_1_1280:
+  name:
+  platform: zha
+  unique_id: 24:fd:5b:00:01:08:fc:d9-1-1280
+binary_sensor.visonic_mct340_e_0b111ae3_1_1280:
+  name:
+  platform: zha
+  unique_id: 00:0d:6f:00:0b:11:1a:e3-1-1280
+binary_sensor.visonic_mct340_e_0b0023ed_1_1280:
+  name:
+  platform: zha
+  unique_id: 00:0d:6f:00:0b:00:23:ed-1-1280

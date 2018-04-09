@@ -20,8 +20,8 @@ http:
   api_password: !secret http_password
   # Uncomment this if you are using SSL/TLS, running in Docker container, etc.
   base_url: !secret http_base_url
-  ssl_certificate: /etc/letsencrypt/live/home.todschmidt.com-0001/fullchain.pem
-  ssl_key: /etc/letsencrypt/live/home.todschmidt.com-0001/privkey.pem
+  ssl_certificate: /etc/letsencrypt/live/todschmidt.com/fullchain.pem
+  ssl_key: /etc/letsencrypt/live/todschmidt.com/privkey.pem
   trusted_networks:
     - 127.0.0.1
     - ::1
@@ -196,6 +196,11 @@ zone: !include zone.yaml
 # Custom
 #variable: !include variables.yaml
 snips:
+  probability_threshold: 0.40
+  feedback_sounds: false
+  site_ids:
+    - default
+    - remote
+
 intent_script: !include_dir_merge_named intent_scripts
 #android_ip_webcam: !include android_ip_webcam.yaml
-

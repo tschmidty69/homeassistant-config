@@ -9,10 +9,10 @@ import uuid
 import json
 import yaml
 import requests
+import tempfile
 from pathlib import Path
 import os, re, time
 import paho.mqtt.publish as publish
-from fuzzywuzzy import fuzz, process
 
 ######################
 # Jarvis Core
@@ -33,6 +33,7 @@ class jarvis_core(hass.Hass):
         self.global_vars['intents'] = {}
         self.global_vars['dialogue_callback'] = {}
         self.global_vars['dialogue_listener_callback'] = {}
+        self.global_vars['dialogue_http_audio_callback'] = {}
         self.global_vars['dialogue_enabled'] = {}
 
         self.speech_file = (os.path.join(os.path.dirname(__file__)) + '/'
@@ -47,10 +48,9 @@ class jarvis_core(hass.Hass):
             self.log("__function__ (player): %s %s" % (room, player), 'DEBUG')
             self.volume[player] = self.get_state(entity=player,
                                                  attribute='volume_level')
-
         self.listen_event(self.event_listener, 'JARVIS_MQTT')
-        self.listen_event(self.jarvis_notify, "JARVIS_NOTIFY")
-        self.listen_event(self.jarvis_action, "JARVIS_ACTION")
+        self.listen_event(self.jarvis_notify, 'JARVIS_NOTIFY')
+        self.listen_event(self.jarvis_action, 'JARVIS_ACTION')
 
         self.listen_event(self.jarvis_intent_not_recognized,
                           'JARVIS_INTENT_NOT_RECOGNIZED')
@@ -82,9 +82,11 @@ class jarvis_core(hass.Hass):
         # If dialogue is enabled, we are waiting for tts to finish here
         if self.global_vars['dialogue_enabled'].get(site_id):
             self.log("__function__: dialogue_enabled for site %s" % site_id, 'INFO')
+            self.log("__function__: topic %s" % data.get('topic'), 'INFO')
             # audio done playing, now call to set up listening
             if 'hermes/audioServer/'+site_id+'/playFinished' in data.get('topic'):
-                self.log("__function__: %s" % self.global_vars['dialogue_listener_callback'].get(site_id), 'INFO')
+                self.log("__function__: callback: %s" %
+                    self.global_vars['dialogue_listener_callback'].get(site_id), 'INFO')
 
                 if self.global_vars['dialogue_listener_callback'].get(site_id):
                     self.log("__function__: dialogue_listener_callback %s" % payload, 'INFO')
@@ -116,10 +118,12 @@ class jarvis_core(hass.Hass):
             self.log("__function__ intent received: %s" % intent, 'INFO')
             if data['intent'].get('probability', 0) < self.acceptable_probability:
                 self.log("__function__ intent probability "
-                         "too low, dropping: %s" %
+                         "too low, should drop: %s" %
                          data['intent'].get('probability', 0), 'INFO')
             if self.global_vars['intents'].get(intent):
                 self.global_vars['intents'][intent](data)
+            else:
+                self.log("__function__: UnknownIntent %s" %data, 'INFO')
 
     def jarvis_intent_not_recognized(self, data, *args, **kwargs):
         self.log("__function__: %s" %data, 'INFO')
@@ -136,10 +140,59 @@ class jarvis_core(hass.Hass):
                        hostname=self.snips_mqtt_host,
                        port=self.snips_mqtt_port)
 
+    def jarvis_play_http_audio(self, data, callback, *args, **kwargs):
+        self.log("__function__: %s" % data, 'INFO')
+        request_id = uuid.uuid4()
+        payload={'siteId': data.get('siteId', self.siteId),
+                 'init': {'type': 'notification',
+                          'session_id': data.get('session_id', '')}}
+
+        response = requests.get(data.get('url'), stream=True)
+        mp3_file = tempfile.NamedTemporaryFile()
+        wav_file = tempfile.NamedTemporaryFile()
+        mp3_file.write(response.content)
+        subprocess.run(['/usr/bin/mpg123','-q','-w', wav_file.name, mp3_file.name])
+        audio = wav_file.read()
+        byte_id = uuid.uuid4()
+        publish.single('hermes/audioServer/{}/playBytes/{}'.format(
+            data.get('siteId', self.siteId), byte_id),
+                       payload=audio,
+                       hostname=self.snips_mqtt_host,
+                       port=self.snips_mqtt_port)
+        wav_file.close()
+        mp3_file.close()
+        if callback:
+            self.global_vars['http_audio_callback'] = callback
+            self.register_dialogue_listener_callback(data.get('siteId', self.siteId),
+                self.jarvis_http_audio_callback)
+
+    def jarvis_http_audio_callback(self, data, *args, **kwargs):
+        self.log("__function__: %s" % data, 'INFO')
+        if self.global_vars['http_audio_callback']:
+            self.global_vars['http_audio_callback'](data)
+        self.global_vars['http_audio_callback'] = None
+
+    def jarvis_hotword_on(self, data, *args, **kwargs):
+        self.log("__function__: %s" % data, 'INFO')
+        payload={'siteId': data.get('siteId', self.siteId)}
+        #TODO: configurable hotward
+        publish.single('hermes/hotword/jarvis/ToggleOn',
+                       payload=json.dumps(payload),
+                       hostname=self.snips_mqtt_host)
+
+    def jarvis_hotword_off(self, data, *args, **kwargs):
+        self.log("__function__: %s" % data, 'INFO')
+        payload={'siteId': data.get('siteId', self.siteId)}
+        #TODO: configurable hotward
+        publish.single('hermes/hotword/jarvis/ToggleOff',
+                       payload=json.dumps(payload),
+                       hostname=self.snips_mqtt_host)
+
     def jarvis_end_session(self, data, *args, **kwargs):
         self.log("__function__: %s" % data, 'INFO')
-        payload={'sessionId': data.get('sessionId', ''),
-                          'text': data.get('text', '')}
+        payload={'siteId': data.get('siteId', self.siteId)}
+        if data.get('text'):
+             payload['init'].update({'text': data.get('text')})
         publish.single('hermes/dialogueManager/endSession',
                        payload=json.dumps(payload),
                        hostname=self.snips_mqtt_host,
@@ -147,23 +200,29 @@ class jarvis_core(hass.Hass):
 
     def jarvis_continue_session(self, data, *args, **kwargs):
         self.log("__function__: %s" % data, 'INFO')
-        payload={'siteId': data.get('sessionId', ''),
-                          'text': data.get('text', ''),
-                          'intentFilter': data.get('intentFilter', [])}
+        payload={'siteId': data.get('siteId', self.siteId)}
+        if data.get('custom_data'):
+            payload.update({'customData': data.get('custom_data')})
+        if data.get('text'):
+             payload['init'].update({'text': data.get('text')})
+        if data.get('intentFilter'):
+            payload['init'].update({'intentFilter': [data.get('intentFilter')]})
         publish.single('hermes/dialogueManager/continueSession',
                        payload=json.dumps(payload),
                        hostname=self.snips_mqtt_host,
                        port=self.snips_mqtt_port)
 
     def jarvis_action(self, data, *args, **kwargs):
-        self.log("__function__: %s" % data, 'DEBUG')
+        self.log("__function__: %s" % data, 'INFO')
         payload={'siteId': data.get('siteId', self.siteId),
-                 'customData': data.get('custom_data', 'default'),
                  'init': {'type': 'action',
-                 'text': data.get('text', ''),
-                 'canBeEnqueued': True,
-                 'intentFilter': [data.get('intentFilter',
-                                           'TSchmidty:YesNoResponse')]}}
+                 'canBeEnqueued': True}}
+        if data.get('custom_data'):
+            payload.update({'customData': data.get('custom_data')})
+        if data.get('text'):
+             payload['init'].update({'text': data.get('text')})
+        if data.get('intentFilter'):
+            payload['init'].update({'intentFilter': [data.get('intentFilter')]})
         publish.single('hermes/dialogueManager/startSession',
                        payload=json.dumps(payload),
                        hostname=self.snips_mqtt_host,

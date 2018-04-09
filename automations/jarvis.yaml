@@ -8,10 +8,40 @@
 #       topic: '{{ trigger.topic }}'
 #       payload: '{{ trigger.payload }}'
 #
-# - alias: jarvis_intent
+- alias: jarvis_intent
+  trigger:
+    platform: mqtt
+    topic: hermes/intent/#
+  action:
+    event: JARVIS_MQTT
+    event_data_template:
+      topic: '{{ trigger.topic }}'
+      payload: '{{ trigger.payload }}'
+
+# - alias: jarvis_audio_server
 #   trigger:
 #     platform: mqtt
-#     topic: hermes/intent/#
+#     topic: hermes/audioServer/default/playFinished
+#   action:
+#     event: JARVIS_MQTT
+#     event_data_template:
+#       topic: '{{ trigger.topic }}'
+#       payload: '{{ trigger.payload }}'
+
+# - alias: jarvis_audio_server_office
+#   trigger:
+#     platform: mqtt
+#     topic: hermes/audioServer/office/playFinished
+#   action:
+#     event: JARVIS_MQTT
+#     event_data_template:
+#       topic: '{{ trigger.topic }}'
+#       payload: '{{ trigger.payload }}'
+
+# - alias: jarvis_audio_server_remote
+#   trigger:
+#     platform: mqtt
+#     topic: hermes/audioServer/remote/playFinished
 #   action:
 #     event: JARVIS_MQTT
 #     event_data_template:

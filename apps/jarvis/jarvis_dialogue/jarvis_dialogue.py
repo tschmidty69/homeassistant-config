@@ -88,7 +88,7 @@ class jarvis_dialogue(hass.Hass):
         self.log("__function__: %s" % data)
 
         payload = {'siteId': data.get('siteId', 'default')}
-        publish.single('hermes/asr/toggleOff',
+        publish.single('hermes/hotword/toggleOn',
                        payload=json.dumps(payload),
                        hostname=self.jarvis.snips_mqtt_host,
                        port=self.jarvis.snips_mqtt_port)
@@ -123,8 +123,8 @@ class jarvis_dialogue(hass.Hass):
     def dialogue_cb(self, data, *args, **kwargs):
         self.log("__function__:  data %s" % data)
         self.cancel_listen_event(self.cancel_dialogue)
-        if 'bye' in data.get('text'):
-            self.end_dialogue('EVENT', data)
+        if 'goodbye' in data.get('text') or 'end' in data.get('text'):
+            self.dialogue.end_dialogue(data)
             return
         self.dialogue_say({'siteId': self.site_id,
                            'text': '{}, Interesting'.format(data.get('text', ''))})

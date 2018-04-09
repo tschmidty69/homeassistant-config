@@ -1,0 +1,13 @@
+jarvis_thermostat:
+  module: jarvis_thermostat
+  class: jarvis_thermostat
+  dependencies:
+    - jarvis_core
+  enabled: True
+  thermostat:
+    heat:
+      downstairs: 2gig_technologies_ct101_thermostat_iris_heating_1
+      upstairs: 2gig_technologies_ct101_thermostat_iris_heating_1_2
+    ac:
+      downstairs: 2gig_technologies_ct101_thermostat_iris_cooling_1
+      upstairs: 2gig_technologies_ct101_thermostat_iris_cooling_1_2

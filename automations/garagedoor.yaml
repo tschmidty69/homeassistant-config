@@ -1,22 +1,22 @@
 
 
-- alias: 'Garage Door Alert'
-  trigger:
-    - platform: state
-      entity_id: binary_sensor.ecolink_garage_door_tilt_sensor_sensor
-      from: 'off'
-      to: 'on'
-      for:
-        minutes: 10
-  action:
-    - service: notify.all_phones
-      data:
-        title: "Garage Door Open"
-        message: "Garage Door has been open for 10 minutes"
-        data:
-          push:
-            badge: 0
-            category: 'closegarage'
+#- alias: 'Garage Door Alert'
+#  trigger:
+#    - platform: state
+#      entity_id: binary_sensor.ecolink_garage_door_tilt_sensor_sensor
+#      from: 'off'
+#      to: 'on'
+#      for:
+#        minutes: 10
+#  action:
+#    - service: notify.all_phones
+#      data:
+#        title: "Garage Door Open"
+#        message: "Garage Door has been open for 10 minutes"
+#        data:
+#          push:
+#            badge: 0
+#            category: 'closegarage'
 
 - alias: 'Door Open but No One is Home'
   trigger:

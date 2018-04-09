@@ -22,7 +22,7 @@ class jarvis_google(hass.Hass):
         self.jarvis = self.get_app('jarvis_core')
         self.jarvis.jarvis_register_intent('ask_wolfram',
                                       self.jarvis_ask_wolfram)
-        self.api_key = 'AIzaSyBkNTpqUQ8RN61I-YFF2ZvC82XELLnwAuI'
+        self.api_key = 'NOPE'
 
     def jarvis_ask_wolfram(self, data):
         self.log("__function__: Here is your ask_wolfram: %s" % data)
