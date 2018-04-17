@@ -87,7 +87,7 @@ def intentNotRecognized(client, userdata, msg):
                             'text': "I didn't understand you"
                            }
                    }
-        publish.single('hermes/dialogueManager/endSession',
+        publish.single('hermes/dialogueManager/startSession',
                        payload=json.dumps(payload),
                        hostname=mqtt_host,
                        port=mqtt_port)
