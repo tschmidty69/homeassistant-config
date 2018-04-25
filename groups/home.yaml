@@ -8,6 +8,7 @@ default_view:
     - camera.living_room
     - camera.master_bedroom
     - group.household
+    - sensor.cathie_waze_to_work
     - group.living_room_tv
     - group.climate
     - group.music

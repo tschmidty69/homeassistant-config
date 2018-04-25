@@ -119,13 +119,13 @@ logger:
     urllib3.connectionpool: fatal
     homeassistant.components.media_player: error
 #    homeassistant.core.event: debug
-#    homeassistant.components.snips: debug
+    homeassistant.components.snips: debug
 # #    homeassistant.helpers.script: debug
     homeassistant.helpers.intent_script: debug
 # #    homeassistant.helpers.template: debug
 # #    homeassistant.components.websocket_api: debug
 # #    homeassistant.helpers.shell_command: debug
-#    homeassistant.components.mqtt: debug
+    homeassistant.components.mqtt: debug
 # #    homeassistant.components.zha: debug
 # #    homeassistant.components.sensor.zha: debug
 #     homeassistant.components.http: debug
@@ -196,8 +196,8 @@ zone: !include zone.yaml
 # Custom
 #variable: !include variables.yaml
 snips:
-  probability_threshold: 0.40
-  feedback_sounds: false
+  probability_threshold: 0.30
+  feedback_sounds: true
   site_ids:
     - default
     - remote

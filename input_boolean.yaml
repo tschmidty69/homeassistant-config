@@ -9,3 +9,7 @@ vincent_home:
 alarm_clock_status:
   initial: on
 
+trigger_first_morning:
+  name: Waiting for first morning motion
+  icon: mdi:sun
+

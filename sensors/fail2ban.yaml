@@ -1,4 +1,4 @@
-- platform: fail2ban
-  jails:
-    - apache
-    - ssh
+#- platform: fail2ban
+#  jails:
+#    - apache
+#    - ssh
