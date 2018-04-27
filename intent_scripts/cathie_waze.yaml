@@ -1,0 +1,8 @@
+CathieToWork:
+  speech:
+    type: plain
+    text: >
+      It looks like it will take you
+      {{ states('sensor.cathie_waze_to_work') | round(0) }}
+      minutes, by way of
+      {{ states.sensor.cathie_waze_to_work.attributes.route }}.

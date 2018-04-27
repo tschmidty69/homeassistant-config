@@ -1,0 +1,5 @@
+- platform: waze_travel_time
+  origin: 35.341527, -80.78491
+  destination: 35.11014572126329, -80.9402278136947 
+  region: 'US'
+  name: Cathie Waze to Work
