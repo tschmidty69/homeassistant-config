@@ -73,7 +73,7 @@ sudo ./install.sh 4mic
 cd /srv/respeaker
 git clone https://github.com/respeaker/4mics_hat.git
 source /srv/respeaker/bin/activate
-wget https://raw.githubusercontent.com/tschmidty69/homeassistant-config/master/jarvis/jarvis_led.py
+wget https://raw.githubusercontent.com/tschmidty69/homeassistant-config/master/snips/jarvis_led.py
 # edit jarvis_led to point to your snips mqtt broker
 ```
 Test it
@@ -84,10 +84,10 @@ python jarvis_led.py
 If it works you can grab this shell script and Ubuntu startup script to have it run at boot
 ```
 cd /usr/local/bin
-sudo wget https://raw.githubusercontent.com/tschmidty69/homeassistant/master/jarvis/jarvis-led.sh
+sudo wget https://raw.githubusercontent.com/tschmidty69/homeassistant-config/master/jarvis/jarvis-led.sh
 sudo chmod +x jarvis-led.sh
 cd /etc/systemd/system/
-sudo wget https://raw.githubusercontent.com/tschmidty69/homeassistant/master/jarvis/jarvis-led.service
+sudo wget https://raw.githubusercontent.com/tschmidty69/homeassistant-config/master/jarvis/jarvis-led.service
 systemctl daemon-reload
 systemctl enable jarvis-led
 systemctl start jarvis-led
