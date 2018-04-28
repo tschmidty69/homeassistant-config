@@ -6,7 +6,7 @@ These are a couple of scripts that I have running on my Snips RaspberryPI 3
 Copy this script somewhere it can be executed by snips
 ```
 cd /usr/local/bin
-sudo wget https://raw.githubusercontent.com/tschmidty69/homeassistant/master/jarvis/jarvis_says.sh
+sudo wget https://raw.githubusercontent.com/tschmidty69/homeassistant-config/master/snips/jarvis_says.sh
 sudo chmod +x jarvis_says.sh
 sudo apt-get install mpg123
 ```
@@ -73,7 +73,7 @@ sudo ./install.sh 4mic
 cd /srv/respeaker
 git clone https://github.com/respeaker/4mics_hat.git
 source /srv/respeaker/bin/activate
-wget https://raw.githubusercontent.com/tschmidty69/homeassistant/master/jarvis/jarvis_led.py
+wget https://raw.githubusercontent.com/tschmidty69/homeassistant-config/master/jarvis/jarvis_led.py
 # edit jarvis_led to point to your snips mqtt broker
 ```
 Test it
