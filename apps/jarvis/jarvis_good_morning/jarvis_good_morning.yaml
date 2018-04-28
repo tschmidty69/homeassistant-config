@@ -1,6 +1,0 @@
-jarvis_good_morning:
-  module: jarvis_good_morning
-  class: jarvis_good_morning
-  dependencies:
-    - jarvis_core
-  enabled: True

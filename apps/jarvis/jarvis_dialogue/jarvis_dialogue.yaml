@@ -1,6 +1,0 @@
-jarvis_dialogue:
-  module: jarvis_dialogue
-  class: jarvis_dialogue
-  dependencies:
-    - jarvis_core
-  enabled: True

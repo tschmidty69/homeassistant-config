@@ -1,6 +1,0 @@
-jarvis_weather:
-  module: jarvis_weather
-  class: jarvis_weather
-  dependencies:
-    - jarvis_core
-  enabled: False

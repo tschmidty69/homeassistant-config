@@ -1,5 +1,0 @@
-mqtt_demo:
-  module: mqtt_demo
-  class: mqtt_demo
-  dependencies:
-    - jarvis_core

@@ -1,7 +1,0 @@
-jarvis_mopidy:
-  module: jarvis_mopidy
-  class: jarvis_mopidy
-  dependencies:
-    - jarvis_core
-  enabled: True
-  mopidy_host: '192.168.1.201'

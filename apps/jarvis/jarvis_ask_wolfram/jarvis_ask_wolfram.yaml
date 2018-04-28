@@ -1,7 +1,0 @@
-jarvis_ask_wolfram:
-  module: jarvis_ask_wolfram
-  class: jarvis_ask_wolfram
-  dependencies:
-    - jarvis_core
-  enabled: False
-  api_key: NOPE

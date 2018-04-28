@@ -1,6 +1,0 @@
-jarvis_google:
-  module: jarvis_google
-  class: jarvis_google
-  dependencies:
-    - jarvis_core
-  enabled: False
