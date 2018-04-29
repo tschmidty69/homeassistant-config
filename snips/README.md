@@ -70,15 +70,14 @@ since you need it to get the mic working so you can skip those steps
 git clone https://github.com/respeaker/seeed-voicecard
 cd seeed-voicecard
 sudo ./install.sh 4mic
-cd /srv/respeaker
+cd ..
 git clone https://github.com/respeaker/4mics_hat.git
-source /srv/respeaker/bin/activate
+cd 4mics_hat
 wget https://raw.githubusercontent.com/tschmidty69/homeassistant-config/master/snips/jarvis_led.py
 # edit jarvis_led to point to your snips mqtt broker
 ```
 Test it
 ```
-source /srv/respeaker/bin/activate
 python jarvis_led.py
 ```
 If it works you can grab this shell script and Ubuntu startup script to have it run at boot
