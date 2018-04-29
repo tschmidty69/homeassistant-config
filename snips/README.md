@@ -74,6 +74,7 @@ cd ..
 git clone https://github.com/respeaker/4mics_hat.git
 cd 4mics_hat
 wget https://raw.githubusercontent.com/tschmidty69/homeassistant-config/master/snips/jarvis_led.py
+sudo pip install spidev gpiodev numpy paho-mqtt
 # edit jarvis_led to point to your snips mqtt broker
 ```
 Test it
