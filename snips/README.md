@@ -6,7 +6,7 @@ These are a couple of scripts that I have running on my Snips RaspberryPI 3
 Copy this script somewhere it can be executed by snips
 ```
 cd /usr/local/bin
-sudo wget https://raw.githubusercontent.com/tschmidty69/homeassistant/master/jarvis/jarvis_says.sh
+sudo wget https://raw.githubusercontent.com/tschmidty69/homeassistant-config/master/snips/jarvis_says.sh
 sudo chmod +x jarvis_says.sh
 sudo apt-get install mpg123
 ```
@@ -70,24 +70,24 @@ since you need it to get the mic working so you can skip those steps
 git clone https://github.com/respeaker/seeed-voicecard
 cd seeed-voicecard
 sudo ./install.sh 4mic
-cd /srv/respeaker
+cd ..
 git clone https://github.com/respeaker/4mics_hat.git
-source /srv/respeaker/bin/activate
-wget https://raw.githubusercontent.com/tschmidty69/homeassistant/master/jarvis/jarvis_led.py
+cd 4mics_hat
+wget https://raw.githubusercontent.com/tschmidty69/homeassistant-config/master/snips/jarvis_led.py
+sudo pip install spidev gpiodev numpy paho-mqtt
 # edit jarvis_led to point to your snips mqtt broker
 ```
 Test it
 ```
-source /srv/respeaker/bin/activate
 python jarvis_led.py
 ```
 If it works you can grab this shell script and Ubuntu startup script to have it run at boot
 ```
 cd /usr/local/bin
-sudo wget https://raw.githubusercontent.com/tschmidty69/homeassistant/master/jarvis/jarvis-led.sh
+sudo wget https://raw.githubusercontent.com/tschmidty69/homeassistant-config/master/jarvis/jarvis-led.sh
 sudo chmod +x jarvis-led.sh
 cd /etc/systemd/system/
-sudo wget https://raw.githubusercontent.com/tschmidty69/homeassistant/master/jarvis/jarvis-led.service
+sudo wget https://raw.githubusercontent.com/tschmidty69/homeassistant-config/master/jarvis/jarvis-led.service
 systemctl daemon-reload
 systemctl enable jarvis-led
 systemctl start jarvis-led
