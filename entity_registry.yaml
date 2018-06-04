@@ -294,3 +294,83 @@ binary_sensor.visonic_mct340_e_0b0023ed_1_1280:
   name:
   platform: zha
   unique_id: 00:0d:6f:00:0b:00:23:ed-1-1280
+media_player.living_room:
+  name:
+  platform: roku
+  unique_id: 1GS413019211
+zwave.usb_zwave_hub:
+  name:
+  platform: zwave
+  unique_id: node-1
+zwave.door_sensor_1:
+  name:
+  platform: zwave
+  unique_id: node-2
+zwave.ecolink_garage_door_tilt_sensor:
+  name:
+  platform: zwave
+  unique_id: node-3
+zwave.2gig_technologies_ct101_thermostat_iris:
+  name:
+  platform: zwave
+  unique_id: node-4
+zwave.fortrezz_mimolite_wireless_interfacebridge_module:
+  name:
+  platform: zwave
+  unique_id: node-5
+zwave.2gig_technologies_ct101_thermostat_iris_2:
+  name:
+  platform: zwave
+  unique_id: node-6
+zwave.unknown_id0312_unknown_type0221_id251c:
+  name:
+  platform: zwave
+  unique_id: node-7
+zwave.ge_driveway_lights:
+  name:
+  platform: zwave
+  unique_id: node-8
+zwave.vision_zp3111_multisensor_4in1:
+  name:
+  platform: zwave
+  unique_id: node-9
+zwave.ge_outlet_tv:
+  name:
+  platform: zwave
+  unique_id: node-10
+zwave.ge_outlet_2:
+  name:
+  platform: zwave
+  unique_id: node-11
+zwave.panasonic_tv_outlet:
+  name:
+  platform: zwave
+  unique_id: node-12
+zwave.zooz_zen15_power_switch:
+  name:
+  platform: zwave
+  unique_id: node-13
+sensor.zooz_zen15_power_switch_power:
+  name:
+  platform: zwave
+  unique_id: 13-72057594261045378
+sensor.zooz_zen15_power_switch_voltage:
+  name:
+  platform: zwave
+  unique_id: 13-72057594261045506
+sensor.zooz_zen15_power_switch_current:
+  name:
+  platform: zwave
+  unique_id: 13-72057594261045570
+switch.zooz_zen15_power_switch_switch:
+  name:
+  platform: zwave
+  unique_id: 13-72057594260832256
+sensor.zooz_zen15_power_switch_energy:
+  name:
+  platform: zwave
+  unique_id: 13-72057594261045250
+sensor.zooz_zen15_power_switch_previous_reading:
+  name:
+  platform: zwave
+  unique_id: 13-72057594261045266

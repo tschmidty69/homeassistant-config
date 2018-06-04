@@ -6,6 +6,7 @@ deps/*
 !input_numbers/*
 secrets.yaml
 secrets.yaml-backup
+.ios.conf
 known_devices.yaml
 gitupdate.sh
 update.sh

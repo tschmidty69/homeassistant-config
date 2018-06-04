@@ -22,11 +22,11 @@ http:
   base_url: !secret http_base_url
   ssl_certificate: /etc/letsencrypt/live/todschmidt.com/fullchain.pem
   ssl_key: /etc/letsencrypt/live/todschmidt.com/privkey.pem
-  trusted_networks:
-    - 127.0.0.1
-    - ::1
-    - 192.168.1.0/24
-    - 2001:DB8:ABCD::/48
+#  trusted_networks:
+#    - 127.0.0.1
+#    - ::1
+#    - 192.168.1.0/24
+#    - 2001:DB8:ABCD::/48
   ip_ban_enabled: False
   login_attempts_threshold: 2
 
@@ -87,7 +87,7 @@ tts:
     aws_secret_access_key: !secret AWS_SECRET_ACCESS_KEY
     profile_name: !secret AWS_PROFILE
     region_name: 'us-west-2'
-    voice: Joanna
+    voice: Geraint
 
 # Enables configuration UI
 config:
@@ -137,6 +137,7 @@ logger:
 # #    bellows.zigbee.application: debug
 # #    homeassistant.components.ios: debug
 # #    homeassistant.components.media_player: debug
+    homeassistant.components.tts: debug
 
 # Enables a map showing the location of tracked devices
 map:
@@ -144,20 +145,20 @@ map:
 # Track the sun
 sun:
 
-# #recorder:
-# #  purge_interval: 1
-# #  purge_keep_days: 5
-# #  db_url: sqlite:///home/homeassistant/.homeassistant/home-assistant_v2.db
-# #  exclude:
-# #    domains:
-# #      - zwave
-# #      - weblink
-# #      - updater
-# #    entities:
-# #      - sun.sun # Don't record sun data
-# #      - sensor.last_boot # Comes from 'systemmonitor' sensor platform
-# #      - sensor.date
-#
+recorder:
+  purge_interval: 1
+  purge_keep_days: 5
+  db_url: sqlite:///home/homeassistant/.homeassistant/home-assistant_v2.db
+  exclude:
+    domains:
+      - zwave
+      - weblink
+      - updater
+    entities:
+      - sun.sun # Don't record sun data
+      - sensor.last_boot # Comes from 'systemmonitor' sensor platform
+      - sensor.date
+
 mqtt:
   broker: 192.168.1.201
   username: !secret mqtt_user
@@ -197,7 +198,7 @@ zone: !include zone.yaml
 #variable: !include variables.yaml
 snips:
   probability_threshold: 0.30
-  feedback_sounds: true
+  feedback_sounds: false
   site_ids:
     - default
     - remote
