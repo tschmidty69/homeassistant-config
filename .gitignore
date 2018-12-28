@@ -31,3 +31,7 @@ apps/jarvis/tv_raw.txt
 !www/custom_ui/floorplan
 !www/custom_ui/floorplan/*
 apps/
+.storage/auth
+.storage/auth_provider.homeassistant
+.storage/onboarding
+

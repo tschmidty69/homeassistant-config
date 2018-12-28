@@ -1,0 +1,1124 @@
+{
+    "data": {
+        "entities": [
+            {
+                "config_entry_id": null,
+                "device_id": null,
+                "disabled_by": null,
+                "entity_id": "sensor.docs_iphone_battery_state",
+                "name": null,
+                "platform": "ios",
+                "unique_id": "state_docs_iphone"
+            },
+            {
+                "config_entry_id": null,
+                "device_id": null,
+                "disabled_by": null,
+                "entity_id": "sensor.docs_iphone_battery_level",
+                "name": null,
+                "platform": "ios",
+                "unique_id": "level_docs_iphone"
+            },
+            {
+                "config_entry_id": "436ad5667eee46eb982844c3f06635a4",
+                "device_id": "f4ed1b9fe58a41bdb1c36d5014addece",
+                "disabled_by": null,
+                "entity_id": "sensor.tods_iphone_battery_state",
+                "name": null,
+                "platform": "ios",
+                "unique_id": "state_tods_iphone"
+            },
+            {
+                "config_entry_id": "436ad5667eee46eb982844c3f06635a4",
+                "device_id": "f4ed1b9fe58a41bdb1c36d5014addece",
+                "disabled_by": null,
+                "entity_id": "sensor.tods_iphone_battery_level",
+                "name": null,
+                "platform": "ios",
+                "unique_id": "level_tods_iphone"
+            },
+            {
+                "config_entry_id": "006d3ad2c8d649198fccc11427dd29a2",
+                "device_id": "377039baf5ae455f88db13e7651b84d0",
+                "disabled_by": null,
+                "entity_id": "binary_sensor.door_sensor_1_sensor",
+                "name": null,
+                "platform": "zwave",
+                "unique_id": "2-72057594076463104"
+            },
+            {
+                "config_entry_id": "006d3ad2c8d649198fccc11427dd29a2",
+                "device_id": "377039baf5ae455f88db13e7651b84d0",
+                "disabled_by": null,
+                "entity_id": "sensor.door_sensor_1_alarm_type",
+                "name": null,
+                "platform": "zwave",
+                "unique_id": "2-72057594077528065"
+            },
+            {
+                "config_entry_id": "006d3ad2c8d649198fccc11427dd29a2",
+                "device_id": "377039baf5ae455f88db13e7651b84d0",
+                "disabled_by": null,
+                "entity_id": "sensor.door_sensor_1_alarm_level",
+                "name": null,
+                "platform": "zwave",
+                "unique_id": "2-72057594077528081"
+            },
+            {
+                "config_entry_id": "006d3ad2c8d649198fccc11427dd29a2",
+                "device_id": "377039baf5ae455f88db13e7651b84d0",
+                "disabled_by": null,
+                "entity_id": "sensor.door_sensor_1_sourcenodeid",
+                "name": null,
+                "platform": "zwave",
+                "unique_id": "2-72057594077528097"
+            },
+            {
+                "config_entry_id": "006d3ad2c8d649198fccc11427dd29a2",
+                "device_id": "377039baf5ae455f88db13e7651b84d0",
+                "disabled_by": null,
+                "entity_id": "sensor.door_sensor_1_access_control",
+                "name": null,
+                "platform": "zwave",
+                "unique_id": "2-72057594077528209"
+            },
+            {
+                "config_entry_id": "006d3ad2c8d649198fccc11427dd29a2",
+                "device_id": "377039baf5ae455f88db13e7651b84d0",
+                "disabled_by": null,
+                "entity_id": "sensor.door_sensor_1_burglar",
+                "name": null,
+                "platform": "zwave",
+                "unique_id": "2-72057594077528225"
+            },
+            {
+                "config_entry_id": "006d3ad2c8d649198fccc11427dd29a2",
+                "device_id": "377039baf5ae455f88db13e7651b84d0",
+                "disabled_by": null,
+                "entity_id": "sensor.door_sensor_1_power_management",
+                "name": null,
+                "platform": "zwave",
+                "unique_id": "2-72057594077528241"
+            },
+            {
+                "config_entry_id": "006d3ad2c8d649198fccc11427dd29a2",
+                "device_id": "621e7f372aca40419938f6fb5e19689e",
+                "disabled_by": null,
+                "entity_id": "binary_sensor.ecolink_garage_door_tilt_sensor_sensor",
+                "name": null,
+                "platform": "zwave",
+                "unique_id": "3-72057594093240320"
+            },
+            {
+                "config_entry_id": "006d3ad2c8d649198fccc11427dd29a2",
+                "device_id": "621e7f372aca40419938f6fb5e19689e",
+                "disabled_by": null,
+                "entity_id": "sensor.ecolink_garage_door_tilt_sensor_alarm_type",
+                "name": null,
+                "platform": "zwave",
+                "unique_id": "3-72057594094305281"
+            },
+            {
+                "config_entry_id": "006d3ad2c8d649198fccc11427dd29a2",
+                "device_id": "621e7f372aca40419938f6fb5e19689e",
+                "disabled_by": null,
+                "entity_id": "sensor.ecolink_garage_door_tilt_sensor_alarm_level",
+                "name": null,
+                "platform": "zwave",
+                "unique_id": "3-72057594094305297"
+            },
+            {
+                "config_entry_id": "006d3ad2c8d649198fccc11427dd29a2",
+                "device_id": "621e7f372aca40419938f6fb5e19689e",
+                "disabled_by": null,
+                "entity_id": "sensor.ecolink_garage_door_tilt_sensor_sourcenodeid",
+                "name": null,
+                "platform": "zwave",
+                "unique_id": "3-72057594094305313"
+            },
+            {
+                "config_entry_id": "006d3ad2c8d649198fccc11427dd29a2",
+                "device_id": "621e7f372aca40419938f6fb5e19689e",
+                "disabled_by": null,
+                "entity_id": "sensor.ecolink_garage_door_tilt_sensor_access_control",
+                "name": null,
+                "platform": "zwave",
+                "unique_id": "3-72057594094305425"
+            },
+            {
+                "config_entry_id": "006d3ad2c8d649198fccc11427dd29a2",
+                "device_id": "621e7f372aca40419938f6fb5e19689e",
+                "disabled_by": null,
+                "entity_id": "sensor.ecolink_garage_door_tilt_sensor_burglar",
+                "name": null,
+                "platform": "zwave",
+                "unique_id": "3-72057594094305441"
+            },
+            {
+                "config_entry_id": "006d3ad2c8d649198fccc11427dd29a2",
+                "device_id": "621e7f372aca40419938f6fb5e19689e",
+                "disabled_by": null,
+                "entity_id": "sensor.ecolink_garage_door_tilt_sensor_power_management",
+                "name": null,
+                "platform": "zwave",
+                "unique_id": "3-72057594094305457"
+            },
+            {
+                "config_entry_id": "006d3ad2c8d649198fccc11427dd29a2",
+                "device_id": "b6af5fce470c4aed9306c3bd015a55b1",
+                "disabled_by": null,
+                "entity_id": "sensor.2gig_technologies_ct101_thermostat_iris_temperature",
+                "name": null,
+                "platform": "zwave",
+                "unique_id": "4-72057594110033938"
+            },
+            {
+                "config_entry_id": "006d3ad2c8d649198fccc11427dd29a2",
+                "device_id": "b6af5fce470c4aed9306c3bd015a55b1",
+                "disabled_by": null,
+                "entity_id": "sensor.2gig_technologies_ct101_thermostat_iris_general",
+                "name": null,
+                "platform": "zwave",
+                "unique_id": "4-72057594110033954"
+            },
+            {
+                "config_entry_id": "006d3ad2c8d649198fccc11427dd29a2",
+                "device_id": "b6af5fce470c4aed9306c3bd015a55b1",
+                "disabled_by": null,
+                "entity_id": "sensor.2gig_technologies_ct101_thermostat_iris_relative_humidity",
+                "name": null,
+                "platform": "zwave",
+                "unique_id": "4-72057594110034002"
+            },
+            {
+                "config_entry_id": "006d3ad2c8d649198fccc11427dd29a2",
+                "device_id": "b6af5fce470c4aed9306c3bd015a55b1",
+                "disabled_by": null,
+                "entity_id": "climate.2gig_technologies_ct101_thermostat_iris_heating_1",
+                "name": null,
+                "platform": "zwave",
+                "unique_id": "4-72057594110328850"
+            },
+            {
+                "config_entry_id": "006d3ad2c8d649198fccc11427dd29a2",
+                "device_id": "b6af5fce470c4aed9306c3bd015a55b1",
+                "disabled_by": null,
+                "entity_id": "climate.2gig_technologies_ct101_thermostat_iris_cooling_1",
+                "name": null,
+                "platform": "zwave",
+                "unique_id": "4-72057594110328866"
+            },
+            {
+                "config_entry_id": "006d3ad2c8d649198fccc11427dd29a2",
+                "device_id": "83c0e98a92494d40a24907f93b339636",
+                "disabled_by": null,
+                "entity_id": "switch.fortrezz_mimolite_wireless_interfacebridge_module_switch",
+                "name": null,
+                "platform": "zwave",
+                "unique_id": "5-72057594126614528"
+            },
+            {
+                "config_entry_id": "006d3ad2c8d649198fccc11427dd29a2",
+                "device_id": "83c0e98a92494d40a24907f93b339636",
+                "disabled_by": null,
+                "entity_id": "binary_sensor.fortrezz_mimolite_wireless_interfacebridge_module_sensor",
+                "name": null,
+                "platform": "zwave",
+                "unique_id": "5-72057594126794752"
+            },
+            {
+                "config_entry_id": "006d3ad2c8d649198fccc11427dd29a2",
+                "device_id": "83c0e98a92494d40a24907f93b339636",
+                "disabled_by": null,
+                "entity_id": "sensor.fortrezz_mimolite_wireless_interfacebridge_module_general",
+                "name": null,
+                "platform": "zwave",
+                "unique_id": "5-72057594126811170"
+            },
+            {
+                "config_entry_id": "006d3ad2c8d649198fccc11427dd29a2",
+                "device_id": "83c0e98a92494d40a24907f93b339636",
+                "disabled_by": null,
+                "entity_id": "sensor.fortrezz_mimolite_wireless_interfacebridge_module_luminance",
+                "name": null,
+                "platform": "zwave",
+                "unique_id": "5-72057594126811186"
+            },
+            {
+                "config_entry_id": "006d3ad2c8d649198fccc11427dd29a2",
+                "device_id": "83c0e98a92494d40a24907f93b339636",
+                "disabled_by": null,
+                "entity_id": "sensor.fortrezz_mimolite_wireless_interfacebridge_module_alarm_type",
+                "name": null,
+                "platform": "zwave",
+                "unique_id": "5-72057594127859713"
+            },
+            {
+                "config_entry_id": "006d3ad2c8d649198fccc11427dd29a2",
+                "device_id": "83c0e98a92494d40a24907f93b339636",
+                "disabled_by": null,
+                "entity_id": "sensor.fortrezz_mimolite_wireless_interfacebridge_module_alarm_level",
+                "name": null,
+                "platform": "zwave",
+                "unique_id": "5-72057594127859729"
+            },
+            {
+                "config_entry_id": "006d3ad2c8d649198fccc11427dd29a2",
+                "device_id": "03e8a88e6e4e45b7b0145522523ed74b",
+                "disabled_by": null,
+                "entity_id": "sensor.2gig_technologies_ct101_thermostat_iris_temperature_2",
+                "name": null,
+                "platform": "zwave",
+                "unique_id": "6-72057594143588370"
+            },
+            {
+                "config_entry_id": "006d3ad2c8d649198fccc11427dd29a2",
+                "device_id": "03e8a88e6e4e45b7b0145522523ed74b",
+                "disabled_by": null,
+                "entity_id": "sensor.2gig_technologies_ct101_thermostat_iris_relative_humidity_2",
+                "name": null,
+                "platform": "zwave",
+                "unique_id": "6-72057594143588434"
+            },
+            {
+                "config_entry_id": "006d3ad2c8d649198fccc11427dd29a2",
+                "device_id": "03e8a88e6e4e45b7b0145522523ed74b",
+                "disabled_by": null,
+                "entity_id": "climate.2gig_technologies_ct101_thermostat_iris_heating_1_2",
+                "name": null,
+                "platform": "zwave",
+                "unique_id": "6-72057594143883282"
+            },
+            {
+                "config_entry_id": "006d3ad2c8d649198fccc11427dd29a2",
+                "device_id": "03e8a88e6e4e45b7b0145522523ed74b",
+                "disabled_by": null,
+                "entity_id": "climate.2gig_technologies_ct101_thermostat_iris_cooling_1_2",
+                "name": null,
+                "platform": "zwave",
+                "unique_id": "6-72057594143883298"
+            },
+            {
+                "config_entry_id": "006d3ad2c8d649198fccc11427dd29a2",
+                "device_id": "5ce85f81a9aa4f0fb4a183d0640b84c9",
+                "disabled_by": null,
+                "entity_id": "switch.unknown_id0312_unknown_type0221_id251c_switch",
+                "name": null,
+                "platform": "zwave",
+                "unique_id": "7-72057594160168960"
+            },
+            {
+                "config_entry_id": "006d3ad2c8d649198fccc11427dd29a2",
+                "device_id": "5ce85f81a9aa4f0fb4a183d0640b84c9",
+                "disabled_by": null,
+                "entity_id": "switch.unknown_id0312_unknown_type0221_id251c_switch_2",
+                "name": null,
+                "platform": "zwave",
+                "unique_id": "7-144115188198096896"
+            },
+            {
+                "config_entry_id": "006d3ad2c8d649198fccc11427dd29a2",
+                "device_id": "5ce85f81a9aa4f0fb4a183d0640b84c9",
+                "disabled_by": null,
+                "entity_id": "switch.unknown_id0312_unknown_type0221_id251c_switch_3",
+                "name": null,
+                "platform": "zwave",
+                "unique_id": "7-216172782236024832"
+            },
+            {
+                "config_entry_id": "006d3ad2c8d649198fccc11427dd29a2",
+                "device_id": "878b4c642414452b91a9249027f186a8",
+                "disabled_by": null,
+                "entity_id": "switch.ge_driveway_lights_switch",
+                "name": null,
+                "platform": "zwave",
+                "unique_id": "8-72057594176946176"
+            },
+            {
+                "config_entry_id": "006d3ad2c8d649198fccc11427dd29a2",
+                "device_id": "0ddf2d4e89a740b9ba315a7daca306c1",
+                "disabled_by": null,
+                "entity_id": "binary_sensor.vision_zp3111_multisensor_4in1_sensor",
+                "name": null,
+                "platform": "zwave",
+                "unique_id": "9-72057594193903616"
+            },
+            {
+                "config_entry_id": "006d3ad2c8d649198fccc11427dd29a2",
+                "device_id": "0ddf2d4e89a740b9ba315a7daca306c1",
+                "disabled_by": null,
+                "entity_id": "sensor.vision_zp3111_multisensor_4in1_temperature",
+                "name": null,
+                "platform": "zwave",
+                "unique_id": "9-72057594193920018"
+            },
+            {
+                "config_entry_id": "006d3ad2c8d649198fccc11427dd29a2",
+                "device_id": "0ddf2d4e89a740b9ba315a7daca306c1",
+                "disabled_by": null,
+                "entity_id": "sensor.vision_zp3111_multisensor_4in1_luminance",
+                "name": null,
+                "platform": "zwave",
+                "unique_id": "9-72057594193920050"
+            },
+            {
+                "config_entry_id": "006d3ad2c8d649198fccc11427dd29a2",
+                "device_id": "0ddf2d4e89a740b9ba315a7daca306c1",
+                "disabled_by": null,
+                "entity_id": "sensor.vision_zp3111_multisensor_4in1_relative_humidity",
+                "name": null,
+                "platform": "zwave",
+                "unique_id": "9-72057594193920082"
+            },
+            {
+                "config_entry_id": "006d3ad2c8d649198fccc11427dd29a2",
+                "device_id": "0ddf2d4e89a740b9ba315a7daca306c1",
+                "disabled_by": null,
+                "entity_id": "sensor.vision_zp3111_multisensor_4in1_alarm_type",
+                "name": null,
+                "platform": "zwave",
+                "unique_id": "9-72057594194968577"
+            },
+            {
+                "config_entry_id": "006d3ad2c8d649198fccc11427dd29a2",
+                "device_id": "0ddf2d4e89a740b9ba315a7daca306c1",
+                "disabled_by": null,
+                "entity_id": "sensor.vision_zp3111_multisensor_4in1_alarm_level",
+                "name": null,
+                "platform": "zwave",
+                "unique_id": "9-72057594194968593"
+            },
+            {
+                "config_entry_id": "006d3ad2c8d649198fccc11427dd29a2",
+                "device_id": "3ed64daf127e4fa08f65d8e725966467",
+                "disabled_by": null,
+                "entity_id": "switch.ge_outlet_tv_switch",
+                "name": null,
+                "platform": "zwave",
+                "unique_id": "10-72057594210500608"
+            },
+            {
+                "config_entry_id": "006d3ad2c8d649198fccc11427dd29a2",
+                "device_id": "7163e511a3d441ba8d2990da0f3f8559",
+                "disabled_by": null,
+                "entity_id": "switch.ge_outlet_2_switch",
+                "name": null,
+                "platform": "zwave",
+                "unique_id": "11-72057594227277824"
+            },
+            {
+                "config_entry_id": "006d3ad2c8d649198fccc11427dd29a2",
+                "device_id": "ce0760275e964572b6fb5ea759787171",
+                "disabled_by": null,
+                "entity_id": "switch.panasonic_tv_outlet_switch",
+                "name": null,
+                "platform": "zwave",
+                "unique_id": "12-72057594244055040"
+            },
+            {
+                "config_entry_id": "006d3ad2c8d649198fccc11427dd29a2",
+                "device_id": "ce0760275e964572b6fb5ea759787171",
+                "disabled_by": null,
+                "entity_id": "sensor.panasonic_tv_outlet_energy",
+                "name": null,
+                "platform": "zwave",
+                "unique_id": "12-72057594244268034"
+            },
+            {
+                "config_entry_id": "006d3ad2c8d649198fccc11427dd29a2",
+                "device_id": "ce0760275e964572b6fb5ea759787171",
+                "disabled_by": null,
+                "entity_id": "sensor.panasonic_tv_outlet_previous_reading",
+                "name": null,
+                "platform": "zwave",
+                "unique_id": "12-72057594244268050"
+            },
+            {
+                "config_entry_id": "006d3ad2c8d649198fccc11427dd29a2",
+                "device_id": "ce0760275e964572b6fb5ea759787171",
+                "disabled_by": null,
+                "entity_id": "sensor.panasonic_tv_outlet_interval",
+                "name": null,
+                "platform": "zwave",
+                "unique_id": "12-72057594244268067"
+            },
+            {
+                "config_entry_id": "006d3ad2c8d649198fccc11427dd29a2",
+                "device_id": "ce0760275e964572b6fb5ea759787171",
+                "disabled_by": null,
+                "entity_id": "sensor.panasonic_tv_outlet_power",
+                "name": null,
+                "platform": "zwave",
+                "unique_id": "12-72057594244268162"
+            },
+            {
+                "config_entry_id": "006d3ad2c8d649198fccc11427dd29a2",
+                "device_id": "ce0760275e964572b6fb5ea759787171",
+                "disabled_by": null,
+                "entity_id": "sensor.panasonic_tv_outlet_previous_reading_2",
+                "name": null,
+                "platform": "zwave",
+                "unique_id": "12-72057594244268178"
+            },
+            {
+                "config_entry_id": "006d3ad2c8d649198fccc11427dd29a2",
+                "device_id": "ce0760275e964572b6fb5ea759787171",
+                "disabled_by": null,
+                "entity_id": "sensor.panasonic_tv_outlet_interval_2",
+                "name": null,
+                "platform": "zwave",
+                "unique_id": "12-72057594244268195"
+            },
+            {
+                "config_entry_id": "006d3ad2c8d649198fccc11427dd29a2",
+                "device_id": "ce0760275e964572b6fb5ea759787171",
+                "disabled_by": null,
+                "entity_id": "sensor.panasonic_tv_outlet_voltage",
+                "name": null,
+                "platform": "zwave",
+                "unique_id": "12-72057594244268290"
+            },
+            {
+                "config_entry_id": "006d3ad2c8d649198fccc11427dd29a2",
+                "device_id": "ce0760275e964572b6fb5ea759787171",
+                "disabled_by": null,
+                "entity_id": "sensor.panasonic_tv_outlet_previous_reading_3",
+                "name": null,
+                "platform": "zwave",
+                "unique_id": "12-72057594244268306"
+            },
+            {
+                "config_entry_id": "006d3ad2c8d649198fccc11427dd29a2",
+                "device_id": "ce0760275e964572b6fb5ea759787171",
+                "disabled_by": null,
+                "entity_id": "sensor.panasonic_tv_outlet_interval_3",
+                "name": null,
+                "platform": "zwave",
+                "unique_id": "12-72057594244268323"
+            },
+            {
+                "config_entry_id": "006d3ad2c8d649198fccc11427dd29a2",
+                "device_id": "ce0760275e964572b6fb5ea759787171",
+                "disabled_by": null,
+                "entity_id": "sensor.panasonic_tv_outlet_current",
+                "name": null,
+                "platform": "zwave",
+                "unique_id": "12-72057594244268354"
+            },
+            {
+                "config_entry_id": "006d3ad2c8d649198fccc11427dd29a2",
+                "device_id": "ce0760275e964572b6fb5ea759787171",
+                "disabled_by": null,
+                "entity_id": "sensor.panasonic_tv_outlet_previous_reading_4",
+                "name": null,
+                "platform": "zwave",
+                "unique_id": "12-72057594244268370"
+            },
+            {
+                "config_entry_id": "006d3ad2c8d649198fccc11427dd29a2",
+                "device_id": "ce0760275e964572b6fb5ea759787171",
+                "disabled_by": null,
+                "entity_id": "sensor.panasonic_tv_outlet_interval_4",
+                "name": null,
+                "platform": "zwave",
+                "unique_id": "12-72057594244268387"
+            },
+            {
+                "config_entry_id": "006d3ad2c8d649198fccc11427dd29a2",
+                "device_id": "ce0760275e964572b6fb5ea759787171",
+                "disabled_by": null,
+                "entity_id": "sensor.panasonic_tv_outlet_exporting",
+                "name": null,
+                "platform": "zwave",
+                "unique_id": "12-72057594244268544"
+            },
+            {
+                "config_entry_id": "006d3ad2c8d649198fccc11427dd29a2",
+                "device_id": "ce0760275e964572b6fb5ea759787171",
+                "disabled_by": null,
+                "entity_id": "sensor.panasonic_tv_outlet_alarm_type",
+                "name": null,
+                "platform": "zwave",
+                "unique_id": "12-72057594245300225"
+            },
+            {
+                "config_entry_id": "006d3ad2c8d649198fccc11427dd29a2",
+                "device_id": "ce0760275e964572b6fb5ea759787171",
+                "disabled_by": null,
+                "entity_id": "sensor.panasonic_tv_outlet_alarm_level",
+                "name": null,
+                "platform": "zwave",
+                "unique_id": "12-72057594245300241"
+            },
+            {
+                "config_entry_id": "006d3ad2c8d649198fccc11427dd29a2",
+                "device_id": "ce0760275e964572b6fb5ea759787171",
+                "disabled_by": null,
+                "entity_id": "sensor.panasonic_tv_outlet_sourcenodeid",
+                "name": null,
+                "platform": "zwave",
+                "unique_id": "12-72057594245300257"
+            },
+            {
+                "config_entry_id": "006d3ad2c8d649198fccc11427dd29a2",
+                "device_id": "ce0760275e964572b6fb5ea759787171",
+                "disabled_by": null,
+                "entity_id": "sensor.panasonic_tv_outlet_power_management",
+                "name": null,
+                "platform": "zwave",
+                "unique_id": "12-72057594245300401"
+            },
+            {
+                "config_entry_id": null,
+                "device_id": null,
+                "disabled_by": null,
+                "entity_id": "light.kitchen_lights",
+                "name": null,
+                "platform": "demo",
+                "unique_id": 3
+            },
+            {
+                "config_entry_id": null,
+                "device_id": null,
+                "disabled_by": null,
+                "entity_id": "light.ceiling_lights",
+                "name": null,
+                "platform": "demo",
+                "unique_id": 2
+            },
+            {
+                "config_entry_id": null,
+                "device_id": null,
+                "disabled_by": null,
+                "entity_id": "light.bed_light",
+                "name": null,
+                "platform": "demo",
+                "unique_id": 1
+            },
+            {
+                "config_entry_id": null,
+                "device_id": null,
+                "disabled_by": null,
+                "entity_id": "sensor.smartthings_multiv4_01042e9f_1_1026",
+                "name": null,
+                "platform": "zha",
+                "unique_id": "24:fd:5b:00:01:04:2e:9f-1-1026"
+            },
+            {
+                "config_entry_id": null,
+                "device_id": null,
+                "disabled_by": null,
+                "entity_id": "sensor.smartthings_multiv4_0108fcd9_1_1026",
+                "name": null,
+                "platform": "zha",
+                "unique_id": "24:fd:5b:00:01:08:fc:d9-1-1026"
+            },
+            {
+                "config_entry_id": null,
+                "device_id": null,
+                "disabled_by": null,
+                "entity_id": "sensor.visonic_mct340_e_0b111ae3_1_1026",
+                "name": null,
+                "platform": "zha",
+                "unique_id": "00:0d:6f:00:0b:11:1a:e3-1-1026"
+            },
+            {
+                "config_entry_id": null,
+                "device_id": null,
+                "disabled_by": null,
+                "entity_id": "sensor.visonic_mct340_e_0b0023ed_1_1026",
+                "name": null,
+                "platform": "zha",
+                "unique_id": "00:0d:6f:00:0b:00:23:ed-1-1026"
+            },
+            {
+                "config_entry_id": null,
+                "device_id": null,
+                "disabled_by": null,
+                "entity_id": "binary_sensor.smartthings_multiv4_01042e9f_1_1280",
+                "name": null,
+                "platform": "zha",
+                "unique_id": "24:fd:5b:00:01:04:2e:9f-1-1280"
+            },
+            {
+                "config_entry_id": null,
+                "device_id": null,
+                "disabled_by": null,
+                "entity_id": "binary_sensor.smartthings_multiv4_0108fcd9_1_1280",
+                "name": null,
+                "platform": "zha",
+                "unique_id": "24:fd:5b:00:01:08:fc:d9-1-1280"
+            },
+            {
+                "config_entry_id": null,
+                "device_id": null,
+                "disabled_by": null,
+                "entity_id": "binary_sensor.visonic_mct340_e_0b111ae3_1_1280",
+                "name": null,
+                "platform": "zha",
+                "unique_id": "00:0d:6f:00:0b:11:1a:e3-1-1280"
+            },
+            {
+                "config_entry_id": null,
+                "device_id": null,
+                "disabled_by": null,
+                "entity_id": "binary_sensor.visonic_mct340_e_0b0023ed_1_1280",
+                "name": null,
+                "platform": "zha",
+                "unique_id": "00:0d:6f:00:0b:00:23:ed-1-1280"
+            },
+            {
+                "config_entry_id": null,
+                "device_id": null,
+                "disabled_by": null,
+                "entity_id": "media_player.living_room",
+                "name": null,
+                "platform": "roku",
+                "unique_id": "1GS413019211"
+            },
+            {
+                "config_entry_id": null,
+                "device_id": null,
+                "disabled_by": null,
+                "entity_id": "zwave.usb_zwave_hub",
+                "name": null,
+                "platform": "zwave",
+                "unique_id": "node-1"
+            },
+            {
+                "config_entry_id": null,
+                "device_id": null,
+                "disabled_by": null,
+                "entity_id": "zwave.door_sensor_1",
+                "name": null,
+                "platform": "zwave",
+                "unique_id": "node-2"
+            },
+            {
+                "config_entry_id": null,
+                "device_id": null,
+                "disabled_by": null,
+                "entity_id": "zwave.ecolink_garage_door_tilt_sensor",
+                "name": null,
+                "platform": "zwave",
+                "unique_id": "node-3"
+            },
+            {
+                "config_entry_id": null,
+                "device_id": null,
+                "disabled_by": null,
+                "entity_id": "zwave.2gig_technologies_ct101_thermostat_iris",
+                "name": null,
+                "platform": "zwave",
+                "unique_id": "node-4"
+            },
+            {
+                "config_entry_id": null,
+                "device_id": null,
+                "disabled_by": null,
+                "entity_id": "zwave.fortrezz_mimolite_wireless_interfacebridge_module",
+                "name": null,
+                "platform": "zwave",
+                "unique_id": "node-5"
+            },
+            {
+                "config_entry_id": null,
+                "device_id": null,
+                "disabled_by": null,
+                "entity_id": "zwave.2gig_technologies_ct101_thermostat_iris_2",
+                "name": null,
+                "platform": "zwave",
+                "unique_id": "node-6"
+            },
+            {
+                "config_entry_id": null,
+                "device_id": null,
+                "disabled_by": null,
+                "entity_id": "zwave.unknown_id0312_unknown_type0221_id251c",
+                "name": null,
+                "platform": "zwave",
+                "unique_id": "node-7"
+            },
+            {
+                "config_entry_id": null,
+                "device_id": null,
+                "disabled_by": null,
+                "entity_id": "zwave.ge_driveway_lights",
+                "name": null,
+                "platform": "zwave",
+                "unique_id": "node-8"
+            },
+            {
+                "config_entry_id": null,
+                "device_id": null,
+                "disabled_by": null,
+                "entity_id": "zwave.vision_zp3111_multisensor_4in1",
+                "name": null,
+                "platform": "zwave",
+                "unique_id": "node-9"
+            },
+            {
+                "config_entry_id": null,
+                "device_id": null,
+                "disabled_by": null,
+                "entity_id": "zwave.ge_outlet_tv",
+                "name": null,
+                "platform": "zwave",
+                "unique_id": "node-10"
+            },
+            {
+                "config_entry_id": null,
+                "device_id": null,
+                "disabled_by": null,
+                "entity_id": "zwave.ge_outlet_2",
+                "name": null,
+                "platform": "zwave",
+                "unique_id": "node-11"
+            },
+            {
+                "config_entry_id": null,
+                "device_id": null,
+                "disabled_by": null,
+                "entity_id": "zwave.panasonic_tv_outlet",
+                "name": null,
+                "platform": "zwave",
+                "unique_id": "node-12"
+            },
+            {
+                "config_entry_id": null,
+                "device_id": null,
+                "disabled_by": null,
+                "entity_id": "zwave.zooz_zen15_power_switch",
+                "name": null,
+                "platform": "zwave",
+                "unique_id": "node-13"
+            },
+            {
+                "config_entry_id": null,
+                "device_id": null,
+                "disabled_by": null,
+                "entity_id": "sensor.zooz_zen15_power_switch_power",
+                "name": null,
+                "platform": "zwave",
+                "unique_id": "13-72057594261045378"
+            },
+            {
+                "config_entry_id": null,
+                "device_id": null,
+                "disabled_by": null,
+                "entity_id": "sensor.zooz_zen15_power_switch_voltage",
+                "name": null,
+                "platform": "zwave",
+                "unique_id": "13-72057594261045506"
+            },
+            {
+                "config_entry_id": null,
+                "device_id": null,
+                "disabled_by": null,
+                "entity_id": "sensor.zooz_zen15_power_switch_current",
+                "name": null,
+                "platform": "zwave",
+                "unique_id": "13-72057594261045570"
+            },
+            {
+                "config_entry_id": "006d3ad2c8d649198fccc11427dd29a2",
+                "device_id": "abc84c92ac56454c980d7c7a88b9227b",
+                "disabled_by": null,
+                "entity_id": "switch.zooz_zen15_power_switch_switch",
+                "name": null,
+                "platform": "zwave",
+                "unique_id": "13-72057594260832256"
+            },
+            {
+                "config_entry_id": "006d3ad2c8d649198fccc11427dd29a2",
+                "device_id": "abc84c92ac56454c980d7c7a88b9227b",
+                "disabled_by": null,
+                "entity_id": "sensor.zooz_zen15_power_switch_energy",
+                "name": null,
+                "platform": "zwave",
+                "unique_id": "13-72057594261045250"
+            },
+            {
+                "config_entry_id": "006d3ad2c8d649198fccc11427dd29a2",
+                "device_id": "abc84c92ac56454c980d7c7a88b9227b",
+                "disabled_by": null,
+                "entity_id": "sensor.zooz_zen15_power_switch_previous_reading",
+                "name": null,
+                "platform": "zwave",
+                "unique_id": "13-72057594261045266"
+            },
+            {
+                "config_entry_id": null,
+                "device_id": null,
+                "disabled_by": null,
+                "entity_id": "media_player.bedroom",
+                "name": null,
+                "platform": "roku",
+                "unique_id": "19D2AD020246"
+            },
+            {
+                "config_entry_id": null,
+                "device_id": null,
+                "disabled_by": null,
+                "entity_id": "media_player.snapcast_client_6152618a83b04b70b879e3fa1f4664b2",
+                "name": null,
+                "platform": "snapcast",
+                "unique_id": "snapcast_client_192.168.1.201:1705_6152618a83b04b70b879e3fa1f4664b2"
+            },
+            {
+                "config_entry_id": null,
+                "device_id": null,
+                "disabled_by": null,
+                "entity_id": "media_player.snapcast_group_3d572249411f1f5d1a6c3b3f17b4c7b7",
+                "name": null,
+                "platform": "snapcast",
+                "unique_id": "snapcast_group_192.168.1.201:1705_3d572249-411f-1f5d-1a6c-3b3f17b4c7b7"
+            },
+            {
+                "config_entry_id": null,
+                "device_id": null,
+                "disabled_by": null,
+                "entity_id": "media_player.snapcast_client_4b8c047b8b04d3bb68c2b07e00000005",
+                "name": null,
+                "platform": "snapcast",
+                "unique_id": "snapcast_client_192.168.1.201:1705_4b8c047b8b04d3bb68c2b07e00000005"
+            },
+            {
+                "config_entry_id": null,
+                "device_id": null,
+                "disabled_by": null,
+                "entity_id": "media_player.snapcast_group_f3cbc8848ddb9e488eace7d243e39597",
+                "name": null,
+                "platform": "snapcast",
+                "unique_id": "snapcast_group_192.168.1.201:1705_f3cbc884-8ddb-9e48-8eac-e7d243e39597"
+            },
+            {
+                "config_entry_id": null,
+                "device_id": null,
+                "disabled_by": null,
+                "entity_id": "media_player.snapcast_client_45f086e40e8f48a7852eff4fd78d81ea",
+                "name": null,
+                "platform": "snapcast",
+                "unique_id": "snapcast_client_192.168.1.201:1705_45f086e40e8f48a7852eff4fd78d81ea"
+            },
+            {
+                "config_entry_id": null,
+                "device_id": null,
+                "disabled_by": null,
+                "entity_id": "media_player.snapcast_group_eda175513982e67906b0c88a97050932",
+                "name": null,
+                "platform": "snapcast",
+                "unique_id": "snapcast_group_192.168.1.201:1705_eda17551-3982-e679-06b0-c88a97050932"
+            },
+            {
+                "config_entry_id": null,
+                "device_id": null,
+                "disabled_by": null,
+                "entity_id": "media_player.snapcast_client_45f086e40e8f48a7852eff4fd78d81ea2",
+                "name": null,
+                "platform": "snapcast",
+                "unique_id": "snapcast_client_192.168.1.201:1705_45f086e40e8f48a7852eff4fd78d81ea#2"
+            },
+            {
+                "config_entry_id": null,
+                "device_id": null,
+                "disabled_by": null,
+                "entity_id": "media_player.snapcast_group_430f26befa402d6d38f9f8de7f75e29e",
+                "name": null,
+                "platform": "snapcast",
+                "unique_id": "snapcast_group_192.168.1.201:1705_430f26be-fa40-2d6d-38f9-f8de7f75e29e"
+            },
+            {
+                "config_entry_id": null,
+                "device_id": null,
+                "disabled_by": null,
+                "entity_id": "media_player.snapcast_client_b827ebca3d34",
+                "name": null,
+                "platform": "snapcast",
+                "unique_id": "snapcast_client_192.168.1.201:1705_b8:27:eb:ca:3d:34"
+            },
+            {
+                "config_entry_id": null,
+                "device_id": null,
+                "disabled_by": null,
+                "entity_id": "media_player.snapcast_group_6b9d2285f5a4d83d3156aae2a874bb86",
+                "name": null,
+                "platform": "snapcast",
+                "unique_id": "snapcast_group_192.168.1.201:1705_6b9d2285-f5a4-d83d-3156-aae2a874bb86"
+            },
+            {
+                "config_entry_id": null,
+                "device_id": null,
+                "disabled_by": null,
+                "entity_id": "media_player.snapcast_client_b827eb9f6861",
+                "name": null,
+                "platform": "snapcast",
+                "unique_id": "snapcast_client_192.168.1.201:1705_b8:27:eb:9f:68:61"
+            },
+            {
+                "config_entry_id": null,
+                "device_id": null,
+                "disabled_by": null,
+                "entity_id": "media_player.snapcast_group_cfc8828768625f420d1f85fa23b30b8a",
+                "name": null,
+                "platform": "snapcast",
+                "unique_id": "snapcast_group_192.168.1.201:1705_cfc88287-6862-5f42-0d1f-85fa23b30b8a"
+            },
+            {
+                "config_entry_id": null,
+                "device_id": null,
+                "disabled_by": null,
+                "entity_id": "media_player.express",
+                "name": null,
+                "platform": "roku",
+                "unique_id": "YG002D559977"
+            },
+            {
+                "config_entry_id": null,
+                "device_id": null,
+                "disabled_by": null,
+                "entity_id": "media_player.roku_player",
+                "name": null,
+                "platform": "roku",
+                "unique_id": "YG00E5777661"
+            },
+            {
+                "config_entry_id": "006d3ad2c8d649198fccc11427dd29a2",
+                "device_id": "03e8a88e6e4e45b7b0145522523ed74b",
+                "disabled_by": null,
+                "entity_id": "climate.2gig_technologies_ct101_thermostat_iris_unused_0",
+                "name": null,
+                "platform": "zwave",
+                "unique_id": "6-72057594143883266"
+            },
+            {
+                "config_entry_id": "006d3ad2c8d649198fccc11427dd29a2",
+                "device_id": "03e8a88e6e4e45b7b0145522523ed74b",
+                "disabled_by": null,
+                "entity_id": "climate.2gig_technologies_ct101_thermostat_iris_moist_air",
+                "name": null,
+                "platform": "zwave",
+                "unique_id": "6-72057594143883410"
+            },
+            {
+                "config_entry_id": "006d3ad2c8d649198fccc11427dd29a2",
+                "device_id": "03e8a88e6e4e45b7b0145522523ed74b",
+                "disabled_by": null,
+                "entity_id": "climate.2gig_technologies_ct101_thermostat_iris_heating_econ",
+                "name": null,
+                "platform": "zwave",
+                "unique_id": "6-72057594143883442"
+            },
+            {
+                "config_entry_id": "006d3ad2c8d649198fccc11427dd29a2",
+                "device_id": "03e8a88e6e4e45b7b0145522523ed74b",
+                "disabled_by": null,
+                "entity_id": "climate.2gig_technologies_ct101_thermostat_iris_away_heating",
+                "name": null,
+                "platform": "zwave",
+                "unique_id": "6-72057594143883474"
+            },
+            {
+                "config_entry_id": null,
+                "device_id": null,
+                "disabled_by": null,
+                "entity_id": "zha.zha_smartthings_multiv4_01042e9f",
+                "name": null,
+                "platform": "zha",
+                "unique_id": "smartthings_multiv4_01042e9f"
+            },
+            {
+                "config_entry_id": null,
+                "device_id": null,
+                "disabled_by": null,
+                "entity_id": "zha.zha_smartthings_multiv4_0108fcd9",
+                "name": null,
+                "platform": "zha",
+                "unique_id": "smartthings_multiv4_0108fcd9"
+            },
+            {
+                "config_entry_id": null,
+                "device_id": null,
+                "disabled_by": null,
+                "entity_id": "zha.zha_visonic_mct340_e_0b111ae3",
+                "name": null,
+                "platform": "zha",
+                "unique_id": "visonic_mct340_e_0b111ae3"
+            },
+            {
+                "config_entry_id": null,
+                "device_id": null,
+                "disabled_by": null,
+                "entity_id": "zha.zha_visonic_mct340_e_0b0023ed",
+                "name": null,
+                "platform": "zha",
+                "unique_id": "visonic_mct340_e_0b0023ed"
+            },
+            {
+                "config_entry_id": "006d3ad2c8d649198fccc11427dd29a2",
+                "device_id": "b6af5fce470c4aed9306c3bd015a55b1",
+                "disabled_by": null,
+                "entity_id": "sensor.2gig_technologies_ct101_thermostat_iris_indicator",
+                "name": null,
+                "platform": "zwave",
+                "unique_id": "4-72057594111442945"
+            },
+            {
+                "config_entry_id": "006d3ad2c8d649198fccc11427dd29a2",
+                "device_id": "03e8a88e6e4e45b7b0145522523ed74b",
+                "disabled_by": null,
+                "entity_id": "sensor.2gig_technologies_ct101_thermostat_iris_indicator_2",
+                "name": null,
+                "platform": "zwave",
+                "unique_id": "6-72057594144997377"
+            },
+            {
+                "config_entry_id": "006d3ad2c8d649198fccc11427dd29a2",
+                "device_id": "b6af5fce470c4aed9306c3bd015a55b1",
+                "disabled_by": null,
+                "entity_id": "sensor.2gig_technologies_ct101_thermostat_iris_temperature_3",
+                "name": null,
+                "platform": "zwave",
+                "unique_id": "4-144115188147961874"
+            },
+            {
+                "config_entry_id": "006d3ad2c8d649198fccc11427dd29a2",
+                "device_id": "b6af5fce470c4aed9306c3bd015a55b1",
+                "disabled_by": null,
+                "entity_id": "sensor.2gig_technologies_ct101_thermostat_iris_relative_humidity_3",
+                "name": null,
+                "platform": "zwave",
+                "unique_id": "4-216172782185889874"
+            },
+            {
+                "config_entry_id": "006d3ad2c8d649198fccc11427dd29a2",
+                "device_id": "03e8a88e6e4e45b7b0145522523ed74b",
+                "disabled_by": null,
+                "entity_id": "sensor.2gig_technologies_ct101_thermostat_iris_temperature_4",
+                "name": null,
+                "platform": "zwave",
+                "unique_id": "6-144115188181516306"
+            },
+            {
+                "config_entry_id": "006d3ad2c8d649198fccc11427dd29a2",
+                "device_id": "03e8a88e6e4e45b7b0145522523ed74b",
+                "disabled_by": null,
+                "entity_id": "sensor.2gig_technologies_ct101_thermostat_iris_relative_humidity_4",
+                "name": null,
+                "platform": "zwave",
+                "unique_id": "6-216172782219444306"
+            },
+            {
+                "config_entry_id": "006d3ad2c8d649198fccc11427dd29a2",
+                "device_id": "83c0e98a92494d40a24907f93b339636",
+                "disabled_by": null,
+                "entity_id": "sensor.fortrezz_mimolite_wireless_interfacebridge_module_solar_radiation",
+                "name": null,
+                "platform": "zwave",
+                "unique_id": "5-72057594126811298"
+            }
+        ]
+    },
+    "key": "core.entity_registry",
+    "version": 1
+}

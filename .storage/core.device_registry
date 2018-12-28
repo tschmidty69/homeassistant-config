@@ -1,0 +1,242 @@
+{
+    "data": {
+        "devices": [
+            {
+                "config_entries": [
+                    "436ad5667eee46eb982844c3f06635a4"
+                ],
+                "connections": [],
+                "hub_device_id": null,
+                "id": "f4ed1b9fe58a41bdb1c36d5014addece",
+                "identifiers": [
+                    [
+                        "ios",
+                        "E59899E5-7589-4363-BAC6-AA48ADA6D374"
+                    ]
+                ],
+                "manufacturer": "Apple",
+                "model": "iPhone 7",
+                "name": "Tod's iPhone",
+                "sw_version": "12.1.2"
+            },
+            {
+                "config_entries": [
+                    "006d3ad2c8d649198fccc11427dd29a2"
+                ],
+                "connections": [],
+                "hub_device_id": null,
+                "id": "377039baf5ae455f88db13e7651b84d0",
+                "identifiers": [
+                    [
+                        "zwave",
+                        2
+                    ]
+                ],
+                "manufacturer": "Ecolink",
+                "model": "Unknown: type=0004, id=0002",
+                "name": "Door Sensor 1",
+                "sw_version": null
+            },
+            {
+                "config_entries": [
+                    "006d3ad2c8d649198fccc11427dd29a2"
+                ],
+                "connections": [],
+                "hub_device_id": null,
+                "id": "621e7f372aca40419938f6fb5e19689e",
+                "identifiers": [
+                    [
+                        "zwave",
+                        3
+                    ]
+                ],
+                "manufacturer": "Ecolink",
+                "model": "Garage Door Tilt Sensor",
+                "name": "Ecolink Garage Door Tilt Sensor",
+                "sw_version": null
+            },
+            {
+                "config_entries": [
+                    "006d3ad2c8d649198fccc11427dd29a2"
+                ],
+                "connections": [],
+                "hub_device_id": null,
+                "id": "b6af5fce470c4aed9306c3bd015a55b1",
+                "identifiers": [
+                    [
+                        "zwave",
+                        4
+                    ]
+                ],
+                "manufacturer": "2GIG Technologies",
+                "model": "CT101 Thermostat (Iris)",
+                "name": "2GIG Technologies CT101 Thermostat (Iris)",
+                "sw_version": null
+            },
+            {
+                "config_entries": [
+                    "006d3ad2c8d649198fccc11427dd29a2"
+                ],
+                "connections": [],
+                "hub_device_id": null,
+                "id": "83c0e98a92494d40a24907f93b339636",
+                "identifiers": [
+                    [
+                        "zwave",
+                        5
+                    ]
+                ],
+                "manufacturer": "FortrezZ",
+                "model": "MIMOlite Wireless Interface/Bridge Module",
+                "name": "FortrezZ MIMOlite Wireless Interface/Bridge Module",
+                "sw_version": null
+            },
+            {
+                "config_entries": [
+                    "006d3ad2c8d649198fccc11427dd29a2"
+                ],
+                "connections": [],
+                "hub_device_id": null,
+                "id": "03e8a88e6e4e45b7b0145522523ed74b",
+                "identifiers": [
+                    [
+                        "zwave",
+                        6
+                    ]
+                ],
+                "manufacturer": "2GIG Technologies",
+                "model": "CT101 Thermostat (Iris)",
+                "name": "2GIG Technologies CT101 Thermostat (Iris)",
+                "sw_version": null
+            },
+            {
+                "config_entries": [
+                    "006d3ad2c8d649198fccc11427dd29a2"
+                ],
+                "connections": [],
+                "hub_device_id": null,
+                "id": "5ce85f81a9aa4f0fb4a183d0640b84c9",
+                "identifiers": [
+                    [
+                        "zwave",
+                        7
+                    ]
+                ],
+                "manufacturer": "Unknown: id=0312",
+                "model": "Unknown: type=0221, id=251c",
+                "name": "Unknown: id=0312 Unknown: type=0221, id=251c",
+                "sw_version": null
+            },
+            {
+                "config_entries": [
+                    "006d3ad2c8d649198fccc11427dd29a2"
+                ],
+                "connections": [],
+                "hub_device_id": null,
+                "id": "878b4c642414452b91a9249027f186a8",
+                "identifiers": [
+                    [
+                        "zwave",
+                        8
+                    ]
+                ],
+                "manufacturer": "GE",
+                "model": "Unknown: type=4952, id=3037",
+                "name": "GE Driveway Lights",
+                "sw_version": null
+            },
+            {
+                "config_entries": [
+                    "006d3ad2c8d649198fccc11427dd29a2"
+                ],
+                "connections": [],
+                "hub_device_id": null,
+                "id": "0ddf2d4e89a740b9ba315a7daca306c1",
+                "identifiers": [
+                    [
+                        "zwave",
+                        9
+                    ]
+                ],
+                "manufacturer": "Vision",
+                "model": "ZP3111 Multisensor 4in1",
+                "name": "Vision ZP3111 Multisensor 4in1",
+                "sw_version": null
+            },
+            {
+                "config_entries": [
+                    "006d3ad2c8d649198fccc11427dd29a2"
+                ],
+                "connections": [],
+                "hub_device_id": null,
+                "id": "3ed64daf127e4fa08f65d8e725966467",
+                "identifiers": [
+                    [
+                        "zwave",
+                        10
+                    ]
+                ],
+                "manufacturer": "GE",
+                "model": "Unknown: type=5052, id=3031",
+                "name": "GE Outlet TV",
+                "sw_version": null
+            },
+            {
+                "config_entries": [
+                    "006d3ad2c8d649198fccc11427dd29a2"
+                ],
+                "connections": [],
+                "hub_device_id": null,
+                "id": "7163e511a3d441ba8d2990da0f3f8559",
+                "identifiers": [
+                    [
+                        "zwave",
+                        11
+                    ]
+                ],
+                "manufacturer": "GE",
+                "model": "12719 Plug-in Smart Switch",
+                "name": "GE Outlet 2",
+                "sw_version": null
+            },
+            {
+                "config_entries": [
+                    "006d3ad2c8d649198fccc11427dd29a2"
+                ],
+                "connections": [],
+                "hub_device_id": null,
+                "id": "ce0760275e964572b6fb5ea759787171",
+                "identifiers": [
+                    [
+                        "zwave",
+                        12
+                    ]
+                ],
+                "manufacturer": "Neo CoolCam",
+                "model": "Power plug 12A",
+                "name": "Panasonic TV Outlet",
+                "sw_version": null
+            },
+            {
+                "config_entries": [
+                    "006d3ad2c8d649198fccc11427dd29a2"
+                ],
+                "connections": [],
+                "hub_device_id": null,
+                "id": "abc84c92ac56454c980d7c7a88b9227b",
+                "identifiers": [
+                    [
+                        "zwave",
+                        13
+                    ]
+                ],
+                "manufacturer": "Zooz",
+                "model": "ZEN15 Power Switch",
+                "name": "Zooz ZEN15 Power Switch",
+                "sw_version": null
+            }
+        ]
+    },
+    "key": "core.device_registry",
+    "version": 1
+}

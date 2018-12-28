@@ -15,6 +15,14 @@ homeassistant:
   packages: !include_dir_named packages
   whitelist_external_dirs: /tmp
 
+  auth_providers:
+    - type: homeassistant
+    # Uncomment next line if you want to enable legacy API password support
+    - type: legacy_api_password
+
+# Enable the auth component
+auth:
+
 http:
   # Secrets are defined in the file secrets.yaml
   api_password: !secret http_password

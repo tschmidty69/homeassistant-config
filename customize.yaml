@@ -154,3 +154,7 @@ zwave.2gig_technologies_ct101_thermostat_iris: {}
 switch.ge_outlet_2_switch:
   friendly_name: Living Room Light Couch Left
   icon: mdi:lightbulb
+switch.unknown_node_13_switch:
+  friendly_name: Bedroom AC Switch
+sensor.unknown_node_13_unknown:
+  friendly_name: Bedroom AC Sensor

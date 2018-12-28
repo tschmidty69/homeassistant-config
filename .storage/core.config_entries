@@ -1,0 +1,38 @@
+{
+    "data": {
+        "entries": [
+            {
+                "connection_class": "local_push",
+                "data": {},
+                "domain": "mqtt",
+                "entry_id": "d25e485343354fa982a0d4c0bc013e55",
+                "source": "import",
+                "title": "configuration.yaml",
+                "version": 1
+            },
+            {
+                "connection_class": "local_push",
+                "data": {
+                    "network_key": null,
+                    "usb_path": "/dev/ttyUSB0"
+                },
+                "domain": "zwave",
+                "entry_id": "006d3ad2c8d649198fccc11427dd29a2",
+                "source": "import",
+                "title": "Z-Wave (import from configuration.yaml)",
+                "version": 1
+            },
+            {
+                "connection_class": "cloud_push",
+                "data": {},
+                "domain": "ios",
+                "entry_id": "436ad5667eee46eb982844c3f06635a4",
+                "source": "import",
+                "title": "Home Assistant iOS",
+                "version": 1
+            }
+        ]
+    },
+    "key": "core.config_entries",
+    "version": 1
+}

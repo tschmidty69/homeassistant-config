@@ -10,7 +10,7 @@
     - service: script.set_downstairs_thermostat
       data:
         heating_temp: '68'
-        cooling_temp: '90'
+        cooling_temp: '80'
 
 - alias: Turn Downstairs Thermostat on at 06:00
   trigger:
@@ -24,7 +24,7 @@
     - service: script.set_downstairs_thermostat
       data:
         heating_temp: '72'
-        cooling_temp: '90'
+        cooling_temp: '76'
 
 - alias: Turn Downstairs Heat Down when not home
   trigger:
@@ -40,7 +40,7 @@
     - service: script.set_downstairs_thermostat
       data:
         heating_temp: '67'
-        cooling_temp: '90'
+        cooling_temp: '80'
 
 - alias: Turn Downstairs Heat Down when on Vacation
   trigger:
@@ -52,7 +52,7 @@
     - service: script.set_downstairs_thermostat
       data:
         heating_temp: '68'
-        cooling_temp: '90'
+        cooling_temp: '80'
 
 
 - alias: Reset Downstairs Heat
@@ -65,6 +65,6 @@
     - service: script.set_downstairs_thermostat
       data:
         heating_temp: '72'
-        cooling_temp: '90'
+        cooling_temp: '80'
 
 
