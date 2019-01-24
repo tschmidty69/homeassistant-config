@@ -1116,33 +1116,6 @@
                 "name": null,
                 "platform": "zwave",
                 "unique_id": "5-72057594126811298"
-            },
-            {
-                "config_entry_id": null,
-                "device_id": null,
-                "disabled_by": null,
-                "entity_id": "zwave.ge_unknown_type6363_id3130",
-                "name": null,
-                "platform": "zwave",
-                "unique_id": "node-14"
-            },
-            {
-                "config_entry_id": "006d3ad2c8d649198fccc11427dd29a2",
-                "device_id": "60b41680207841d984211d4b88764c42",
-                "disabled_by": null,
-                "entity_id": "switch.ge_unknown_type6363_id3130_switch",
-                "name": null,
-                "platform": "zwave",
-                "unique_id": "14-72057594277609472"
-            },
-            {
-                "config_entry_id": "006d3ad2c8d649198fccc11427dd29a2",
-                "device_id": "b6af5fce470c4aed9306c3bd015a55b1",
-                "disabled_by": null,
-                "entity_id": "sensor.2gig_technologies_ct101_thermostat_iris_luminance",
-                "name": null,
-                "platform": "zwave",
-                "unique_id": "4-72057594110033970"
             }
         ]
     },
