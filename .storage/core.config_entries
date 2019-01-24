@@ -30,6 +30,15 @@
                 "source": "import",
                 "title": "Home Assistant iOS",
                 "version": 1
+            },
+            {
+                "connection_class": "local_push",
+                "data": {},
+                "domain": "cast",
+                "entry_id": "2a7bf771540a489a8968c2875bb2f8bc",
+                "source": "discovery",
+                "title": "Google Cast",
+                "version": 1
             }
         ]
     },

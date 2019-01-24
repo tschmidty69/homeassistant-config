@@ -234,6 +234,24 @@
                 "model": "ZEN15 Power Switch",
                 "name": "Zooz ZEN15 Power Switch",
                 "sw_version": null
+            },
+            {
+                "config_entries": [
+                    "006d3ad2c8d649198fccc11427dd29a2"
+                ],
+                "connections": [],
+                "hub_device_id": null,
+                "id": "60b41680207841d984211d4b88764c42",
+                "identifiers": [
+                    [
+                        "zwave",
+                        14
+                    ]
+                ],
+                "manufacturer": "GE",
+                "model": "Unknown: type=6363, id=3130",
+                "name": "GE Unknown: type=6363, id=3130",
+                "sw_version": null
             }
         ]
     },
