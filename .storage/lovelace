@@ -1,0 +1,436 @@
+{
+    "data": {
+        "config": {
+            "title": "Home",
+            "views": [
+                {
+                    "badges": [
+                        "sensor.cathie_waze_to_work"
+                    ],
+                    "cards": [
+                        {
+                            "entities": [
+                                "cover.garage_door",
+                                "binary_sensor.ecolink_garage_door_tilt_sensor_sensor",
+                                "switch.fortrezz_mimolite_wireless_interfacebridge_module_switch"
+                            ],
+                            "show_header_toggle": true,
+                            "title": "Garage Door Opener",
+                            "type": "entities"
+                        },
+                        {
+                            "entities": [
+                                "switch.unknown_id0312_unknown_type0221_id251c_switch",
+                                "switch.unknown_id0312_unknown_type0221_id251c_switch_3",
+                                "switch.ge_unknown_type6363_id3130_switch",
+                                "switch.ge_outlet_2_switch"
+                            ],
+                            "show_header_toggle": false,
+                            "title": "Lights",
+                            "type": "entities"
+                        },
+                        {
+                            "entity": "climate.2gig_technologies_ct101_thermostat_iris_mode",
+                            "type": "thermostat"
+                        },
+                        {
+                            "entity": "climate.2gig_technologies_ct101_thermostat_iris_mode_2",
+                            "type": "thermostat"
+                        },
+                        {
+                            "entities": [
+                                "device_tracker.tods_iphone",
+                                "device_tracker.docs_iphone"
+                            ],
+                            "show_header_toggle": true,
+                            "title": "Household",
+                            "type": "entities"
+                        },
+                        {
+                            "entity": "sensor.vision_zp3111_multisensor_4in1_temperature",
+                            "name": "Living Room Temperature",
+                            "type": "sensor"
+                        },
+                        {
+                            "entities": [
+                                "switch.panasonic_tv_power"
+                            ],
+                            "show_header_toggle": true,
+                            "title": "Living Room TV",
+                            "type": "entities"
+                        },
+                        {
+                            "entity": "media_player.snapcast_client_6152618a83b04b70b879e3fa1f4664b2",
+                            "type": "media-control"
+                        },
+                        {
+                            "entity": "media_player.mopidy",
+                            "type": "media-control"
+                        },
+                        {
+                            "entity": "media_player.living_room",
+                            "type": "media-control"
+                        },
+                        {
+                            "entity": "media_player.snapcast_client_4b8c047b8b04d3bb68c2b07e00000005",
+                            "type": "media-control"
+                        },
+                        {
+                            "entity": "media_player.snapcast_client_45f086e40e8f48a7852eff4fd78d81ea",
+                            "type": "media-control"
+                        },
+                        {
+                            "entities": [
+                                {
+                                    "entity": "binary_sensor.door_sensor_1_sensor"
+                                }
+                            ],
+                            "show_header_toggle": true,
+                            "title": "Door",
+                            "type": "entities"
+                        },
+                        {
+                            "entities": [
+                                "sensor.dark_sky_weather_summary",
+                                "sensor.dark_sky_weather_hourly_summary",
+                                "sensor.dark_sky_weather_temperature"
+                            ],
+                            "show_header_toggle": true,
+                            "title": "Weather",
+                            "type": "entities"
+                        },
+                        {
+                            "entities": [
+                                {
+                                    "entity": "binary_sensor.serenity_charger_sensor"
+                                },
+                                {
+                                    "entity": "sensor.serenity_battery_sensor"
+                                },
+                                {
+                                    "entity": "climate.serenity_hvac_climate_system"
+                                },
+                                {
+                                    "entity": "climate.serenity_hvac_climate_system"
+                                },
+                                {
+                                    "entity": "device_tracker.serenity_location_tracker"
+                                },
+                                {
+                                    "entity": "sensor.serenity_temperature_sensor_inside"
+                                }
+                            ],
+                            "show_header_toggle": true,
+                            "title": "Serenity",
+                            "type": "entities"
+                        },
+                        {
+                            "entities": [
+                                "input_boolean.vacation_mode",
+                                "input_boolean.vincent_home"
+                            ],
+                            "show_header_toggle": false,
+                            "title": "Settings",
+                            "type": "entities"
+                        },
+                        {
+                            "entities": [
+                                "sensor.serenity_battery_sensor",
+                                "lock.serenity_charger_door_lock",
+                                "binary_sensor.serenity_charger_sensor",
+                                "switch.serenity_charger_switch",
+                                "sensor.serenity_charging_rate_sensor",
+                                "lock.serenity_door_lock",
+                                "device_tracker.serenity_location_tracker",
+                                "switch.serenity_maxrange_switch",
+                                "sensor.serenity_mileage_sensor",
+                                "binary_sensor.serenity_parking_brake_sensor",
+                                "sensor.serenity_range_sensor",
+                                "sensor.serenity_temperature_sensor_inside",
+                                "sensor.serenity_temperature_sensor_outside",
+                                "switch.serenity_update_switch"
+                            ],
+                            "type": "entities"
+                        },
+                        {
+                            "entity": "climate.serenity_hvac_climate_system",
+                            "type": "thermostat"
+                        }
+                    ],
+                    "icon": "mdi:homeassistant",
+                    "path": "default_view",
+                    "title": "Home"
+                },
+                {
+                    "badges": [
+                        "sun.sun"
+                    ],
+                    "cards": [
+                        {
+                            "entities": [
+                                "switch.fortrezz_mimolite_wireless_interfacebridge_module_switch",
+                                "switch.ge_driveway_lights_switch",
+                                "switch.ge_outlet_2_switch",
+                                "switch.ge_outlet_tv_switch",
+                                "switch.ge_unknown_type6363_id3130_switch",
+                                "switch.panasonic_tv_ir",
+                                "switch.panasonic_tv_outlet_switch",
+                                "switch.panasonic_tv_power",
+                                "switch.tesla_model_3_5yj3e1eaxkf326267_charger_switch",
+                                "switch.tesla_model_3_5yj3e1eaxkf326267_maxrange_switch",
+                                "switch.unknown_id0312_unknown_type0221_id251c_switch",
+                                "switch.unknown_id0312_unknown_type0221_id251c_switch_2",
+                                "switch.unknown_id0312_unknown_type0221_id251c_switch_3",
+                                "switch.zooz_zen15_power_switch_switch"
+                            ],
+                            "show_header_toggle": true,
+                            "title": "all switches",
+                            "type": "entities"
+                        },
+                        {
+                            "entities": [
+                                "cover.garage_door",
+                                "cover.garage_door_2",
+                                "cover.hall_window",
+                                "cover.kitchen_window",
+                                "cover.living_room_window"
+                            ],
+                            "show_header_toggle": true,
+                            "title": "all covers",
+                            "type": "entities"
+                        },
+                        {
+                            "entities": [
+                                "light.bed_light",
+                                "light.ceiling_lights",
+                                "light.kitchen_lights"
+                            ],
+                            "show_header_toggle": true,
+                            "title": "all lights",
+                            "type": "entities"
+                        },
+                        {
+                            "entities": [
+                                "script.set_downstairs_thermostat",
+                                "script.set_upstairs_thermostat",
+                                "script.snips_set_thermostat",
+                                "script.garage_door_close",
+                                "script.garage_door_open",
+                                "script.garage_door_switch",
+                                "script.s_alarm_clock_awake",
+                                "script.s_alarm_clock_snooze",
+                                "script.s_alarm_clock_snooze_timer",
+                                "script.s_alarm_clock_wake_up",
+                                "script.test_jarvis_artist",
+                                "script.test_jarvis_coffee_off",
+                                "script.test_jarvis_coffee_on",
+                                "script.test_jarvis_get_coffee_state",
+                                "script.test_jarvis_joke",
+                                "script.test_jarvis_notify",
+                                "script.test_jarvis_playlist",
+                                "script.test_jarvis_query_close",
+                                "script.test_jarvis_query_open",
+                                "script.test_jarvis_response",
+                                "script.test_jarvis_say",
+                                "script.test_jarvis_say_coffee_brew_large",
+                                "script.test_jarvis_say_coffee_brew_small",
+                                "script.test_jarvis_song",
+                                "script.test_jarvis_timer",
+                                "script.test_pushbullet_file",
+                                "script.test_pushbullet_list",
+                                "script.test_pushbullet_note",
+                                "script.test_pushbullet_note_email",
+                                "script.test_pushbullet_template_list"
+                            ],
+                            "show_header_toggle": true,
+                            "title": "all scripts",
+                            "type": "entities"
+                        },
+                        {
+                            "entities": [
+                                "device_tracker.tods_iphone",
+                                "device_tracker.docs_iphone",
+                                "device_tracker.tods_phone",
+                                "device_tracker.cathies_phone",
+                                "device_tracker.tesla_model_3_5yj3e1eaxkf326267_location_tracker"
+                            ],
+                            "show_header_toggle": true,
+                            "title": "all devices",
+                            "type": "entities"
+                        },
+                        {
+                            "entities": [
+                                "automation.alarm_clock_activated",
+                                "automation.back_door_open",
+                                "automation.bedroom_door_open",
+                                "automation.cathie_arrived_at_work",
+                                "automation.cathie_arrived_home",
+                                "automation.cathie_left_work",
+                                "automation.disable_first_morning_trigger",
+                                "automation.door_open_but_no_one_is_home",
+                                "automation.enable_first_morning_trigger",
+                                "automation.first_morning_motion",
+                                "automation.garage_back_door_open",
+                                "automation.ios_app_notification_action_garagedoor",
+                                "automation.kitchen_door_open",
+                                "automation.reset_downstairs_heat",
+                                "automation.reset_upstairs_heat",
+                                "automation.tod_arrived_home",
+                                "automation.trigger_to_turn_off_garage_door_switch",
+                                "automation.turn_downstairs_heat_down_when_not_home",
+                                "automation.turn_downstairs_heat_down_when_on_vacation",
+                                "automation.turn_downstairs_thermostat_on_at_06_00",
+                                "automation.turn_downstairs_thermostat_on_at_06_20",
+                                "automation.turn_upstairs_heat_down_when_not_home",
+                                "automation.turn_upstairs_heat_down_when_on_vacation",
+                                "automation.turn_upstairs_thermostat_on_at_06_00",
+                                "automation.turn_off_downstairs_thermostat_at_10_45",
+                                "automation.turn_off_downstairs_thermostat_at_6_10",
+                                "automation.turn_off_upstairs_thermostat_at_10_45",
+                                "automation.turn_off_driveway_lights",
+                                "automation.turn_off_garage_door_switch",
+                                "automation.turn_on_driveway_lights",
+                                "automation.vacation_turn_off_when_home",
+                                "automation.vacation_turn_on_when_gone_24_hours",
+                                "automation.alarm_clock_awake_action",
+                                "automation.alarm_clock_snooze_action",
+                                "automation.jarvis_intent"
+                            ],
+                            "show_header_toggle": true,
+                            "title": "all automations",
+                            "type": "entities"
+                        },
+                        {
+                            "entities": [
+                                "switch.unknown_id0312_unknown_type0221_id251c_switch",
+                                "switch.unknown_id0312_unknown_type0221_id251c_switch_3",
+                                "switch.ge_unknown_type6363_id3130_switch",
+                                "switch.ge_outlet_2_switch"
+                            ],
+                            "show_header_toggle": false,
+                            "title": "Lights",
+                            "type": "entities"
+                        },
+                        {
+                            "entities": [
+                                "cover.garage_door",
+                                "binary_sensor.ecolink_garage_door_tilt_sensor_sensor",
+                                "switch.fortrezz_mimolite_wireless_interfacebridge_module_switch"
+                            ],
+                            "show_header_toggle": true,
+                            "title": "Garage Door Opener",
+                            "type": "entities"
+                        },
+                        {
+                            "entity": "climate.2gig_technologies_ct101_thermostat_iris_cooling_1",
+                            "type": "thermostat"
+                        },
+                        {
+                            "entity": "climate.2gig_technologies_ct101_thermostat_iris_cooling_1_2",
+                            "type": "thermostat"
+                        },
+                        {
+                            "entity": "climate.2gig_technologies_ct101_thermostat_iris_heating_1",
+                            "type": "thermostat"
+                        },
+                        {
+                            "entity": "climate.2gig_technologies_ct101_thermostat_iris_heating_1_2",
+                            "type": "thermostat"
+                        },
+                        {
+                            "entity": "media_player.mopidy",
+                            "type": "media-control"
+                        },
+                        {
+                            "entity": "media_player.master_bedroom",
+                            "type": "media-control"
+                        },
+                        {
+                            "entity": "media_player.snapcast_client_6152618a83b04b70b879e3fa1f4664b2",
+                            "type": "media-control"
+                        },
+                        {
+                            "entity": "media_player.snapcast_client_4b8c047b8b04d3bb68c2b07e00000005",
+                            "type": "media-control"
+                        },
+                        {
+                            "entity": "media_player.snapcast_client_45f086e40e8f48a7852eff4fd78d81ea",
+                            "type": "media-control"
+                        },
+                        {
+                            "entities": [
+                                "binary_sensor.door_sensor_1_sensor",
+                                "binary_sensor.smartthings_multiv4_01042e9f_1",
+                                "binary_sensor.visonic_mct340_e_0b111ae3_1",
+                                "binary_sensor.visonic_mct340_e_0b0023ed_1"
+                            ],
+                            "show_header_toggle": true,
+                            "title": "Door",
+                            "type": "entities"
+                        },
+                        {
+                            "entities": [
+                                "sensor.dark_sky_weather_summary",
+                                "sensor.dark_sky_weather_hourly_summary",
+                                "sensor.dark_sky_weather_temperature"
+                            ],
+                            "show_header_toggle": true,
+                            "title": "Weather",
+                            "type": "entities"
+                        },
+                        {
+                            "entities": [
+                                "sensor.vision_zp3111_multisensor_4in1_luminance",
+                                "sensor.vision_zp3111_multisensor_4in1_relative_humidity",
+                                "sensor.vision_zp3111_multisensor_4in1_temperature",
+                                "binary_sensor.vision_zp3111_multisensor_4in1_sensor",
+                                "sensor.vision_zp3111_multisensor_4in1_alarm_type",
+                                "sensor.vision_zp3111_multisensor_4in1_alarm_level"
+                            ],
+                            "show_header_toggle": true,
+                            "title": "Living Room Multi Sensor",
+                            "type": "entities"
+                        },
+                        {
+                            "entities": [
+                                "sensor.zwave_door_sensor_1_battery",
+                                "sensor.zwave_ecolink_garage_door_tilt_sensor_battery",
+                                "sensor.zwave_vision_zp3111_multisensor_4in1_battery"
+                            ],
+                            "show_header_toggle": true,
+                            "title": "Battery Levels",
+                            "type": "entities"
+                        },
+                        {
+                            "entities": [
+                                "binary_sensor.tesla_model_3_5yj3e1eaxkf326267_charger_sensor",
+                                "binary_sensor.tesla_model_3_5yj3e1eaxkf326267_parking_brake_sensor",
+                                "device_tracker.tesla_model_3_5yj3e1eaxkf326267_location_tracker",
+                                "lock.tesla_model_3_5yj3e1eaxkf326267_charger_door_lock",
+                                "lock.tesla_model_3_5yj3e1eaxkf326267_door_lock",
+                                "sensor.tesla_model_3_5yj3e1eaxkf326267_battery_sensor",
+                                "sensor.tesla_model_3_5yj3e1eaxkf326267_mileage_sensor",
+                                "sensor.tesla_model_3_5yj3e1eaxkf326267_range_sensor",
+                                "sensor.tesla_model_3_5yj3e1eaxkf326267_temperature_sensor_inside",
+                                "sensor.tesla_model_3_5yj3e1eaxkf326267_temperature_sensor_outside",
+                                "switch.tesla_model_3_5yj3e1eaxkf326267_charger_switch",
+                                "switch.tesla_model_3_5yj3e1eaxkf326267_maxrange_switch"
+                            ],
+                            "show_header_toggle": true,
+                            "title": "Serenity",
+                            "type": "entities"
+                        },
+                        {
+                            "entity": "climate.tesla_model_3_5yj3e1eaxkf326267_hvac_climate_system",
+                            "type": "thermostat"
+                        }
+                    ],
+                    "path": "debug",
+                    "title": "Debug"
+                }
+            ]
+        }
+    },
+    "key": "lovelace",
+    "version": 1
+}

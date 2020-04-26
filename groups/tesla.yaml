@@ -1,0 +1,4 @@
+tesla:
+  name: Serenity
+  entities:
+    - sensor.serenity_battery_sensor

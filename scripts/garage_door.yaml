@@ -1,0 +1,33 @@
+garage_door_open:
+  sequence:
+    - condition: state
+      entity_id: binary_sensor.ecolink_garage_door_tilt_sensor_sensor
+      state: 'off'
+    - service: switch.turn_on
+      entity_id: switch.fortrezz_mimolite_wireless_interfacebridge_module_switch
+    - delay: '00:00:01'
+    - service: switch.turn_off
+      entity_id: switch.fortrezz_mimolite_wireless_interfacebridge_module_switch
+    # - condition: sun
+    #   after: sunset
+    # - service: switch.turn_on
+    #   entity_id: switch.ge_unknown_type4952_id3037_switch
+  
+garage_door_close:
+  sequence:
+    - condition: state
+      entity_id: binary_sensor.ecolink_garage_door_tilt_sensor_sensor
+      state: 'on'
+    - service: switch.turn_on
+      entity_id: switch.fortrezz_mimolite_wireless_interfacebridge_module_switch
+    - delay: '00:00:01'
+    - service: switch.turn_off
+      entity_id: switch.fortrezz_mimolite_wireless_interfacebridge_module_switch
+  
+garage_door_switch:
+  sequence:
+    - service: switch.turn_on
+      entity_id: switch.fortrezz_mimolite_wireless_interfacebridge_module_switch
+    - delay: '00:00:01'
+    - service: switch.turn_off
+      entity_id: switch.fortrezz_mimolite_wireless_interfacebridge_module_switch

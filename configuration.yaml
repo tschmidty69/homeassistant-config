@@ -15,17 +15,18 @@ homeassistant:
   packages: !include_dir_named packages
   whitelist_external_dirs: /tmp
 
+  # Enable the auth component
   auth_providers:
     - type: homeassistant
-    # Uncomment next line if you want to enable legacy API password support
+    - type: trusted_networks
+      trusted_networks:
+        - 127.0.0.1
+        - ::1
     - type: legacy_api_password
-
-# Enable the auth component
-auth:
+      api_password: !secret http_password
 
 http:
   # Secrets are defined in the file secrets.yaml
-  api_password: !secret http_password
   # Uncomment this if you are using SSL/TLS, running in Docker container, etc.
   base_url: !secret http_base_url
   ssl_certificate: /etc/letsencrypt/live/todschmidt.com/fullchain.pem
@@ -56,6 +57,8 @@ frontend:
 #    state_topic: dummy/floorplan/sensor
 #    name: Floorplan
 #
+
+mobile_app:
 
 panel_custom:
   - name: downstairs
@@ -88,6 +91,11 @@ panel_iframe:
 weather:
   - platform: darksky
     api_key: !secret dark_sky_key
+
+tesla:
+  username: tschmidty@yahoo.com
+  password: !secret tesla_pw
+  scan_interval: 3600
 
 tts:
   - platform: amazon_polly
@@ -136,7 +144,7 @@ logger:
     homeassistant.components.mqtt: debug
 # #    homeassistant.components.zha: debug
 # #    homeassistant.components.sensor.zha: debug
-#     homeassistant.components.http: debug
+    homeassistant.components.http: debug
 # #    homeassistant.components.device_tracker.ping: debug
 # #    homeassistant.components.device_tracker.netgear: debug
 # #    homeassistant.components.notify.pushbullet: debug
@@ -213,3 +221,5 @@ snips:
 
 intent_script: !include_dir_merge_named intent_scripts
 #android_ip_webcam: !include android_ip_webcam.yaml
+
+system_health:

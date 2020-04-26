@@ -1,7 +1,6 @@
 ###### automation for turning on the alarm ######
 - alias: Alarm Clock Activated
   id: alarm_clock_activated
-  hide_entity: False
   trigger:
     platform: template
     value_template: '{{ now().strftime("%H:%M") == states.sensor.alarm_clock_time_long.state }}'
@@ -26,7 +25,6 @@
 - alias: alarm clock awake action
   id: a_alarm_clock_awake_action
   initial_state: true
-  hide_entity: true
   trigger:
     platform: event
     event_type: ios.notification_action_fired
@@ -40,7 +38,6 @@
 - alias: alarm clock snooze action
   id: a_alarm_clock_snooze_action
   initial_state: true
-  hide_entity: true
   trigger:
     platform: event
     event_type: ios.notification_action_fired

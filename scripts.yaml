@@ -1,0 +1,12 @@
+'1577981970968':
+  alias: Reset Downstairs Thermostat
+  sequence:
+  - data:
+      entity_id: zwave.2gig_technologies_ct101_thermostat_iris
+      operation_mode: 'off'
+    service: climate.set_operation_mode
+  - delay: '5'
+  - data:
+      entity_id: zwave.2gig_technologies_ct101_thermostat_iris
+      operation_mode: auto
+    service: climate.set_operation_mode

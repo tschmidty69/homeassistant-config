@@ -1,0 +1,17 @@
+{
+    "data": {
+        "items": [
+            {
+                "device_trackers": [
+                    "device_tracker.tods_iphone",
+                    "device_tracker.tod_s_iphone_2"
+                ],
+                "id": "d32e15d6cc014e1a8cf859a0db0e29f3",
+                "name": "Tod",
+                "user_id": "71af170566c843248c0561060c0f0238"
+            }
+        ]
+    },
+    "key": "person",
+    "version": 2
+}

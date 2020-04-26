@@ -7,7 +7,5 @@ thermostats:
 climate:
   name: Climate Control
   entities:
-    - climate.2gig_technologies_ct101_thermostat_iris_cooling_1
-    - climate.2gig_technologies_ct101_thermostat_iris_cooling_1_2
-    - climate.2gig_technologies_ct101_thermostat_iris_heating_1
-    - climate.2gig_technologies_ct101_thermostat_iris_heating_1_2
+    - climate.2gig_technologies_ct101_thermostat_iris_mode
+    - climate.2gig_technologies_ct101_thermostat_iris_mode_2

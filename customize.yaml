@@ -16,10 +16,6 @@ binary_sensor.sensor:
   friendly_name: Garage Door Sensor
   new_entity_id: binary_sensor.garage_door_sensor
   old_entity_id: binary_sensor.garage_door_sensor
-zwave._:
-  friendly_name: USB ZWave Hub
-zwave.__2:
-  friendly_name: ZWave Door Sensor 1
 sensor.door_sensor_1_access_control:
   hidden: true
 sensor.door_sensor_1_alarm_level:
@@ -39,10 +35,24 @@ device_tracker.tods_iphone:
 sensor.dark_sky_weather_temperature: {}
 sensor.my_temperature_zigbee_input:
   unit_of_measurement: °F
-sensor.smartthings_multiv4_01042e9f_1:
-  friendly_name: Bedroom 1 Temperature
-sensor.smartthings_multiv4_0108fcd9_1:
+zha.zha_smartthings_multiv4_01042e9f:
+  friendly_name: Vincent Bedroom ZHA
+sensor.smartthings_multiv4_01042e9f_1_1026:
+  friendly_name: Vincent Bedroom Temperature
+binary_sensor.smartthings_multiv4_01042e9f_1_1280:
+  device_class: opening
+  friendly_name: Vincent Bedroom Door
+binary_sensor.smartthings_multiv4_01042e9f_1_64514:
+  friendly_name: Vincent Bedroom Light
+zha.zha_smartthings_multiv4_0108fcd9:
+    friendly_name: Master Bedroom ZHA
+sensor.smartthings_multiv4_0108fcd9_1_1026:
   friendly_name: Master Bedroom Temperature
+binary_sensor.smartthings_multiv4_0108fcd9_1_1280:
+  device_class: opening
+  friendly_name: Master Bedroom Door
+binary_sensor.smartthings_multiv4_0108fcd9_1_64514:
+  friendly_name: Master Bedroom Light
 zwave.door_sensor_1:
   friendly_name: Rear Garage Door
   new_entity_id: zwave.garage_door_sensor
@@ -56,9 +66,6 @@ sensor.ecolink_garage_door_tilt_sensor_sourcenodeid:
   hidden: true
 sensor.ecolink_garage_door_tilt_sensor_access_control:
   hidden: true
-binary_sensor.smartthings_multiv4_01042e9f_1:
-  device_class: opening
-  friendly_name: Bedroom 1 Sensor
 sensor.alarm_level:
   hidden: true
 sensor.alarm_type:
@@ -158,3 +165,5 @@ switch.unknown_node_13_switch:
   friendly_name: Bedroom AC Switch
 sensor.unknown_node_13_unknown:
   friendly_name: Bedroom AC Sensor
+switch.ge_unknown_type6363_id3130_switch:
+  friendly_name: Front Yard Lights

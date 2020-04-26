@@ -36,4 +36,4 @@ apps/
 .storage/auth
 .storage/auth_provider.homeassistant
 .storage/onboarding
-
+apps/jarvis/jarvis_google/.google_api.key

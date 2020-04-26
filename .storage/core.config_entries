@@ -6,8 +6,13 @@
                 "data": {},
                 "domain": "mqtt",
                 "entry_id": "d25e485343354fa982a0d4c0bc013e55",
+                "options": {},
                 "source": "import",
+                "system_options": {
+                    "disable_new_entities": false
+                },
                 "title": "configuration.yaml",
+                "unique_id": null,
                 "version": 1
             },
             {
@@ -18,8 +23,13 @@
                 },
                 "domain": "zwave",
                 "entry_id": "006d3ad2c8d649198fccc11427dd29a2",
+                "options": {},
                 "source": "import",
+                "system_options": {
+                    "disable_new_entities": false
+                },
                 "title": "Z-Wave (import from configuration.yaml)",
+                "unique_id": null,
                 "version": 1
             },
             {
@@ -27,8 +37,189 @@
                 "data": {},
                 "domain": "ios",
                 "entry_id": "436ad5667eee46eb982844c3f06635a4",
+                "options": {},
                 "source": "import",
+                "system_options": {
+                    "disable_new_entities": false
+                },
                 "title": "Home Assistant iOS",
+                "unique_id": null,
+                "version": 1
+            },
+            {
+                "connection_class": "local_push",
+                "data": {
+                    "radio_type": "ezsp",
+                    "usb_path": "/dev/ttyUSB1"
+                },
+                "domain": "zha",
+                "entry_id": "2400e56cb6cf4ec7b1f1c70a3dcae0db",
+                "options": {},
+                "source": "import",
+                "system_options": {
+                    "disable_new_entities": false
+                },
+                "title": "/dev/ttyUSB1",
+                "unique_id": null,
+                "version": 1
+            },
+            {
+                "connection_class": "cloud_push",
+                "data": {
+                    "app_data": {
+                        "push_token": "cm3UX1K34zU:APA91bHLEjYWQ1ybdd9MPYQz1dbN0aaOU7lajh5RakoMEpFnZ30rHBX9WN7G3wybVR182pWJZXE_UNVHFqNZr7MagrdrbuwIjZyPZjhdSuEzXMK9Oi41XxE7f3jWJIe9VkXuM7Ts3cA6",
+                        "push_url": "https://mobile-apps.home-assistant.io/api/sendPushNotification"
+                    },
+                    "app_id": "io.robbie.HomeAssistant",
+                    "app_name": "Home Assistant",
+                    "app_version": "2.0.0 (69)",
+                    "device_id": "b9db3c276ff0449ea697712100d48a44",
+                    "device_name": "Tod's iPhone",
+                    "manufacturer": "Apple",
+                    "model": "iPhone 7",
+                    "os_name": "iOS",
+                    "os_version": "13.3.1",
+                    "secret": "ecc78f277014f97cccb2d1392f2e4704ca56537ad6d02601467762af494c4e9b",
+                    "supports_encryption": true,
+                    "user_id": "71af170566c843248c0561060c0f0238",
+                    "webhook_id": "ba88e48dceb27bfd640c73e43d4dd863cec1c946c1bc6f1fed99ac854160d4df"
+                },
+                "domain": "mobile_app",
+                "entry_id": "86ded22679a744f78494be4138f720a9",
+                "options": {},
+                "source": "registration",
+                "system_options": {
+                    "disable_new_entities": false
+                },
+                "title": "Tod's iPhone",
+                "unique_id": null,
+                "version": 1
+            },
+            {
+                "connection_class": "local_push",
+                "data": {
+                    "user_id": "f868634505c546c5ba23a0be6381925f"
+                },
+                "domain": "cast",
+                "entry_id": "db5265cdf5f040c8abb158bb5a1f6c27",
+                "options": {},
+                "source": "discovery",
+                "system_options": {
+                    "disable_new_entities": false
+                },
+                "title": "Google Cast",
+                "unique_id": null,
+                "version": 1
+            },
+            {
+                "connection_class": "cloud_push",
+                "data": {
+                    "app_data": {
+                        "push_token": "dVyyuLEUYrA:APA91bH7vgognXO0KXwPLjObj_F6mI570WRAnHH7qeFmclyBYp3n2jF2p2GpXNfbBHDN9X8Gm6VCLjMwy1FkJp5ilJv_39ILOe1pzlPowmmRba3BX6giDOIntfSpjIPavEWTmQWkAy2V",
+                        "push_url": "https://mobile-apps.home-assistant.io/api/sendPushNotification"
+                    },
+                    "app_id": "io.robbie.HomeAssistant",
+                    "app_name": "Home Assistant",
+                    "app_version": "2.0.0 (69)",
+                    "device_id": "a022f1710cad49b98278104c21c9d9b6",
+                    "device_name": "Doc's iPhone",
+                    "manufacturer": "Apple",
+                    "model": "iPhone 8",
+                    "os_name": "iOS",
+                    "os_version": "13.3.1",
+                    "secret": "17bbc153acf348dc307cda69205c6ee69a32e2c320fa4286da3b18aea0a1b9b2",
+                    "supports_encryption": true,
+                    "user_id": "71af170566c843248c0561060c0f0238",
+                    "webhook_id": "a5ea72c32f13152ede7a18efdf8ae9a2f87c59f2892da278401aa6affa0aff6e"
+                },
+                "domain": "mobile_app",
+                "entry_id": "6e78024a4703412eaa73cf94f2b74953",
+                "options": {},
+                "source": "registration",
+                "system_options": {
+                    "disable_new_entities": false
+                },
+                "title": "Doc's iPhone",
+                "unique_id": null,
+                "version": 1
+            },
+            {
+                "connection_class": "local_poll",
+                "data": {
+                    "server": "TSCHMIDTY-GAME",
+                    "server_config": {
+                        "client_id": "bc4e4c3c-6f8a-4b10-b57c-878b0c53420d",
+                        "token": "-wyrefeAyazWGtAfqUiM",
+                        "url": "https://192-168-1-54.d698b4460d87487fa456afcdf1003d6f.plex.direct:32400",
+                        "verify_ssl": true
+                    },
+                    "server_id": "299e471ceec147314f8333b470b3d2b14f763be5"
+                },
+                "domain": "plex",
+                "entry_id": "7aa0f09fcb644970b970ef9e74847781",
+                "options": {
+                    "media_player": {
+                        "show_all_controls": false,
+                        "use_episode_art": false
+                    }
+                },
+                "source": "discovery",
+                "system_options": {
+                    "disable_new_entities": false
+                },
+                "title": "TSCHMIDTY-GAME",
+                "unique_id": null,
+                "version": 1
+            },
+            {
+                "connection_class": "cloud_poll",
+                "data": {
+                    "access_token": "3952422c6235aee77819e1e7aee78408ccbfe772959f74166c9f40b6ff5b1e07",
+                    "token": "415202cc6d67d8f9af46e4aae3e99c5fb7146776cf8060283b086642fe9805b3"
+                },
+                "domain": "tesla",
+                "entry_id": "e8502219526149e09a964afe73551fbb",
+                "options": {
+                    "scan_interval": 3600
+                },
+                "source": "import",
+                "system_options": {
+                    "disable_new_entities": false
+                },
+                "title": "tschmidty@yahoo.com",
+                "unique_id": null,
+                "version": 1
+            },
+            {
+                "connection_class": "cloud_push",
+                "data": {
+                    "app_data": {
+                        "push_token": "cm3UX1K34zU:APA91bHLEjYWQ1ybdd9MPYQz1dbN0aaOU7lajh5RakoMEpFnZ30rHBX9WN7G3wybVR182pWJZXE_UNVHFqNZr7MagrdrbuwIjZyPZjhdSuEzXMK9Oi41XxE7f3jWJIe9VkXuM7Ts3cA6",
+                        "push_url": "https://mobile-apps.home-assistant.io/api/sendPushNotification"
+                    },
+                    "app_id": "io.robbie.HomeAssistant",
+                    "app_name": "Home Assistant",
+                    "app_version": "2.0.0 (69)",
+                    "device_id": "ec60fb6544d64fffaded9a905da353b9",
+                    "device_name": "Tod's iPhone",
+                    "manufacturer": "Apple",
+                    "model": "iPhone 7",
+                    "os_name": "iOS",
+                    "os_version": "13.3.1",
+                    "secret": "bea66fb16fb93165e0bed3867fb8560605aedbbae84845520c95151c0c86d9cf",
+                    "supports_encryption": true,
+                    "user_id": "71af170566c843248c0561060c0f0238",
+                    "webhook_id": "58ab1345105aa1a320557539bf1dc52249a785439030825bcf2d7209697d8f66"
+                },
+                "domain": "mobile_app",
+                "entry_id": "2ac0ee2da6f84c26a489c8ee34e1be78",
+                "options": {},
+                "source": "registration",
+                "system_options": {
+                    "disable_new_entities": false
+                },
+                "title": "Tod's iPhone",
+                "unique_id": null,
                 "version": 1
             }
         ]

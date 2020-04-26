@@ -8,7 +8,7 @@ Living Room Lights:
 Driveway Lights:
   name: Driveway Lights
   entities:
-    - switch.ge_driveway_lights_switch
+    - switch.ge_unknown_type6363_id3130_switch
 
 Lights:
   name: Lights
@@ -16,5 +16,5 @@ Lights:
   entities:
     - switch.unknown_id0312_unknown_type0221_id251c_switch
     - switch.unknown_id0312_unknown_type0221_id251c_switch_3
-    - switch.ge_driveway_lights_switch
+    - switch.ge_unknown_type6363_id3130_switch
     - switch.ge_outlet_2_switch

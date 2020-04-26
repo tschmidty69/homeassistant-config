@@ -1,0 +1,21 @@
+#turns it on at 6am
+- alias: Turn on driveway lights
+  trigger:
+    - platform: sun
+      event: sunset
+      offset: "-00:45:00"
+  action:
+    service: homeassistant.turn_on
+    entity_id: group.driveway_lights
+
+# turns it off 6 hour after sunset
+- alias: Turn off driveway lights
+  trigger:
+    - platform: sun
+      event: sunset
+      offset: "06:00:00"
+  action:
+    service: homeassistant.turn_off
+    entity_id: group.driveway_lights
+
+

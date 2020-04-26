@@ -1,14 +1,14 @@
 - platform: darksky
   name: "Dark Sky Weather"
   api_key: !secret dark_sky_key
-  update_interval:
+  scan_interval:
     minutes: 10
   monitored_conditions:
     - summary
     - hourly_summary
     - temperature
-    - temperature_max
-    - temperature_min
+    - temperature_high
+    - temperature_low
 
 - platform: mqtt
   state_topic: dummy/floorplan/sensor

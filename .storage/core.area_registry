@@ -1,0 +1,24 @@
+{
+    "data": {
+        "areas": [
+            {
+                "id": "f1633d4cdb3c474a83f0df4f2819ed86",
+                "name": "Vincent's Bedroom"
+            },
+            {
+                "id": "3548d10ec865485489f443ca4cc5471a",
+                "name": "Living Room"
+            },
+            {
+                "id": "66e31a0f80b64b05b10797688a802398",
+                "name": "Master Bedroom"
+            },
+            {
+                "id": "c7b59913b7a742068c85aa77199dffe8",
+                "name": "Front Yard"
+            }
+        ]
+    },
+    "key": "core.area_registry",
+    "version": 1
+}

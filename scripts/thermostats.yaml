@@ -1,22 +1,29 @@
 set_downstairs_thermostat:
   alias: Set Downstairs Thermostat
   sequence:
-    - service: climate.set_operation_mode
-      entity_id: climate.2gig_technologies_ct101_thermostat_iris_heating_1
+    - service: climate.set_hvac_mode
+      entity_id: climate.2gig_technologies_ct101_thermostat_iris_mode
       data_template:
-        operation_mode: "{{ cooling_mode | default('auto') }}"
-    - service: climate.set_operation_mode
-      entity_id: climate.2gig_technologies_ct101_thermostat_iris_cooling_1
-      data_template:
-        operation_mode: "{{ heating_mode | default('auto') }}"
+        hvac_mode: "{{ mode | default('heat_cool') }}"
     - service: climate.set_temperature
-      entity_id: climate.2gig_technologies_ct101_thermostat_iris_heating_1
+      entity_id: climate.2gig_technologies_ct101_thermostat_iris_mode
       data_template:
-        temperature: "{{ heating_temp | default('72') }}"
-    - service: climate.set_temperature
-      entity_id: climate.2gig_technologies_ct101_thermostat_iris_cooling_1
+        target_temp_low: "{{ heating_temp | default('70') }}"
+        target_temp_high: "{{ cooling_temp | default('74') }}"
+
+reset_downstairs_thermostat:
+  alias: Reset Downstairs Thermostat
+  sequence:
+    - service: climate.set_hvac_mode
+      entity_id: climate.2gig_technologies_ct101_thermostat_iris_mode
       data_template:
-        temperature: "{{ cooling_temp | default('72') }}"
+        hvac_mode: "{{ 'off' }}"
+    - delay: '00:06:00'
+    - service: climate.set_hvac_mode
+      entity_id: climate.2gig_technologies_ct101_thermostat_iris_mode
+      data_template:
+        hvac_mode: "{{ 'heat_cool' }}"
+
 
 set_upstairs_thermostat:
   alias: Set Upstairs Thermostat

@@ -1,5 +1,13 @@
 default_view:
-  name: Home
+  name: Default
+  view: yes
+  icon: mdi:homeassistant
+  entities:
+    - climate.2gig_technologies_ct101_thermostat_iris_mode
+    - climate.2gig_technologies_ct101_thermostat_iris_mode_2
+
+old_view:
+  name: Old Home
   view: yes
   icon: mdi:homeassistant
   entities:
@@ -15,7 +23,8 @@ default_view:
     - group.doors
     - group.dark_sky
     - group.settings
-    - group.theme
+    - group.telsa
+    - group.temperatures
 
 Debug:
   view: yes
@@ -40,3 +49,5 @@ Debug:
     - group.living_room_multi_sensor
     - binary_sensor.living_room_motion
     - group.battery_levels
+    - group.theme
+    - group.tesla

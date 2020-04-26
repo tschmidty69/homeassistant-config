@@ -1,7 +1,7 @@
 - alias: Turn off Downstairs Thermostat at 10:45
   trigger:
     - platform: time
-      at: '22:45:00'
+      at: '21:45:00'
   condition:
     condition: state
     entity_id: input_boolean.vacation_mode
@@ -24,7 +24,40 @@
     - service: script.set_downstairs_thermostat
       data:
         heating_temp: '72'
-        cooling_temp: '76'
+        cooling_temp: '78'
+
+###########################
+# Work around for iffy heat
+- alias: Turn off Downstairs Thermostat at 6:05
+  trigger:
+    - platform: time
+      at: '06:10:00'
+  condition:
+    condition: state
+    entity_id: input_boolean.vacation_mode
+    state: 'off'
+  action:
+    - service: script.set_downstairs_thermostat
+      data:
+        mode: 'off'
+        heating_temp: '60'
+        cooling_temp: '78'
+
+- alias: Turn Downstairs Thermostat on at 06:10
+  trigger:
+    - platform: time
+      at: '06:20:00'
+  condition:
+    condition: state
+    entity_id: input_boolean.vacation_mode
+    state: 'off'
+  action:
+    - service: script.set_downstairs_thermostat
+      data:
+        mode: 'heat_cool'
+        heating_temp: '72'
+        cooling_temp: '78'
+############################
 
 - alias: Turn Downstairs Heat Down when not home
   trigger:
@@ -54,7 +87,6 @@
         heating_temp: '68'
         cooling_temp: '80'
 
-
 - alias: Reset Downstairs Heat
   trigger:
     - platform: state
@@ -65,6 +97,6 @@
     - service: script.set_downstairs_thermostat
       data:
         heating_temp: '72'
-        cooling_temp: '80'
+        cooling_temp: '78'
 
 

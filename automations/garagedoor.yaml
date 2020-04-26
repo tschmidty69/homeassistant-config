@@ -1,5 +1,3 @@
-
-
 #- alias: 'Garage Door Alert'
 #  trigger:
 #    - platform: state
@@ -52,3 +50,27 @@
     - service: switch.turn_off
       entity_id: switch.fortrezz_mimolite_wireless_interfacebridge_module_switch
 
+# Sigh, this literally just turns the switch off
+- alias: Turn off garage door switch
+  trigger:
+    platform: mqtt
+    topic: 'GarageDoorOpenerSwitchOff'
+  action:
+    - delay: '00:00:01'
+    - service: switch.turn_off
+      entity_id: switch.fortrezz_mimolite_wireless_interfacebridge_module_switch
+
+- alias: Trigger to turn off garage door switch
+  trigger:
+    platform: state
+    entity_id: switch.fortrezz_mimolite_wireless_interfacebridge_module_switch
+    from: 'off'
+    to: 'on'
+  action:
+    - service: mqtt.publish
+      data_template:
+        topic: 'GarageDoorOpenerSwitchOff'
+        payload: 'off'
+#    - service: persistent_notification.create
+#      data:
+#        message: Temperature set to {{ states.input_number.downstairs_temperature.state | int }}

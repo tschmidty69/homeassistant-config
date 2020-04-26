@@ -2,11 +2,11 @@
     "data": {
         "devices": [
             {
+                "area_id": null,
                 "config_entries": [
                     "436ad5667eee46eb982844c3f06635a4"
                 ],
                 "connections": [],
-                "hub_device_id": null,
                 "id": "f4ed1b9fe58a41bdb1c36d5014addece",
                 "identifiers": [
                     [
@@ -17,14 +17,16 @@
                 "manufacturer": "Apple",
                 "model": "iPhone 7",
                 "name": "Tod's iPhone",
-                "sw_version": "12.1.2"
+                "name_by_user": null,
+                "sw_version": "13.2",
+                "via_device_id": null
             },
             {
+                "area_id": null,
                 "config_entries": [
                     "006d3ad2c8d649198fccc11427dd29a2"
                 ],
                 "connections": [],
-                "hub_device_id": null,
                 "id": "377039baf5ae455f88db13e7651b84d0",
                 "identifiers": [
                     [
@@ -35,14 +37,16 @@
                 "manufacturer": "Ecolink",
                 "model": "Unknown: type=0004, id=0002",
                 "name": "Door Sensor 1",
-                "sw_version": null
+                "name_by_user": null,
+                "sw_version": null,
+                "via_device_id": "94c3cd3d54c84f2b9db2119175046c9a"
             },
             {
+                "area_id": null,
                 "config_entries": [
                     "006d3ad2c8d649198fccc11427dd29a2"
                 ],
                 "connections": [],
-                "hub_device_id": null,
                 "id": "621e7f372aca40419938f6fb5e19689e",
                 "identifiers": [
                     [
@@ -53,14 +57,16 @@
                 "manufacturer": "Ecolink",
                 "model": "Garage Door Tilt Sensor",
                 "name": "Ecolink Garage Door Tilt Sensor",
-                "sw_version": null
+                "name_by_user": null,
+                "sw_version": null,
+                "via_device_id": "94c3cd3d54c84f2b9db2119175046c9a"
             },
             {
+                "area_id": null,
                 "config_entries": [
                     "006d3ad2c8d649198fccc11427dd29a2"
                 ],
                 "connections": [],
-                "hub_device_id": null,
                 "id": "b6af5fce470c4aed9306c3bd015a55b1",
                 "identifiers": [
                     [
@@ -71,14 +77,16 @@
                 "manufacturer": "2GIG Technologies",
                 "model": "CT101 Thermostat (Iris)",
                 "name": "2GIG Technologies CT101 Thermostat (Iris)",
-                "sw_version": null
+                "name_by_user": null,
+                "sw_version": null,
+                "via_device_id": "94c3cd3d54c84f2b9db2119175046c9a"
             },
             {
+                "area_id": null,
                 "config_entries": [
                     "006d3ad2c8d649198fccc11427dd29a2"
                 ],
                 "connections": [],
-                "hub_device_id": null,
                 "id": "83c0e98a92494d40a24907f93b339636",
                 "identifiers": [
                     [
@@ -89,14 +97,16 @@
                 "manufacturer": "FortrezZ",
                 "model": "MIMOlite Wireless Interface/Bridge Module",
                 "name": "FortrezZ MIMOlite Wireless Interface/Bridge Module",
-                "sw_version": null
+                "name_by_user": null,
+                "sw_version": null,
+                "via_device_id": "94c3cd3d54c84f2b9db2119175046c9a"
             },
             {
+                "area_id": null,
                 "config_entries": [
                     "006d3ad2c8d649198fccc11427dd29a2"
                 ],
                 "connections": [],
-                "hub_device_id": null,
                 "id": "03e8a88e6e4e45b7b0145522523ed74b",
                 "identifiers": [
                     [
@@ -107,14 +117,16 @@
                 "manufacturer": "2GIG Technologies",
                 "model": "CT101 Thermostat (Iris)",
                 "name": "2GIG Technologies CT101 Thermostat (Iris)",
-                "sw_version": null
+                "name_by_user": null,
+                "sw_version": null,
+                "via_device_id": "94c3cd3d54c84f2b9db2119175046c9a"
             },
             {
+                "area_id": null,
                 "config_entries": [
                     "006d3ad2c8d649198fccc11427dd29a2"
                 ],
                 "connections": [],
-                "hub_device_id": null,
                 "id": "5ce85f81a9aa4f0fb4a183d0640b84c9",
                 "identifiers": [
                     [
@@ -125,14 +137,16 @@
                 "manufacturer": "Unknown: id=0312",
                 "model": "Unknown: type=0221, id=251c",
                 "name": "Unknown: id=0312 Unknown: type=0221, id=251c",
-                "sw_version": null
+                "name_by_user": null,
+                "sw_version": null,
+                "via_device_id": "94c3cd3d54c84f2b9db2119175046c9a"
             },
             {
+                "area_id": null,
                 "config_entries": [
                     "006d3ad2c8d649198fccc11427dd29a2"
                 ],
                 "connections": [],
-                "hub_device_id": null,
                 "id": "878b4c642414452b91a9249027f186a8",
                 "identifiers": [
                     [
@@ -143,14 +157,16 @@
                 "manufacturer": "GE",
                 "model": "Unknown: type=4952, id=3037",
                 "name": "GE Driveway Lights",
-                "sw_version": null
+                "name_by_user": null,
+                "sw_version": null,
+                "via_device_id": "94c3cd3d54c84f2b9db2119175046c9a"
             },
             {
+                "area_id": null,
                 "config_entries": [
                     "006d3ad2c8d649198fccc11427dd29a2"
                 ],
                 "connections": [],
-                "hub_device_id": null,
                 "id": "0ddf2d4e89a740b9ba315a7daca306c1",
                 "identifiers": [
                     [
@@ -161,14 +177,16 @@
                 "manufacturer": "Vision",
                 "model": "ZP3111 Multisensor 4in1",
                 "name": "Vision ZP3111 Multisensor 4in1",
-                "sw_version": null
+                "name_by_user": null,
+                "sw_version": null,
+                "via_device_id": "94c3cd3d54c84f2b9db2119175046c9a"
             },
             {
+                "area_id": null,
                 "config_entries": [
                     "006d3ad2c8d649198fccc11427dd29a2"
                 ],
                 "connections": [],
-                "hub_device_id": null,
                 "id": "3ed64daf127e4fa08f65d8e725966467",
                 "identifiers": [
                     [
@@ -179,14 +197,16 @@
                 "manufacturer": "GE",
                 "model": "Unknown: type=5052, id=3031",
                 "name": "GE Outlet TV",
-                "sw_version": null
+                "name_by_user": null,
+                "sw_version": null,
+                "via_device_id": "94c3cd3d54c84f2b9db2119175046c9a"
             },
             {
+                "area_id": null,
                 "config_entries": [
                     "006d3ad2c8d649198fccc11427dd29a2"
                 ],
                 "connections": [],
-                "hub_device_id": null,
                 "id": "7163e511a3d441ba8d2990da0f3f8559",
                 "identifiers": [
                     [
@@ -197,14 +217,16 @@
                 "manufacturer": "GE",
                 "model": "12719 Plug-in Smart Switch",
                 "name": "GE Outlet 2",
-                "sw_version": null
+                "name_by_user": null,
+                "sw_version": null,
+                "via_device_id": "94c3cd3d54c84f2b9db2119175046c9a"
             },
             {
+                "area_id": null,
                 "config_entries": [
                     "006d3ad2c8d649198fccc11427dd29a2"
                 ],
                 "connections": [],
-                "hub_device_id": null,
                 "id": "ce0760275e964572b6fb5ea759787171",
                 "identifiers": [
                     [
@@ -215,14 +237,16 @@
                 "manufacturer": "Neo CoolCam",
                 "model": "Power plug 12A",
                 "name": "Panasonic TV Outlet",
-                "sw_version": null
+                "name_by_user": null,
+                "sw_version": null,
+                "via_device_id": "94c3cd3d54c84f2b9db2119175046c9a"
             },
             {
+                "area_id": null,
                 "config_entries": [
                     "006d3ad2c8d649198fccc11427dd29a2"
                 ],
                 "connections": [],
-                "hub_device_id": null,
                 "id": "abc84c92ac56454c980d7c7a88b9227b",
                 "identifiers": [
                     [
@@ -233,7 +257,468 @@
                 "manufacturer": "Zooz",
                 "model": "ZEN15 Power Switch",
                 "name": "Zooz ZEN15 Power Switch",
-                "sw_version": null
+                "name_by_user": null,
+                "sw_version": null,
+                "via_device_id": "94c3cd3d54c84f2b9db2119175046c9a"
+            },
+            {
+                "area_id": null,
+                "config_entries": [
+                    "436ad5667eee46eb982844c3f06635a4"
+                ],
+                "connections": [],
+                "id": "cfa2c88305934426b10cbbdc3d581946",
+                "identifiers": [
+                    [
+                        "ios",
+                        "5CD4A4A3-0FF0-4AF3-B032-7FB6AC169337"
+                    ]
+                ],
+                "manufacturer": "Apple",
+                "model": "iPhone 8",
+                "name": "Doc's iPhone",
+                "name_by_user": null,
+                "sw_version": "13.1.3",
+                "via_device_id": null
+            },
+            {
+                "area_id": null,
+                "config_entries": [
+                    "006d3ad2c8d649198fccc11427dd29a2"
+                ],
+                "connections": [],
+                "id": "6910308ffdf14f79863dd4e243fc0301",
+                "identifiers": [
+                    [
+                        "zwave",
+                        14
+                    ]
+                ],
+                "manufacturer": "Jasco Products",
+                "model": "Unknown: type=6363, id=3130",
+                "name": "Jasco Products Unknown: type=6363, id=3130",
+                "name_by_user": null,
+                "sw_version": null,
+                "via_device_id": "94c3cd3d54c84f2b9db2119175046c9a"
+            },
+            {
+                "area_id": null,
+                "config_entries": [
+                    "2400e56cb6cf4ec7b1f1c70a3dcae0db"
+                ],
+                "connections": [
+                    [
+                        "zigbee",
+                        "00:0d:6f:00:0b:29:a7:1b"
+                    ]
+                ],
+                "id": "5f1ec04993b5420c8d4f84ce33cad6e6",
+                "identifiers": [
+                    [
+                        "zha",
+                        "00:0d:6f:00:0b:29:a7:1b"
+                    ]
+                ],
+                "manufacturer": "ZHA",
+                "model": "EZSP",
+                "name": "Zigbee Coordinator",
+                "name_by_user": null,
+                "sw_version": null,
+                "via_device_id": null
+            },
+            {
+                "area_id": null,
+                "config_entries": [
+                    "2400e56cb6cf4ec7b1f1c70a3dcae0db"
+                ],
+                "connections": [
+                    [
+                        "zigbee",
+                        "00:0d:6f:00:0b:11:1a:e3"
+                    ]
+                ],
+                "id": "b86a2961304940b3ad9550eadf10ec72",
+                "identifiers": [
+                    [
+                        "zha",
+                        "00:0d:6f:00:0b:11:1a:e3"
+                    ]
+                ],
+                "manufacturer": "Visonic",
+                "model": "MCT-340 E",
+                "name": "Visonic MCT-340 E",
+                "name_by_user": null,
+                "sw_version": null,
+                "via_device_id": "5f1ec04993b5420c8d4f84ce33cad6e6"
+            },
+            {
+                "area_id": null,
+                "config_entries": [
+                    "2400e56cb6cf4ec7b1f1c70a3dcae0db"
+                ],
+                "connections": [
+                    [
+                        "zigbee",
+                        "00:0d:6f:00:0b:00:23:ed"
+                    ]
+                ],
+                "id": "212dbd48c0e14a559e978a6f9bb14223",
+                "identifiers": [
+                    [
+                        "zha",
+                        "00:0d:6f:00:0b:00:23:ed"
+                    ]
+                ],
+                "manufacturer": "Visonic",
+                "model": "MCT-340 E",
+                "name": "Visonic MCT-340 E",
+                "name_by_user": null,
+                "sw_version": null,
+                "via_device_id": "5f1ec04993b5420c8d4f84ce33cad6e6"
+            },
+            {
+                "area_id": null,
+                "config_entries": [
+                    "2400e56cb6cf4ec7b1f1c70a3dcae0db"
+                ],
+                "connections": [
+                    [
+                        "zigbee",
+                        "24:fd:5b:00:01:04:2e:9f"
+                    ]
+                ],
+                "id": "baab7d07c0fb4427bbeac6d99b63b367",
+                "identifiers": [
+                    [
+                        "zha",
+                        "24:fd:5b:00:01:04:2e:9f"
+                    ]
+                ],
+                "manufacturer": "SmartThings",
+                "model": "multiv4",
+                "name": "SmartThings multiv4",
+                "name_by_user": "smart_things_sensor_1",
+                "sw_version": null,
+                "via_device_id": "5f1ec04993b5420c8d4f84ce33cad6e6"
+            },
+            {
+                "area_id": null,
+                "config_entries": [
+                    "2400e56cb6cf4ec7b1f1c70a3dcae0db"
+                ],
+                "connections": [
+                    [
+                        "zigbee",
+                        "24:fd:5b:00:01:08:fc:d9"
+                    ]
+                ],
+                "id": "c527abd40a2c452e89fee720e86eafa7",
+                "identifiers": [
+                    [
+                        "zha",
+                        "24:fd:5b:00:01:08:fc:d9"
+                    ]
+                ],
+                "manufacturer": "SmartThings",
+                "model": "multiv4",
+                "name": "SmartThings multiv4",
+                "name_by_user": "smart_things_sensor_2",
+                "sw_version": null,
+                "via_device_id": "5f1ec04993b5420c8d4f84ce33cad6e6"
+            },
+            {
+                "area_id": null,
+                "config_entries": [
+                    "86ded22679a744f78494be4138f720a9"
+                ],
+                "connections": [],
+                "id": "746ea08318dc49678c0b6bd9ae304e7b",
+                "identifiers": [
+                    [
+                        "device_id",
+                        "b9db3c276ff0449ea697712100d48a44"
+                    ],
+                    [
+                        "webhook_id",
+                        "ba88e48dceb27bfd640c73e43d4dd863cec1c946c1bc6f1fed99ac854160d4df"
+                    ]
+                ],
+                "manufacturer": "Apple",
+                "model": "iPhone 7",
+                "name": "Tod's iPhone",
+                "name_by_user": null,
+                "sw_version": "13.3",
+                "via_device_id": null
+            },
+            {
+                "area_id": "3548d10ec865485489f443ca4cc5471a",
+                "config_entries": [
+                    "db5265cdf5f040c8abb158bb5a1f6c27"
+                ],
+                "connections": [],
+                "id": "d1798a8e9a1f4dd39daa8370c3924d94",
+                "identifiers": [
+                    [
+                        "cast",
+                        "c9473aad92583b5304e7ddd080551887"
+                    ]
+                ],
+                "manufacturer": "",
+                "model": "Chromecast",
+                "name": "Living Room TV",
+                "name_by_user": null,
+                "sw_version": null,
+                "via_device_id": null
+            },
+            {
+                "area_id": null,
+                "config_entries": [
+                    "6e78024a4703412eaa73cf94f2b74953"
+                ],
+                "connections": [],
+                "id": "88e2bae114ab461bb8e6e22f7b8e9d1d",
+                "identifiers": [
+                    [
+                        "device_id",
+                        "a022f1710cad49b98278104c21c9d9b6"
+                    ],
+                    [
+                        "webhook_id",
+                        "a5ea72c32f13152ede7a18efdf8ae9a2f87c59f2892da278401aa6affa0aff6e"
+                    ]
+                ],
+                "manufacturer": "Apple",
+                "model": "iPhone 8",
+                "name": "Doc's iPhone",
+                "name_by_user": null,
+                "sw_version": "13.3",
+                "via_device_id": null
+            },
+            {
+                "area_id": null,
+                "config_entries": [
+                    "86ded22679a744f78494be4138f720a9"
+                ],
+                "connections": [],
+                "id": "843e9e67eac24b0eb217aead1aa157e6",
+                "identifiers": [
+                    [
+                        "mobile_app",
+                        "b9db3c276ff0449ea697712100d48a44"
+                    ]
+                ],
+                "manufacturer": "Apple",
+                "model": "iPhone 7",
+                "name": "Tod's iPhone",
+                "name_by_user": null,
+                "sw_version": "13.3.1",
+                "via_device_id": null
+            },
+            {
+                "area_id": null,
+                "config_entries": [
+                    "6e78024a4703412eaa73cf94f2b74953"
+                ],
+                "connections": [],
+                "id": "61cda286a2de429db6c1858ef76618d3",
+                "identifiers": [
+                    [
+                        "mobile_app",
+                        "a022f1710cad49b98278104c21c9d9b6"
+                    ]
+                ],
+                "manufacturer": "Apple",
+                "model": "iPhone 8",
+                "name": "Doc's iPhone",
+                "name_by_user": null,
+                "sw_version": "13.3.1",
+                "via_device_id": null
+            },
+            {
+                "area_id": null,
+                "config_entries": [
+                    "006d3ad2c8d649198fccc11427dd29a2"
+                ],
+                "connections": [],
+                "id": "94c3cd3d54c84f2b9db2119175046c9a",
+                "identifiers": [
+                    [
+                        "zwave",
+                        1
+                    ]
+                ],
+                "manufacturer": "Sigma Designs",
+                "model": "UZB Z-Wave USB Adapter",
+                "name": "USB ZWave Hub",
+                "name_by_user": null,
+                "sw_version": null,
+                "via_device_id": null
+            },
+            {
+                "area_id": null,
+                "config_entries": [
+                    "006d3ad2c8d649198fccc11427dd29a2"
+                ],
+                "connections": [],
+                "id": "5fbd9ddfc4094a338c82cfeb8ef0a15d",
+                "identifiers": [
+                    [
+                        "zwave",
+                        4,
+                        2
+                    ]
+                ],
+                "manufacturer": "2GIG Technologies",
+                "model": "CT101 Thermostat (Iris)",
+                "name": "2GIG Technologies CT101 Thermostat (Iris) (2)",
+                "name_by_user": null,
+                "sw_version": null,
+                "via_device_id": "b6af5fce470c4aed9306c3bd015a55b1"
+            },
+            {
+                "area_id": null,
+                "config_entries": [
+                    "006d3ad2c8d649198fccc11427dd29a2"
+                ],
+                "connections": [],
+                "id": "f333fe4cb41247a398a185d00ef07f09",
+                "identifiers": [
+                    [
+                        "zwave",
+                        4,
+                        3
+                    ]
+                ],
+                "manufacturer": "2GIG Technologies",
+                "model": "CT101 Thermostat (Iris)",
+                "name": "2GIG Technologies CT101 Thermostat (Iris) (3)",
+                "name_by_user": null,
+                "sw_version": null,
+                "via_device_id": "b6af5fce470c4aed9306c3bd015a55b1"
+            },
+            {
+                "area_id": null,
+                "config_entries": [
+                    "006d3ad2c8d649198fccc11427dd29a2"
+                ],
+                "connections": [],
+                "id": "58423a9ed515497abb7c76275b912524",
+                "identifiers": [
+                    [
+                        "zwave",
+                        6,
+                        2
+                    ]
+                ],
+                "manufacturer": "2GIG Technologies",
+                "model": "CT101 Thermostat (Iris)",
+                "name": "2GIG Technologies CT101 Thermostat (Iris) (2)",
+                "name_by_user": null,
+                "sw_version": null,
+                "via_device_id": "03e8a88e6e4e45b7b0145522523ed74b"
+            },
+            {
+                "area_id": null,
+                "config_entries": [
+                    "006d3ad2c8d649198fccc11427dd29a2"
+                ],
+                "connections": [],
+                "id": "67d37eb72b444e85b1f5b7ddd3a62680",
+                "identifiers": [
+                    [
+                        "zwave",
+                        6,
+                        3
+                    ]
+                ],
+                "manufacturer": "2GIG Technologies",
+                "model": "CT101 Thermostat (Iris)",
+                "name": "2GIG Technologies CT101 Thermostat (Iris) (3)",
+                "name_by_user": null,
+                "sw_version": null,
+                "via_device_id": "03e8a88e6e4e45b7b0145522523ed74b"
+            },
+            {
+                "area_id": null,
+                "config_entries": [
+                    "006d3ad2c8d649198fccc11427dd29a2"
+                ],
+                "connections": [],
+                "id": "08687ce4f33b47ae826aede04bcd9be9",
+                "identifiers": [
+                    [
+                        "zwave",
+                        7,
+                        2
+                    ]
+                ],
+                "manufacturer": "Unknown: id=0312",
+                "model": "Unknown: type=0221, id=251c",
+                "name": "Unknown: id=0312 Unknown: type=0221, id=251c (2)",
+                "name_by_user": null,
+                "sw_version": null,
+                "via_device_id": "5ce85f81a9aa4f0fb4a183d0640b84c9"
+            },
+            {
+                "area_id": null,
+                "config_entries": [
+                    "006d3ad2c8d649198fccc11427dd29a2"
+                ],
+                "connections": [],
+                "id": "029f54dd38c2480b83962ed37efd45b9",
+                "identifiers": [
+                    [
+                        "zwave",
+                        7,
+                        3
+                    ]
+                ],
+                "manufacturer": "Unknown: id=0312",
+                "model": "Unknown: type=0221, id=251c",
+                "name": "Unknown: id=0312 Unknown: type=0221, id=251c (3)",
+                "name_by_user": null,
+                "sw_version": null,
+                "via_device_id": "5ce85f81a9aa4f0fb4a183d0640b84c9"
+            },
+            {
+                "area_id": null,
+                "config_entries": [
+                    "e8502219526149e09a964afe73551fbb"
+                ],
+                "connections": [],
+                "id": "3d23c4ec77f24d0c81fbde71a080428c",
+                "identifiers": [
+                    [
+                        "tesla",
+                        65358436868462591
+                    ]
+                ],
+                "manufacturer": "Tesla",
+                "model": "Model 3",
+                "name": "Serenity",
+                "name_by_user": null,
+                "sw_version": "",
+                "via_device_id": null
+            },
+            {
+                "area_id": null,
+                "config_entries": [
+                    "2ac0ee2da6f84c26a489c8ee34e1be78"
+                ],
+                "connections": [],
+                "id": "5649fe38cd5845038cb920e51c50831f",
+                "identifiers": [
+                    [
+                        "mobile_app",
+                        "ec60fb6544d64fffaded9a905da353b9"
+                    ]
+                ],
+                "manufacturer": "Apple",
+                "model": "iPhone 7",
+                "name": "Tod's iPhone",
+                "name_by_user": null,
+                "sw_version": "13.3.1",
+                "via_device_id": null
             }
         ]
     },
