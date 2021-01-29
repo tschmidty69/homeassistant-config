@@ -1,28 +1,13 @@
 {
+    "version": 1,
+    "key": "zha.storage",
     "data": {
         "devices": [
             {
-                "ieee": "00:0d:6f:00:0b:11:1a:e3",
-                "last_seen": null,
-                "name": "Visonic MCT-340 E"
-            },
-            {
-                "ieee": "24:fd:5b:00:01:08:fc:d9",
-                "last_seen": 1587878745.7961,
-                "name": "SmartThings multiv4"
-            },
-            {
-                "ieee": "24:fd:5b:00:01:04:2e:9f",
-                "last_seen": 1565190650.5256305,
-                "name": "SmartThings multiv4"
-            },
-            {
-                "ieee": "00:0d:6f:00:0b:00:23:ed",
-                "last_seen": 1559443660.8892756,
-                "name": "Visonic MCT-340 E"
+                "name": "Silicon Labs EZSP",
+                "ieee": "00:0d:6f:00:0b:29:a7:1b",
+                "last_seen": 1611916564.38654
             }
         ]
-    },
-    "key": "zha.storage",
-    "version": 1
+    }
 }

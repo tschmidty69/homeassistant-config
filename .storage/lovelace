@@ -155,6 +155,14 @@
                         {
                             "entity": "climate.serenity_hvac_climate_system",
                             "type": "thermostat"
+                        },
+                        {
+                            "entity": "sensor.power_none_123",
+                            "graph": "line",
+                            "icon": "mdi:flash",
+                            "name": "Overall Power Usage",
+                            "type": "sensor",
+                            "unit": "watts"
                         }
                     ],
                     "icon": "mdi:homeassistant",

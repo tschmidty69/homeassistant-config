@@ -28,45 +28,45 @@
         heating_temp: '72'
         cooling_temp: '90'
 
-- alias: Turn Upstairs Heat Down when not home
-  trigger:
-    - platform: state
-      entity_id: group.household
-      from: 'home'
-      to: 'not_home'
-  condition:
-    condition: state
-    entity_id: input_boolean.vacation_mode
-    state: 'off'
-  action:
-    - service: script.set_upstairs_thermostat
-      data:
-        zone: 'upstairs'
-        heating_temp: '68'
-        cooling_temp: '90'
-
-- alias: Turn Upstairs Heat Down when on Vacation
-  trigger:
-    - platform: state
-      entity_id: input_boolean.vacation_mode
-      from: 'off'
-      to: 'on'
-  action:
-    - service: script.set_upstairs_thermostat
-      data:
-        zone: 'upstairs'
-        heating_temp: '67'
-        cooling_temp: '90'
-
-- alias: Reset Upstairs Heat
-  trigger:
-    - platform: state
-      entity_id: group.household
-      from: 'not_home'
-      to: 'home'
-  action:
-    - service: script.set_upstairs_thermostat
-      data:
-        zone: 'upstairs'
-        heating_temp: '72'
-        cooling_temp: '90'
+#- alias: Turn Upstairs Heat Down when not home
+#  trigger:
+#    - platform: state
+#      entity_id: group.household
+#      from: 'home'
+#      to: 'not_home'
+#  condition:
+#    condition: state
+#    entity_id: input_boolean.vacation_mode
+#    state: 'off'
+#  action:
+#    - service: script.set_upstairs_thermostat
+#      data:
+#        zone: 'upstairs'
+#        heating_temp: '68'
+#        cooling_temp: '90'
+#
+#- alias: Turn Upstairs Heat Down when on Vacation
+#  trigger:
+#    - platform: state
+#      entity_id: input_boolean.vacation_mode
+#      from: 'off'
+#      to: 'on'
+#  action:
+#    - service: script.set_upstairs_thermostat
+#      data:
+#        zone: 'upstairs'
+#        heating_temp: '67'
+#        cooling_temp: '90'
+#
+#- alias: Reset Upstairs Heat
+#  trigger:
+#    - platform: state
+#      entity_id: group.household
+#      from: 'not_home'
+#      to: 'home'
+#  action:
+#    - service: script.set_upstairs_thermostat
+#      data:
+#        zone: 'upstairs'
+#        heating_temp: '72'
+#        cooling_temp: '90'

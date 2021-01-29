@@ -1,0 +1,16 @@
+{
+    "version": 1,
+    "key": "http",
+    "data": {
+        "base_url": "https://home.todschmidt.com",
+        "ssl_certificate": "/etc/letsencrypt/live/todschmidt.com/fullchain.pem",
+        "ssl_key": "/etc/letsencrypt/live/todschmidt.com/privkey.pem",
+        "ip_ban_enabled": false,
+        "login_attempts_threshold": 2,
+        "ssl_profile": "modern",
+        "cors_allowed_origins": [
+            "https://cast.home-assistant.io"
+        ],
+        "server_port": 8123
+    }
+}
